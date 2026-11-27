@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ZanziBiz V2 preview</title>
+<style>
+:root{--ink:#12363F;--line:#E8E0CF;--sand:#FFFAF1;--teal:#00808A;--coral:#FF6B4A}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;background:#EDE6D8;color:var(--ink);height:100vh;display:grid;grid-template-rows:auto 1fr}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--sand);border-bottom:1px solid var(--line)}
+header b{font-size:16px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+.seg button{border:0;background:none;padding:8px 16px;font:inherit;font-weight:600;cursor:pointer;color:var(--ink);min-height:40px}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+a.open{color:var(--teal);font-weight:600}
+main{overflow:auto;display:grid;place-items:start center;padding:20px 16px}
+.frame{background:#fff;box-shadow:0 20px 60px rgba(18,54,63,.18);overflow:hidden;transform-origin:top center}
+.frame.phone{border-radius:36px;border:10px solid #12363F}
+.frame.desk{border-radius:10px;border-top:28px solid #D9D2C3}
+iframe{display:block;border:0;width:100%;height:100%}
+.both{display:flex;gap:28px;align-items:flex-start;justify-content:center}
+</style>
+</head>
+<body>
+<header>
+  <b>ZanziBiz V2 prototype</b>
+  <div class="seg" role="group" aria-label="Screen size">
+    <button type="button" data-v="phone">Phone</button>
+    <button type="button" data-v="tablet">Tablet</button>
+    <button type="button" data-v="desktop" aria-pressed="true">Desktop</button>
+    <button type="button" data-v="both">Side by side</button>
+  </div>
+  <a class="open" href="index.html" target="_blank" rel="noopener">Open full screen ↗</a>
+</header>
+<main id="stage"></main>
+<script>
+const SIZES = { phone:[390,844,'phone'], tablet:[820,1180,'phone'], desktop:[1440,900,'desk'] };
+const stage = document.getElementById('stage');
+function frame(k, avail){
+  const [w,h,cls] = SIZES[k];
+  const s = Math.min(1, avail / (w + 20));
+  const box = document.createElement('div');
+  box.style.width = (w*s + 20) + 'px'; box.style.height = (h*s + 48) + 'px';
+  const f = document.createElement('div');
+  f.className = 'frame ' + cls;
+  f.style.cssText = `width:${w + 20}px;height:${h + 48}px;transform:scale(${s});transform-origin:0 0`;
+  f.innerHTML = `<iframe src="index.html" title="${k} preview" loading="lazy"></iframe>`;
+  box.appendChild(f); return box;
+}
+function render(v){
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === v));
+  stage.innerHTML = '';
+  const avail = stage.clientWidth - 32;
+  if (v === 'both'){
+    const wrap = document.createElement('div'); wrap.className = 'both';
+    wrap.append(frame('desktop', avail * .7), frame('phone', avail * .25)); stage.appendChild(wrap);
+  } else stage.appendChild(frame(v, avail));
+  try { localStorage.setItem('zb-preview', v); } catch(e) {}
+}
+document.querySelectorAll('.seg button').forEach(b => b.addEventListener('click', () => render(b.dataset.v)));
+let start = 'desktop'; try { start = localStorage.getItem('zb-preview') || (innerWidth < 700 ? 'phone' : 'desktop'); } catch(e) {}
+render(start);
+let t; addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => render(document.querySelector('.seg [aria-pressed="true"]').dataset.v), 150); });
+</script>
+</body>
+</html>
