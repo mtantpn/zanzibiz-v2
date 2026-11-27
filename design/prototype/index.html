@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>ZanziBiz V2 Prototype</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: phone-first app shell; dense results, generous detail page, editorial guide. Bottom tab bar under 768px, top nav above. */
+/* Layout: phone-first app shell. Bright island palette: lagoon turquoise, coral-sand white, spice saffron, sunset coral; one deliberate light theme. */
+:root{
+  --ink:#12363F; --ink-2:#3B5C63; --ink-3:#557379;
+  --teal:#00808A; --teal-strong:#006870; --teal-soft:#DDF4F2;
+  --sea:#2EC4B6; --sea-deep:#1597A3; --sky:#D8F5FF;
+  --coral:#FF6B4A; --coral-strong:#F0532F; --coral-soft:#FFE6DD;
+  --saffron:#F6B53D; --saffron-soft:#FFF2D6; --clove:#8A4521;
+  --wa:#107C41; --wa-fg:#FFFFFF;
+  --paper:#FFFFFF; --sand:#FFFAF1; --sand-2:#F7EEDC; --line:#E8E0CF;
+  --ok:#107C41; --warn:#9A5800;
+  --shadow:0 1px 2px rgba(18,54,63,.06),0 12px 28px -16px rgba(18,54,63,.28);
+  --f-display:"Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --f-body:"Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-sm:12px; --r:18px; --pill:999px;
+  --maxw:1180px; --tabbar:64px;
+  --kanga:repeating-linear-gradient(90deg,var(--coral) 0 14px,var(--saffron) 14px 28px,var(--sea) 28px 42px,var(--clove) 42px 56px);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--sand);color:var(--ink);font:16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--tabbar) + env(safe-area-inset-bottom,0px))}
+@media (min-width:768px){body{padding-bottom:0}}
+h1,h2,h3{font-family:var(--f-display);line-height:1.1;text-wrap:balance;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(28px,5vw,44px);font-weight:800}
+h2{font-size:22px;font-weight:800}
+h3{font-size:18px;font-weight:600}
+p{margin:0}
+a{color:var(--teal)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:6px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:768px){.wrap{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}}
+.skip{position:absolute;left:-999px;top:8px;background:var(--paper);padding:8px 12px;border-radius:8px;z-index:50}
+.skip:focus{left:16px}
+.proto{background:var(--saffron-soft);color:var(--ink);font-size:12px;letter-spacing:.02em}
+.proto .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding-block:6px}
+.proto b{font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.proto button{background:none;border:1px solid currentColor;border-radius:var(--pill);padding:2px 10px;color:inherit;cursor:pointer;font-size:12px}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+header.top::before{content:"";display:block;height:5px;background:var(--kanga)}
+header.top .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.brand svg{width:30px;height:30px;flex:none}
+nav.main{display:none;gap:4px;margin-left:12px}
+nav.main a{text-decoration:none;color:var(--ink-2);font-weight:600;padding:8px 12px;border-radius:var(--pill)}
+nav.main a[aria-current="page"]{color:var(--ink);background:var(--teal-soft)}
+.top .spacer{flex:1}
+.lang{display:flex;border:1px solid var(--line);border-radius:var(--pill);overflow:hidden}
+.lang button{border:0;background:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink-3);min-height:44px;min-width:44px}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--pill);border:1px solid transparent;padding:10px 18px;font-weight:700;cursor:pointer;text-decoration:none;min-height:44px;white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-coral{background:var(--coral);color:#0B2733}
+.btn-coral:hover{background:var(--coral-strong)}
+.btn-wa{background:var(--wa);color:var(--wa-fg)}
+.btn-line{background:var(--paper);border-color:var(--line);color:var(--ink)}
+.btn-line:hover{border-color:var(--teal)}
+.btn-ghost{background:none;color:var(--teal);padding-inline:8px}
+.top .btn-coral{display:none}
+@media (min-width:768px){nav.main{display:flex}.top .btn-coral{display:inline-flex}}
+
+/* tab bar */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+nav.tabs ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);height:var(--tabbar)}
+nav.tabs a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:100%;text-decoration:none;color:var(--ink-3);font-size:11px;font-weight:600}
+nav.tabs a svg{width:22px;height:22px}
+nav.tabs a[aria-current="page"]{color:var(--teal)}
+@media (min-width:768px){nav.tabs{display:none}}
+
+main{min-height:70vh}
+.view{display:none}
+.view.on{display:block}
+section{padding-block:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sec-head a{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.muted{color:var(--ink-3)}
+.small{font-size:14px}
+
+/* home search */
+.hero{position:relative;min-height:clamp(440px,62vh,620px);display:grid;align-items:end;color:#fff;overflow:hidden;background:#1d6f7a}
+.hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,38,46,.05) 0%,rgba(8,38,46,.15) 40%,rgba(8,38,46,.72) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-block:120px 28px;display:grid;gap:14px}
+@media (min-width:1024px){.hero{min-height:clamp(560px,78vh,760px)}.hero .wrap{padding-block:160px 48px;gap:18px}.hero h1{font-size:clamp(48px,4.6vw,68px);line-height:1.02;letter-spacing:-.02em;max-width:15ch}.hero .lede{font-size:19px;max-width:52ch}.hero .search{max-width:980px}.hero > img{object-position:50% 35%}}
+@media (min-width:1440px){.wrap{max-width:1280px}}
+.hero > img,.ph img,.area img{color:transparent}
+@media (min-width:1024px){#results .ph{aspect-ratio:16/10;min-height:0}}
+@media (min-width:1280px){#results.rail.three{grid-template-columns:repeat(4,1fr)}}
+.hero h1{color:#fff;max-width:18ch;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero .lede{color:rgba(255,255,255,.92);font-size:17px}
+.hero .eyebrow{color:#fff;opacity:.9}
+.hero .search{color:var(--ink)}
+.credit{position:absolute;z-index:2;right:max(12px,env(safe-area-inset-right,0px));top:12px;font-size:11px;color:rgba(255,255,255,.85);text-decoration:none;background:rgba(0,0,0,.28);padding:3px 8px;border-radius:var(--pill)}
+.hero-foot{background:var(--sand)}
+.hero-foot .wrap{padding-block:18px 4px}
+.areas{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.areas{grid-template-columns:repeat(4,1fr)}}
+.area{position:relative;border:0;padding:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;max-width:100%;cursor:pointer;background:#ccc;text-align:left;color:#fff}
+@media (min-width:900px){.area{aspect-ratio:3/4}}
+.area img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease-out}
+.area:hover img{transform:scale(1.04)}
+@media (prefers-reduced-motion:reduce){.area img,.area:hover img{transition:none;transform:none}}
+.area::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,38,46,.78))}
+.area span{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;display:grid;gap:2px}
+.area b{font-family:var(--f-display);font-size:22px;font-weight:800}
+.area small{font-size:13px;opacity:.92}
+.lede{color:var(--ink-2);max-width:60ch;font-size:17px}
+.search{display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:10px;box-shadow:var(--shadow)}
+.search label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:0 4px 2px}
+.search input,.search select{width:100%;border:1px solid var(--line);background:var(--sand);border-radius:var(--r-sm);padding:12px;min-height:48px}
+.search input:focus,.search select:focus{border-color:var(--teal);outline:none;box-shadow:0 0 0 3px var(--teal-soft)}
+.search .btn{min-height:48px;align-self:end}
+@media (min-width:768px){.search{grid-template-columns:1.6fr 1fr auto;align-items:end}}
+.needs{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:var(--pill);padding:8px 14px;font-weight:600;font-size:14px;cursor:pointer;color:var(--ink);min-height:40px}
+.chip:hover{border-color:var(--teal)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* cards */
+.rail{display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:640px){.rail{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.rail.four{grid-template-columns:repeat(4,1fr)}.rail.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:112px 1fr;cursor:pointer;transition:box-shadow .2s,transform .2s;text-align:left;padding:0}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.card,.card:hover{transition:none;transform:none}}
+@media (min-width:1024px){.rail.four .card,.rail.three .card{grid-template-columns:1fr}}
+.ph{position:relative;background:var(--sand-2);color:#fff;display:flex;align-items:flex-end;padding:10px;min-height:112px;aspect-ratio:1/1;max-width:100%;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-width:1024px){.rail.four .ph,.rail.three .ph{aspect-ratio:4/3}}
+.ph .ico{display:none;position:absolute;right:12px;bottom:12px;width:34px;height:34px;z-index:1;opacity:.9;color:#fff}
+.ph span{display:none}
+.ph small{position:absolute;top:8px;left:8px;z-index:1;font-size:11px;font-weight:700;background:rgba(255,255,255,.92);color:var(--ink);padding:2px 8px;border-radius:var(--pill)}
+.card .body{padding:12px 14px;display:grid;gap:6px;min-width:0;align-content:start}
+.card .name{font-weight:700;font-size:16px;line-height:1.25}
+.meta{font-size:13px;color:var(--ink-2)}
+.status{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:600}
+.dot{display:inline-flex;align-items:center;gap:5px}
+.dot::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.open{color:var(--ok)}
+.closed{color:var(--warn)}
+.tag{background:var(--teal-soft);color:var(--teal-strong);border-radius:var(--pill);padding:2px 8px}
+.card .acts{display:flex;gap:8px;margin-top:4px}
+.card .acts .btn{min-height:44px;padding:6px 12px;font-size:14px}
+
+/* category tiles */
+.cats{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media (min-width:768px){.cats{grid-template-columns:repeat(4,1fr)}}
+.cats button{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);text-align:left;cursor:pointer;min-height:76px;transition:transform .15s ease-out,box-shadow .15s ease-out}
+.cats button:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+.cats button:active{transform:scale(.98)}
+@media (prefers-reduced-motion:reduce){.cats button,.cats button:hover,.cats button:active{transition:none;transform:none}}
+.cats .ci{grid-row:1/3;}
+@media (max-width:767px){.cats button{grid-template-columns:1fr;row-gap:4px;align-content:start}.cats .ci{grid-row:auto;margin-bottom:6px}}
+.cats .ci{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--cs);color:var(--c)}
+.cats .ci svg{width:24px;height:24px}
+.cats b{font-weight:700;line-height:1.2;min-width:0}
+.cats .sw{font-size:12px;color:var(--ink-3)}
+/* guide trio */
+.trio{display:grid;gap:12px}
+@media (min-width:900px){.trio{grid-template-columns:repeat(3,1fr)}}
+.col{overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;align-content:start}
+.col ul{list-style:none;margin:0;padding:0;display:grid}
+.col .cimg{margin:-18px -18px 4px;aspect-ratio:16/9;max-width:none;overflow:hidden}
+.col .cimg img{width:100%;height:100%;object-fit:cover;display:block}
+.col li a,.col li button{display:block;padding:10px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:600;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;width:100%;cursor:pointer}
+.col li .muted{font-weight:500}
+
+.band{position:relative;overflow:hidden;background:var(--paper);border-radius:var(--r);padding:28px 24px 24px;display:grid;gap:16px;border:1px solid var(--line)}
+.band::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--kanga)}
+.band p,.band ol{color:var(--ink-2)}
+.band ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.band .bimg{margin:-28px -24px 0;aspect-ratio:16/9;overflow:hidden}
+.band .bimg img{width:100%;height:100%;object-fit:cover;display:block}
+@media (min-width:900px){.band{grid-template-columns:1fr 1.1fr;align-items:center;padding:0}.band .bimg{margin:0;height:100%;aspect-ratio:auto;min-height:300px;grid-row:1/3}.band > div,.band > ol,.band > a{margin-inline:28px}.band > a{justify-self:start;margin-bottom:28px}}
+/* results */
+.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 65px);z-index:5;background:var(--sand);padding-block:12px;border-bottom:1px solid var(--line)}
+.filters .row{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.filters .row::-webkit-scrollbar{display:none}
+.filters .chip{flex:none}
+.res-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-block:16px 12px}
+.empty{background:var(--paper);border:1px dashed var(--line);border-radius:var(--r);padding:28px;text-align:center;display:grid;gap:12px;justify-items:center}
+.pager{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.pager a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:var(--r-sm);text-decoration:none;color:var(--ink);background:var(--paper);font-weight:600}
+.pager a[aria-current="page"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* listing */
+.crumbs{font-size:14px;color:var(--ink-3);padding-top:16px;display:flex;gap:6px;flex-wrap:wrap}
+.crumbs a{color:var(--ink-2);text-decoration:none}
+.gallery{display:grid;gap:6px;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;border-radius:var(--r);overflow:hidden;margin-top:14px;height:clamp(200px,40vw,380px)}
+.gallery .ph{aspect-ratio:auto;min-height:0;height:100%}
+.gallery .ph:first-child{grid-row:1/3}
+.detail{display:grid;gap:24px;margin-top:20px}
+@media (min-width:960px){.detail{grid-template-columns:1fr 340px;align-items:start}}
+.detail article{display:grid;gap:24px;min-width:0}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:12px}
+.labels{display:flex;flex-wrap:wrap;gap:8px;font-size:13px;font-weight:600}
+.labels span{border:1px solid var(--line);border-radius:var(--pill);padding:4px 10px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td,th{padding:9px 0;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+td:last-child,th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+tr.today td{font-weight:700;color:var(--teal-strong)}
+.actionbar{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.actionbar .btn{flex-direction:column;gap:2px;padding:8px 4px;font-size:12px;min-height:56px;border-radius:var(--r-sm)}
+.actionbar .btn-wa{grid-column:1/-1;flex-direction:row;gap:8px;font-size:16px;min-height:52px}
+.actionbar .btn-wa svg{width:20px;height:20px}
+.side{display:none}
+@media (min-width:960px){.side{display:grid;gap:12px;position:sticky;top:84px}.mobile-bar{display:none}}
+.mobile-bar{position:fixed;left:0;right:0;bottom:calc(var(--tabbar) + env(safe-area-inset-bottom,0px));z-index:25;background:var(--paper);border-top:1px solid var(--line);padding:8px max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px))}
+@media (min-width:768px) and (max-width:959px){.mobile-bar{bottom:0;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))}}
+#v-listing.on{padding-bottom:84px}
+@media (min-width:960px){#v-listing.on{padding-bottom:0}}
+.contact-text{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+
+/* guide */
+.art-hero{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;max-width:100%}
+.art-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.art-hero figcaption{position:absolute;right:8px;bottom:8px;font-size:11px;background:rgba(0,0,0,.45);color:#fff;padding:2px 8px;border-radius:var(--pill)}
+.credits{display:grid;gap:10px}
+.credits li{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}
+.credits img{width:96px;height:64px;object-fit:cover;border-radius:8px}
+.article{max-width:720px;margin:0 auto;display:grid;gap:20px;padding-block:24px}
+.answer{background:var(--teal-soft);border-radius:var(--r);padding:18px;display:grid;gap:8px}
+.answer strong{font-family:var(--f-display);font-size:20px}
+.article p,.article li{color:var(--ink-2)}
+.article h2{margin-top:8px}
+.dated{font-size:13px;color:var(--ink-3)}
+.table-wrap{overflow-x:auto}
+
+/* owner wizard */
+.wizard{display:grid;gap:20px;padding-block:24px}
+@media (min-width:960px){.wizard{grid-template-columns:1fr 380px;align-items:start}}
+.steps{display:flex;gap:6px;list-style:none;margin:0 0 6px;padding:0}
+.steps li{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.steps li.done{background:var(--teal)}
+.form{display:grid;gap:14px}
+.field{display:grid;gap:6px}
+.field label{font-weight:600;font-size:14px}
+.field input,.field select,.field textarea{border:1px solid var(--line);background:var(--paper);border-radius:var(--r-sm);padding:12px;min-height:48px;width:100%}
+.field textarea{min-height:96px;resize:vertical}
+.field .hint{font-size:13px;color:var(--ink-3)}
+.field .err{font-size:13px;color:var(--coral-strong);font-weight:600}
+.row2{display:grid;gap:14px}
+@media (min-width:640px){.row2{grid-template-columns:1fr 1fr}}
+.nav-btns{display:flex;justify-content:space-between;gap:12px;margin-top:4px}
+.preview-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.done-box{text-align:center;justify-items:center}
+
+/* dashboard */
+.stats{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:2px}
+.stat b{font-family:var(--f-display);font-size:28px;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--ink-3)}
+.check{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.check li{display:flex;gap:10px;align-items:center}
+.check li::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid var(--line);flex:none}
+.check li.ok::before{background:var(--teal);border-color:var(--teal)}
+.bars{display:grid;grid-template-columns:repeat(30,1fr);gap:3px;align-items:end;height:90px}
+.bars i{background:var(--teal);border-radius:2px 2px 0 0;opacity:.85}
+
+footer.site{background:var(--paper);margin-top:24px}
+footer.site::before{content:"";display:block;height:5px;background:var(--kanga)}
+footer.site .wrap{padding-block:28px;display:grid;gap:20px;font-size:14px;color:var(--ink-2)}
+@media (min-width:768px){footer.site .wrap{grid-template-columns:2fr 1fr 1fr 1fr}}
+footer.site h3{font-size:14px;margin-bottom:6px;color:var(--ink)}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+footer.site a{color:var(--ink-2);text-decoration:none}
+
+.toast{position:fixed;left:50%;bottom:calc(var(--tabbar) + 96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--pill);font-size:14px;font-weight:600;z-index:60;max-width:calc(100% - 32px);text-align:center}
+@media (min-width:768px){.toast{bottom:24px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ===== Minimal layer: Airbnb-like calm, Zanzibar yellow pages identity =====
+   White canvas, near-black ink, one warm accent (Zanzibar yellow) for the primary action,
+   flag blue for links/brand, flag green only for WhatsApp/open status. Photos carry the colour. */
+:root{
+  --ink:#1D2427; --ink-2:#454E52; --ink-3:#646D71;
+  --sun:#FFC72C; --sun-strong:#F5B700; --sun-soft:#FFF6D9;
+  --ocean:#0A6A94; --ocean-strong:#085678; --ocean-soft:#EAF4F9;
+  --leaf:#1A7F45;
+  --teal:var(--ocean); --teal-strong:var(--ocean-strong); --teal-soft:var(--ocean-soft);
+  --coral:var(--sun); --coral-strong:var(--sun-strong); --coral-soft:var(--sun-soft);
+  --paper:#FFFFFF; --sand:#FFFFFF; --sand-2:#F5F3EE; --line:#E9E6E0;
+  --shadow:0 6px 24px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.12);
+  --f-display:"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --f-body:"Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-sm:12px; --r:16px;
+  --flag:linear-gradient(90deg,#00A3DD 0 33.3%,#111 33.3% 66.6%,#1EB53A 66.6%);
+}
+body{background:var(--paper)}
+h1,h2,h3{letter-spacing:-.02em}
+h2{font-size:22px;font-weight:700}
+.eyebrow{color:var(--ink-2);letter-spacing:.06em}
+.proto{background:var(--sand-2);color:var(--ink-2)}
+header.top::before{display:none}
+header.top{border-bottom:1px solid var(--line)}
+header.top .wrap{min-height:72px}
+.brand{font-weight:800;font-size:21px}
+nav.main a{color:var(--ink-2);font-weight:600}
+nav.main a:hover{color:var(--ink);background:var(--sand-2)}
+nav.main a[aria-current="page"]{background:none;color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink);border-radius:0}
+.btn-coral{background:var(--sun);color:var(--ink)}
+.btn-coral:hover{background:var(--sun-strong)}
+.top .btn-coral{background:var(--paper);border-color:var(--line);color:var(--ink)}
+.top .btn-coral:hover{background:var(--sand-2)}
+.lang button[aria-pressed="true"]{background:var(--ink)}
+section{padding-block:40px}
+.sec-head{margin-bottom:18px}
+.sec-head a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;font-size:15px}
+
+/* hero */
+.hero{min-height:0;display:block;color:var(--ink);background:var(--paper);overflow:visible}
+.hero::after{display:none}
+.hero .wrap.hero-grid{padding-block:28px 8px;display:grid;gap:28px;align-items:center}
+@media (min-width:1024px){.hero .wrap.hero-grid{grid-template-columns:1.05fr 1fr;gap:56px;padding-block:56px 24px}}
+.hero-copy{display:grid;gap:18px;align-content:center}
+.hero .eyebrow{color:var(--ink-2);opacity:1;display:inline-flex;align-items:center;gap:10px}
+.hero .eyebrow::before{content:"";width:28px;height:4px;border-radius:2px;background:var(--flag)}
+.hero h1{color:var(--ink);text-shadow:none;font-size:clamp(34px,5.4vw,60px);line-height:1.04;font-weight:800;max-width:14ch}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--sun) 62% 92%,transparent 92%)}
+.hero .lede{color:var(--ink-2);font-size:18px;max-width:44ch}
+@media (min-width:1024px){.hero h1{font-size:clamp(48px,4.4vw,64px)}.hero .lede{font-size:19px}}
+.hero-photo{position:relative;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:4/3;background:var(--sand-2);max-width:100%}
+@media (min-width:1024px){.hero-photo{aspect-ratio:4/5;max-height:640px}}
+.hero-photo > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;color:transparent}
+.hero-photo figcaption{position:absolute;left:12px;bottom:12px;right:12px;display:flex;justify-content:space-between;gap:8px;align-items:end;flex-wrap:wrap}
+.hero-photo .place{background:rgba(255,255,255,.94);color:var(--ink);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;display:inline-flex;gap:8px;align-items:center}
+.hero-photo .place svg{width:16px;height:16px;color:var(--ocean)}
+.hero-photo .credit{position:static;font-size:11px;background:rgba(0,0,0,.42);color:#fff}
+
+/* Airbnb-style search pill */
+:is(.hero,.filters) .search{display:grid;grid-template-columns:1fr;gap:0;padding:6px;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--paper)}
+:is(.hero,.filters) .search > div{padding:10px 16px;border-radius:18px}
+:is(.hero,.filters) .search > div:focus-within{background:var(--sand-2)}
+:is(.hero,.filters) .search label{font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink);padding:0 0 2px}
+:is(.hero,.filters) .search input,:is(.hero,.filters) .search select{border:0;background:transparent;padding:0;min-height:28px;font-size:16px;color:var(--ink-2)}
+:is(.hero,.filters) .search input:focus,:is(.hero,.filters) .search select:focus{box-shadow:none}
+:is(.hero,.filters) .search .btn{border-radius:18px;min-height:52px;margin:4px;font-size:16px}
+@media (min-width:640px){
+  :is(.hero,.filters) .search{grid-template-columns:1.5fr 1fr auto;align-items:center;border-radius:999px;padding:6px 6px 6px 8px}
+  :is(.hero,.filters) .search > div{border-radius:999px}
+  :is(.hero,.filters) .search > div + div{position:relative}
+  :is(.hero,.filters) .search > div + div::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:var(--line)}
+  :is(.hero,.filters) .search .btn{border-radius:999px;min-width:56px;padding-inline:22px;margin:0}
+}
+.popular{font-size:14px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.popular .chip{border:0;background:none;padding:6px 6px;min-height:36px;font-weight:600;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.popular .chip:hover{color:var(--ink);text-decoration-color:currentColor}
+.proof{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--ink-2);font-size:14px}
+.proof b{display:block;font-size:22px;color:var(--ink);font-weight:800;letter-spacing:-.02em}
+
+/* category bar (Airbnb categories) */
+.catbar{border-bottom:1px solid var(--line);background:var(--paper);position:relative}
+.catbar .cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-top:8px;grid-template-columns:none}
+.catbar .cats::-webkit-scrollbar{display:none}
+@media (min-width:1024px){.catbar .cats{justify-content:space-between}}
+.catbar .cats button{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:84px;min-height:72px;padding:8px 6px 12px;border:0;border-radius:0;background:none;box-shadow:none;color:var(--ink-3);border-bottom:2px solid transparent;transform:none;text-align:center}
+.catbar .cats button:hover{color:var(--ink);border-bottom-color:var(--line);box-shadow:none;transform:none}
+.catbar .cats .ci{width:28px;height:28px;background:none;color:currentColor;border-radius:0;margin:0;grid-row:auto}
+.catbar .cats .ci svg{width:26px;height:26px}
+.catbar .cats b{font-size:12px;font-weight:600;white-space:nowrap}
+.catbar .cats .sw{display:none}
+
+/* cards: photo-first, no box */
+.card{background:none;border:0;border-radius:0;overflow:visible;gap:0}
+.card:hover{box-shadow:none;transform:none}
+.card .ph{border-radius:14px;overflow:hidden}
+.card:hover .ph img{transform:scale(1.03)}
+.ph img{transition:transform .3s ease-out}
+@media (prefers-reduced-motion:reduce){.ph img,.card:hover .ph img{transition:none;transform:none}}
+.card .body{padding:12px 2px 4px}
+@media (max-width:639px){.card{grid-template-columns:112px 1fr;gap:12px}.card .body{padding:2px 0}}
+.card .name{font-size:16px;font-weight:700}
+.ph small{background:rgba(255,255,255,.95);font-weight:600}
+.tag{background:var(--sand-2);color:var(--ink-2)}
+.card .acts .btn{min-height:40px;font-size:14px}
+.btn-wa{background:var(--leaf)}
+.btn-line:hover{border-color:var(--ink)}
+.open{color:var(--leaf)}
+
+/* areas: text under photo */
+.area{aspect-ratio:auto;background:none;color:var(--ink);overflow:visible;border-radius:0;display:grid;gap:10px}
+.area img{position:static;display:block;width:100%;aspect-ratio:4/5;border-radius:16px;height:auto}
+@media (min-width:900px){.area img{aspect-ratio:1/1}}
+.area::after{display:none}
+.area span{position:static}
+.area b{font-family:var(--f-body);font-size:16px;font-weight:700}
+.area small{opacity:1;color:var(--ink-3);font-size:14px}
+.area:hover img{transform:none;filter:brightness(.96)}
+
+/* guide + band */
+.col{border:0;padding:0;background:none;gap:12px}
+.col .cimg{margin:0;border-radius:16px;overflow:hidden}
+.col li a,.col li button{font-weight:600}
+.band{background:var(--sun-soft);border:0;border-radius:24px}
+.band::before{display:none}
+.band .btn-coral{background:var(--ink);color:#fff}
+.band .btn-coral:hover{background:#000}
+@media (min-width:900px){.band .bimg{border-radius:24px 0 0 24px}}
+
+/* results + listing */
+.filters{background:var(--paper)}
+.chip{border-color:var(--line);font-weight:600}
+.chip:hover{border-color:var(--ink)}
+.box{border-color:var(--line);border-radius:16px}
+.side .box{box-shadow:var(--shadow-lg);border:1px solid var(--line)}
+.gallery{border-radius:20px}
+.answer{background:var(--ocean-soft)}
+footer.site{background:var(--sand-2);margin-top:48px}
+footer.site::before{height:4px;background:var(--flag)}
+.steps li.done,.check li.ok::before,.bars i{background:var(--ocean)}
+.check li.ok::before{border-color:var(--ocean)}
+
+@media (max-width:1023px){.hero-photo{aspect-ratio:3/2}}
+@media (min-width:1024px){.hero-photo{aspect-ratio:auto;height:min(620px,72vh);max-height:none}}
+@media (min-width:900px){.area img{aspect-ratio:4/3}}
+@media (min-width:900px){.band{grid-template-columns:1fr 1fr}.band .bimg{grid-row:1/4;min-height:360px}.band > div{align-self:end;margin-top:36px}.band > a{align-self:start}}
+.col .cimg{aspect-ratio:16/9}
+@media (max-width:767px){.filters{position:static}}
+</style>
+
+<a class="skip" href="#content">Skip to content</a>
+<div class="proto" role="note"><div class="wrap"><span><b>Prototype</b> · sample businesses and numbers, not live data</span></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="ZanziBiz home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--sun)"/><path d="M9 10h13L10 22h13" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="9.5" r="2.6" fill="var(--ocean)"/></svg>
+      ZanziBiz
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#search" data-nav="search" data-t="nav_dir">Directory</a>
+      <a href="#guide" data-nav="guide" data-t="nav_guide">Travel guide</a>
+      <a href="#saved" data-nav="saved" data-t="nav_saved">Saved</a>
+      <a href="#dashboard" data-nav="dashboard" data-t="nav_owner">For business</a>
+    </nav>
+    <span class="spacer"></span>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="sw" aria-pressed="false">SW</button>
+    </div>
+    <a class="btn btn-coral" href="#owner" data-t="cta_list">List your business</a>
+  </div>
+</header>
+
+<main id="content" tabindex="-1">
+
+<!-- HOME -->
+<div class="view" id="v-home">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">The yellow pages of Zanzibar</span>
+        <h1 data-t="home_h1">Find trusted <em>local</em> businesses in Zanzibar.</h1>
+        <p class="lede" data-t="home_lede">Fundis, drivers, guesthouses, tours and shops, listed by their owners. Message them on WhatsApp in one tap.</p>
+        <form class="search" id="homeSearch" role="search">
+          <div><label for="q" data-t="what">What do you need?</label><input id="q" name="q" autocomplete="off" placeholder="Fundi umeme, airport taxi…"></div>
+          <div><label for="area" data-t="where">Where</label><select id="area" name="area"></select></div>
+          <button class="btn btn-coral" type="submit" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-t="search">Search</span></button>
+        </form>
+        <div class="popular"><span data-t="popular">Popular:</span><span id="needs" style="display:contents"></span></div>
+        <ul class="proof" aria-label="Sample figures">
+          <li><b>1,240</b>local businesses</li>
+          <li><b>38</b>categories</li>
+          <li><b>Unguja &amp; Pemba</b>every district</li>
+        </ul>
+      </div>
+      <figure class="hero-photo">
+        <img alt="Seaweed farmers working in the lagoon at Jambiani, Zanzibar" fetchpriority="high" id="heroImg">
+        <figcaption>
+          <span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Seaweed farmers, Jambiani</span>
+          <a class="credit" href="#credits">Yann Macherez, CC BY-SA 4.0</a>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="catbar"><div class="wrap"><div class="cats" id="cats" role="list" aria-label="Browse by category"></div></div></div>
+
+  <section class="wrap">
+    <div class="sec-head"><h2 id="openNowTitle">Open now</h2><a href="#search" data-go="all">See all&nbsp;<span id="allCount"></span>&nbsp;→</a></div>
+    <div class="rail four" id="openRail"></div>
+  </section>
+
+  <section class="wrap" style="padding-top:0">
+    <div class="sec-head"><h2>Explore by area</h2></div>
+    <div class="areas" id="areas"></div>
+  </section>
+
+
+  <section class="wrap" style="padding-top:0">
+    <div class="sec-head"><h2 data-t="guide_h">Zanzibar travel guide</h2><a href="#guide">Open the guide →</a></div>
+    <div class="trio">
+      <div class="col"><figure class="cimg"><img data-photo="dhowSunset" alt="Dhow sailing at sunset off Stone Town" loading="lazy"></figure><span class="eyebrow">Before you fly</span><ul>
+        <li><button type="button" data-guide>Visas, insurance and the arrival fee <span class="muted">· 6 min</span></button></li>
+        <li><button type="button" data-guide>Which area to stay in <span class="muted">· 9 min</span></button></li>
+        <li><button type="button" data-guide>Money, M-Pesa and cards <span class="muted">· 5 min</span></button></li></ul></div>
+      <div class="col"><figure class="cimg"><img data-photo="daladala" alt="A dala-dala minibus in Zanzibar" loading="lazy"></figure><span class="eyebrow">When you land</span><ul>
+        <li><button type="button" data-guide>Airport to your hotel: fares by area <span class="muted">· 4 min</span></button></li>
+        <li><button type="button" data-guide>Getting a local SIM <span class="muted">· 3 min</span></button></li>
+        <li><button type="button" data-guide>Dala-dala, bajaji or taxi <span class="muted">· 5 min</span></button></li></ul></div>
+      <div class="col"><figure class="cimg"><img data-photo="door" alt="Carved wooden door in Stone Town" loading="lazy"></figure><span class="eyebrow">Explore</span><ul>
+        <li><button type="button" data-guide>Nungwi, Paje or Stone Town? <span class="muted">· 8 min</span></button></li>
+        <li><button type="button" data-guide>Spice farms worth the trip <span class="muted">· 6 min</span></button></li>
+        <li><button type="button" data-guide>Mnemba and the reef, responsibly <span class="muted">· 7 min</span></button></li></ul></div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top:0">
+    <div class="band">
+      <figure class="bimg"><img data-photo="darajani" alt="Fruit sellers at Darajani market, Stone Town" loading="lazy"></figure>
+      <div><h2>Own a business in Zanzibar?</h2><p style="margin-top:8px">List it free. Customers message you on WhatsApp, and you see how many did each month.</p></div>
+      <ol><li>Add your name, area and WhatsApp</li><li>Add photos and opening hours</li><li>Preview, then send for a quick check</li></ol>
+      <a class="btn btn-coral" href="#owner">List your business free</a>
+    </div>
+  </section>
+</div>
+
+<!-- RESULTS -->
+<div class="view" id="v-search">
+  <div class="filters"><div class="wrap" style="display:grid;gap:10px">
+    <form class="search" id="resSearch" role="search" style="max-width:860px">
+      <div><label for="q2">What</label><input id="q2" autocomplete="off" placeholder="Try “fundi”, “taxi”, “guesthouse”"></div>
+      <div><label for="area2">Where</label><select id="area2"></select></div>
+      <button class="btn btn-coral" type="submit">Search</button>
+    </form>
+    <div class="row" id="catChips" aria-label="Category filter"></div>
+    <div class="row"><button type="button" class="chip" id="openOnly" aria-pressed="false">Open now</button><button type="button" class="chip" id="waOnly" aria-pressed="false">Has WhatsApp</button></div>
+  </div></div>
+  <div class="wrap">
+    <div class="res-head"><h1 style="font-size:24px" id="resTitle">All businesses</h1><span class="muted small" id="resCount" aria-live="polite"></span></div>
+    <div class="rail three" id="results"></div>
+    <nav class="pager" aria-label="Pages" id="pager"></nav>
+  </div>
+</div>
+
+<!-- LISTING -->
+<div class="view" id="v-listing">
+  <div class="wrap" id="listingBody"></div>
+</div>
+
+<!-- GUIDE -->
+<div class="view" id="v-guide">
+  <div class="wrap"><article class="article">
+    <div class="crumbs"><a href="#home">Home</a>›<a href="#guide">Travel guide</a>›<span>When you land</span></div>
+    <span class="eyebrow">When you land</span>
+    <h1>Airport to your hotel: what a taxi costs by area</h1>
+    <figure class="art-hero" style="margin:0"><img data-photo="daladala" alt="A dala-dala minibus in Zanzibar" loading="lazy"><figcaption>Kelvin Mwanasoko, CC BY-SA 4.0</figcaption></figure>
+    <p class="dated">Prices checked with 4 drivers · sample text for the prototype · next check due 1 Mar 2027</p>
+    <div class="answer">
+      <strong>Short answer</strong>
+      <p>From Abeid Amani Karume airport, a taxi to Stone Town is usually TZS 25,000–35,000 and takes about 20 minutes. Nungwi and Paje are around an hour away. Agree the price before you load your bags, and ask whether it is per car or per person.</p>
+    </div>
+    <h2>Typical fares from the airport</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Destination</th><th>Time</th><th>Fare (TZS, per car)</th></tr></thead>
+      <tbody>
+        <tr><td>Stone Town</td><td>20 min</td><td>25,000–35,000</td></tr>
+        <tr><td>Fumba</td><td>25 min</td><td>35,000–45,000</td></tr>
+        <tr><td>Paje / Jambiani</td><td>60 min</td><td>70,000–90,000</td></tr>
+        <tr><td>Kiwengwa / Matemwe</td><td>60 min</td><td>70,000–90,000</td></tr>
+        <tr><td>Nungwi / Kendwa</td><td>70 min</td><td>80,000–100,000</td></tr>
+      </tbody></table></div>
+    <h2>Three things to agree before you get in</h2>
+    <ol><li>The total price, and the currency. Shillings are usually cheaper than dollars.</li><li>Whether a stop on the way, such as a SIM shop or cash machine, costs extra.</li><li>The driver's WhatsApp, so you can book the return trip.</li></ol>
+    <h2>Drivers listed on ZanziBiz</h2>
+    <div class="rail" id="guideRail"></div>
+  </article></div>
+</div>
+
+<!-- SAVED -->
+<div class="view" id="v-saved">
+  <div class="wrap" style="padding-block:24px">
+    <h1 style="font-size:28px;margin-bottom:6px">Saved</h1>
+    <p class="muted small" style="margin-bottom:16px">Saved on this device. Sign in to keep them on your phone and computer.</p>
+    <div class="rail" id="savedList"></div>
+  </div>
+</div>
+
+<!-- OWNER WIZARD -->
+<div class="view" id="v-owner">
+  <div class="wrap wizard">
+    <div class="box">
+      <ol class="steps" id="stepBar" aria-hidden="true"><li></li><li></li><li></li><li></li></ol>
+      <p class="small muted" id="stepLabel" aria-live="polite"></p>
+      <form class="form" id="wiz" novalidate></form>
+    </div>
+    <aside>
+      <p class="preview-label">Live preview</p>
+      <div id="wizPreview"></div>
+      <p class="small muted" style="margin-top:10px">This is how customers will see your card in search results.</p>
+    </aside>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="view" id="v-dashboard">
+  <div class="wrap" style="padding-block:24px;display:grid;gap:20px">
+    <div style="display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap">
+      <div><span class="eyebrow">Your business</span><h1 style="font-size:28px;margin-top:4px">Mama Asha's Kitchen</h1><p class="small"><span class="dot open">Live</span> · <span class="muted">Last updated 3 days ago</span></p></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-line" type="button" data-view-listing="mama-ashas-kitchen">View public page</button><button class="btn btn-coral" type="button" data-toast="Editing opens here in the build">Edit listing</button></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>412</b><span>Page views, November</span></div>
+      <div class="stat"><b>37</b><span>WhatsApp taps</span></div>
+      <div class="stat"><b>9</b><span>Call taps</span></div>
+      <div class="stat"><b>14</b><span>Directions taps</span></div>
+    </div>
+    <div class="box"><h2>Contact taps per day</h2><div class="bars" id="bars" role="img" aria-label="Sample daily contact taps for November, between 0 and 4 per day"></div><p class="small muted">A tap means someone opened WhatsApp, Call or Directions. It does not mean a message was sent.</p></div>
+    <div class="box"><h2>Make your listing stronger</h2><ul class="check">
+      <li class="ok">Name, area and category</li><li class="ok">WhatsApp number checked</li><li class="ok">Opening hours</li><li>At least 4 photos (you have 2)</li><li>Prices for your main services</li></ul></div>
+  </div>
+</div>
+
+<div class="view" id="v-credits">
+  <div class="wrap" style="padding-block:24px;max-width:820px">
+    <h1 style="font-size:28px;margin-bottom:8px">Photo credits</h1>
+    <p class="muted small" style="margin-bottom:16px">Prototype photos come from Wikimedia Commons under the licences shown. Business photos in the live site will be the owners' own.</p>
+    <ul class="credits" id="creditList" style="list-style:none;margin:0;padding:0"></ul>
+  </div>
+</div>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <div><a class="brand" href="#home" style="font-size:18px">ZanziBiz</a><p style="margin-top:8px;max-width:40ch">The small-business directory and travel guide for Zanzibar. Listings are added and kept up to date by their owners.</p></div>
+  <div><h3>Directory</h3><ul><li><a href="#search">All businesses</a></li><li><a href="#owner">List your business</a></li></ul></div>
+  <div><h3>Travel guide</h3><ul><li><a href="#guide">Before you fly</a></li><li><a href="#guide">When you land</a></li><li><a href="#guide">Explore</a></li></ul></div>
+  <div><h3>Company</h3><ul><li><a href="#home">About</a></li><li><a href="#home">Privacy</a></li><li><a href="#home">Terms</a></li><li><a href="#credits">Photo credits</a></li></ul><p style="margin-top:8px">© <span id="yr"></span> ZanziBiz</p></div>
+</div></footer>
+
+<nav class="tabs" aria-label="App">
+  <ul>
+    <li><a href="#home" data-nav="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 11 12 4l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span data-t="tab_home">Home</span></a></li>
+    <li><a href="#search" data-nav="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-t="tab_search">Search</span></a></li>
+    <li><a href="#guide" data-nav="guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg><span data-t="tab_guide">Guide</span></a></li>
+    <li><a href="#saved" data-nav="saved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span data-t="tab_saved">Saved</span></a></li>
+    <li><a href="#dashboard" data-nav="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 9h18l-1.5-5h-15z"/><path d="M5 9v11h14V9"/><path d="M10 20v-6h4v6"/></svg><span data-t="tab_owner">Business</span></a></li>
+  </ul>
+</nav>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+};
+
+const AREAS = ['All Zanzibar','Stone Town','Nungwi','Kendwa','Paje','Jambiani','Kiwengwa','Matemwe','Michamvi','Fumba'];
+const I = {
+  food:'<path d="M5 11h14a7 7 0 0 1-14 0z"/><path d="M8 7c0-2 2-2 2-4M12 7c0-2 2-2 2-4"/>',
+  stay:'<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>',
+  tours:'<path d="M3 18h18"/><path d="M12 4v12"/><path d="M12 4l7 11H5z"/>',
+  transport:'<rect x="3" y="7" width="18" height="9" rx="2"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><path d="M3 11h18"/>',
+  fundi:'<path d="M14 6a4 4 0 0 0 4.8 5.2L21 13.4 13.4 21l-2.2-2.2A4 4 0 0 0 6 14l-3-3 3-3 3 3z"/>',
+  shops:'<path d="M4 8h16l-1 12H5z"/><path d="M9 8a3 3 0 0 1 6 0"/>',
+  beauty:'<path d="M12 21c-4-3-7-6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4-3 7-7 10z"/>',
+  services:'<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5h6v2M4 12h16"/>'
+};
+const svgI = id => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[id]}</svg>`;
+const CATS = [
+  {id:'food', en:'Food & drink', sw:'Chakula na vinywaji', c:'#E2553A', cs:'#FFE6DD'},
+  {id:'stay', en:'Places to stay', sw:'Malazi', c:'#0E8F8A', cs:'#DDF4F2'},
+  {id:'tours', en:'Tours & activities', sw:'Ziara na shughuli', c:'#2477C2', cs:'#DFF0FF'},
+  {id:'transport', en:'Transport', sw:'Usafiri', c:'#B7700A', cs:'#FFF2D6'},
+  {id:'fundi', en:'Fundi & repairs', sw:'Mafundi na matengenezo', c:'#8A4521', cs:'#F7E9DD'},
+  {id:'shops', en:'Shops', sw:'Maduka', c:'#2E8746', cs:'#E2F5E6'},
+  {id:'beauty', en:'Health & beauty', sw:'Afya na urembo', c:'#C23A6E', cs:'#FCE4EE'},
+  {id:'services', en:'Professional services', sw:'Huduma za kitaalamu', c:'#3A5F7A', cs:'#E3EDF4'}
+];
+const WM = (path, w) => `https://thumb.wikimedia.org/wikipedia/commons/thumb/${path}/${w}px-${path.split('/').pop()}`;
+const PHOTOS = {
+  seaweed:{path:'8/85/Harvesting_seaweed_in_Jambiani.jpg', by:'Yann Macherez', lic:'CC BY-SA 4.0', page:'https://commons.wikimedia.org/wiki/File:Harvesting_seaweed_in_Jambiani.jpg', alt:'Women harvesting seaweed in the lagoon at Jambiani'},
+  nungwi:{path:'0/04/White_sandy_beach_at_Nungwi%2C_Zanzibar.jpg', by:'ObonyoML', lic:'CC BY-SA 4.0', page:'https://commons.wikimedia.org/wiki/File:White_sandy_beach_at_Nungwi,_Zanzibar.jpg', alt:'White sand and turquoise water at Nungwi'},
+  bathers:{path:'8/8c/Bathers_on_Nungwi_Beach%2C_Zanzibar%2C_Tanzania.jpg', by:'Paul W', lic:'CC0', page:'https://commons.wikimedia.org/wiki/File:Bathers_on_Nungwi_Beach,_Zanzibar,_Tanzania.jpg', alt:'Swimmers on Nungwi beach'},
+  souvenirs:{path:'6/6e/Tourist_ouvenirs_for_sale_on_Nungwi_Beach%2C_Zanzibar%2C_Tanzania.jpg', by:'Paul W', lic:'CC0', page:'https://commons.wikimedia.org/wiki/File:Tourist_ouvenirs_for_sale_on_Nungwi_Beach,_Zanzibar,_Tanzania.jpg', alt:'Souvenir stall on Nungwi beach'},
+  stoneStreet:{path:'1/17/Cat_Sitting_Street_Stone_Town_Zanzibar_Oct26_A7CR_14664.jpg', by:'Timothy A. Gonsalves', lic:'CC BY-SA 4.0', page:'https://commons.wikimedia.org/wiki/File:Cat_Sitting_Street_Stone_Town_Zanzibar_Oct26_A7CR_14664.jpg', alt:'A narrow street in Stone Town'},
+  door:{path:'7/76/Ornate_Carved_Door_in_Zanzibar.jpg', by:'Eric Kilby', lic:'CC BY-SA 2.0', page:'https://commons.wikimedia.org/wiki/File:Ornate_Carved_Door_in_Zanzibar.jpg', alt:'Carved wooden door in Stone Town'},
+  foodMarket:{path:'2/2c/Food_Market%2C_Stone_Town_%2810164244853%29.jpg', by:'Rod Waddington', lic:'CC BY-SA 2.0', page:'https://commons.wikimedia.org/wiki/File:Food_Market,_Stone_Town_(10164244853).jpg', alt:'Evening food market in Stone Town'},
+  darajani:{path:'f/f0/Darajani_market_fruit_sellers.jpg', by:'Erasmus Kamugisha', lic:'CC BY-SA 4.0', page:'https://commons.wikimedia.org/wiki/File:Darajani_market_fruit_sellers.jpg', alt:'Fruit sellers at Darajani market'},
+  spice:{path:'b/bf/Spice_farm%2C_Zanzibar.jpg', by:'Irene', lic:'CC BY 2.0', page:'https://commons.wikimedia.org/wiki/File:Spice_farm,_Zanzibar.jpg', alt:'A spice farm near Stone Town'},
+  jackfruit:{path:'4/49/Jackfruit_growing_at_a_spice_farm_in_Zanzibar.jpg', by:'Erasmus Kamugisha', lic:'CC BY-SA 4.0', page:'https://commons.wikimedia.org/wiki/File:Jackfruit_growing_at_a_spice_farm_in_Zanzibar.jpg', alt:'Jackfruit on a spice farm'},
+  daladala:{path:'1/17/Daladala_in_Zanzibar.jpg', by:'Kelvin Mwanasoko', lic:'CC BY-SA 4.0', page:'https://commons.wikimedia.org/wiki/File:Daladala_in_Zanzibar.jpg', alt:'A dala-dala minibus in Zanzibar'},
+  dhowSunset:{path:'4/4c/Dhow_Sunset%2C_Zanzibar_%2810164046475%29.jpg', by:'Rod Waddington', lic:'CC BY-SA 2.0', page:'https://commons.wikimedia.org/wiki/File:Dhow_Sunset,_Zanzibar_(10164046475).jpg', alt:'Dhow at sunset'},
+  dhow:{path:'f/f6/Dhow_in_sunset.jpg', by:'Winky from Oxford, UK', lic:'CC BY 2.0', page:'https://commons.wikimedia.org/wiki/File:Dhow_in_sunset.jpg', alt:'A dhow under sail at sunset'},
+  pajeFisher:{path:'c/cc/Fisherman_in_Paje.jpg', by:'Yann Macherez', lic:'CC BY-SA 4.0', page:'https://commons.wikimedia.org/wiki/File:Fisherman_in_Paje.jpg', alt:'A fisherman in the lagoon at Paje'},
+  forodhani:{path:'d/db/Forodhani_jubilee_gardens_Zanzibar.jpg', by:'Moongateclimber', lic:'Public domain', page:'https://commons.wikimedia.org/wiki/File:Forodhani_jubilee_gardens_Zanzibar.jpg', alt:'Forodhani gardens on the Stone Town seafront'}
+};
+const ph = (k, w = 960) => WM(PHOTOS[k].path, w);
+const AREA_CARDS = [['Stone Town','stoneStreet','Old town, markets, ferries'],['Nungwi','nungwi','North coast beaches, dhow trips'],['Paje','pajeFisher','Kitesurfing and the east lagoon'],['Jambiani','seaweed','Village life and seaweed farms']];
+const NEEDS = [['Airport taxi','transport'],['Fundi umeme (electrician)','fundi'],['Phone repair','fundi'],['Guesthouse in Paje','stay'],['Spice tour','tours'],['Scooter hire','transport'],['Hair & nails','beauty'],['Local food','food']];
+
+// Hours: [open, close] in 24h, null = closed. Index 0 = Monday.
+const H = (o, c, sun) => [[o,c],[o,c],[o,c],[o,c],[o,c],[o,c], sun === undefined ? [o,c] : sun];
+const L = [
+  {slug:'mama-ashas-kitchen', pics:['foodMarket','darajani'], name:"Mama Asha's Kitchen", cat:'food', area:'Stone Town', ini:'MA', desc:'Swahili home cooking near Darajani market: pilau, urojo and fresh juice. Seats 20, takeaway welcome.', price:'Meals from TZS 6,000', hours:H(8,21), wa:true, upd:3, photos:2, services:[['Pilau with beef','6,000'],['Zanzibar mix (urojo)','4,000'],['Fresh juice','2,500']]},
+  {slug:'juma-airport-transfers', pics:['daladala','forodhani'], name:'Juma Airport Transfers', cat:'transport', area:'Stone Town', ini:'JT', desc:'Licensed driver with a 7-seat minivan. Airport, ferry port and island-wide transfers, day or night.', price:'Airport to Stone Town from TZS 25,000', hours:H(0,24), wa:true, upd:1, photos:4, services:[['Airport to Stone Town','25,000'],['Airport to Paje','75,000'],['Airport to Nungwi','85,000']]},
+  {slug:'fundi-ali-electrical', pics:['door'], name:'Fundi Ali Electrical', cat:'fundi', area:'Fumba', ini:'FA', desc:'House wiring, solar installs and generator repairs. Call-outs across the west coast.', price:'Call-out from TZS 15,000', hours:H(7,18,null), wa:true, upd:6, photos:3, services:[['Call-out and diagnosis','15,000'],['Socket or switch fitted','10,000'],['Solar panel check','40,000']]},
+  {slug:'paje-kite-house', pics:['pajeFisher','nungwi','bathers'], name:'Paje Kite House', cat:'stay', area:'Paje', ini:'PK', desc:'Six simple rooms 2 minutes from the beach, with breakfast and kite storage.', price:'Rooms from TZS 90,000 a night', hours:H(0,24), wa:true, upd:12, photos:8, services:[['Double room, breakfast','90,000'],['Kite storage, per day','5,000']]},
+  {slug:'spice-route-tours', pics:['spice','jackfruit'], name:'Spice Route Tours', cat:'tours', area:'Stone Town', ini:'SR', desc:'Half-day spice farm visits with lunch, run by a family farm in Kizimbani.', price:'From TZS 45,000 per person', hours:H(8,17), wa:true, upd:4, photos:6, services:[['Spice farm, half day','45,000'],['Stone Town walk','30,000']]},
+  {slug:'kendwa-scooter-hire', pics:['bathers'], name:'Kendwa Scooter Hire', cat:'transport', area:'Kendwa', ini:'KS', desc:'Scooters by the day or week, helmets included. Driving permit help on request.', price:'From TZS 30,000 a day', hours:H(8,19), wa:true, upd:20, photos:3, services:[['Scooter, 1 day','30,000'],['Scooter, 7 days','170,000']]},
+  {slug:'bi-mwanaisha-beauty', pics:['souvenirs'], name:'Bi Mwanaisha Beauty', cat:'beauty', area:'Nungwi', ini:'BM', desc:'Henna, braids and nails. Walk-ins in the afternoon; book ahead for weddings.', price:'Henna from TZS 15,000', hours:H(10,20,null), wa:true, upd:2, photos:5, services:[['Henna, one hand','15,000'],['Braids','from 35,000'],['Manicure','20,000']]},
+  {slug:'mjini-phone-fix', pics:['darajani'], name:'Mjini Phone Fix', cat:'fundi', area:'Stone Town', ini:'MP', desc:'Screens, batteries and charging ports for most phones, usually same day.', price:'Screen repair from TZS 40,000', hours:H(9,20,[10,15]), wa:false, upd:9, photos:2, services:[['Battery replacement','from 30,000'],['Screen repair','from 40,000']]},
+  {slug:'jambiani-seaweed-shop', pics:['seaweed'], name:'Jambiani Seaweed Shop', cat:'shops', area:'Jambiani', ini:'JS', desc:"Soaps and oils made by the village women's seaweed cooperative.", price:'Soaps from TZS 5,000', hours:H(9,18), wa:true, upd:15, photos:4, services:[['Seaweed soap','5,000'],['Body oil','12,000']]},
+  {slug:'kiwengwa-accounting', pics:['forodhani'], name:'Kiwengwa Books & Tax', cat:'services', area:'Kiwengwa', ini:'KB', desc:'Bookkeeping, ZRA tax returns and business registration help for small hotels and shops.', price:'Monthly books from TZS 120,000', hours:H(8,17,null), wa:true, upd:30, photos:1, services:[['Business registration help','150,000'],['Monthly bookkeeping','120,000']]},
+  {slug:'nungwi-dhow-sunset', pics:['dhow','dhowSunset'], name:'Nungwi Dhow Sunset', cat:'tours', area:'Nungwi', ini:'ND', desc:'Two-hour sunset sailing on a traditional dhow, soft drinks included.', price:'From TZS 60,000 per person', hours:H(15,20), wa:true, upd:5, photos:7, services:[['Sunset dhow, 2 hours','60,000']]},
+  {slug:'matemwe-beach-bungalows', pics:['nungwi','bathers'], name:'Matemwe Beach Bungalows', cat:'stay', area:'Matemwe', ini:'MB', desc:'Four palm-thatch bungalows facing Mnemba atoll, with a small restaurant.', price:'From TZS 150,000 a night', hours:H(0,24), wa:true, upd:8, photos:9, services:[['Bungalow, half board','150,000']]}
+];
+
+// i18n (Swahili strings to be reviewed by a native speaker)
+const T = {
+  en:{nav_dir:'Directory',nav_guide:'Travel guide',nav_saved:'Saved',nav_owner:'For business',cta_list:'List your business',what:'What do you need?',where:'Where',search:'Search',popular:'Popular:',browse:'Browse by category',guide_h:'Zanzibar travel guide',tab_home:'Home',tab_search:'Search',tab_guide:'Guide',tab_saved:'Saved',tab_owner:'Business',
+      home_h1:'Find trusted <em>local</em> businesses in Zanzibar.',home_lede:'Fundis, drivers, guesthouses, tours and shops, listed by their owners. Message them on WhatsApp in one tap.'},
+  sw:{nav_dir:'Saraka',nav_guide:'Mwongozo wa safari',nav_saved:'Vilivyohifadhiwa',nav_owner:'Kwa biashara',cta_list:'Orodhesha biashara yako',what:'Unahitaji nini?',where:'Wapi',search:'Tafuta',popular:'Maarufu:',browse:'Tafuta kwa aina',guide_h:'Mwongozo wa Zanzibar',tab_home:'Nyumbani',tab_search:'Tafuta',tab_guide:'Mwongozo',tab_saved:'Hifadhi',tab_owner:'Biashara',
+      home_h1:'Pata biashara <em>za hapa</em> Zanzibar unazoweza kuziamini.',home_lede:'Mafundi, madereva, nyumba za wageni, ziara na maduka, zimeorodheshwa na wamiliki wenyewe. Watumie ujumbe WhatsApp kwa mguso mmoja.'}
+};
+let lang = store.get('zb_lang','en');
+function applyLang(){
+  document.documentElement.lang = lang;
+  $$('[data-t]').forEach(el => { const v = T[lang][el.dataset.t]; if (v) el.innerHTML = v; });
+  $$('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+  renderCats(); renderCatChips();
+}
+$$('.lang button').forEach(b => b.addEventListener('click', () => { lang = b.dataset.lang; store.set('zb_lang', lang); applyLang(); }));
+
+// open now, in Zanzibar time (UTC+3)
+function eatNow(){
+  const p = new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Dar_es_Salaam',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  const g = t => p.find(x => x.type === t).value;
+  const day = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(g('weekday'));
+  return {day, h: (+g('hour') % 24) + (+g('minute'))/60};
+}
+function openState(l){
+  const {day, h} = eatNow(), t = l.hours[day];
+  if (!t) return {open:false, text:'Closed today'};
+  if (t[0] === 0 && t[1] === 24) return {open:true, text:'Open 24 hours'};
+  if (h >= t[0] && h < t[1]) return {open:true, text:`Open until ${fmtH(t[1])}`};
+  if (h < t[0]) return {open:false, text:`Opens at ${fmtH(t[0])}`};
+  return {open:false, text:'Closed now'};
+}
+const fmtH = x => `${String(Math.floor(x)).padStart(2,'0')}:${x % 1 ? '30' : '00'}`;
+const cat = id => CATS.find(c => c.id === id);
+const catName = id => cat(id)[lang] || cat(id).en;
+const updText = d => d <= 1 ? 'Updated yesterday' : d < 14 ? `Updated ${d} days ago` : d < 60 ? `Updated ${Math.round(d/7)} weeks ago` : 'Not updated recently';
+
+let saved = store.get('zb_saved', []);
+const isSaved = s => saved.includes(s);
+function toggleSave(s){ saved = isSaved(s) ? saved.filter(x => x !== s) : [...saved, s]; store.set('zb_saved', saved); toast(isSaved(s) ? 'Saved on this device' : 'Removed from saved'); }
+
+const ICON = {
+  wa:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>',
+  call:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>',
+  dir:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  share:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v13M7 8l5-5 5 5"/></svg>',
+  save:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>'
+};
+
+function card(l){
+  const o = openState(l), c = cat(l.cat);
+  return `<article class="card" data-slug="${l.slug}" tabindex="0" aria-label="${esc(l.name)}">
+    <div class="ph" style="--c:${c.c}">${l.pics ? `<img src="${ph(l.pics[0], 500)}" alt="" loading="lazy" width="500" height="375">` : ""}<small>${esc(catName(l.cat))}</small></div>
+    <div class="body">
+      <div class="name">${esc(l.name)}</div>
+      <div class="meta">${esc(catName(l.cat))} · ${esc(l.area)}</div>
+      <div class="status"><span class="dot ${o.open ? 'open' : 'closed'}">${o.text}</span><span class="muted">${updText(l.upd)}</span></div>
+      <div class="meta">${esc(l.price)}</div>
+      <div class="acts">${l.wa ? `<button type="button" class="btn btn-wa" data-act="wa" data-slug="${l.slug}">${ICON.wa}WhatsApp</button>` : ''}<button type="button" class="btn btn-line" data-act="call" data-slug="${l.slug}">${ICON.call}Call</button></div>
+    </div></article>`;
+}
+function bindCards(root){
+  $$('.card', root).forEach(el => {
+    const go = () => openListing(el.dataset.slug);
+    el.addEventListener('click', e => { if (!e.target.closest('[data-act]')) go(); });
+    el.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+  });
+  $$('[data-act]', root).forEach(b => b.addEventListener('click', e => { e.stopPropagation(); contact(b.dataset.act, b.dataset.slug); }));
+}
+function contact(kind, slug){
+  const l = L.find(x => x.slug === slug);
+  const msg = {wa:`Opens WhatsApp to ${l.name} with “Hi, I found you on ZanziBiz…”`, call:`Opens your phone to call ${l.name}`, dir:`Opens Google Maps directions to ${l.name}`, share:`Opens the share sheet with zanzibiz.com/business/${l.slug}`}[kind];
+  toast(msg + ' (counted as a tap)');
+}
+
+// selects
+function fillAreas(sel){ sel.innerHTML = AREAS.map(a => `<option>${a}</option>`).join(''); }
+fillAreas($('#area')); fillAreas($('#area2'));
+
+// home
+$('#needs').innerHTML = NEEDS.slice(0,4).map(([t,c]) => `<button type="button" class="chip" data-need="${c}">${esc(t)}</button>`).join('');
+$$('#needs .chip').forEach(b => b.addEventListener('click', () => { state.cat = b.dataset.need; state.q = ''; state.area = 'All Zanzibar'; go('search'); }));
+function renderHome(){
+  const open = L.filter(l => openState(l).open).slice(0,4);
+  const list = open.length ? open : L.slice(0,4);
+  $('#openNowTitle').textContent = open.length ? 'Open now' : 'Popular this week';
+  $('#openRail').innerHTML = list.map(card).join(''); bindCards($('#openRail'));
+  $('#allCount').textContent = L.length;
+}
+function renderAreas(){
+  $('#areas').innerHTML = AREA_CARDS.map(([a,k,t]) => { const n = L.filter(l => l.area === a).length; return `<button type="button" class="area" data-area="${a}"><img src="${ph(k, 960)}" alt="${esc(PHOTOS[k].alt)}" loading="lazy"><span><b>${a}</b><small>${t} · ${n} listed</small></span></button>`; }).join('');
+  $$('#areas .area').forEach(b => b.addEventListener('click', () => { Object.assign(state, {q:'', cat:'', area:b.dataset.area}); go('search'); }));
+}
+function fillPhotos(){ $$('img[data-photo]').forEach(i => { if (!i.src) i.src = ph(i.dataset.photo, 960); }); }
+function renderCredits(){ $('#creditList').innerHTML = Object.values(PHOTOS).map(p => `<li><img src="${WM(p.path, 500)}" alt="" loading="lazy"><span><a href="${p.page}" target="_blank" rel="noopener">${esc(p.alt)}</a><br><span class="small muted">${esc(p.by)} · ${esc(p.lic)}</span></span></li>`).join(''); }
+function renderCats(){
+  $('#cats').innerHTML = CATS.map(c => { const n = L.filter(l => l.cat === c.id).length; return `<button type="button" data-cat="${c.id}" style="--c:${c.c};--cs:${c.cs}"><span class="ci">${svgI(c.id)}</span><b>${esc(c[lang] || c.en)}</b><span class="sw">${lang === 'en' ? esc(c.sw) + ' · ' : ''}${n} ${lang === 'en' ? (n === 1 ? 'listing' : 'listings') : 'biashara'}</span></button>`; }).join('');
+  $$('#cats button').forEach(b => b.addEventListener('click', () => { state.cat = b.dataset.cat; state.q=''; go('search'); }));
+}
+$('#homeSearch').addEventListener('submit', e => { e.preventDefault(); state.q = $('#q').value.trim(); state.area = $('#area').value; state.cat = ''; go('search'); });
+
+// results
+const state = {q:'', area:'All Zanzibar', cat:'', open:false, wa:false};
+const SYN = {umeme:'electric', fundi:'fundi', taxi:'transport', teksi:'transport', chakula:'food', hotel:'stay', guesthouse:'stay', simu:'phone', nywele:'hair'};
+function matches(l){
+  if (state.area !== 'All Zanzibar' && l.area !== state.area) return false;
+  if (state.cat && l.cat !== state.cat) return false;
+  if (state.open && !openState(l).open) return false;
+  if (state.wa && !l.wa) return false;
+  if (!state.q) return true;
+  const hay = `${l.name} ${l.desc} ${catName(l.cat)} ${cat(l.cat).sw} ${l.services.map(s=>s[0]).join(' ')} ${l.cat}`.toLowerCase();
+  return state.q.toLowerCase().split(/\s+/).every(w => hay.includes(w) || (SYN[w] && hay.includes(SYN[w])) || hay.includes(w.slice(0, Math.max(3, w.length - 1))));
+}
+function renderCatChips(){
+  $('#catChips').innerHTML = `<button type="button" class="chip" data-c="" aria-pressed="${!state.cat}">All</button>` + CATS.map(c => `<button type="button" class="chip" data-c="${c.id}" aria-pressed="${state.cat === c.id}">${esc(c[lang] || c.en)}</button>`).join('');
+  $$('#catChips .chip').forEach(b => b.addEventListener('click', () => { state.cat = b.dataset.c; renderResults(); }));
+}
+function renderResults(){
+  $('#q2').value = state.q; $('#area2').value = state.area;
+  $('#openOnly').setAttribute('aria-pressed', String(state.open)); $('#waOnly').setAttribute('aria-pressed', String(state.wa));
+  renderCatChips();
+  const r = L.filter(matches);
+  const where = state.area === 'All Zanzibar' ? 'in Zanzibar' : `in ${state.area}`;
+  $('#resTitle').textContent = state.cat ? `${catName(state.cat)} ${where}` : state.q ? `“${state.q}” ${where}` : `All businesses ${where}`;
+  $('#resCount').textContent = `${r.length} ${r.length === 1 ? 'business' : 'businesses'}`;
+  $('#results').innerHTML = r.length ? r.map(card).join('') : `<div class="empty" style="grid-column:1/-1"><h2>No businesses match yet</h2><p class="muted">Try another area, or remove a filter.</p><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><button class="btn btn-line" type="button" id="clearF">Show all businesses</button><a class="btn btn-coral" href="#owner">List your business</a></div></div>`;
+  bindCards($('#results'));
+  const cf = $('#clearF'); if (cf) cf.addEventListener('click', () => { Object.assign(state, {q:'', area:'All Zanzibar', cat:'', open:false, wa:false}); renderResults(); });
+  $('#pager').innerHTML = r.length ? `<a href="#search" aria-current="page">1</a><a href="#search" aria-label="Page 2 (sample)">2</a><a href="#search" aria-label="Next page (sample)">→</a>` : '';
+}
+$('#resSearch').addEventListener('submit', e => { e.preventDefault(); state.q = $('#q2').value.trim(); state.area = $('#area2').value; renderResults(); });
+$('#area2').addEventListener('change', () => { state.area = $('#area2').value; renderResults(); });
+$('#openOnly').addEventListener('click', () => { state.open = !state.open; renderResults(); });
+$('#waOnly').addEventListener('click', () => { state.wa = !state.wa; renderResults(); });
+
+// listing
+let current = L[0].slug;
+function openListing(slug){ current = slug; go('listing'); }
+function renderListing(){
+  const l = L.find(x => x.slug === current) || L[0], c = cat(l.cat), o = openState(l), {day} = eatNow();
+  const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  const sim = L.filter(x => x.slug !== l.slug && (x.cat === l.cat || x.area === l.area)).slice(0,3);
+  const actions = `<div class="actionbar">
+      ${l.wa ? `<button type="button" class="btn btn-wa" data-act="wa" data-slug="${l.slug}">${ICON.wa}WhatsApp</button>` : `<button type="button" class="btn btn-coral" data-act="call" data-slug="${l.slug}" style="grid-column:span 2;flex-direction:row;font-size:15px">${ICON.call}Call</button>`}
+      ${l.wa ? `<button type="button" class="btn btn-line" data-act="call" data-slug="${l.slug}">${ICON.call}Call</button>` : ''}
+      <button type="button" class="btn btn-line" data-act="dir" data-slug="${l.slug}">${ICON.dir}Map</button>
+      <button type="button" class="btn btn-line" data-act="share" data-slug="${l.slug}">${ICON.share}Share</button>
+      <button type="button" class="btn btn-line" data-save="${l.slug}" aria-pressed="${isSaved(l.slug)}">${ICON.save}${isSaved(l.slug) ? 'Saved' : 'Save'}</button>
+    </div>`;
+  $('#listingBody').innerHTML = `
+    <div class="crumbs"><a href="#home">Home</a>›<a href="#search" data-crumb-cat="${l.cat}">${esc(catName(l.cat))}</a>›<span>${esc(l.area)}</span></div>
+    <div class="gallery">${[0,1,2].map(i => { const k = l.pics[i % l.pics.length]; return `<div class="ph"><img src="${ph(k, i ? 500 : 1280)}" alt="${esc(PHOTOS[k].alt)}" loading="${i ? 'lazy' : 'eager'}">${i === 0 ? `<small>Sample photo · ${esc(PHOTOS[k].by)}</small>` : ''}</div>`; }).join('')}</div>
+    <div class="detail">
+      <article>
+        <div style="display:grid;gap:10px">
+          <h1 style="font-size:clamp(28px,4vw,40px)">${esc(l.name)}</h1>
+          <p class="meta" style="font-size:16px">${esc(catName(l.cat))} · ${esc(l.area)} · ${esc(l.price)}</p>
+          <div class="labels"><span class="dot ${o.open ? 'open' : 'closed'}">${o.text}</span><span>Owner-managed</span><span>${updText(l.upd)}</span></div>
+        </div>
+        <div class="box"><h2>About</h2><p>${esc(l.desc)}</p></div>
+        <div class="box"><h2>Services and prices</h2><table><thead><tr><th>Service</th><th>TZS</th></tr></thead><tbody>${l.services.map(s => `<tr><td>${esc(s[0])}</td><td>${esc(s[1])}</td></tr>`).join('')}</tbody></table><p class="small muted">Prices set by the business. Confirm before you book.</p></div>
+        <div class="box"><h2>Opening hours</h2><table><tbody>${l.hours.map((t,i) => `<tr class="${i === day ? 'today' : ''}"><td>${days[i]}${i === day ? ' (today)' : ''}</td><td>${!t ? 'Closed' : (t[0] === 0 && t[1] === 24) ? '24 hours' : `${fmtH(t[0])}–${fmtH(t[1])}`}</td></tr>`).join('')}</tbody></table><p class="small muted">Zanzibar time (EAT, UTC+3).</p></div>
+        <div class="box"><h2>Location</h2><p>${esc(l.area)}, Unguja. Exact pin shared by the owner.</p><div><button type="button" class="btn btn-line" data-act="dir" data-slug="${l.slug}">${ICON.dir}Get directions</button></div></div>
+        <div class="box"><h2>Something wrong?</h2><p class="muted">Tell us if this business has closed or its details are out of date. We check every report.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn btn-line" data-toast="Report sent to the ZanziBiz team (prototype)">Report wrong details</button><button type="button" class="btn btn-ghost" data-toast="Claim requests go to the admin queue (prototype)">Is this your business?</button></div></div>
+        <div><h2 style="margin-bottom:12px">Nearby and similar</h2><div class="rail three">${sim.map(card).join('')}</div></div>
+      </article>
+      <aside class="side"><div class="box"><h3>Contact ${esc(l.name)}</h3>${actions}<p class="contact-text">+255 777 000 ${100 + L.indexOf(l)} · sample number</p></div></aside>
+    </div>
+    <div class="mobile-bar">${actions}</div>`;
+  bindCards($('#listingBody'));
+  $$('#listingBody [data-act]').forEach(b => { if (!b.closest('.card')) b.addEventListener('click', () => contact(b.dataset.act, b.dataset.slug)); });
+  $$('#listingBody [data-save]').forEach(b => b.addEventListener('click', () => { toggleSave(b.dataset.save); renderListing(); }));
+  $$('#listingBody [data-toast]').forEach(b => b.addEventListener('click', () => toast(b.dataset.toast)));
+  const cc = $('[data-crumb-cat]'); cc.addEventListener('click', () => { state.cat = cc.dataset.crumbCat; });
+}
+
+// guide
+function renderGuide(){ const r = L.filter(l => l.cat === 'transport'); $('#guideRail').innerHTML = r.map(card).join(''); bindCards($('#guideRail')); }
+$$('[data-guide]').forEach(b => b.addEventListener('click', () => go('guide')));
+
+// saved
+function renderSaved(){
+  const r = L.filter(l => isSaved(l.slug));
+  $('#savedList').innerHTML = r.length ? r.map(card).join('') : `<div class="empty" style="grid-column:1/-1"><h2>Nothing saved yet</h2><p class="muted">Tap Save on any business to keep it here, even without signal in the app.</p><a class="btn btn-line" href="#search">Browse businesses</a></div>`;
+  bindCards($('#savedList'));
+}
+
+// owner wizard
+const draft = store.get('zb_draft', {name:'', cat:'food', area:'Stone Town', desc:'', wa:'', phone:'', open:'08:00', close:'18:00', sunday:'open', price:''});
+let step = 0;
+const STEPS = ['Your business','How customers reach you','Where and when','Check and send'];
+function wizHTML(){
+  if (step === 4) return `<div class="done-box" style="display:grid;gap:12px;padding:12px 0"><h2>Sent for a quick check</h2><p class="muted">We usually check new listings within one working day. You will get a WhatsApp message when it goes live.</p><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><a class="btn btn-line" href="#dashboard">Go to your dashboard</a><button class="btn btn-ghost" type="button" id="restart">Start another listing</button></div></div>`;
+  const f = {
+    0:`<div class="field"><label for="w-name">Business name</label><input id="w-name" data-k="name" value="${esc(draft.name)}" maxlength="80" required><span class="hint">As customers know it, for example “Mama Asha's Kitchen”.</span></div>
+       <div class="field"><label for="w-cat">Category</label><select id="w-cat" data-k="cat">${CATS.map(c => `<option value="${c.id}" ${draft.cat === c.id ? 'selected' : ''}>${esc(c.en)} · ${esc(c.sw)}</option>`).join('')}</select></div>
+       <div class="field"><label for="w-desc">What you offer</label><textarea id="w-desc" data-k="desc" maxlength="400">${esc(draft.desc)}</textarea><span class="hint">Two or three sentences. Mention what makes you different.</span></div>`,
+    1:`<div class="field"><label for="w-wa">WhatsApp number</label><input id="w-wa" data-k="wa" inputmode="tel" autocomplete="tel" placeholder="+255 7XX XXX XXX" value="${esc(draft.wa)}"><span class="hint">We send a code to this number to check it is yours.</span></div>
+       <div class="field"><label for="w-phone">Phone for calls (optional)</label><input id="w-phone" data-k="phone" inputmode="tel" value="${esc(draft.phone)}"></div>
+       <div class="field"><label for="w-price">Starting price (optional)</label><input id="w-price" data-k="price" placeholder="Meals from TZS 6,000" value="${esc(draft.price)}"></div>`,
+    2:`<div class="field"><label for="w-area">Area</label><select id="w-area" data-k="area">${AREAS.slice(1).map(a => `<option ${draft.area === a ? 'selected' : ''}>${a}</option>`).join('')}</select></div>
+       <div class="row2"><div class="field"><label for="w-open">Opens</label><input id="w-open" type="time" data-k="open" value="${draft.open}"></div><div class="field"><label for="w-close">Closes</label><input id="w-close" type="time" data-k="close" value="${draft.close}"></div></div>
+       <div class="field"><label for="w-sun">Sunday</label><select id="w-sun" data-k="sunday"><option value="open" ${draft.sunday === 'open' ? 'selected' : ''}>Same hours</option><option value="closed" ${draft.sunday === 'closed' ? 'selected' : ''}>Closed</option></select></div>
+       <div class="field"><label>Photos</label><button type="button" class="btn btn-line" data-toast="Photo upload opens here (images only, up to 8 MB each)">Add photos</button><span class="hint">Listings with 4 or more photos get more taps.</span></div>`,
+    3:`<p>Check your card on the right. When you send it, our team looks it over before it goes live.</p>
+       <label style="display:flex;gap:10px;align-items:flex-start"><input type="checkbox" id="w-terms" style="width:20px;height:20px;margin-top:2px"><span>I own or manage this business and agree to the <a href="#home">terms</a>.</span></label>`
+  }[step];
+  return `${f}<p class="err" id="w-err" role="alert" hidden></p><div class="nav-btns"><button type="button" class="btn btn-line" id="w-back" ${step === 0 ? 'disabled style="visibility:hidden"' : ''}>Back</button><button type="submit" class="btn btn-coral">${step === 3 ? 'Send for check' : 'Continue'}</button></div>`;
+}
+function renderWizard(){
+  $('#wiz').innerHTML = wizHTML();
+  $$('#stepBar li').forEach((li,i) => li.classList.toggle('done', i <= Math.min(step,3)));
+  $('#stepLabel').textContent = step < 4 ? `Step ${step+1} of 4 · ${STEPS[step]}` : 'Done';
+  $$('#wiz [data-k]').forEach(el => el.addEventListener('input', () => { draft[el.dataset.k] = el.value; store.set('zb_draft', draft); renderPreview(); }));
+  $$('#wiz [data-toast]').forEach(b => b.addEventListener('click', () => toast(b.dataset.toast)));
+  const back = $('#w-back'); if (back) back.addEventListener('click', () => { step--; renderWizard(); });
+  const rs = $('#restart'); if (rs) rs.addEventListener('click', () => { step = 0; Object.assign(draft, {name:'',desc:'',wa:'',phone:'',price:''}); store.set('zb_draft', draft); renderWizard(); });
+  renderPreview();
+}
+function validate(){
+  if (step === 0 && draft.name.trim().length < 2) return 'Add your business name.';
+  if (step === 1 && !/^\+?255\s?[67]\d{2}\s?\d{3}\s?\d{3}$/.test(draft.wa.trim())) return 'Enter a Tanzanian mobile number, for example +255 777 123 456.';
+  if (step === 2 && draft.close <= draft.open) return 'Closing time must be after opening time.';
+  if (step === 3 && !$('#w-terms').checked) return 'Tick the box to confirm you manage this business.';
+  return '';
+}
+$('#wiz').addEventListener('submit', e => {
+  e.preventDefault();
+  const err = validate(), el = $('#w-err');
+  if (err) { el.textContent = err; el.hidden = false; return; }
+  step++; renderWizard(); $('#wiz').querySelector('input,select,textarea,button')?.focus();
+});
+function renderPreview(){
+  const toH = t => { const [h,m] = (t || '00:00').split(':').map(Number); return h + (m >= 30 ? .5 : 0); };
+  const l = {slug:'preview', name: draft.name || 'Your business name', cat: draft.cat, area: draft.area, ini: (draft.name || 'Your Business').split(/\s+/).map(w => w[0]).join('').slice(0,2).toUpperCase(), desc: draft.desc, price: draft.price || 'Add a starting price', hours: H(toH(draft.open), toH(draft.close), draft.sunday === 'closed' ? null : undefined), wa: true, upd: 0, services: []};
+  $('#wizPreview').innerHTML = `<div class="rail">${card(l).replace('Updated yesterday','New listing')}</div>`;
+  $$('#wizPreview [data-act]').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); toast('Buttons work once your listing is live'); }));
+}
+
+// dashboard
+$('#bars').innerHTML = [2,1,3,0,2,4,1,1,2,3,0,1,2,2,3,1,4,2,0,1,3,2,1,2,4,3,1,0,2,3].map(v => `<i style="height:${v ? v * 22 + 4 : 2}px"></i>`).join('');
+$$('[data-view-listing]').forEach(b => b.addEventListener('click', () => openListing(b.dataset.viewListing)));
+$$('#v-dashboard [data-toast]').forEach(b => b.addEventListener('click', () => toast(b.dataset.toast)));
+
+// toast
+let tt;
+function toast(m){ const t = $('#toast'); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => t.hidden = true, 3200); }
+
+// router (plain #name only)
+const VIEWS = ['home','search','listing','guide','saved','owner','dashboard','credits'];
+function go(v){ if (location.hash !== '#' + v) location.hash = v; else show(v); }
+function show(v){
+  if (!VIEWS.includes(v)) v = 'home';
+  $$('.view').forEach(el => el.classList.toggle('on', el.id === 'v-' + v));
+  $$('[data-nav]').forEach(a => a.toggleAttribute('aria-current', a.dataset.nav === v || (v === 'listing' && a.dataset.nav === 'search') || (v === 'owner' && a.dataset.nav === 'dashboard')));
+  $$('[data-nav]').forEach(a => { if (a.hasAttribute('aria-current')) a.setAttribute('aria-current','page'); });
+  ({home:renderHome, search:renderResults, listing:renderListing, guide:renderGuide, saved:renderSaved, owner:renderWizard, dashboard:()=>{}, credits:renderCredits})[v]();
+  window.scrollTo(0,0);
+}
+$$('[data-go="all"]').forEach(a => a.addEventListener('click', () => Object.assign(state, {q:'', area:'All Zanzibar', cat:'', open:false, wa:false})));
+window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+$('#yr').textContent = new Date().getFullYear();
+$('#heroImg').src = ph('seaweed', 1920);
+renderAreas(); fillPhotos();
+applyLang();
+show(location.hash.slice(1) || 'home');
+})();
+</script>
+
+</body>
+</html>
