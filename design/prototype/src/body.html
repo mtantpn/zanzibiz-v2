@@ -5,39 +5,23 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: phone-first app shell; dense results, generous detail page, editorial guide. Bottom tab bar under 768px, top nav above. */
+/* Layout: phone-first app shell. Bright island palette: lagoon turquoise, coral-sand white, spice saffron, sunset coral; one deliberate light theme. */
 :root{
-  --ink:#0B2733; --ink-2:#3E5A63; --ink-3:#6A838B;
-  --teal:#0A7C80; --teal-strong:#086569; --teal-soft:#E6F5F4;
-  --coral:#FF6B4A; --coral-strong:#F2512E; --coral-soft:#FFE6DF;
+  --ink:#12363F; --ink-2:#3B5C63; --ink-3:#557379;
+  --teal:#00808A; --teal-strong:#006870; --teal-soft:#DDF4F2;
+  --sea:#2EC4B6; --sea-deep:#1597A3; --sky:#D8F5FF;
+  --coral:#FF6B4A; --coral-strong:#F0532F; --coral-soft:#FFE6DD;
+  --saffron:#F6B53D; --saffron-soft:#FFF2D6; --clove:#8A4521;
   --wa:#107C41; --wa-fg:#FFFFFF;
-  --paper:#FFFFFF; --sand:#F6F8F8; --line:#DCE8EA;
-  --ok:#107C41; --warn:#9A5B00;
-  --shadow:0 1px 2px rgba(11,39,51,.06),0 10px 24px -14px rgba(11,39,51,.22);
+  --paper:#FFFFFF; --sand:#FFFAF1; --sand-2:#F7EEDC; --line:#E8E0CF;
+  --ok:#107C41; --warn:#9A5800;
+  --shadow:0 1px 2px rgba(18,54,63,.06),0 12px 28px -16px rgba(18,54,63,.28);
   --f-display:"Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
   --f-body:"Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --r-sm:10px; --r:16px; --pill:999px;
+  --r-sm:12px; --r:18px; --pill:999px;
   --maxw:1180px; --tabbar:64px;
+  --kanga:repeating-linear-gradient(90deg,var(--coral) 0 14px,var(--saffron) 14px 28px,var(--sea) 28px 42px,var(--clove) 42px 56px);
   color-scheme:light;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --ink:#E7F1F2; --ink-2:#B4C7CB; --ink-3:#8AA1A6;
-  --teal:#5ED3C3; --teal-strong:#86E0D3; --teal-soft:#12323A;
-  --coral:#FF8A6E; --coral-strong:#FF9F87; --coral-soft:#3A2420;
-  --wa:#1F9D57; --wa-fg:#04140B;
-  --paper:#0E1D25; --sand:#0A1620; --line:#22394A;
-  --ok:#5CD08F; --warn:#F0B35A;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -14px rgba(0,0,0,.6);
-  color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --ink:#E7F1F2; --ink-2:#B4C7CB; --ink-3:#8AA1A6;
-  --teal:#5ED3C3; --teal-strong:#86E0D3; --teal-soft:#12323A;
-  --coral:#FF8A6E; --coral-strong:#FF9F87; --coral-soft:#3A2420;
-  --wa:#1F9D57; --wa-fg:#04140B;
-  --paper:#0E1D25; --sand:#0A1620; --line:#22394A;
-  --ok:#5CD08F; --warn:#F0B35A;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 24px -14px rgba(0,0,0,.6);
-  color-scheme:dark;
 }
 *{box-sizing:border-box}
 body{background:var(--sand);color:var(--ink);font:16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--tabbar) + env(safe-area-inset-bottom,0px))}
@@ -54,7 +38,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (min-width:768px){.wrap{padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}}
 .skip{position:absolute;left:-999px;top:8px;background:var(--paper);padding:8px 12px;border-radius:8px;z-index:50}
 .skip:focus{left:16px}
-.proto{background:var(--ink);color:var(--paper);font-size:12px;letter-spacing:.04em}
+.proto{background:var(--saffron-soft);color:var(--ink);font-size:12px;letter-spacing:.02em}
 .proto .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;padding-block:6px}
 .proto b{font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .proto button{background:none;border:1px solid currentColor;border-radius:var(--pill);padding:2px 10px;color:inherit;cursor:pointer;font-size:12px}
@@ -62,6 +46,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* header */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+header.top::before{content:"";display:block;height:5px;background:var(--kanga)}
 header.top .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-weight:800;font-size:20px;letter-spacing:-.02em}
 .brand svg{width:30px;height:30px;flex:none}
@@ -70,7 +55,7 @@ nav.main a{text-decoration:none;color:var(--ink-2);font-weight:600;padding:8px 1
 nav.main a[aria-current="page"]{color:var(--ink);background:var(--teal-soft)}
 .top .spacer{flex:1}
 .lang{display:flex;border:1px solid var(--line);border-radius:var(--pill);overflow:hidden}
-.lang button{border:0;background:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink-3);min-height:36px}
+.lang button{border:0;background:none;padding:6px 10px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink-3);min-height:44px;min-width:44px}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--pill);border:1px solid transparent;padding:10px 18px;font-weight:700;cursor:pointer;text-decoration:none;min-height:44px;white-space:nowrap}
 .btn svg{width:18px;height:18px}
@@ -96,15 +81,19 @@ main{min-height:70vh}
 .view.on{display:block}
 section{padding-block:28px}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
-.sec-head a{font-weight:600;text-decoration:none}
+.sec-head a{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
 .muted{color:var(--ink-3)}
 .small{font-size:14px}
 
 /* home search */
-.home-top{background:var(--paper);border-bottom:1px solid var(--line)}
-.home-top .wrap{padding-block:28px 24px;display:grid;gap:18px}
-.home-top h1 .accent{color:var(--teal)}
+.hero{position:relative;background:linear-gradient(180deg,#DDF6FF 0%,#EEFBFF 55%,#F6FDFC 100%)}
+.hero .wrap{position:relative;z-index:2;padding-block:28px 0;display:grid;gap:16px}
+.hero .eyebrow{color:var(--teal-strong)}
+.hero h1 .accent{color:var(--teal);background:linear-gradient(transparent 68%,var(--saffron-soft) 68%);padding:0 2px}
+.scene{display:block;width:100%;height:clamp(150px,22vw,230px);margin-top:-30px;position:relative;z-index:1}
+.hero-foot{background:var(--sand)}
+.hero-foot .wrap{padding-block:4px 8px}
 .lede{color:var(--ink-2);max-width:60ch;font-size:17px}
 .search{display:grid;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:10px;box-shadow:var(--shadow)}
 .search label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding:0 4px 2px}
@@ -125,9 +114,10 @@ section{padding-block:28px}
 .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
 @media (prefers-reduced-motion:reduce){.card,.card:hover{transition:none;transform:none}}
 @media (min-width:1024px){.rail.four .card,.rail.three .card{grid-template-columns:1fr}}
-.ph{position:relative;background:var(--c,#0A7C80);color:#fff;display:flex;align-items:flex-end;padding:10px;min-height:112px;aspect-ratio:1/1;max-width:100%;overflow:hidden}
+.ph{position:relative;background:linear-gradient(150deg,var(--c,#1597A3),color-mix(in srgb,var(--c,#1597A3) 70%,#12363F));color:#fff;display:flex;align-items:flex-end;padding:10px;min-height:112px;aspect-ratio:1/1;max-width:100%;overflow:hidden}
 @media (min-width:1024px){.rail.four .ph,.rail.three .ph{aspect-ratio:4/3}}
-.ph::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 10px,transparent 10px 20px)}
+.ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.28) 1.4px,transparent 1.6px) 0 0/14px 14px;-webkit-mask:linear-gradient(200deg,#000 10%,transparent 65%);mask:linear-gradient(200deg,#000 10%,transparent 65%)}
+.ph .ico{position:absolute;right:12px;bottom:12px;width:34px;height:34px;z-index:1;opacity:.9;color:#fff}
 .ph span{position:relative;z-index:1;font-family:var(--f-display);font-weight:800;font-size:28px;line-height:1}
 .ph small{position:absolute;top:8px;right:8px;z-index:1;font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
 .card .body{padding:12px 14px;display:grid;gap:6px;min-width:0;align-content:start}
@@ -140,38 +130,36 @@ section{padding-block:28px}
 .closed{color:var(--warn)}
 .tag{background:var(--teal-soft);color:var(--teal-strong);border-radius:var(--pill);padding:2px 8px}
 .card .acts{display:flex;gap:8px;margin-top:4px}
-.card .acts .btn{min-height:38px;padding:6px 12px;font-size:14px}
+.card .acts .btn{min-height:44px;padding:6px 12px;font-size:14px}
 
-/* categories list */
-.cats{display:grid;gap:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-@media (min-width:640px){.cats{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1024px){.cats{grid-template-columns:repeat(4,1fr)}}
-.cats button{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer;min-height:56px}
-.cats button:hover{background:var(--teal-soft)}
-.cats b{font-weight:700}
-.cats .sw{display:block;font-size:12px;color:var(--ink-3);font-weight:500}
-.cats .n{font-variant-numeric:tabular-nums;color:var(--ink-3);font-size:14px}
-
+/* category tiles */
+.cats{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media (min-width:768px){.cats{grid-template-columns:repeat(4,1fr)}}
+.cats button{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);text-align:left;cursor:pointer;min-height:76px;transition:transform .15s ease-out,box-shadow .15s ease-out}
+.cats button:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+.cats button:active{transform:scale(.98)}
+@media (prefers-reduced-motion:reduce){.cats button,.cats button:hover,.cats button:active{transition:none;transform:none}}
+.cats .ci{grid-row:1/3;}
+@media (max-width:767px){.cats button{grid-template-columns:1fr;row-gap:4px;align-content:start}.cats .ci{grid-row:auto;margin-bottom:6px}}
+.cats .ci{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--cs);color:var(--c)}
+.cats .ci svg{width:24px;height:24px}
+.cats b{font-weight:700;line-height:1.2;min-width:0}
+.cats .sw{font-size:12px;color:var(--ink-3)}
 /* guide trio */
 .trio{display:grid;gap:12px}
 @media (min-width:900px){.trio{grid-template-columns:repeat(3,1fr)}}
-.col{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;align-content:start}
+.col{border-top:5px solid var(--cc,var(--sea));background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;align-content:start}
 .col ul{list-style:none;margin:0;padding:0;display:grid}
 .col li a,.col li button{display:block;padding:10px 0;border-top:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:600;background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;width:100%;cursor:pointer}
 .col li .muted{font-weight:500}
 
-.band{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:24px;display:grid;gap:16px}
-.band h2{color:var(--paper)}
-.band p{color:color-mix(in srgb,var(--paper) 78%,transparent)}
-.band ol{margin:0;padding-left:20px;display:grid;gap:4px;color:color-mix(in srgb,var(--paper) 86%,transparent)}
+.band{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--saffron-soft),var(--coral-soft));border-radius:var(--r);padding:28px 24px 24px;display:grid;gap:16px;border:1px solid var(--line)}
+.band::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--kanga)}
+.band p,.band ol{color:var(--ink-2)}
+.band ol{margin:0;padding-left:20px;display:grid;gap:4px}
 @media (min-width:900px){.band{grid-template-columns:1.2fr 1fr auto;align-items:center}}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .band{background:var(--teal-soft);color:var(--ink)} :root:not([data-theme="light"]) .band h2{color:var(--ink)} :root:not([data-theme="light"]) .band p,:root:not([data-theme="light"]) .band ol{color:var(--ink-2)}}
-:root[data-theme="dark"] .band{background:var(--teal-soft);color:var(--ink)}
-:root[data-theme="dark"] .band h2{color:var(--ink)}
-:root[data-theme="dark"] .band p,:root[data-theme="dark"] .band ol{color:var(--ink-2)}
-
 /* results */
-.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 60px);z-index:5;background:var(--sand);padding-block:12px;border-bottom:1px solid var(--line)}
+.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 65px);z-index:5;background:var(--sand);padding-block:12px;border-bottom:1px solid var(--line)}
 .filters .row{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
 .filters .row::-webkit-scrollbar{display:none}
 .filters .chip{flex:none}
@@ -249,7 +237,8 @@ tr.today td{font-weight:700;color:var(--teal-strong)}
 .bars{display:grid;grid-template-columns:repeat(30,1fr);gap:3px;align-items:end;height:90px}
 .bars i{background:var(--teal);border-radius:2px 2px 0 0;opacity:.85}
 
-footer.site{background:var(--paper);border-top:1px solid var(--line);margin-top:24px}
+footer.site{background:var(--paper);margin-top:24px}
+footer.site::before{content:"";display:block;height:5px;background:var(--kanga)}
 footer.site .wrap{padding-block:28px;display:grid;gap:20px;font-size:14px;color:var(--ink-2)}
 @media (min-width:768px){footer.site .wrap{grid-template-columns:2fr 1fr 1fr 1fr}}
 footer.site h3{font-size:14px;margin-bottom:6px;color:var(--ink)}
@@ -262,12 +251,12 @@ footer.site a{color:var(--ink-2);text-decoration:none}
 </style>
 
 <a class="skip" href="#content">Skip to content</a>
-<div class="proto" role="note"><div class="wrap"><span><b>Prototype</b> · sample businesses and numbers, not live data</span><button type="button" id="themeBtn" aria-label="Switch light or dark theme">Theme</button></div></div>
+<div class="proto" role="note"><div class="wrap"><span><b>Prototype</b> · sample businesses and numbers, not live data</span></div></div>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="ZanziBiz home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--ink)"/><path d="M9 10h13L10 22h13" fill="none" stroke="var(--paper)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="9.5" r="2.6" fill="var(--coral)"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--teal)"/><path d="M9 10h13L10 22h13" fill="none" stroke="var(--paper)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="9.5" r="2.6" fill="var(--coral)"/></svg>
       ZanziBiz
     </a>
     <nav class="main" aria-label="Main">
@@ -289,8 +278,9 @@ footer.site a{color:var(--ink-2);text-decoration:none}
 
 <!-- HOME -->
 <div class="view" id="v-home">
-  <div class="home-top">
+  <div class="hero">
     <div class="wrap">
+      <span class="eyebrow">Karibu · Unguja, Zanzibar</span>
       <h1 data-t="home_h1">Find a local business in Zanzibar, and message them <span class="accent">directly</span>.</h1>
       <p class="lede" data-t="home_lede">Fundis, drivers, guesthouses, tours and shops across Unguja, listed and kept up to date by their owners.</p>
       <form class="search" id="homeSearch" role="search">
@@ -298,11 +288,29 @@ footer.site a{color:var(--ink-2);text-decoration:none}
         <div><label for="area" data-t="where">Where</label><select id="area" name="area"></select></div>
         <button class="btn btn-coral" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-t="search">Search</span></button>
       </form>
-      <div>
-        <p class="small muted" style="margin-bottom:8px" data-t="popular">People often look for</p>
-        <div class="needs" id="needs"></div>
-      </div>
     </div>
+    <svg class="scene" viewBox="0 0 1200 230" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle cx="985" cy="78" r="70" fill="#FFE7B0" opacity=".6"/>
+      <circle cx="985" cy="78" r="42" fill="#F6B53D"/>
+      <path d="M0 120 Q150 108 300 118 T600 116 T900 120 T1200 114 V230 H0Z" fill="#9BE3DA"/>
+      <path d="M0 138 Q160 126 320 136 T640 134 T960 140 T1200 132 V230 H0Z" fill="#2EC4B6"/>
+      <path d="M0 160 Q180 150 360 160 T720 158 T1080 164 T1200 158 V230 H0Z" fill="#1597A3"/>
+      <path d="M0 192 Q260 168 560 186 T1200 178 V230 H0Z" fill="#F7E7C6"/>
+      <path d="M0 204 Q300 186 620 200 T1200 194 V230 H0Z" fill="#FFFAF1"/>
+      <g transform="translate(760 92)">
+        <path d="M0 52 L92 52 L80 64 L10 64Z" fill="#8A4521"/>
+        <path d="M46 52 L46 0" stroke="#8A4521" stroke-width="3"/>
+        <path d="M46 2 L92 46 L8 46 Q30 22 46 2Z" fill="#FFFFFF" stroke="#E8E0CF"/>
+      </g>
+      <g transform="translate(70 70)" fill="none" stroke-linecap="round">
+        <path d="M30 130 Q40 70 22 10" stroke="#8A4521" stroke-width="7"/>
+        <path d="M22 10 Q-10 0 -30 26 M22 10 Q50 -8 78 14 M22 10 Q0 -22 -18 -18 M22 10 Q44 -26 66 -20 M22 10 Q30 30 52 48 M22 10 Q8 32 -12 50" stroke="#1F8A54" stroke-width="7"/>
+      </g>
+    </svg>
+    <div class="hero-foot"><div class="wrap">
+      <p class="small muted" style="margin-bottom:8px" data-t="popular">People often look for</p>
+      <div class="needs" id="needs"></div>
+    </div></div>
   </div>
 
   <section class="wrap">
@@ -318,15 +326,15 @@ footer.site a{color:var(--ink-2);text-decoration:none}
   <section class="wrap" style="padding-top:0">
     <div class="sec-head"><h2 data-t="guide_h">Zanzibar travel guide</h2><a href="#guide">Open the guide →</a></div>
     <div class="trio">
-      <div class="col"><span class="eyebrow">Before you fly</span><ul>
+      <div class="col" style="--cc:#2F8FD8"><span class="eyebrow">Before you fly</span><ul>
         <li><button type="button" data-guide>Visas, insurance and the arrival fee <span class="muted">· 6 min</span></button></li>
         <li><button type="button" data-guide>Which area to stay in <span class="muted">· 9 min</span></button></li>
         <li><button type="button" data-guide>Money, M-Pesa and cards <span class="muted">· 5 min</span></button></li></ul></div>
-      <div class="col"><span class="eyebrow">When you land</span><ul>
+      <div class="col" style="--cc:var(--saffron)"><span class="eyebrow">When you land</span><ul>
         <li><button type="button" data-guide>Airport to your hotel: fares by area <span class="muted">· 4 min</span></button></li>
         <li><button type="button" data-guide>Getting a local SIM <span class="muted">· 3 min</span></button></li>
         <li><button type="button" data-guide>Dala-dala, bajaji or taxi <span class="muted">· 5 min</span></button></li></ul></div>
-      <div class="col"><span class="eyebrow">Explore</span><ul>
+      <div class="col" style="--cc:var(--coral)"><span class="eyebrow">Explore</span><ul>
         <li><button type="button" data-guide>Nungwi, Paje or Stone Town? <span class="muted">· 8 min</span></button></li>
         <li><button type="button" data-guide>Spice farms worth the trip <span class="muted">· 6 min</span></button></li>
         <li><button type="button" data-guide>Mnemba and the reef, responsibly <span class="muted">· 7 min</span></button></li></ul></div>
@@ -470,15 +478,26 @@ const store = {
 };
 
 const AREAS = ['All Zanzibar','Stone Town','Nungwi','Kendwa','Paje','Jambiani','Kiwengwa','Matemwe','Michamvi','Fumba'];
+const I = {
+  food:'<path d="M5 11h14a7 7 0 0 1-14 0z"/><path d="M8 7c0-2 2-2 2-4M12 7c0-2 2-2 2-4"/>',
+  stay:'<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>',
+  tours:'<path d="M3 18h18"/><path d="M12 4v12"/><path d="M12 4l7 11H5z"/>',
+  transport:'<rect x="3" y="7" width="18" height="9" rx="2"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><path d="M3 11h18"/>',
+  fundi:'<path d="M14 6a4 4 0 0 0 4.8 5.2L21 13.4 13.4 21l-2.2-2.2A4 4 0 0 0 6 14l-3-3 3-3 3 3z"/>',
+  shops:'<path d="M4 8h16l-1 12H5z"/><path d="M9 8a3 3 0 0 1 6 0"/>',
+  beauty:'<path d="M12 21c-4-3-7-6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4-3 7-7 10z"/>',
+  services:'<rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5h6v2M4 12h16"/>'
+};
+const svgI = id => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[id]}</svg>`;
 const CATS = [
-  {id:'food', en:'Food & drink', sw:'Chakula na vinywaji', c:'#B4492D'},
-  {id:'stay', en:'Places to stay', sw:'Malazi', c:'#0A7C80'},
-  {id:'tours', en:'Tours & activities', sw:'Ziara na shughuli', c:'#1D5D8C'},
-  {id:'transport', en:'Transport', sw:'Usafiri', c:'#5B4A9E'},
-  {id:'fundi', en:'Fundi & repairs', sw:'Mafundi na matengenezo', c:'#8A5A12'},
-  {id:'shops', en:'Shops', sw:'Maduka', c:'#2F6B3A'},
-  {id:'beauty', en:'Health & beauty', sw:'Afya na urembo', c:'#9C3D6A'},
-  {id:'services', en:'Professional services', sw:'Huduma za kitaalamu', c:'#3F5560'}
+  {id:'food', en:'Food & drink', sw:'Chakula na vinywaji', c:'#E2553A', cs:'#FFE6DD'},
+  {id:'stay', en:'Places to stay', sw:'Malazi', c:'#0E8F8A', cs:'#DDF4F2'},
+  {id:'tours', en:'Tours & activities', sw:'Ziara na shughuli', c:'#2477C2', cs:'#DFF0FF'},
+  {id:'transport', en:'Transport', sw:'Usafiri', c:'#B7700A', cs:'#FFF2D6'},
+  {id:'fundi', en:'Fundi & repairs', sw:'Mafundi na matengenezo', c:'#8A4521', cs:'#F7E9DD'},
+  {id:'shops', en:'Shops', sw:'Maduka', c:'#2E8746', cs:'#E2F5E6'},
+  {id:'beauty', en:'Health & beauty', sw:'Afya na urembo', c:'#C23A6E', cs:'#FCE4EE'},
+  {id:'services', en:'Professional services', sw:'Huduma za kitaalamu', c:'#3A5F7A', cs:'#E3EDF4'}
 ];
 const NEEDS = [['Airport taxi','transport'],['Fundi umeme (electrician)','fundi'],['Phone repair','fundi'],['Guesthouse in Paje','stay'],['Spice tour','tours'],['Scooter hire','transport'],['Hair & nails','beauty'],['Local food','food']];
 
@@ -515,12 +534,6 @@ function applyLang(){
 }
 $$('.lang button').forEach(b => b.addEventListener('click', () => { lang = b.dataset.lang; store.set('zb_lang', lang); applyLang(); }));
 
-// theme toggle (prototype only)
-$('#themeBtn').addEventListener('click', () => {
-  const r = document.documentElement, cur = r.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  r.dataset.theme = cur === 'dark' ? 'light' : 'dark';
-});
-
 // open now, in Zanzibar time (UTC+3)
 function eatNow(){
   const p = new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Dar_es_Salaam',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
@@ -556,7 +569,7 @@ const ICON = {
 function card(l){
   const o = openState(l), c = cat(l.cat);
   return `<article class="card" data-slug="${l.slug}" tabindex="0" aria-label="${esc(l.name)}">
-    <div class="ph" style="--c:${c.c}"><small>Photo</small><span>${esc(l.ini)}</span></div>
+    <div class="ph" style="--c:${c.c}"><small>Photo</small><span>${esc(l.ini)}</span><i class="ico">${svgI(l.cat)}</i></div>
     <div class="body">
       <div class="name">${esc(l.name)}</div>
       <div class="meta">${esc(catName(l.cat))} · ${esc(l.area)}</div>
@@ -594,7 +607,7 @@ function renderHome(){
   $('#allCount').textContent = L.length;
 }
 function renderCats(){
-  $('#cats').innerHTML = CATS.map(c => { const n = L.filter(l => l.cat === c.id).length; return `<button type="button" data-cat="${c.id}"><span><b>${esc(c[lang] || c.en)}</b>${lang === 'en' ? `<span class="sw">${esc(c.sw)}</span>` : ''}</span><span class="n">${n}</span></button>`; }).join('');
+  $('#cats').innerHTML = CATS.map(c => { const n = L.filter(l => l.cat === c.id).length; return `<button type="button" data-cat="${c.id}" style="--c:${c.c};--cs:${c.cs}"><span class="ci">${svgI(c.id)}</span><b>${esc(c[lang] || c.en)}</b><span class="sw">${lang === 'en' ? esc(c.sw) + ' · ' : ''}${n} ${lang === 'en' ? (n === 1 ? 'listing' : 'listings') : 'biashara'}</span></button>`; }).join('');
   $$('#cats button').forEach(b => b.addEventListener('click', () => { state.cat = b.dataset.cat; state.q=''; go('search'); }));
 }
 $('#homeSearch').addEventListener('submit', e => { e.preventDefault(); state.q = $('#q').value.trim(); state.area = $('#area').value; state.cat = ''; go('search'); });
