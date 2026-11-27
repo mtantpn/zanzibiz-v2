@@ -11,7 +11,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
 /* Layout: phone-first app shell; dense results, generous detail page, editorial guide. Bottom tab bar under 768px, top nav above. */
 /* Layout: phone-first app shell. Bright island palette: lagoon turquoise, coral-sand white, spice saffron, sunset coral; one deliberate light theme. */
@@ -288,6 +288,155 @@ footer.site a{color:var(--ink-2);text-decoration:none}
 .toast{position:fixed;left:50%;bottom:calc(var(--tabbar) + 96px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:var(--pill);font-size:14px;font-weight:600;z-index:60;max-width:calc(100% - 32px);text-align:center}
 @media (min-width:768px){.toast{bottom:24px}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ===== Minimal layer: Airbnb-like calm, Zanzibar yellow pages identity =====
+   White canvas, near-black ink, one warm accent (Zanzibar yellow) for the primary action,
+   flag blue for links/brand, flag green only for WhatsApp/open status. Photos carry the colour. */
+:root{
+  --ink:#1D2427; --ink-2:#454E52; --ink-3:#646D71;
+  --sun:#FFC72C; --sun-strong:#F5B700; --sun-soft:#FFF6D9;
+  --ocean:#0A6A94; --ocean-strong:#085678; --ocean-soft:#EAF4F9;
+  --leaf:#1A7F45;
+  --teal:var(--ocean); --teal-strong:var(--ocean-strong); --teal-soft:var(--ocean-soft);
+  --coral:var(--sun); --coral-strong:var(--sun-strong); --coral-soft:var(--sun-soft);
+  --paper:#FFFFFF; --sand:#FFFFFF; --sand-2:#F5F3EE; --line:#E9E6E0;
+  --shadow:0 6px 24px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 40px rgba(0,0,0,.12);
+  --f-display:"Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --f-body:"Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r-sm:12px; --r:16px;
+  --flag:linear-gradient(90deg,#00A3DD 0 33.3%,#111 33.3% 66.6%,#1EB53A 66.6%);
+}
+body{background:var(--paper)}
+h1,h2,h3{letter-spacing:-.02em}
+h2{font-size:22px;font-weight:700}
+.eyebrow{color:var(--ink-2);letter-spacing:.06em}
+.proto{background:var(--sand-2);color:var(--ink-2)}
+header.top::before{display:none}
+header.top{border-bottom:1px solid var(--line)}
+header.top .wrap{min-height:72px}
+.brand{font-weight:800;font-size:21px}
+nav.main a{color:var(--ink-2);font-weight:600}
+nav.main a:hover{color:var(--ink);background:var(--sand-2)}
+nav.main a[aria-current="page"]{background:none;color:var(--ink);box-shadow:inset 0 -2px 0 var(--ink);border-radius:0}
+.btn-coral{background:var(--sun);color:var(--ink)}
+.btn-coral:hover{background:var(--sun-strong)}
+.top .btn-coral{background:var(--paper);border-color:var(--line);color:var(--ink)}
+.top .btn-coral:hover{background:var(--sand-2)}
+.lang button[aria-pressed="true"]{background:var(--ink)}
+section{padding-block:40px}
+.sec-head{margin-bottom:18px}
+.sec-head a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;font-size:15px}
+
+/* hero */
+.hero{min-height:0;display:block;color:var(--ink);background:var(--paper);overflow:visible}
+.hero::after{display:none}
+.hero .wrap.hero-grid{padding-block:28px 8px;display:grid;gap:28px;align-items:center}
+@media (min-width:1024px){.hero .wrap.hero-grid{grid-template-columns:1.05fr 1fr;gap:56px;padding-block:56px 24px}}
+.hero-copy{display:grid;gap:18px;align-content:center}
+.hero .eyebrow{color:var(--ink-2);opacity:1;display:inline-flex;align-items:center;gap:10px}
+.hero .eyebrow::before{content:"";width:28px;height:4px;border-radius:2px;background:var(--flag)}
+.hero h1{color:var(--ink);text-shadow:none;font-size:clamp(34px,5.4vw,60px);line-height:1.04;font-weight:800;max-width:14ch}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--sun) 62% 92%,transparent 92%)}
+.hero .lede{color:var(--ink-2);font-size:18px;max-width:44ch}
+@media (min-width:1024px){.hero h1{font-size:clamp(48px,4.4vw,64px)}.hero .lede{font-size:19px}}
+.hero-photo{position:relative;margin:0;border-radius:28px;overflow:hidden;aspect-ratio:4/3;background:var(--sand-2);max-width:100%}
+@media (min-width:1024px){.hero-photo{aspect-ratio:4/5;max-height:640px}}
+.hero-photo > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;color:transparent}
+.hero-photo figcaption{position:absolute;left:12px;bottom:12px;right:12px;display:flex;justify-content:space-between;gap:8px;align-items:end;flex-wrap:wrap}
+.hero-photo .place{background:rgba(255,255,255,.94);color:var(--ink);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;display:inline-flex;gap:8px;align-items:center}
+.hero-photo .place svg{width:16px;height:16px;color:var(--ocean)}
+.hero-photo .credit{position:static;font-size:11px;background:rgba(0,0,0,.42);color:#fff}
+
+/* Airbnb-style search pill */
+:is(.hero,.filters) .search{display:grid;grid-template-columns:1fr;gap:0;padding:6px;border-radius:24px;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--paper)}
+:is(.hero,.filters) .search > div{padding:10px 16px;border-radius:18px}
+:is(.hero,.filters) .search > div:focus-within{background:var(--sand-2)}
+:is(.hero,.filters) .search label{font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;color:var(--ink);padding:0 0 2px}
+:is(.hero,.filters) .search input,:is(.hero,.filters) .search select{border:0;background:transparent;padding:0;min-height:28px;font-size:16px;color:var(--ink-2)}
+:is(.hero,.filters) .search input:focus,:is(.hero,.filters) .search select:focus{box-shadow:none}
+:is(.hero,.filters) .search .btn{border-radius:18px;min-height:52px;margin:4px;font-size:16px}
+@media (min-width:640px){
+  :is(.hero,.filters) .search{grid-template-columns:1.5fr 1fr auto;align-items:center;border-radius:999px;padding:6px 6px 6px 8px}
+  :is(.hero,.filters) .search > div{border-radius:999px}
+  :is(.hero,.filters) .search > div + div{position:relative}
+  :is(.hero,.filters) .search > div + div::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:var(--line)}
+  :is(.hero,.filters) .search .btn{border-radius:999px;min-width:56px;padding-inline:22px;margin:0}
+}
+.popular{font-size:14px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.popular .chip{border:0;background:none;padding:6px 6px;min-height:36px;font-weight:600;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.popular .chip:hover{color:var(--ink);text-decoration-color:currentColor}
+.proof{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--ink-2);font-size:14px}
+.proof b{display:block;font-size:22px;color:var(--ink);font-weight:800;letter-spacing:-.02em}
+
+/* category bar (Airbnb categories) */
+.catbar{border-bottom:1px solid var(--line);background:var(--paper);position:relative}
+.catbar .cats{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-top:8px;grid-template-columns:none}
+.catbar .cats::-webkit-scrollbar{display:none}
+@media (min-width:1024px){.catbar .cats{justify-content:space-between}}
+.catbar .cats button{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;min-width:84px;min-height:72px;padding:8px 6px 12px;border:0;border-radius:0;background:none;box-shadow:none;color:var(--ink-3);border-bottom:2px solid transparent;transform:none;text-align:center}
+.catbar .cats button:hover{color:var(--ink);border-bottom-color:var(--line);box-shadow:none;transform:none}
+.catbar .cats .ci{width:28px;height:28px;background:none;color:currentColor;border-radius:0;margin:0;grid-row:auto}
+.catbar .cats .ci svg{width:26px;height:26px}
+.catbar .cats b{font-size:12px;font-weight:600;white-space:nowrap}
+.catbar .cats .sw{display:none}
+
+/* cards: photo-first, no box */
+.card{background:none;border:0;border-radius:0;overflow:visible;gap:0}
+.card:hover{box-shadow:none;transform:none}
+.card .ph{border-radius:14px;overflow:hidden}
+.card:hover .ph img{transform:scale(1.03)}
+.ph img{transition:transform .3s ease-out}
+@media (prefers-reduced-motion:reduce){.ph img,.card:hover .ph img{transition:none;transform:none}}
+.card .body{padding:12px 2px 4px}
+@media (max-width:639px){.card{grid-template-columns:112px 1fr;gap:12px}.card .body{padding:2px 0}}
+.card .name{font-size:16px;font-weight:700}
+.ph small{background:rgba(255,255,255,.95);font-weight:600}
+.tag{background:var(--sand-2);color:var(--ink-2)}
+.card .acts .btn{min-height:40px;font-size:14px}
+.btn-wa{background:var(--leaf)}
+.btn-line:hover{border-color:var(--ink)}
+.open{color:var(--leaf)}
+
+/* areas: text under photo */
+.area{aspect-ratio:auto;background:none;color:var(--ink);overflow:visible;border-radius:0;display:grid;gap:10px}
+.area img{position:static;display:block;width:100%;aspect-ratio:4/5;border-radius:16px;height:auto}
+@media (min-width:900px){.area img{aspect-ratio:1/1}}
+.area::after{display:none}
+.area span{position:static}
+.area b{font-family:var(--f-body);font-size:16px;font-weight:700}
+.area small{opacity:1;color:var(--ink-3);font-size:14px}
+.area:hover img{transform:none;filter:brightness(.96)}
+
+/* guide + band */
+.col{border:0;padding:0;background:none;gap:12px}
+.col .cimg{margin:0;border-radius:16px;overflow:hidden}
+.col li a,.col li button{font-weight:600}
+.band{background:var(--sun-soft);border:0;border-radius:24px}
+.band::before{display:none}
+.band .btn-coral{background:var(--ink);color:#fff}
+.band .btn-coral:hover{background:#000}
+@media (min-width:900px){.band .bimg{border-radius:24px 0 0 24px}}
+
+/* results + listing */
+.filters{background:var(--paper)}
+.chip{border-color:var(--line);font-weight:600}
+.chip:hover{border-color:var(--ink)}
+.box{border-color:var(--line);border-radius:16px}
+.side .box{box-shadow:var(--shadow-lg);border:1px solid var(--line)}
+.gallery{border-radius:20px}
+.answer{background:var(--ocean-soft)}
+footer.site{background:var(--sand-2);margin-top:48px}
+footer.site::before{height:4px;background:var(--flag)}
+.steps li.done,.check li.ok::before,.bars i{background:var(--ocean)}
+.check li.ok::before{border-color:var(--ocean)}
+
+@media (max-width:1023px){.hero-photo{aspect-ratio:3/2}}
+@media (min-width:1024px){.hero-photo{aspect-ratio:auto;height:min(620px,72vh);max-height:none}}
+@media (min-width:900px){.area img{aspect-ratio:4/3}}
+@media (min-width:900px){.band{grid-template-columns:1fr 1fr}.band .bimg{grid-row:1/4;min-height:360px}.band > div{align-self:end;margin-top:36px}.band > a{align-self:start}}
+.col .cimg{aspect-ratio:16/9}
+@media (max-width:767px){.filters{position:static}}
 </style>
 
 <a class="skip" href="#content">Skip to content</a>
@@ -296,7 +445,7 @@ footer.site a{color:var(--ink-2);text-decoration:none}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="ZanziBiz home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--teal)"/><path d="M9 10h13L10 22h13" fill="none" stroke="var(--paper)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="9.5" r="2.6" fill="var(--coral)"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--sun)"/><path d="M9 10h13L10 22h13" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="9.5" r="2.6" fill="var(--ocean)"/></svg>
       ZanziBiz
     </a>
     <nav class="main" aria-label="Main">
@@ -319,26 +468,36 @@ footer.site a{color:var(--ink-2);text-decoration:none}
 <!-- HOME -->
 <div class="view" id="v-home">
   <div class="hero">
-    <img alt="Women harvesting seaweed in the lagoon at Jambiani, Zanzibar" fetchpriority="high" id="heroImg">
-    <a class="credit" href="#credits">Photo: Yann Macherez, CC BY-SA 4.0</a>
-    <div class="wrap">
-      <span class="eyebrow">Karibu · Unguja, Zanzibar</span>
-      <h1 data-t="home_h1">Find a local business in Zanzibar, and message them directly.</h1>
-      <p class="lede" data-t="home_lede">Fundis, drivers, guesthouses, tours and shops across Unguja, listed and kept up to date by their owners.</p>
-      <form class="search" id="homeSearch" role="search">
-        <div><label for="q" data-t="what">What do you need?</label><input id="q" name="q" autocomplete="off" placeholder="Fundi umeme, airport taxi, spice tour…"></div>
-        <div><label for="area" data-t="where">Where</label><select id="area" name="area"></select></div>
-        <button class="btn btn-coral" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-t="search">Search</span></button>
-      </form>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">The yellow pages of Zanzibar</span>
+        <h1 data-t="home_h1">Find trusted <em>local</em> businesses in Zanzibar.</h1>
+        <p class="lede" data-t="home_lede">Fundis, drivers, guesthouses, tours and shops, listed by their owners. Message them on WhatsApp in one tap.</p>
+        <form class="search" id="homeSearch" role="search">
+          <div><label for="q" data-t="what">What do you need?</label><input id="q" name="q" autocomplete="off" placeholder="Fundi umeme, airport taxi…"></div>
+          <div><label for="area" data-t="where">Where</label><select id="area" name="area"></select></div>
+          <button class="btn btn-coral" type="submit" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span data-t="search">Search</span></button>
+        </form>
+        <div class="popular"><span data-t="popular">Popular:</span><span id="needs" style="display:contents"></span></div>
+        <ul class="proof" aria-label="Sample figures">
+          <li><b>1,240</b>local businesses</li>
+          <li><b>38</b>categories</li>
+          <li><b>Unguja &amp; Pemba</b>every district</li>
+        </ul>
+      </div>
+      <figure class="hero-photo">
+        <img alt="Seaweed farmers working in the lagoon at Jambiani, Zanzibar" fetchpriority="high" id="heroImg">
+        <figcaption>
+          <span class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Seaweed farmers, Jambiani</span>
+          <a class="credit" href="#credits">Yann Macherez, CC BY-SA 4.0</a>
+        </figcaption>
+      </figure>
     </div>
   </div>
-    <div class="hero-foot"><div class="wrap">
-      <p class="small muted" style="margin-bottom:8px" data-t="popular">People often look for</p>
-      <div class="needs" id="needs"></div>
-    </div></div>
+  <div class="catbar"><div class="wrap"><div class="cats" id="cats" role="list" aria-label="Browse by category"></div></div></div>
 
   <section class="wrap">
-    <div class="sec-head"><h2 id="openNowTitle">Open now</h2><a href="#search" data-go="all">See all <span id="allCount"></span> →</a></div>
+    <div class="sec-head"><h2 id="openNowTitle">Open now</h2><a href="#search" data-go="all">See all&nbsp;<span id="allCount"></span>&nbsp;→</a></div>
     <div class="rail four" id="openRail"></div>
   </section>
 
@@ -347,10 +506,6 @@ footer.site a{color:var(--ink-2);text-decoration:none}
     <div class="areas" id="areas"></div>
   </section>
 
-  <section class="wrap" style="padding-top:0">
-    <div class="sec-head"><h2 data-t="browse">Browse by category</h2></div>
-    <div class="cats" id="cats"></div>
-  </section>
 
   <section class="wrap" style="padding-top:0">
     <div class="sec-head"><h2 data-t="guide_h">Zanzibar travel guide</h2><a href="#guide">Open the guide →</a></div>
@@ -383,7 +538,7 @@ footer.site a{color:var(--ink-2);text-decoration:none}
 <!-- RESULTS -->
 <div class="view" id="v-search">
   <div class="filters"><div class="wrap" style="display:grid;gap:10px">
-    <form class="search" id="resSearch" role="search" style="box-shadow:none">
+    <form class="search" id="resSearch" role="search" style="max-width:860px">
       <div><label for="q2">What</label><input id="q2" autocomplete="off" placeholder="Try “fundi”, “taxi”, “guesthouse”"></div>
       <div><label for="area2">Where</label><select id="area2"></select></div>
       <button class="btn btn-coral" type="submit">Search</button>
@@ -579,10 +734,10 @@ const L = [
 
 // i18n (Swahili strings to be reviewed by a native speaker)
 const T = {
-  en:{nav_dir:'Directory',nav_guide:'Travel guide',nav_saved:'Saved',nav_owner:'For business',cta_list:'List your business',what:'What do you need?',where:'Where',search:'Search',popular:'People often look for',browse:'Browse by category',guide_h:'Zanzibar travel guide',tab_home:'Home',tab_search:'Search',tab_guide:'Guide',tab_saved:'Saved',tab_owner:'Business',
-      home_h1:'Find a local business in Zanzibar, and message them directly.',home_lede:'Fundis, drivers, guesthouses, tours and shops across Unguja, listed and kept up to date by their owners.'},
-  sw:{nav_dir:'Saraka',nav_guide:'Mwongozo wa safari',nav_saved:'Vilivyohifadhiwa',nav_owner:'Kwa biashara',cta_list:'Orodhesha biashara yako',what:'Unahitaji nini?',where:'Wapi',search:'Tafuta',popular:'Watu hutafuta mara nyingi',browse:'Tafuta kwa aina',guide_h:'Mwongozo wa Zanzibar',tab_home:'Nyumbani',tab_search:'Tafuta',tab_guide:'Mwongozo',tab_saved:'Hifadhi',tab_owner:'Biashara',
-      home_h1:'Pata biashara ya hapa Zanzibar, na uwasiliane nao moja kwa moja.',home_lede:'Mafundi, madereva, nyumba za wageni, ziara na maduka kote Unguja, zinazoorodheshwa na kusasishwa na wamiliki wenyewe.'}
+  en:{nav_dir:'Directory',nav_guide:'Travel guide',nav_saved:'Saved',nav_owner:'For business',cta_list:'List your business',what:'What do you need?',where:'Where',search:'Search',popular:'Popular:',browse:'Browse by category',guide_h:'Zanzibar travel guide',tab_home:'Home',tab_search:'Search',tab_guide:'Guide',tab_saved:'Saved',tab_owner:'Business',
+      home_h1:'Find trusted <em>local</em> businesses in Zanzibar.',home_lede:'Fundis, drivers, guesthouses, tours and shops, listed by their owners. Message them on WhatsApp in one tap.'},
+  sw:{nav_dir:'Saraka',nav_guide:'Mwongozo wa safari',nav_saved:'Vilivyohifadhiwa',nav_owner:'Kwa biashara',cta_list:'Orodhesha biashara yako',what:'Unahitaji nini?',where:'Wapi',search:'Tafuta',popular:'Maarufu:',browse:'Tafuta kwa aina',guide_h:'Mwongozo wa Zanzibar',tab_home:'Nyumbani',tab_search:'Tafuta',tab_guide:'Mwongozo',tab_saved:'Hifadhi',tab_owner:'Biashara',
+      home_h1:'Pata biashara <em>za hapa</em> Zanzibar unazoweza kuziamini.',home_lede:'Mafundi, madereva, nyumba za wageni, ziara na maduka, zimeorodheshwa na wamiliki wenyewe. Watumie ujumbe WhatsApp kwa mguso mmoja.'}
 };
 let lang = store.get('zb_lang','en');
 function applyLang(){
@@ -656,7 +811,7 @@ function fillAreas(sel){ sel.innerHTML = AREAS.map(a => `<option>${a}</option>`)
 fillAreas($('#area')); fillAreas($('#area2'));
 
 // home
-$('#needs').innerHTML = NEEDS.map(([t,c]) => `<button type="button" class="chip" data-need="${c}">${esc(t)}</button>`).join('');
+$('#needs').innerHTML = NEEDS.slice(0,4).map(([t,c]) => `<button type="button" class="chip" data-need="${c}">${esc(t)}</button>`).join('');
 $$('#needs .chip').forEach(b => b.addEventListener('click', () => { state.cat = b.dataset.need; state.q = ''; state.area = 'All Zanzibar'; go('search'); }));
 function renderHome(){
   const open = L.filter(l => openState(l).open).slice(0,4);
