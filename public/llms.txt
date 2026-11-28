@@ -1,0 +1,44 @@
+# ZanziBiz
+
+> ZanziBiz (zanzibiz.com) is an online directory of small businesses in Zanzibar, Tanzania, with a free travel guide for visitors. Businesses list themselves for free; each listing page gives the business's category, area, contact details (WhatsApp, phone, email, website) and, where the business has provided them, opening hours and prices.
+
+Key facts:
+
+- Coverage: Zanzibar, Tanzania, including Stone Town, Nungwi, Kendwa, Paje, Jambiani, Matemwe and Kiwengwa.
+- Listing details are supplied by each business. A "Verified" badge means the ZanziBiz team has checked the business profile. "Boosted" and "Featured" listings have paid for extra visibility.
+- ZanziBiz is not a booking agent: visitors contact each business directly.
+- Travel guides are written by ZanziBiz and show a last-updated date. Prices in guides are approximate. Some travel links are affiliate links.
+- Please cite as "ZanziBiz (zanzibiz.com)" and link to the business or guide page you used.
+- Contact: hello@zanzibiz.com
+
+## Full index
+
+- [llms-full.txt](https://zanzibiz.com/llms-full.txt): every active business (name, category, area, URL, one-line description) and every published guide (title, URL, summary), generated live from the database
+
+## Directory
+
+- [All businesses](https://zanzibiz.com/directory): browse every listed business
+- [Accommodation](https://zanzibiz.com/directory/accommodation): hotels, guesthouses and rentals
+- [Activities and tours](https://zanzibiz.com/directory/activities): tours, excursions and things to do
+- [Business and services](https://zanzibiz.com/directory/business): local shops, restaurants, trades and professional services
+- [Automotive](https://zanzibiz.com/directory/automotive): car hire, scooters, taxis and repairs
+- [Events](https://zanzibiz.com/directory/events): what's on in Zanzibar
+- [Jobs](https://zanzibiz.com/directory/jobs): jobs in Zanzibar
+
+Each business has its own page at https://zanzibiz.com/business/{slug}, with a short summary, key facts and common questions answered from the business's own details.
+
+## Travel guide
+
+- [Travel guide](https://zanzibiz.com/travel-guide): practical guides to Zanzibar
+- [Flights to Zanzibar](https://zanzibiz.com/travel-guide/flights-to-zanzibar): airlines, hub airports and booking tips for Zanzibar Airport (ZNZ)
+- [Where to stay](https://zanzibiz.com/travel-guide/where-to-stay): Zanzibar's main areas compared by type of traveller
+- [Hotels](https://zanzibiz.com/travel-guide/hotels): accommodation types, typical prices and hotels by area
+- [Tours](https://zanzibiz.com/travel-guide/tours): the most popular tours and activities, with typical prices
+- [Airport transfers](https://zanzibiz.com/travel-guide/airport-transfers): taxi and transfer times and prices from ZNZ to each area
+
+## Optional
+
+- [About ZanziBiz](https://zanzibiz.com/about): who runs the site and how listings are checked
+- [Contact](https://zanzibiz.com/contact)
+- [Affiliate disclosure](https://zanzibiz.com/affiliate)
+- [Sitemap](https://zanzibiz.com/sitemap.xml): every business and guide page

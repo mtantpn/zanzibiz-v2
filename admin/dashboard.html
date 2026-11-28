@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Super Admin Dashboard - ZanziBiz</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#22C55E">
+    <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        /* Admin palette overrides — replaces the main-site brand-* values */
+        .bg-brand-green, .hover\:bg-brand-green:hover { background-color: #22C55E !important; }
+        .bg-brand-orange, .hover\:bg-brand-orange:hover { background-color: #FB923C !important; }
+        .bg-brand-blue, .hover\:bg-brand-blue:hover { background-color: #5B9BD5 !important; }
+        .bg-brand-teal, .hover\:bg-brand-teal:hover { background-color: #0891B2 !important; }
+        .bg-warm-white { background-color: #FDFEFE !important; }
+        .text-brand-green { color: #22C55E !important; }
+        .text-brand-orange { color: #FB923C !important; }
+        .text-brand-blue { color: #5B9BD5 !important; }
+        .text-brand-teal { color: #0891B2 !important; }
+        .text-brand-gray { color: #4A4A4A !important; }
+        .border-brand-green { border-color: #22C55E !important; }
+        .border-brand-orange { border-color: #FB923C !important; }
+        .border-brand-teal { border-color: #0891B2 !important; }
+        .font-body { font-family: Inter, system-ui, sans-serif; }
+        .font-display { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+        .brand-orange\/10 { background-color: rgb(251 146 60 / 0.1) !important; }
+        .brand-teal\/10 { background-color: rgb(8 145 178 / 0.1) !important; }
+    </style>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Modal improvements for cross-browser compatibility */
+        #blogPostModal {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        #blogPostModal .bg-white.rounded-xl {
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Ensure sticky header works in all browsers */
+        #blogPostModal .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .sidebar-link {
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 1.5rem;
+        }
+
+        .sidebar-link.active {
+            background: rgba(251, 146, 60, 0.3);
+            border-left: 4px solid #FB923C;
+        }
+    </style>
+    <style>
+        #__auth_overlay {
+            position: fixed; inset: 0; z-index: 99999;
+            background: #f8f9fa;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 16px;
+        }
+        #__auth_overlay .auth-spinner {
+            width: 44px; height: 44px;
+            border: 3px solid #dee2e6;
+            border-top-color: #22C55E;
+            border-radius: 50%;
+            animation: auth-spin 0.75s linear infinite;
+        }
+        #__auth_overlay p {
+            font-family: Inter, system-ui, sans-serif;
+            font-size: 14px; color: #6c757d; margin: 0;
+        }
+        @keyframes auth-spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+
+<body class="font-body">
+    <div id="__auth_overlay">
+        <div class="auth-spinner"></div>
+        <p>Verifying access&hellip;</p>
+    </div>
+    <div class="flex h-screen overflow-hidden">
+        <aside class="w-64 glass text-white shadow-2xl">
+            <div class="p-6 border-b border-white/20">
+                <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-11 sm:h-12 w-auto mb-2 drop-shadow-lg">
+                <p class="text-xs text-white/70">Super Admin Panel</p>
+            </div>
+
+            <nav class="p-4">
+                <a href="#" onclick="switchTab('overview')" class="sidebar-link active flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                    <span class="font-medium">Overview</span>
+                </a>
+
+                <a href="#" onclick="switchTab('analytics')" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span class="font-medium">Analytics</span>
+                </a>
+
+                <a href="#" onclick="switchTab('users')" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                    <span class="font-medium">Users</span>
+                </a>
+
+                <a href="#" onclick="switchTab('listings')" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    <span class="font-medium">Listings</span>
+                </a>
+
+                <a href="#" onclick="switchTab('tokens')" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="font-medium">Token Management</span>
+                </a>
+
+                <a href="payments.html" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                    <span class="font-medium">Payments</span>
+                </a>
+
+                <a href="#" onclick="switchTab('moderation')" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <span class="font-medium">Moderation</span>
+                </a>
+
+                <a href="#" onclick="switchTab('blog')" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg mb-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span class="font-medium">Useful Info</span>
+                </a>
+            </nav>
+
+            <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/20">
+                <button onclick="logout()" class="sidebar-link flex items-center space-x-3 px-4 py-3 rounded-lg w-full text-red-300 hover:text-red-100">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                    <span class="font-medium">Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <header class="glass-strong px-6 py-4 shadow-lg">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="font-display text-2xl font-bold text-brand-gray" id="pageTitle">Overview Dashboard</h1>
+                        <p class="text-sm text-gray-600">Welcome back, <span id="adminName" class="font-semibold text-[#0A6A94]">Admin</span></p>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                            <p class="text-xs text-gray-500">Current Time</p>
+                            <p class="text-sm font-semibold text-brand-gray" id="currentTime">--:--</p>
+                        </div>
+                        <a href="../index.html" class="px-4 py-2 bg-brand-orange text-[#1D2427] rounded-lg hover:bg-[#F2B705]/90 transition-all text-sm font-medium">
+                            View Site
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-y-auto p-6">
+                <!-- Overview Tab -->
+                <div id="overview-tab" class="tab-content active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                        <div class="stat-card p-6 rounded-xl text-white">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-white/80 text-sm mb-1">Total Users</p>
+                                <p class="text-4xl font-bold" id="totalUsers">0</p>
+                                <p class="text-xs text-white/60 mt-2">+<span id="todayUsers">0</span> today</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card p-6 rounded-xl text-white">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-white/80 text-sm mb-1">Total Listings</p>
+                                <p class="text-4xl font-bold" id="totalListings">0</p>
+                                <p class="text-xs text-white/60 mt-2">+<span id="todayListings">0</span> today</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card p-6 rounded-xl text-white">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-white/80 text-sm mb-1">Online Now</p>
+                                <p class="text-4xl font-bold" id="activeUsers">0</p>
+                                <p class="text-xs text-white/60 mt-2">Active sessions</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card p-6 rounded-xl text-white">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-white/80 text-sm mb-1">Businesses</p>
+                                <p class="text-4xl font-bold" id="totalBusinesses">0</p>
+                                <p class="text-xs text-white/60 mt-2"><span id="verifiedBusinesses">0</span> verified</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h4 class="font-semibold text-brand-gray mb-2">Revenue (30d)</h4>
+                            <p class="text-3xl font-bold text-brand-green" id="totalRevenue">$0</p>
+                            <p class="text-sm text-gray-500" id="revenueGrowth">+0%</p>
+                        </div>
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h4 class="font-semibold text-brand-gray mb-2">Token Sales</h4>
+                            <p class="text-3xl font-bold text-[#0A6A94]" id="tokenSales">0</p>
+                            <p class="text-sm text-gray-500" id="avgPurchase">$0 avg</p>
+                        </div>
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h4 class="font-semibold text-brand-gray mb-2">Engagement</h4>
+                            <p class="text-3xl font-bold text-brand-teal" id="totalReviews">0</p>
+                            <p class="text-sm text-gray-500" id="avgRating">0.0 avg rating</p>
+                        </div>
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h4 class="font-semibold text-brand-gray mb-2">Messages</h4>
+                            <p class="text-3xl font-bold text-brand-blue" id="totalMessages">0</p>
+                            <p class="text-sm text-gray-500">platform-wide</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h3 class="font-display text-xl font-bold text-brand-gray mb-4">Site Evolution (30 Days)</h3>
+                            <div style="height: 300px;">
+                                <canvas id="growthChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h3 class="font-display text-xl font-bold text-brand-gray mb-4">Listings by Category</h3>
+                            <div style="height: 300px;">
+                                <canvas id="categoryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-strong p-6 rounded-xl shadow-xl mb-8">
+                        <h3 class="font-display text-xl font-bold text-brand-gray mb-4">Top Performing Listings</h3>
+                        <div id="topListings" class="overflow-x-auto">
+                            <p class="text-gray-500 text-center py-8">Loading...</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-strong p-6 rounded-xl shadow-xl">
+                        <h3 class="font-display text-xl font-bold text-brand-gray mb-4">Recent Activity</h3>
+                        <div id="recentActivity" class="space-y-3">
+                            <p class="text-gray-500 text-center py-8">Loading activity...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Tab -->
+                <div id="analytics-tab" class="tab-content">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h4 class="font-semibold text-brand-gray mb-2">Today's Traffic</h4>
+                            <p class="text-3xl font-bold text-[#0A6A94]" id="todayTraffic">0</p>
+                            <p class="text-sm text-gray-500">page views</p>
+                        </div>
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h4 class="font-semibold text-brand-gray mb-2">Unique Visitors</h4>
+                            <p class="text-3xl font-bold text-brand-teal" id="uniqueVisitors">0</p>
+                            <p class="text-sm text-gray-500">unique today</p>
+                        </div>
+                        <div class="glass-strong p-6 rounded-xl shadow-xl">
+                            <h4 class="font-semibold text-brand-gray mb-2">Avg. Session</h4>
+                            <p class="text-3xl font-bold text-brand-green" id="avgSession">0m</p>
+                            <p class="text-sm text-gray-500">duration</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-strong p-6 rounded-xl shadow-xl mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-display text-xl font-bold text-brand-gray">Traffic Timeline</h3>
+                            <select id="trafficPeriod" class="px-4 py-2 border border-gray-300 rounded-lg" onchange="loadTrafficChart()">
+                                <option value="7">Last 7 Days</option>
+                                <option value="30" selected>Last 30 Days</option>
+                                <option value="90">Last 90 Days</option>
+                            </select>
+                        </div>
+                        <div style="height: 400px;">
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Tab -->
+                <div id="users-tab" class="tab-content">
+                    <div class="glass-strong rounded-xl shadow-xl overflow-hidden">
+                        <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+                            <h3 class="font-display text-xl font-bold text-brand-gray">All Users Management</h3>
+                            <div class="flex gap-3">
+                                <button onclick="openCreateUserModal()" class="bg-brand-green text-white px-4 py-2 rounded-lg hover:bg-brand-green/90 flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                    Create User
+                                </button>
+                                <button onclick="exportData('users')" class="bg-brand-blue text-white px-4 py-2 rounded-lg hover:bg-brand-blue/90 flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    Export
+                                </button>
+                                <input type="text" id="userSearch" placeholder="Search users..." class="px-4 py-2 border border-gray-300 rounded-lg" onkeyup="searchUsers()">
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">User ID</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Name & Email</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Joined</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody" class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td colspan="6" class="px-6 py-12 text-center text-gray-500">Loading users...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listings Tab -->
+                <div id="listings-tab" class="tab-content">
+                    <div class="glass-strong rounded-xl shadow-xl overflow-hidden">
+                        <div class="p-6 border-b border-gray-200 flex items-center justify-between gap-3">
+                            <h3 class="font-display text-xl font-bold text-brand-gray">All Listings</h3>
+                            <div class="flex items-center gap-3">
+                                <button onclick="openCreateListingModal()" class="bg-brand-orange text-[#1D2427] px-4 py-2 rounded-lg hover:bg-[#F2B705]/90 flex items-center gap-2 text-sm font-medium">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                    </svg>
+                                    Add Listing
+                                </button>
+                                <select id="categoryFilter" class="px-4 py-2 border border-gray-300 rounded-lg" onchange="loadListings()">
+                                    <option value="">All Categories</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="listingsGrid" class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <p class="col-span-full text-center text-gray-500 py-8">Loading listings...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tokens Tab -->
+                <div id="tokens-tab" class="tab-content">
+                    <div class="glass-strong p-6 rounded-xl shadow-xl">
+                        <h3 class="font-display text-xl font-bold text-brand-gray mb-6">Grant Tokens to Business</h3>
+                        <form id="grantTokensForm" class="max-w-lg space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Select Business</label>
+                                <select id="businessSelect" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                    <option value="">Select a business...</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Token Amount</label>
+                                <input type="number" id="tokenAmount" min="1" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Enter amount">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Reason</label>
+                                <textarea id="tokenReason" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Reason for granting tokens..."></textarea>
+                            </div>
+                            <button type="submit" class="bg-brand-orange text-[#1D2427] px-6 py-3 rounded-lg font-semibold hover:bg-[#F2B705]/90">
+                                Grant Tokens
+                            </button>
+                        </form>
+
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-brand-gray mb-4">Recent Token Transactions</h4>
+                            <div id="tokenTransactions" class="space-y-3">
+                                <p class="text-gray-500">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Moderation Tab -->
+                <div id="moderation-tab" class="tab-content">
+                    <div class="glass-strong p-6 rounded-xl shadow-xl">
+                        <h3 class="font-display text-xl font-bold text-brand-gray mb-6">Content Moderation</h3>
+                        <div id="moderationQueue" class="space-y-4">
+                            <p class="text-gray-500 text-center py-8">No items pending moderation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Management Tab -->
+                <div id="blog-tab" class="tab-content">
+                    <div class="glass-strong p-6 rounded-xl shadow-xl mb-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-display text-2xl font-bold text-brand-gray">Useful Info Management</h3>
+                            <button onclick="openCreatePostModal()" class="bg-brand-teal text-white px-4 py-2 rounded-lg hover:bg-brand-teal/90 transition-colors flex items-center space-x-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                </svg>
+                                <span>New Guide</span>
+                            </button>
+                        </div>
+
+                        <div class="mb-6 flex items-center space-x-4">
+                            <input type="text" id="blogSearchInput" placeholder="Search guides..." class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
+                            <select id="blogStatusFilter" onchange="loadBlogPosts()" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
+                                <option value="all">All Status</option>
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                            </select>
+                        </div>
+
+                        <div id="blogPostsList" class="space-y-4"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Create User Modal -->
+    <div id="createUserModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4">
+            <div class="p-6 border-b border-gray-200 flex items-center justify-between">
+                <h3 class="font-display text-2xl font-bold text-brand-gray">Create New User</h3>
+                <button onclick="closeCreateUserModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <form id="createUserForm" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="newUserName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="John Doe">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input type="email" id="newUserEmail" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="john@example.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Temporary Password</label>
+                    <input type="password" id="newUserPassword" required minlength="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Min. 6 characters">
+                    <p class="text-xs text-gray-500 mt-1">User will need to change this on first login</p>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Account Type</label>
+                    <select id="newUserType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" onchange="toggleBusinessFields()">
+                        <option value="user">Regular User</option>
+                        <option value="business">Business Account</option>
+                        <option value="admin">Admin Account</option>
+                    </select>
+                </div>
+                <div id="businessFields" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
+                        <input type="text" id="newBusinessName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Business Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Initial Token Balance</label>
+                        <input type="number" id="newUserTokens" min="0" value="0" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="0">
+                    </div>
+                </div>
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="flex-1 bg-brand-green text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-green/90 transition-all">
+                        Create User
+                    </button>
+                    <button type="button" onclick="closeCreateUserModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Blog Post Modal -->
+    <div id="blogPostModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div class="min-h-screen flex items-start justify-center p-4 sm:p-6 md:p-8">
+            <div class="bg-white rounded-xl shadow-2xl max-w-4xl w-full my-8">
+                <div class="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white rounded-t-xl z-10">
+                <h3 class="font-display text-2xl font-bold text-brand-gray" id="blogModalTitle">Create New Guide</h3>
+                <button onclick="closeBlogPostModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <form id="blogPostForm" class="p-6 space-y-6" novalidate>
+                <input type="hidden" id="postId" value="">
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
+                    <input type="text" id="postTitle" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" placeholder="e.g., Complete Guide to Zanzibar Beaches">
+                    <p class="text-xs text-gray-500 mt-1">URL will be auto-generated from title</p>
+                    <p id="postTitleError" class="text-xs text-red-600 mt-1 hidden">Title is required</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Category *</label>
+                    <select id="postCategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
+                        <option value="">Select a category</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="accommodation">Accommodation</option>
+                        <option value="food">Food & Dining</option>
+                        <option value="culture">Culture & History</option>
+                        <option value="activities">Activities</option>
+                        <option value="beaches">Beaches</option>
+                        <option value="tips">Travel Tips</option>
+                    </select>
+                    <p id="postCategoryError" class="text-xs text-red-600 mt-1 hidden">Category is required</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Short Summary *</label>
+                    <textarea id="postExcerpt" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" placeholder="Brief description shown on listing page (2-3 sentences)"></textarea>
+                    <p id="postExcerptError" class="text-xs text-red-600 mt-1 hidden">Short summary is required</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Content *</label>
+                    <textarea id="postContent" rows="12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" placeholder="Write your complete guide here. You can use line breaks for paragraphs."></textarea>
+                    <p class="text-xs text-gray-500 mt-1">Tip: Press Enter twice to create new paragraphs</p>
+                    <p id="postContentError" class="text-xs text-red-600 mt-1 hidden">Full content is required</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Content Images (Optional)</label>
+                    <p class="text-xs text-gray-600 mb-3">Add images with optional links to break up long content. Images will appear every 2-4 paragraphs throughout your guide.</p>
+                    <div id="contentImagesContainer" class="space-y-3"></div>
+                    <button type="button" onclick="addContentImage()" class="mt-2 px-4 py-2 text-brand-teal border border-brand-teal rounded-lg hover:bg-brand-teal/5 transition-colors text-sm font-medium">
+                        + Add Content Image
+                    </button>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Featured Image</label>
+                    <input type="file" id="postFeaturedImageFile" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
+                    <input type="hidden" id="postFeaturedImage">
+                    <p class="text-xs text-gray-500 mt-1">Main image shown at top of guide and in listings</p>
+                    <div id="featuredImagePreview" class="mt-2 hidden">
+                        <img src="" alt="Preview" class="max-w-xs rounded-lg shadow-sm">
+                        <button type="button" onclick="removeFeaturedImage()" class="mt-2 text-red-600 text-sm hover:text-red-800">Remove image</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Additional Images (Optional)</label>
+                    <div class="flex gap-2">
+                        <input type="file" id="additionalImagesFiles" accept="image/*" multiple class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
+                        <button type="button" onclick="clearAllAdditionalImages()" class="px-4 py-2 text-red-600 border border-red-300 rounded-lg hover:bg-red-50 transition-colors text-sm">
+                            Clear All
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">You can select multiple images at once. Click X on each image to remove it.</p>
+                    <div id="additionalImagesPreview" class="mt-3 grid grid-cols-3 gap-3"></div>
+                    <div id="additionalImagesContainer" class="hidden"></div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Useful Links (Optional)</label>
+                    <p class="text-xs text-gray-500 mb-3">Add relevant links for this guide (e.g., official websites, booking pages)</p>
+                    <div id="usefulLinksContainer" class="space-y-3">
+                        <div class="useful-link-item grid grid-cols-2 gap-3">
+                            <input type="text" class="link-text w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" placeholder="Link text (e.g., Chamber of Commerce)">
+                            <input type="text" class="link-url w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" placeholder="https://example.com">
+                        </div>
+                    </div>
+                    <button type="button" onclick="addUsefulLink()" class="mt-2 text-brand-teal text-sm hover:text-brand-teal/80">+ Add another link</button>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tags (Optional)</label>
+                    <input type="text" id="postTags" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" placeholder="beach, snorkeling, sunset">
+                    <p class="text-xs text-gray-500 mt-1">Separate tags with commas</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Status *</label>
+                    <div class="flex items-center space-x-6">
+                        <label class="flex items-center space-x-2 cursor-pointer">
+                            <input type="radio" name="status" value="draft" id="statusDraft" checked class="w-4 h-4 text-brand-teal focus:ring-brand-teal">
+                            <span class="text-sm">Draft (not visible to public)</span>
+                        </label>
+                        <label class="flex items-center space-x-2 cursor-pointer">
+                            <input type="radio" name="status" value="published" id="statusPublished" class="w-4 h-4 text-brand-teal focus:ring-brand-teal">
+                            <span class="text-sm">Published (visible to everyone)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex gap-3 pt-4 border-t">
+                    <button type="submit" class="flex-1 bg-brand-teal text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-teal/90 transition-all">
+                        <span id="saveButtonText">Create Guide</span>
+                    </button>
+                    <button type="button" onclick="closeBlogPostModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Listing Modal -->
+    <div id="createListingModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div class="min-h-screen flex items-start justify-center p-4 sm:p-6">
+            <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full my-8">
+                <div class="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white rounded-t-xl z-10">
+                    <h3 class="font-display text-2xl font-bold text-brand-gray">Add New Listing</h3>
+                    <button onclick="closeCreateListingModal()" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <form id="createListingForm" class="p-6 space-y-5" novalidate>
+
+                    <div class="p-4 bg-brand-orange/5 border border-[#0A6A94]/20 rounded-lg">
+                        <h4 class="font-semibold text-brand-gray mb-3">Listed By</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Business / Person Name *</label>
+                                <input type="text" id="createListingByName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. Grayson Msovela">
+                                <p class="text-xs text-gray-500 mt-1">Name shown on the listing card. Can be anyone, registered or not.</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Link to Registered Business (Optional)</label>
+                                <select id="createListingBusinessId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                                    <option value="">None - unregistered business</option>
+                                </select>
+                                <p class="text-xs text-gray-500 mt-1">Only select if this business has an account. Leave empty otherwise.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Title *</label>
+                            <input type="text" id="createListingTitle" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. Stone Town Spice Tour">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                            <textarea id="createListingDescription" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Describe the business, service or product..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Category *</label>
+                            <select id="createListingCategory" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                                <option value="">Select category...</option>
+                                <option value="jobs">Jobs</option>
+                                <option value="events">Events</option>
+                                <option value="business">Business</option>
+                                <option value="automotive">Automotive</option>
+                                <option value="activities">Activities</option>
+                                <option value="useful-info">Useful Info</option>
+                                <option value="accommodation">Accommodation</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Subcategory</label>
+                            <input type="text" id="createListingSubcategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. Restaurant, Hotel...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Location *</label>
+                            <input type="text" id="createListingLocation" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. stone-town, nungwi...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                            <input type="text" id="createListingAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Street address">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
+                            <input type="number" id="createListingPrice" min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="0.00">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                            <select id="createListingStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending</option>
+                                <option value="featured">Featured</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                            <input type="text" id="createListingPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="+255...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
+                            <input type="text" id="createListingWhatsapp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="+255...">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="createListingEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="contact@business.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
+                            <input type="text" id="createListingWebsite" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="https://...">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Images</label>
+                        <input type="file" id="createListingImages" accept="image/*" multiple class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                        <p class="text-xs text-gray-500 mt-1">Select one or more images for this listing.</p>
+                        <div id="createListingImagesPreview" class="mt-3 grid grid-cols-3 gap-3"></div>
+                    </div>
+
+                    <div class="flex gap-3 pt-4 border-t">
+                        <button type="submit" id="createListingSubmitBtn" class="flex-1 bg-brand-orange text-[#1D2427] py-3 px-6 rounded-lg font-semibold hover:bg-[#F2B705]/90 transition-all">
+                            Create Listing
+                        </button>
+                        <button type="button" onclick="closeCreateListingModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Listing Modal -->
+    <div id="editListingModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div class="min-h-screen flex items-start justify-center p-4 sm:p-6">
+            <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full my-8">
+                <div class="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white rounded-t-xl z-10">
+                    <h3 class="font-display text-2xl font-bold text-brand-gray">Edit Listing</h3>
+                    <button onclick="closeEditListingModal()" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <form id="editListingForm" class="p-6 space-y-5" novalidate>
+                    <input type="hidden" id="editListingId">
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Listed By Name</label>
+                        <input type="text" id="editListingByName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Business or person name shown on listing">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Title *</label>
+                            <input type="text" id="editListingTitle" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                            <textarea id="editListingDescription" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                            <select id="editListingCategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                                <option value="jobs">Jobs</option>
+                                <option value="events">Events</option>
+                                <option value="business">Business</option>
+                                <option value="automotive">Automotive</option>
+                                <option value="activities">Activities</option>
+                                <option value="useful-info">Useful Info</option>
+                                <option value="accommodation">Accommodation</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Subcategory</label>
+                            <input type="text" id="editListingSubcategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                            <input type="text" id="editListingLocation" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                            <input type="text" id="editListingAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
+                            <input type="number" id="editListingPrice" min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                            <select id="editListingStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending</option>
+                                <option value="boosted">Boosted</option>
+                                <option value="featured">Featured</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                            <input type="text" id="editListingPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="editListingEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
+                            <input type="text" id="editListingWebsite" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
+                            <input type="text" id="editListingWhatsapp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Current Images</label>
+                        <div id="editListingCurrentImages" class="grid grid-cols-3 gap-3 mb-3"></div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Add New Images</label>
+                        <input type="file" id="editListingNewImages" accept="image/*" multiple class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                        <p class="text-xs text-gray-500 mt-1">Select multiple images to add. Existing images are kept unless you remove them.</p>
+                        <div id="editListingNewImagesPreview" class="mt-3 grid grid-cols-3 gap-3"></div>
+                    </div>
+
+                    <div class="flex gap-3 pt-4 border-t">
+                        <button type="submit" class="flex-1 bg-brand-orange text-[#1D2427] py-3 px-6 rounded-lg font-semibold hover:bg-[#F2B705]/90 transition-all">
+                            Save Changes
+                        </button>
+                        <button type="button" onclick="closeEditListingModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div id="userProfileModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div class="min-h-screen flex items-start justify-center p-4 sm:p-6">
+            <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full my-8">
+                <div class="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white rounded-t-xl z-10">
+                    <h3 class="font-display text-2xl font-bold text-brand-gray">User Profile</h3>
+                    <button onclick="closeUserProfileModal()" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <form id="editUserProfileForm" class="p-6 space-y-5">
+                    <input type="hidden" id="editUserId">
+
+                    <div class="flex items-center space-x-6 mb-2">
+                        <div class="relative">
+                            <div id="userProfileAvatarDisplay" class="w-24 h-24 rounded-full bg-brand-orange flex items-center justify-center text-[#1D2427] text-3xl font-bold overflow-hidden">
+                                U
+                            </div>
+                            <label class="absolute bottom-0 right-0 bg-white rounded-full p-1 shadow cursor-pointer border border-gray-200 hover:bg-gray-50">
+                                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                                <input type="file" id="editUserProfilePicture" accept="image/*" class="hidden" onchange="previewUserProfilePicture(this)">
+                            </label>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 mb-1">User ID</p>
+                            <p id="editUserIdDisplay" class="text-xs font-mono text-gray-600"></p>
+                            <p class="text-sm text-gray-500 mt-2 mb-1">Joined</p>
+                            <p id="editUserJoinedDate" class="text-sm font-medium text-gray-700"></p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="editUserFullName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="editUserEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent bg-gray-50" readonly>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                            <input type="text" id="editUserPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Account Type</label>
+                            <select id="editUserType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                                <option value="user">Regular User</option>
+                                <option value="business">Business</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Language</label>
+                            <select id="editUserLanguage" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
+                                <option value="en">English</option>
+                                <option value="sw">Swahili</option>
+                                <option value="it">Italian</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Account Status</label>
+                            <div id="editUserStatusDisplay" class="flex items-center space-x-3 mt-2"></div>
+                        </div>
+                    </div>
+
+                    <div id="editUserBusinessSection" class="hidden p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-semibold text-brand-gray mb-3">Business Details</h4>
+                        <div class="grid grid-cols-2 gap-3 text-sm">
+                            <div>
+                                <p class="text-gray-500">Business Name</p>
+                                <p id="editUserBusinessName" class="font-medium text-gray-800"></p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Token Balance</p>
+                                <p id="editUserTokenBalance" class="font-medium text-gray-800"></p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Verified</p>
+                                <p id="editUserVerified" class="font-medium text-gray-800"></p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Total Tokens Purchased</p>
+                                <p id="editUserTotalPurchased" class="font-medium text-gray-800"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-3 pt-4 border-t">
+                        <button type="submit" class="flex-1 bg-brand-orange text-[#1D2427] py-3 px-6 rounded-lg font-semibold hover:bg-[#F2B705]/90 transition-all">
+                            Save Changes
+                        </button>
+                        <button type="button" onclick="closeUserProfileModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./admin-enhanced.js"></script>
+</body>
+</html>

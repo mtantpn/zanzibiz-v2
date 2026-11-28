@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Login - ZanziBiz</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#22C55E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background-color: #FFFFFF;
+            color: #1D2427;
+        }
+        h1,h2,h3,h4 {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: #1D2427;
+            letter-spacing: -0.02em;
+        }
+        .form-input {
+            background: #FFFFFF;
+            border: 1.5px solid #EBEBEB;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1D2427;
+            transition: all 0.2s ease;
+            padding: 12px 16px;
+            width: 100%;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #0A6A94;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(200,137,42,0.1);
+            transform: none;
+        }
+        .form-input::placeholder {
+            color: #9AABB8;
+        }
+        .btn-primary {
+            background: #FFC72C;
+            color: #1D2427;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 12px 28px;
+            border: none;
+            box-shadow: 0 4px 14px rgba(200,137,42,0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background: #F2B705;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200,137,42,0.4);
+        }
+        .hero-pattern {
+            background-color: #F7F7F7;
+            background-image: radial-gradient(circle at 2px 2px, rgba(200,137,42,0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+
+<body class="font-body bg-warm-white">
+    <div class="min-h-screen flex">
+        <div class="hidden lg:flex lg:w-1/2 hero-pattern relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center p-12">
+                    <h1 class="font-display text-5xl font-bold text-[#1D2427] mb-6">Welcome Back to ZanziBiz</h1>
+                    <p class="text-xl text-gray-600 mb-8">Connect with local businesses and discover opportunities across Zanzibar</p>
+                    <div class="grid grid-cols-3 gap-6 mt-12">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-[#0A6A94] mb-2">1000+</div>
+                            <div class="text-sm text-gray-600">Businesses</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-[#1A7F45] mb-2">5000+</div>
+                            <div class="text-sm text-gray-600">Users</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-[#1A7F45] mb-2">10k+</div>
+                            <div class="text-sm text-gray-600">Reviews</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8">
+            <div class="w-full max-w-md" style="background: #FFFFFF; border-radius: 20px; padding: 48px; box-shadow: 0 4px 40px rgba(27,58,75,0.08); border: 1px solid #EBEBEB;">
+                <div class="text-center mb-8">
+                    <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-11 sm:h-12 w-auto mx-auto mb-4">
+                    <h2 class="font-display text-3xl font-bold text-[#1D2427] mb-2">Sign In</h2>
+                    <p class="text-gray-600">Access your ZanziBiz account</p>
+                </div>
+
+                <div id="errorMessage" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+                    <p class="text-sm"></p>
+                </div>
+
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-[#1D2427] mb-2">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
+                            placeholder="you@example.com"
+                        >
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-[#1D2427] mb-2">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            required
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
+                            placeholder="••••••••"
+                        >
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-4 h-4 text-[#0A6A94] border-[#EBEBEB] rounded focus:ring-[#0A6A94]">
+                            <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                        </label>
+                        <a href="forgot-password.html" class="text-sm text-[#0A6A94] hover:text-[#08577A] transition-colors">Forgot password?</a>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                        id="loginButton"
+                    >
+                        Sign In
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Don't have an account? <a href="signup.html" class="text-[#0A6A94] hover:text-[#08577A] font-semibold transition-colors">Sign Up</a></p>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <p class="text-center text-sm text-gray-500 mb-4">Or continue with</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button class="flex items-center justify-center px-4 py-2 border border-[#EBEBEB] rounded-lg hover:bg-gray-50 hover:border-[#0A6A94] transition-colors">
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                            </svg>
+                            <span class="text-sm font-medium">Google</span>
+                        </button>
+                        <button class="flex items-center justify-center px-4 py-2 border border-[#EBEBEB] rounded-lg hover:bg-gray-50 hover:border-[#0A6A94] transition-colors">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <span class="text-sm font-medium">Facebook</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <a href="../index.html" class="text-sm text-[#6B7A8D] hover:text-[#0A6A94] transition-colors">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { supabase, signIn } from '../lib/supabase.js';
+        import { initPWA } from '../lib/pwa.js';
+
+        initPWA();
+
+        const form = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const loginButton = document.getElementById('loginButton');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            loginButton.disabled = true;
+            loginButton.innerHTML = '<span class="inline-block animate-spin mr-2">⟳</span> Signing in...';
+            errorMessage.classList.add('hidden');
+
+            try {
+                const { user } = await signIn(email, password);
+
+                const { data: profile, error: profileError } = await supabase
+                    .from('profiles')
+                    .select('user_type, business_profiles(id)')
+                    .eq('id', user.id)
+                    .maybeSingle();
+
+                if (profileError) {
+                    throw new Error('Error loading profile: ' + profileError.message);
+                }
+
+                if (!profile) {
+                    throw new Error('Profile not found. Please contact support.');
+                }
+
+                if (profile.user_type === 'admin') {
+                    window.location.href = '../admin/dashboard.html';
+                } else if (profile.user_type === 'business') {
+                    window.location.href = '../business/dashboard.html';
+                } else {
+                    window.location.href = '../index.html';
+                }
+            } catch (error) {
+                errorMessage.classList.remove('hidden');
+                errorMessage.querySelector('p').textContent = error.message || 'Invalid email or password';
+
+                loginButton.disabled = false;
+                loginButton.innerHTML = 'Sign In';
+
+                anime({
+                    targets: errorMessage,
+                    translateX: [-20, 0],
+                    opacity: [0, 1],
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            }
+        });
+
+        anime({
+            targets: '.form-input, .btn-primary',
+            opacity: [0, 1],
+            translateY: [20, 0],
+            delay: anime.stagger(100),
+            duration: 600,
+            easing: 'easeOutCubic'
+        });
+    </script>
+</body>
+</html>

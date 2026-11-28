@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Offline - ZanziBiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <style>
+        /* offline.html palette overrides */
+        .bg-brand-green { background-color: #22C55E !important; }
+        .bg-brand-orange, .hover\:bg-brand-orange\/90:hover { background-color: #FB923C !important; }
+        .text-brand-green { color: #22C55E !important; }
+        .text-brand-orange { color: #FB923C !important; }
+        .text-brand-gray { color: #4A4A4A !important; }
+        .font-body { font-family: Inter, system-ui, sans-serif; }
+        .font-display { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    </style>
+    <style>
+        .cloud {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="font-body bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-2xl w-full text-center">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+            <div class="mb-8">
+                <img src="/untitled_design.png" alt="ZanziBiz" class="h-11 sm:h-12 w-auto mx-auto mb-6">
+            </div>
+
+            <div class="mb-8 relative">
+                <svg class="w-32 h-32 mx-auto text-gray-300 cloud" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <svg class="w-16 h-16 text-[#0A6A94] pulse-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <h1 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-4">
+                You're Offline
+            </h1>
+
+            <p class="text-gray-600 text-lg mb-8">
+                It looks like you've lost your internet connection. Don't worry, some content may still be available from your previous visits.
+            </p>
+
+            <div class="bg-brand-orange/10 rounded-xl p-6 mb-8">
+                <h2 class="font-semibold text-brand-gray mb-3 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5 text-[#0A6A94]" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                    </svg>
+                    What you can do:
+                </h2>
+                <ul class="text-left text-gray-700 space-y-2">
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Check your WiFi or mobile data connection</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Browse previously viewed listings (if available)</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-brand-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Try refreshing the page once you're back online</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="window.history.back()" class="px-6 py-3 bg-gray-200 text-brand-gray rounded-xl font-semibold hover:bg-gray-300 transition-colors">
+                    Go Back
+                </button>
+                <button onclick="location.reload()" class="px-6 py-3 bg-brand-orange text-[#1D2427] rounded-xl font-semibold hover:bg-[#F2B705]/90 transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    Try Again
+                </button>
+            </div>
+
+            <div class="mt-8 pt-8 border-t border-gray-200">
+                <p class="text-sm text-gray-500">
+                    <span class="inline-flex items-center gap-1">
+                        <svg class="w-4 h-4 text-brand-green" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        This app works offline
+                    </span>
+                    - Some features are available without internet
+                </p>
+            </div>
+        </div>
+
+        <p class="text-gray-500 text-sm mt-6">
+            ZanziBiz - Your offline-ready business directory
+        </p>
+    </div>
+
+    <script>
+        window.addEventListener('online', () => {
+            const banner = document.createElement('div');
+            banner.className = 'fixed top-4 left-1/2 transform -translate-x-1/2 bg-brand-green text-white px-6 py-3 rounded-full shadow-lg z-50 flex items-center gap-2';
+            banner.innerHTML = `
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="font-semibold">You're back online!</span>
+            `;
+            document.body.appendChild(banner);
+
+            setTimeout(() => {
+                location.reload();
+            }, 1500);
+        });
+
+        const checkConnection = setInterval(() => {
+            if (navigator.onLine) {
+                location.reload();
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

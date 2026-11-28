@@ -1,0 +1,45 @@
+# ZanziBiz Netlify Redirects
+# Functions with a `path` (business, guide, directory, sitemap, llms-full)
+# run before these rules. "!" forces a rule even when a file exists there.
+
+# /blog redirects to /travel-guide (301 permanent; forced because blog.html exists)
+/blog /travel-guide 301!
+
+# Old article URLs move permanently to the travel guide (served by netlify/functions/guide.mts)
+/blog/:slug /travel-guide/:slug 301
+
+# Legacy V1 query-string URLs -> clean URLs. These match only when the
+# parameter is present, so the functions' own template fetches
+# (/blog-post.html, /business/listing.html, /directory/category.html) are
+# not affected.
+/blog-post.html slug=:slug /travel-guide/:slug 301!
+/business/listing.html slug=:slug /business/:slug 301!
+/directory/category.html category=:category /directory/:category 301!
+
+# Business listing pages /business/:slug are served by netlify/functions/business.mts
+
+# Directory pages
+/directory /directory/index.html 200
+# /directory/:category is served by netlify/functions/directory.mts; this rewrite
+# is only the client-side fallback if the function is unavailable. It passes no
+# query string (the page reads the category from the path), so it can never
+# meet the legacy ?category= redirect above.
+/directory/:category /directory/category.html 200
+
+# Clean travel-guide sub-page URLs (specific static pages first, then dynamic slug catch-all)
+/travel-guide /travel-guide.html 200
+/travel-guide/all /blog.html 200
+/travel-guide/flights-to-zanzibar /travel-guide/flights-to-zanzibar.html 200
+/travel-guide/where-to-stay /travel-guide/where-to-stay.html 200
+/travel-guide/hotels /travel-guide/hotels.html 200
+/travel-guide/tours /travel-guide/tours.html 200
+/travel-guide/airport-transfers /travel-guide/airport-transfers.html 200
+# /travel-guide/:slug articles are served by netlify/functions/guide.mts
+
+# Clean static page URLs
+/about /about.html 200
+/contact /contact.html 200
+/privacy /privacy.html 200
+/terms /terms.html 200
+/affiliate /affiliate.html 200
+/webstart /webstart.html 200

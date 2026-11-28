@@ -1,0 +1,570 @@
+/**
+ * ZanziBiz Design System v3.0
+ * Zanzibar Luxury Travel — Warm, editorial, confident, distinctive.
+ * Deep Ocean Navy × Spice Gold × Warm Ivory
+ */
+
+/* ========================================
+   GOOGLE FONTS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ========================================
+   COLOR PALETTE
+   ======================================== */
+:root {
+  /* Primary — Deep Ocean Navy */
+  --color-primary: #1D2427;
+  --color-primary-dark: #111618;
+  --color-primary-light: #2E3A3F;
+
+  /* Accent — Spice Gold */
+  --color-accent: #0A6A94;
+  --color-accent-hover: #08577A;
+  --color-accent-light: #FFE08A;
+
+  /* Coral — Warm sunset highlight */
+  --color-coral: #D93025;
+
+  /* Backgrounds */
+  --color-bg: #FFFFFF;
+  --color-surface: #F7F7F7;
+  --color-card: #FFFFFF;
+
+  /* Text */
+  --color-text: #1D2427;
+  --color-text-muted: #6B7A8D;
+  --color-text-light: #9AABB8;
+
+  /* Borders */
+  --color-border: #EBEBEB;
+  --color-border-light: #F2F2F2;
+
+  /* Teal — use sparingly */
+  --color-teal: #1A7F45;
+  --color-teal-light: #E8F4F4;
+
+  /* Legacy aliases for compatibility */
+  --color-primary-50: rgba(27, 58, 75, 0.05);
+  --color-primary-100: rgba(27, 58, 75, 0.1);
+  --color-primary-200: rgba(27, 58, 75, 0.2);
+
+  /* Semantic Colors */
+  --color-success: #1A7F45;
+  --color-warning: #0A6A94;
+  --color-error: #D93025;
+  --color-info: #1D2427;
+
+  /* Legacy surface colors */
+  --color-surface-hover: #F7F7F7;
+  --color-background: #FFFFFF;
+  --color-text-primary: #1D2427;
+  --color-text-secondary: #6B7A8D;
+  --color-text-tertiary: #9AABB8;
+  --color-text-inverse: #FFFFFF;
+  --color-neutral-50: #FFFFFF;
+  --color-neutral-100: #F7F7F7;
+  --color-neutral-200: #EBEBEB;
+  --color-neutral-300: #D0C4B4;
+  --color-neutral-400: #9AABB8;
+  --color-neutral-500: #6B7A8D;
+  --color-neutral-600: #4A5968;
+  --color-neutral-700: #2A3848;
+  --color-neutral-800: #1D2427;
+  --color-neutral-900: #111618;
+
+  /* Typography */
+  --font-primary: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 3rem;
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-normal: 1.7;
+  --leading-relaxed: 1.8;
+
+  /* Spacing (8px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(27, 58, 75, 0.06);
+  --shadow-md: 0 4px 16px rgba(27, 58, 75, 0.08);
+  --shadow-lg: 0 8px 32px rgba(27, 58, 75, 0.10);
+  --shadow-xl: 0 16px 48px rgba(27, 58, 75, 0.12);
+  --shadow-card: 0 2px 12px rgba(27, 58, 75, 0.06);
+  --shadow-card-hover: 0 12px 40px rgba(27, 58, 75, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-Index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #1D2427;
+  background-color: #FFFFFF;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #1D2427;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 600; }
+h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
+
+/* ========================================
+   TYPOGRAPHY UTILITIES
+   ======================================== */
+.font-display, .text-display {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.text-4xl { font-size: var(--text-4xl); }
+.text-3xl { font-size: var(--text-3xl); }
+.text-2xl { font-size: var(--text-2xl); }
+.text-xl { font-size: var(--text-xl); }
+.text-lg { font-size: var(--text-lg); }
+.text-base { font-size: var(--text-base); }
+.text-sm { font-size: var(--text-sm); }
+.text-xs { font-size: var(--text-xs); }
+
+/* ========================================
+   SECTION LABEL UTILITY
+   ======================================== */
+.section-label {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0A6A94;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ========================================
+   BUTTON SYSTEM
+   ======================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 12px 28px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  white-space: nowrap;
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(200, 137, 42, 0.4);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary */
+.btn-primary {
+  background-color: #FFC72C;
+  color: #1D2427;
+  box-shadow: 0 4px 14px rgba(200, 137, 42, 0.3);
+  border: none;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #F2B705;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 137, 42, 0.4);
+}
+
+/* Secondary / Outline */
+.btn-secondary, .btn-outline {
+  background-color: transparent;
+  color: #1D2427;
+  border: 2px solid #1D2427;
+  border-radius: 10px;
+}
+
+.btn-secondary:hover:not(:disabled),
+.btn-outline:hover:not(:disabled) {
+  background-color: #1D2427;
+  color: #FFFFFF;
+}
+
+/* Ghost */
+.btn-ghost {
+  background-color: transparent;
+  color: #0A6A94;
+  border: none;
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background-color: rgba(200, 137, 42, 0.08);
+}
+
+/* Accent */
+.btn-accent {
+  background-color: #FFC72C;
+  color: #1D2427;
+  box-shadow: 0 4px 14px rgba(200, 137, 42, 0.3);
+}
+
+.btn-accent:hover:not(:disabled) {
+  background-color: #F2B705;
+  transform: translateY(-2px);
+}
+
+/* Danger */
+.btn-danger {
+  background-color: transparent;
+  color: #D93025;
+  border: 1.5px solid #D93025;
+  border-radius: 10px;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #D93025;
+  color: #FFFFFF;
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 14px;
+  min-height: 36px;
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 16px;
+  min-height: 52px;
+}
+
+/* ========================================
+   CARD SYSTEM
+   ======================================== */
+.card {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #EBEBEB;
+  box-shadow: 0 2px 12px rgba(27, 58, 75, 0.06);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 40px rgba(27, 58, 75, 0.12);
+  transform: translateY(-4px);
+  border-color: #0A6A94;
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 20px 24px;
+}
+
+/* ========================================
+   INPUT SYSTEM
+   ======================================== */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1D2427;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 15px;
+  color: #1D2427;
+  background-color: #FFFFFF;
+  border: 1.5px solid #EBEBEB;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0A6A94;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(200, 137, 42, 0.1);
+}
+
+.input::placeholder {
+  color: #9AABB8;
+}
+
+/* ========================================
+   BADGE SYSTEM
+   ======================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+}
+
+.badge-primary {
+  background-color: rgba(27, 58, 75, 0.08);
+  color: #1D2427;
+}
+
+.badge-accent {
+  background-color: rgba(200, 137, 42, 0.12);
+  color: #08577A;
+}
+
+.badge-success {
+  background-color: rgba(42, 140, 138, 0.12);
+  color: #1A6B6A;
+}
+
+.badge-warning {
+  background-color: rgba(200, 137, 42, 0.12);
+  color: #08577A;
+}
+
+.badge-coral {
+  background-color: rgba(212, 96, 58, 0.1);
+  color: #B84E2A;
+}
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-lg {
+  max-width: 1536px;
+}
+
+.container-sm {
+  max-width: 768px;
+}
+
+/* ========================================
+   SECTION DIVIDER
+   ======================================== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #EBEBEB, transparent);
+  border: none;
+  margin: 0;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.mt-auto { margin-top: auto; }
+.mb-auto { margin-bottom: auto; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: var(--space-2); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: #FFC72C;
+  color: #1D2427;
+  padding: 16px;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.15s ease;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .mobile-hidden { display: none !important; }
+}
+
+@media (min-width: 769px) {
+  .desktop-hidden { display: none !important; }
+}
+
+/* ========================================
+   PRINT
+   ======================================== */
+@media print {
+  .no-print { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   GLOBAL OVERRIDES — Apply new palette
+   to any Tailwind classes referencing old colors
+   ======================================== */
+
+/* Make body background warm ivory */
+body {
+  background-color: #FFFFFF !important;
+}
+
+/* Headings use Plus Jakarta Sans */
+.font-display {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+}

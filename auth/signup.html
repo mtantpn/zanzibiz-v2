@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Sign Up - ZanziBiz</title>
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#22C55E">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background-color: #FFFFFF;
+            color: #1D2427;
+        }
+        h1,h2,h3,h4 {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: #1D2427;
+            letter-spacing: -0.02em;
+        }
+        .form-input {
+            background: #FFFFFF;
+            border: 1.5px solid #EBEBEB;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #1D2427;
+            transition: all 0.2s ease;
+            padding: 12px 16px;
+            width: 100%;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #0A6A94;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(200,137,42,0.1);
+            transform: none;
+        }
+        .form-input::placeholder {
+            color: #9AABB8;
+        }
+        .btn-primary {
+            background: #FFC72C;
+            color: #1D2427;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 12px 28px;
+            border: none;
+            box-shadow: 0 4px 14px rgba(200,137,42,0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background: #F2B705;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200,137,42,0.4);
+        }
+        .hero-pattern {
+            background-color: #F7F7F7;
+            background-image: radial-gradient(circle at 2px 2px, rgba(200,137,42,0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+
+<body class="font-body bg-warm-white">
+    <div class="min-h-screen flex">
+        <div class="hidden lg:flex lg:w-1/2 hero-pattern relative overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center p-12">
+                    <h1 class="font-display text-5xl font-bold text-[#1D2427] mb-6">Join ZanziBiz Today</h1>
+                    <p class="text-xl text-gray-600 mb-8">List your business and connect with thousands of potential customers across Zanzibar</p>
+                    <div class="grid grid-cols-3 gap-6 mt-12">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-[#0A6A94] mb-2">Free</div>
+                            <div class="text-sm text-gray-600">Basic Listing</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-[#1A7F45] mb-2">Easy</div>
+                            <div class="text-sm text-gray-600">Setup Process</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-[#1A7F45] mb-2">24/7</div>
+                            <div class="text-sm text-gray-600">Visibility</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-8">
+            <div class="w-full max-w-md" style="background: #FFFFFF; border-radius: 20px; padding: 48px; box-shadow: 0 4px 40px rgba(27,58,75,0.08); border: 1px solid #EBEBEB;">
+                <div class="text-center mb-8">
+                    <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-11 sm:h-12 w-auto mx-auto mb-4">
+                    <h2 class="font-display text-3xl font-bold text-[#1D2427] mb-2">Create Account</h2>
+                    <p class="text-gray-600">Get started with ZanziBiz</p>
+                </div>
+
+                <div id="errorMessage" class="hidden bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
+                    <p class="text-sm"></p>
+                </div>
+
+                <div id="successMessage" class="hidden bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
+                    <p class="text-sm"></p>
+                </div>
+
+                <form id="signupForm" class="space-y-6">
+                    <div>
+                        <label for="fullName" class="block text-sm font-semibold text-[#1D2427] mb-2">Full Name</label>
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            required
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
+                            placeholder="Enter your full name"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-[#1D2427] mb-2">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
+                            placeholder="you@example.com"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-semibold text-[#1D2427] mb-2">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                            minlength="6"
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
+                            placeholder="Minimum 6 characters"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="userType" class="block text-sm font-semibold text-[#1D2427] mb-2">Account Type</label>
+                        <select
+                            id="userType"
+                            name="userType"
+                            required
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
+                        >
+                            <option value="regular">Regular User - Browse & Review</option>
+                            <option value="business">Business Owner - List My Business</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                            class="mt-1 mr-2 h-4 w-4 text-[#0A6A94] focus:ring-[#0A6A94] border-[#EBEBEB] rounded"
+                        >
+                        <label for="terms" class="text-sm text-gray-600">
+                            I agree to the <a href="#" class="text-[#0A6A94] hover:underline">Terms of Service</a> and <a href="#" class="text-[#0A6A94] hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button
+                        type="submit"
+                        id="signupButton"
+                        class="btn-primary"
+                    >
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">
+                        Already have an account?
+                        <a href="login.html" class="text-[#0A6A94] font-semibold hover:underline">Sign In</a>
+                    </p>
+                </div>
+
+                <div class="mt-8 text-center text-sm text-gray-500">
+                    <a href="/" class="text-[#6B7A8D] hover:text-[#0A6A94] transition-colors">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { supabase, signUp } from '../lib/supabase.js';
+        import { initPWA } from '../lib/pwa.js';
+
+        initPWA();
+
+        const form = document.getElementById('signupForm');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        const signupButton = document.getElementById('signupButton');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const userType = document.getElementById('userType').value;
+
+            errorMessage.classList.add('hidden');
+            successMessage.classList.add('hidden');
+            signupButton.disabled = true;
+            signupButton.textContent = 'Creating Account...';
+
+            try {
+                const { data, error } = await signUp(email, password, fullName, userType);
+
+                if (error) throw error;
+
+                successMessage.querySelector('p').textContent = 'Account created successfully! Redirecting...';
+                successMessage.classList.remove('hidden');
+
+                setTimeout(() => {
+                    if (userType === 'business') {
+                        window.location.href = '/business/dashboard.html';
+                    } else {
+                        window.location.href = '/';
+                    }
+                }, 2000);
+
+            } catch (error) {
+                console.error('Signup error:', error);
+                errorMessage.querySelector('p').textContent = error.message || 'Failed to create account. Please try again.';
+                errorMessage.classList.remove('hidden');
+                signupButton.disabled = false;
+                signupButton.textContent = 'Create Account';
+            }
+        });
+
+        anime({
+            targets: '.form-input',
+            opacity: [0, 1],
+            translateY: [20, 0],
+            delay: anime.stagger(50),
+            duration: 600,
+            easing: 'easeOutCubic'
+        });
+    </script>
+</body>
+</html>

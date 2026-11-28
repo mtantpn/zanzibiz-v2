@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Payments Admin – ZanziBiz</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <style>
+        /* Admin payments palette overrides */
+        .bg-brand-orange, .hover\:bg-brand-orange:hover { background-color: #E67E22 !important; }
+        .bg-brand-teal, .hover\:bg-brand-teal:hover { background-color: #16A085 !important; }
+        .text-brand-orange { color: #E67E22 !important; }
+        .text-brand-teal { color: #16A085 !important; }
+        .text-brand-gray { color: #2C3E50 !important; }
+        .border-brand-orange { border-color: #E67E22 !important; }
+        .border-brand-teal { border-color: #16A085 !important; }
+        .font-body { font-family: Inter, system-ui, sans-serif; }
+        .font-display { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    </style>
+</head>
+<body class="font-body bg-gray-50 min-h-screen">
+
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-4">
+                    <img src="/untitled_design.png" alt="ZanziBiz" class="h-11 sm:h-12 w-auto">
+                    <div>
+                        <span class="font-display text-xl font-bold text-brand-gray">Admin</span>
+                        <span class="text-gray-400 mx-2">/</span>
+                        <span class="text-[#0A6A94] font-semibold">Payments</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="dashboard.html" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Admin Dashboard</a>
+                    <button id="logoutBtn" class="text-sm text-red-500 hover:text-red-700 transition-colors">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="auth-gate" class="hidden max-w-md mx-auto mt-20 text-center">
+        <p class="text-red-500 font-semibold">Admin access only. Redirecting...</p>
+    </div>
+
+    <div id="main-content" class="hidden max-w-7xl mx-auto px-4 py-8">
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-xl shadow-sm p-5">
+                <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Total Top-ups</p>
+                <p class="text-3xl font-bold text-brand-gray" id="stat-total">—</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm p-5">
+                <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Credited</p>
+                <p class="text-3xl font-bold text-green-600" id="stat-credited">—</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm p-5">
+                <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Pending</p>
+                <p class="text-3xl font-bold text-yellow-600" id="stat-pending">—</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm p-5">
+                <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Webhook Events</p>
+                <p class="text-3xl font-bold text-brand-teal" id="stat-events">—</p>
+            </div>
+        </div>
+
+        <!-- Search -->
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h2 class="font-display text-lg font-bold text-brand-gray mb-4">Search Top-ups</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+                <input type="text" id="search-client-id" placeholder="Client ID (business UUID)" class="px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0A6A94] text-brand-gray placeholder-gray-400">
+                <input type="text" id="search-topup-ref" placeholder="Top-up Reference (ZB-...)" class="px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0A6A94] text-brand-gray placeholder-gray-400">
+                <input type="text" id="search-confirm-id" placeholder="Confirmation ID" class="px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0A6A94] text-brand-gray placeholder-gray-400">
+                <input type="text" id="search-cp-txn" placeholder="ClickPesa Transaction ID" class="px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#0A6A94] text-brand-gray placeholder-gray-400">
+            </div>
+            <div class="flex gap-3">
+                <button onclick="searchTopups()" class="bg-brand-orange text-[#1D2427] px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-[#F2B705]/90 transition-colors">Search</button>
+                <button onclick="clearSearch()" class="bg-gray-100 text-gray-600 px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-gray-200 transition-colors">Clear</button>
+            </div>
+        </div>
+
+        <!-- Top-ups table -->
+        <div class="bg-white rounded-xl shadow-sm mb-6 overflow-hidden">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                <h2 class="font-display text-lg font-bold text-brand-gray">Token Top-ups</h2>
+                <button onclick="loadTopups()" class="text-xs text-[#0A6A94] hover:underline">Refresh</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50 text-xs text-gray-500 uppercase tracking-wide">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Reference</th>
+                            <th class="px-4 py-3 text-left">Business</th>
+                            <th class="px-4 py-3 text-left">Status</th>
+                            <th class="px-4 py-3 text-left">Credited</th>
+                            <th class="px-4 py-3 text-left">Amount</th>
+                            <th class="px-4 py-3 text-left">Phone</th>
+                            <th class="px-4 py-3 text-left">Confirmation ID</th>
+                            <th class="px-4 py-3 text-left">Created</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topups-table-body" class="divide-y divide-gray-50">
+                        <tr><td colspan="8" class="px-4 py-8 text-center text-gray-400">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Webhook events table -->
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                <h2 class="font-display text-lg font-bold text-brand-gray">ClickPesa Webhook Events</h2>
+                <button onclick="loadEvents()" class="text-xs text-[#0A6A94] hover:underline">Refresh</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50 text-xs text-gray-500 uppercase tracking-wide">
+                        <tr>
+                            <th class="px-4 py-3 text-left">Event Type</th>
+                            <th class="px-4 py-3 text-left">Top-up Ref</th>
+                            <th class="px-4 py-3 text-left">Provider</th>
+                            <th class="px-4 py-3 text-left">Payload Preview</th>
+                            <th class="px-4 py-3 text-left">Received At</th>
+                        </tr>
+                    </thead>
+                    <tbody id="events-table-body" class="divide-y divide-gray-50">
+                        <tr><td colspan="5" class="px-4 py-8 text-center text-gray-400">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Detail modal -->
+    <div id="detail-modal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div class="flex items-center justify-between p-6 border-b border-gray-100">
+                <h3 class="font-display text-xl font-bold text-brand-gray">Top-up Detail</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="p-6" id="modal-body">—</div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { createClient } from '@supabase/supabase-js';
+
+        const supabase = createClient(
+            import.meta.env.VITE_SUPABASE_URL,
+            import.meta.env.VITE_SUPABASE_ANON_KEY,
+            { auth: { autoRefreshToken: true, persistSession: true } }
+        );
+
+        async function init() {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (!user) { redirect(); return; }
+            const { data: profile } = await supabase.from('profiles').select('user_type').eq('id', user.id).maybeSingle();
+            if (!profile || profile.user_type !== 'admin') { redirect(); return; }
+
+            document.getElementById('main-content').classList.remove('hidden');
+            document.getElementById('logoutBtn').addEventListener('click', async () => {
+                await supabase.auth.signOut();
+                window.location.href = '../auth/login.html';
+            });
+
+            loadTopups();
+            loadEvents();
+            loadStats();
+        }
+
+        function redirect() {
+            document.getElementById('auth-gate').classList.remove('hidden');
+            setTimeout(() => { window.location.href = '../auth/login.html'; }, 2000);
+        }
+
+        function statusBadge(status) {
+            const map = {
+                SUCCESS: 'bg-green-100 text-green-700',
+                SETTLED: 'bg-green-100 text-green-700',
+                PROCESSING: 'bg-blue-100 text-blue-700',
+                PENDING_PAYMENT: 'bg-yellow-100 text-yellow-700',
+                CREATED: 'bg-gray-100 text-gray-600',
+                FAILED: 'bg-red-100 text-red-700',
+                ON_HOLD: 'bg-orange-100 text-orange-700',
+                REFUNDED: 'bg-pink-100 text-pink-700',
+                REVERSED: 'bg-pink-100 text-pink-700',
+                EXPIRED: 'bg-gray-100 text-gray-500',
+            };
+            const cls = map[status] || 'bg-gray-100 text-gray-500';
+            return `<span class="px-2 py-0.5 rounded-full text-xs font-semibold ${cls}">${status || '—'}</span>`;
+        }
+
+        function fmtDate(d) {
+            if (!d) return '—';
+            return new Date(d).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+        }
+
+        window.loadTopups = async function(filters = {}) {
+            const tbody = document.getElementById('topups-table-body');
+            tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-8 text-center text-gray-400">Loading...</td></tr>';
+
+            let q = supabase.from('token_topups').select('id, topup_reference, client_id, business_name_snapshot, status, credited, token_amount, amount_tzs, payer_phone, submitted_confirmation_id, clickpesa_transaction_id, created_at').order('created_at', { ascending: false }).limit(100);
+
+            if (filters.client_id) q = q.ilike('client_id', `%${filters.client_id}%`);
+            if (filters.topup_ref) q = q.ilike('topup_reference', `%${filters.topup_ref}%`);
+            if (filters.confirm_id) q = q.ilike('submitted_confirmation_id', `%${filters.confirm_id}%`);
+            if (filters.cp_txn) q = q.ilike('clickpesa_transaction_id', `%${filters.cp_txn}%`);
+
+            const { data, error } = await q;
+            if (error || !data) {
+                tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-8 text-center text-red-400">Error loading data</td></tr>';
+                return;
+            }
+            if (!data.length) {
+                tbody.innerHTML = '<tr><td colspan="8" class="px-4 py-8 text-center text-gray-400">No top-ups found</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map(t => `
+                <tr class="hover:bg-gray-50 cursor-pointer" onclick="showDetail('${t.id}')">
+                    <td class="px-4 py-3 font-mono text-xs text-brand-gray">${t.topup_reference || '—'}</td>
+                    <td class="px-4 py-3">
+                        <div class="font-semibold text-brand-gray text-xs">${t.business_name_snapshot || '—'}</div>
+                        <div class="text-gray-400 text-xs font-mono">${(t.client_id || '').substring(0, 8)}…</div>
+                    </td>
+                    <td class="px-4 py-3">${statusBadge(t.status)}</td>
+                    <td class="px-4 py-3">
+                        ${t.credited
+                            ? '<span class="text-green-600 font-semibold text-xs">Yes</span>'
+                            : '<span class="text-gray-400 text-xs">No</span>'}
+                    </td>
+                    <td class="px-4 py-3 text-xs font-semibold text-[#0A6A94]">${(t.amount_tzs || 0).toLocaleString()} TZS</td>
+                    <td class="px-4 py-3 text-xs text-gray-500 font-mono">${t.payer_phone || '—'}</td>
+                    <td class="px-4 py-3 text-xs text-gray-500 font-mono">${t.submitted_confirmation_id || '—'}</td>
+                    <td class="px-4 py-3 text-xs text-gray-400">${fmtDate(t.created_at)}</td>
+                </tr>
+            `).join('');
+        };
+
+        window.loadEvents = async function() {
+            const tbody = document.getElementById('events-table-body');
+            tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-gray-400">Loading...</td></tr>';
+
+            const { data, error } = await supabase.from('payment_events').select('*').order('created_at', { ascending: false }).limit(50);
+
+            if (error || !data) {
+                tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-red-400">Error loading events</td></tr>';
+                return;
+            }
+            if (!data.length) {
+                tbody.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-gray-400">No webhook events yet</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map(e => {
+                const preview = JSON.stringify(e.payload_json || {}).substring(0, 80) + '…';
+                return `
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-4 py-3 text-xs font-semibold text-brand-teal">${e.event_type || '—'}</td>
+                        <td class="px-4 py-3 font-mono text-xs text-brand-gray">${e.topup_reference || '—'}</td>
+                        <td class="px-4 py-3 text-xs text-gray-500">${e.provider || 'clickpesa'}</td>
+                        <td class="px-4 py-3 text-xs text-gray-400 max-w-xs truncate font-mono">${preview}</td>
+                        <td class="px-4 py-3 text-xs text-gray-400">${fmtDate(e.created_at)}</td>
+                    </tr>
+                `;
+            }).join('');
+        };
+
+        window.loadStats = async function() {
+            const { count: total } = await supabase.from('token_topups').select('id', { count: 'exact', head: true });
+            const { count: credited } = await supabase.from('token_topups').select('id', { count: 'exact', head: true }).eq('credited', true);
+            const { count: pending } = await supabase.from('token_topups').select('id', { count: 'exact', head: true }).in('status', ['CREATED', 'PENDING_PAYMENT', 'PROCESSING']);
+            const { count: events } = await supabase.from('payment_events').select('id', { count: 'exact', head: true });
+
+            document.getElementById('stat-total').textContent = total ?? '—';
+            document.getElementById('stat-credited').textContent = credited ?? '—';
+            document.getElementById('stat-pending').textContent = pending ?? '—';
+            document.getElementById('stat-events').textContent = events ?? '—';
+        };
+
+        window.searchTopups = function() {
+            loadTopups({
+                client_id: document.getElementById('search-client-id').value.trim(),
+                topup_ref: document.getElementById('search-topup-ref').value.trim(),
+                confirm_id: document.getElementById('search-confirm-id').value.trim(),
+                cp_txn: document.getElementById('search-cp-txn').value.trim(),
+            });
+        };
+
+        window.clearSearch = function() {
+            ['search-client-id', 'search-topup-ref', 'search-confirm-id', 'search-cp-txn'].forEach(id => {
+                document.getElementById(id).value = '';
+            });
+            loadTopups();
+        };
+
+        window.showDetail = async function(id) {
+            const { data: t } = await supabase.from('token_topups').select('*').eq('id', id).maybeSingle();
+            if (!t) return;
+            document.getElementById('modal-body').innerHTML = `
+                <div class="space-y-3 text-sm">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div><p class="text-xs text-gray-400 mb-0.5">Reference</p><p class="font-mono font-semibold text-brand-gray">${t.topup_reference}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Status</p><p>${statusBadge(t.status)}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Business</p><p class="font-semibold">${t.business_name_snapshot || '—'}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Credited</p><p class="${t.credited ? 'text-green-600 font-bold' : 'text-gray-400'}">${t.credited ? 'Yes — ' + fmtDate(t.credited_at) : 'No'}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Amount</p><p class="font-bold text-[#0A6A94]">${(t.amount_tzs || 0).toLocaleString()} ${t.currency}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Tokens</p><p class="font-bold">+${t.token_amount}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Payer Phone</p><p class="font-mono">${t.payer_phone || '—'}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Channel</p><p>${t.payment_channel || '—'}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">ClickPesa Order Ref</p><p class="font-mono text-xs">${t.clickpesa_order_reference || '—'}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">ClickPesa Txn ID</p><p class="font-mono text-xs">${t.clickpesa_transaction_id || '—'}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Confirmation ID</p><p class="font-mono text-xs">${t.submitted_confirmation_id || '—'}</p></div>
+                        <div><p class="text-xs text-gray-400 mb-0.5">Created</p><p class="text-xs">${fmtDate(t.created_at)}</p></div>
+                    </div>
+                    <div class="border-t border-gray-100 pt-3">
+                        <p class="text-xs text-gray-400 mb-1">Client ID</p>
+                        <p class="font-mono text-xs text-brand-gray break-all">${t.client_id}</p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('detail-modal').classList.remove('hidden');
+        };
+
+        window.closeModal = function() {
+            document.getElementById('detail-modal').classList.add('hidden');
+        };
+
+        document.getElementById('detail-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        init();
+    </script>
+</body>
+</html>

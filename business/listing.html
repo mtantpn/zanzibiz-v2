@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO meta tags — populated dynamically by JS below -->
+    <title>Business Directory | ZanziBiz</title>
+    <meta name="description" content="Find businesses, services and activities in Zanzibar.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZanziBiz">
+    <meta property="og:title" content="Business Directory | ZanziBiz">
+    <meta property="og:description" content="Find businesses, services and activities in Zanzibar.">
+    <meta property="og:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Business Directory | ZanziBiz">
+    <meta name="twitter:description" content="Find businesses, services and activities in Zanzibar.">
+    <meta name="twitter:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+
+    <!-- JSON-LD structured data — populated dynamically -->
+    <script type="application/ld+json" id="structured-data">{}</script>
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1D2427">
+    <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #FFFFFF; color: #1D2427; }
+        h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #1D2427; }
+        .brand-orange { color: #0A6A94; }
+        .bg-brand-orange { background-color: #FFC72C; }
+        .bg-brand-dark { background-color: #1D2427; }
+        .border-brand-orange { border-color: #0A6A94; }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Nav -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-40">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <img width="320" height="320" src="/untitled_design.png" alt="ZanziBiz — Zanzibar Business Directory" class="h-11 sm:h-12 w-auto">
+                </a>
+                <div class="flex items-center gap-3 text-sm">
+                    <a href="/" class="text-gray-600 hover:text-[#0A6A94] transition-colors">Directory</a>
+                    <a href="/travel-guide" class="text-gray-600 hover:text-[#0A6A94] transition-colors">Travel Guide</a>
+                    <a href="/auth/login.html" class="bg-[#0A6A94] text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity font-medium">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading state -->
+    <div id="loading-state" class="max-w-5xl mx-auto px-4 py-20 text-center"><!--ssr:start-->
+        <div class="inline-block w-10 h-10 border-4 border-gray-200 border-t-[#0A6A94] rounded-full animate-spin mb-4"></div>
+        <p class="text-gray-500">Loading listing…</p><!--ssr:end-->
+    </div>
+
+    <!-- Not-found state (noindex set by JS) -->
+    <div id="notfound-state" class="hidden max-w-5xl mx-auto px-4 py-20 text-center">
+        <div class="text-6xl mb-4">🔍</div>
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">Listing Not Found</h2>
+        <p class="text-gray-500 mb-6">This listing may have been removed or the URL is incorrect.</p>
+        <a href="/" class="inline-block bg-[#0A6A94] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity font-medium">Browse All Listings</a>
+    </div>
+
+    <!-- Listing content -->
+    <div id="listing-content" class="hidden">
+
+        <!-- Breadcrumb -->
+        <div class="bg-white border-b border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 py-3">
+                <nav aria-label="Breadcrumb" class="flex items-center gap-2 text-sm text-gray-500">
+                    <a href="/" class="hover:text-[#0A6A94] transition-colors">Home</a>
+                    <span>/</span>
+                    <a id="bc-category" href="/" class="hover:text-[#0A6A94] transition-colors capitalize">Directory</a>
+                    <span>/</span>
+                    <span id="bc-title" class="text-gray-800 font-medium truncate max-w-xs"></span>
+                </nav>
+            </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- Main column -->
+                <div class="lg:col-span-2">
+
+                    <!-- Image gallery -->
+                    <div id="images-section" class="mb-6 hidden">
+                        <div class="rounded-2xl overflow-hidden h-72 sm:h-96 bg-gray-100">
+                            <img id="main-image" src="" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div id="image-thumbs" class="flex gap-2 mt-2 overflow-x-auto"></div>
+                    </div>
+
+                    <!-- Title + badges -->
+                    <div class="flex items-start gap-3 mb-4">
+                        <div class="flex-1">
+                            <div class="flex flex-wrap gap-2 items-center mb-2">
+                                <span id="badge-category" class="text-xs font-semibold bg-[#0A6A94]/10 text-[#0A6A94] px-3 py-1 rounded-full capitalize"></span>
+                                <span id="badge-status" class="hidden text-xs font-semibold bg-amber-100 text-amber-700 px-3 py-1 rounded-full"></span>
+                                <span id="badge-verified" class="hidden text-xs font-semibold bg-teal-50 text-teal-700 px-3 py-1 rounded-full flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                    Verified
+                                </span>
+                            </div>
+                            <h1 id="listing-title" class="text-3xl font-bold text-[#1D2427] leading-tight"></h1>
+                            <p id="listing-business" class="text-gray-500 text-sm mt-1 hidden"></p>
+                        </div>
+                    </div>
+
+                    <!-- Answer-first summary, built only from fields the business filled in -->
+                    <p id="listing-summary" class="hidden text-base text-[#1D2427] leading-relaxed mb-5"></p>
+
+                    <!-- Rating -->
+                    <div id="rating-section" class="hidden flex items-center gap-2 mb-4">
+                        <div class="flex items-center gap-1">
+                            <svg class="w-5 h-5 text-[#0A6A94] fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <span id="rating-value" class="font-bold text-gray-800"></span>
+                        </div>
+                        <span id="rating-count" class="text-gray-500 text-sm"></span>
+                    </div>
+
+                    <!-- Description -->
+                    <div id="description-section" class="hidden mb-6">
+                        <h2 class="text-lg font-semibold text-[#1D2427] mb-2">About</h2>
+                        <p id="listing-description" class="text-gray-700 leading-relaxed"></p>
+                    </div>
+
+                    <!-- Business hours -->
+                    <div id="hours-section" class="hidden mb-6 bg-white rounded-xl p-5 border border-gray-100">
+                        <h2 class="text-lg font-semibold text-[#1D2427] mb-3">Business Hours</h2>
+                        <div id="hours-list" class="space-y-1 text-sm text-gray-700"></div>
+                    </div>
+
+                    <!-- Features -->
+                    <div id="features-section" class="hidden mb-6">
+                        <h2 class="text-lg font-semibold text-[#1D2427] mb-3">Features</h2>
+                        <div id="features-list" class="flex flex-wrap gap-2"></div>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-4">
+
+                    <!-- Contact card -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+                        <h2 class="font-semibold text-[#1D2427] mb-4">Contact & Location</h2>
+
+                        <div id="contact-location" class="space-y-3 text-sm">
+                            <!-- populated by JS -->
+                        </div>
+
+                        <div id="cta-buttons" class="mt-5 space-y-3">
+                            <!-- populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div id="price-card" class="hidden bg-[#1D2427] text-white rounded-2xl p-5">
+                        <p class="text-white/70 text-xs uppercase tracking-wide mb-1">Starting Price</p>
+                        <p id="price-value" class="text-3xl font-bold"></p>
+                    </div>
+
+                    <!-- Category links -->
+                    <div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+                        <h3 class="font-semibold text-[#1D2427] mb-3 text-sm">Browse More</h3>
+                        <div id="related-links" class="space-y-2 text-sm"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- zb-browse-links -->
+    <nav aria-label="Explore ZanziBiz" style="background:#FFFFFF;border-top:1px solid #EBEBEB;font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+        <div style="max-width:80rem;margin:0 auto;padding:28px 16px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+            <div>
+                <p style="font-weight:700;color:#1D2427;font-size:14px;margin:0 0 8px">Zanzibar business directory</p>
+                <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px">
+                    <li><a href="/directory/accommodation" style="color:#0A6A94">Accommodation</a></li>
+                    <li><a href="/directory/activities" style="color:#0A6A94">Tours &amp; activities</a></li>
+                    <li><a href="/directory/automotive" style="color:#0A6A94">Car hire &amp; transport</a></li>
+                    <li><a href="/directory/business" style="color:#0A6A94">Local services</a></li>
+                    <li><a href="/directory/events" style="color:#0A6A94">Events</a></li>
+                    <li><a href="/directory/jobs" style="color:#0A6A94">Jobs</a></li>
+                </ul>
+            </div>
+            <div>
+                <p style="font-weight:700;color:#1D2427;font-size:14px;margin:0 0 8px">Zanzibar travel guide</p>
+                <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px">
+                    <li><a href="/travel-guide/flights-to-zanzibar" style="color:#0A6A94">Flights to Zanzibar</a></li>
+                    <li><a href="/travel-guide/where-to-stay" style="color:#0A6A94">Where to stay</a></li>
+                    <li><a href="/travel-guide/hotels" style="color:#0A6A94">Hotels &amp; resorts</a></li>
+                    <li><a href="/travel-guide/tours" style="color:#0A6A94">Tours &amp; day trips</a></li>
+                    <li><a href="/travel-guide/airport-transfers" style="color:#0A6A94">Airport transfers</a></li>
+                    <li><a href="/travel-guide" style="color:#0A6A94">All guides</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <footer class="bg-[#1D2427] text-white mt-16 py-8">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/70">
+            <div class="flex items-center gap-2">
+                <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-8 w-auto opacity-80">
+                <span>© 2026 ZanziBiz</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="/" class="hover:text-white transition-colors">Directory</a>
+                <a href="/travel-guide" class="hover:text-white transition-colors">Travel Guide</a>
+                <a href="/about" class="hover:text-white transition-colors">About</a>
+                <a href="/contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { createClient } from '@supabase/supabase-js';
+
+        const supabase = createClient(
+            import.meta.env.VITE_SUPABASE_URL,
+            import.meta.env.VITE_SUPABASE_ANON_KEY,
+            { auth: { autoRefreshToken: true, persistSession: true } }
+        );
+
+        const CATEGORY_LABELS = {
+            business: 'Business & Services',
+            activities: 'Activities & Tours',
+            accommodation: 'Accommodation',
+            automotive: 'Automotive',
+            jobs: 'Jobs',
+            events: 'Events',
+            'useful-info': 'Useful Info',
+        };
+
+        const RELATED_CATEGORIES = [
+            { key: 'business', label: 'Business & Services' },
+            { key: 'activities', label: 'Activities & Tours' },
+            { key: 'accommodation', label: 'Accommodation' },
+            { key: 'automotive', label: 'Automotive' },
+            { key: 'jobs', label: 'Jobs' },
+            { key: 'events', label: 'Events' },
+        ];
+
+        // Owner-written fields go into innerHTML below: escape them.
+        const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+        // "stone-town" -> "Stone Town"; "other"/empty -> "" (same as the server).
+        const areaLabel = v => {
+            const s = String(v || '').replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
+            return !s || /^(other|zanzibar)$/i.test(s) ? '' : s.toLowerCase().replace(/\b\p{L}/gu, c => c.toUpperCase());
+        };
+        // Set when netlify/functions/business.mts rendered this page: its head,
+        // canonical and JSON-LD are already right, so the script leaves them.
+        const SSR = document.documentElement.hasAttribute('data-ssr');
+        const SCHEMA_TYPE = { accommodation: 'LodgingBusiness', activities: 'TouristAttraction', automotive: 'AutomotiveBusiness' };
+
+        function setMeta(name, value, attr = 'name') {
+            let el = document.querySelector(`meta[${attr}="${name}"]`);
+            if (!el) { el = document.createElement('meta'); el.setAttribute(attr, name); document.head.appendChild(el); }
+            el.setAttribute('content', value);
+        }
+
+        function setNoindex() {
+            setMeta('robots', 'noindex, nofollow');
+        }
+
+        function setCanonical(url) {
+            let el = document.querySelector('link[rel="canonical"]');
+            if (!el) { el = document.createElement('link'); el.rel = 'canonical'; document.head.appendChild(el); }
+            el.href = url;
+        }
+
+        async function loadListing() {
+            const params = new URLSearchParams(window.location.search);
+            let slug = params.get('slug');
+
+            if (!slug) {
+                const pathMatch = window.location.pathname.match(/\/business\/([^/?]+)/);
+                if (pathMatch) slug = decodeURIComponent(pathMatch[1]);
+            }
+
+            if (!slug) {
+                showNotFound();
+                return;
+            }
+
+            const { data: listing, error } = await supabase
+                .from('listings')
+                .select(`
+                    id, title, slug, description, category, subcategory, location, address, what3words,
+                    phone, email, website, whatsapp, images, features, business_hours,
+                    status, is_available, price, created_at,
+                    business_profiles(business_name, verified),
+                    reviews(rating)
+                `)
+                .eq('slug', slug)
+                .in('status', ['active', 'boosted', 'featured'])
+                .maybeSingle();
+
+            if (error && SSR) return; // keep the server-rendered listing
+            if (error || !listing) {
+                showNotFound(!error);
+                return;
+            }
+
+            renderListing(listing);
+        }
+
+        function showNotFound(confirmed = true) {
+            // noindex only when the database really said "no such listing",
+            // never because a request failed.
+            if (confirmed) setNoindex();
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('notfound-state').classList.remove('hidden');
+        }
+
+        function avgRating(reviews) {
+            if (!reviews || reviews.length === 0) return null;
+            const sum = reviews.reduce((a, r) => a + (r.rating || 0), 0);
+            return (sum / reviews.length).toFixed(1);
+        }
+
+        function renderListing(l) {
+            document.getElementById('loading-state').classList.add('hidden');
+            document.getElementById('listing-content').classList.remove('hidden');
+
+            const canonicalUrl = `https://zanzibiz.com/business/${l.slug}`;
+            const categoryLabel = CATEGORY_LABELS[l.category] || l.category;
+            const rating = avgRating(l.reviews);
+            const reviewCount = l.reviews ? l.reviews.length : 0;
+            const businessName = l.business_profiles?.business_name || l.listed_by_name || '';
+            const isVerified = l.business_profiles?.verified;
+            const desc = l.description || `${l.title} — ${categoryLabel} in ${l.location || 'Zanzibar'}, Tanzania.`;
+            const ogImage = (l.images && l.images[0]) ? l.images[0] : 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop';
+
+            // ---- SEO meta (same values as netlify/functions/business.mts) ----
+            if (!SSR) {
+                const area = areaLabel(l.location) || 'Zanzibar';
+                const pageTitle = `${l.title} – ${categoryLabel} in ${area} | ZanziBiz`;
+                const metaDesc = desc.length > 155 ? desc.substring(0, 154).replace(/\s+\S*$/, '') + '…' : desc;
+                document.title = pageTitle;
+                setMeta('description', metaDesc);
+                setCanonical(canonicalUrl);
+                setMeta('og:title', pageTitle, 'property');
+                setMeta('og:description', metaDesc, 'property');
+                setMeta('og:url', canonicalUrl, 'property');
+                setMeta('og:image', ogImage, 'property');
+                setMeta('og:type', 'business.business', 'property');
+                setMeta('twitter:title', pageTitle);
+                setMeta('twitter:description', metaDesc);
+                setMeta('twitter:image', ogImage);
+
+                const schema = {
+                    '@context': 'https://schema.org',
+                    '@graph': [
+                        {
+                            '@type': 'BreadcrumbList',
+                            'itemListElement': [
+                                { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://zanzibiz.com/' },
+                                { '@type': 'ListItem', 'position': 2, 'name': categoryLabel, 'item': `https://zanzibiz.com/directory/${l.category}` },
+                                { '@type': 'ListItem', 'position': 3, 'name': l.title, 'item': canonicalUrl },
+                            ]
+                        },
+                        {
+                            '@type': SCHEMA_TYPE[l.category] || 'LocalBusiness',
+                            '@id': canonicalUrl,
+                            'name': l.title,
+                            'description': desc,
+                            'url': canonicalUrl,
+                            'image': l.images && l.images.length > 0 ? l.images.slice(0, 5) : undefined,
+                            'telephone': l.phone || undefined,
+                            'email': l.email || undefined,
+                            'address': {
+                                '@type': 'PostalAddress',
+                                'streetAddress': l.address || undefined,
+                                'addressLocality': area,
+                                'addressRegion': 'Zanzibar',
+                                'addressCountry': 'TZ'
+                            },
+                            ...(l.website ? { 'sameAs': [/^https?:\/\//i.test(l.website) ? l.website : 'https://' + l.website] } : {}),
+                        }
+                    ]
+                };
+                document.getElementById('structured-data').textContent = JSON.stringify(schema);
+            }
+
+            // ---- DOM ----
+            // Breadcrumb
+            document.getElementById('bc-title').textContent = l.title;
+            const bcCat = document.getElementById('bc-category');
+            bcCat.textContent = categoryLabel;
+            bcCat.href = `/directory/${l.category}`;
+
+            // Badges
+            document.getElementById('badge-category').textContent = categoryLabel;
+            if (l.status === 'boosted' || l.status === 'featured') {
+                const bs = document.getElementById('badge-status');
+                bs.textContent = l.status === 'boosted' ? '⭐ Boosted' : '✨ Featured';
+                bs.classList.remove('hidden');
+            }
+            if (isVerified) document.getElementById('badge-verified').classList.remove('hidden');
+
+            // Title
+            document.getElementById('listing-title').textContent = l.title;
+            if (businessName) {
+                const bEl = document.getElementById('listing-business');
+                bEl.textContent = `by ${businessName}`;
+                bEl.classList.remove('hidden');
+            }
+
+            // Rating
+            if (rating) {
+                const rs = document.getElementById('rating-section');
+                rs.classList.remove('hidden');
+                rs.classList.add('flex');
+                document.getElementById('rating-value').textContent = rating;
+                document.getElementById('rating-count').textContent = `(${reviewCount} review${reviewCount !== 1 ? 's' : ''})`;
+            }
+
+            // Images
+            if (l.images && l.images.length > 0) {
+                document.getElementById('images-section').classList.remove('hidden');
+                const mainImg = document.getElementById('main-image');
+                mainImg.src = l.images[0];
+                mainImg.alt = l.title;
+                if (l.images.length > 1) {
+                    const thumbs = document.getElementById('image-thumbs');
+                    thumbs.innerHTML = l.images.slice(0, 6).map((url, i) => `
+                        <button type="button" data-src="${esc(url)}" class="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 ${i === 0 ? 'border-[#0A6A94]' : 'border-transparent'} hover:border-[#0A6A94] transition-colors">
+                            <img loading="lazy" decoding="async" src="${esc(url)}" alt="${esc(l.title)} photo ${i + 1}" class="w-full h-full object-cover">
+                        </button>
+                    `).join('');
+                    thumbs.querySelectorAll('button[data-src]').forEach(b => b.addEventListener('click', () => { mainImg.src = b.dataset.src; }));
+                }
+            }
+
+            // Description
+            if (l.description) {
+                document.getElementById('description-section').classList.remove('hidden');
+                document.getElementById('listing-description').textContent = l.description;
+            }
+
+            // Business hours
+            if (l.business_hours && typeof l.business_hours === 'object' && Object.keys(l.business_hours).length > 0) {
+                const hs = document.getElementById('hours-section');
+                hs.classList.remove('hidden');
+                const days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+                document.getElementById('hours-list').innerHTML = days
+                    .filter(d => l.business_hours[d])
+                    .map(d => `<div class="flex justify-between"><span class="capitalize text-gray-500">${d}</span><span>${esc(l.business_hours[d])}</span></div>`)
+                    .join('');
+            }
+
+            // Features
+            if (l.features && l.features.length > 0) {
+                document.getElementById('features-section').classList.remove('hidden');
+                document.getElementById('features-list').innerHTML = l.features.map(f =>
+                    `<span class="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">${esc(f)}</span>`
+                ).join('');
+            }
+
+            // Contact sidebar
+            const contactItems = [];
+            if (l.location) contactItems.push(`
+                <div class="flex items-start gap-2 text-gray-700">
+                    <svg class="w-4 h-4 text-[#0A6A94] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>${esc(areaLabel(l.location) || 'Zanzibar')}${l.address ? ', ' + esc(l.address) : ''}${areaLabel(l.location) ? ', Zanzibar' : ''}</span>
+                </div>
+            `);
+            if (l.phone) contactItems.push(`
+                <div class="flex items-center gap-2 text-gray-700">
+                    <svg class="w-4 h-4 text-[#0A6A94] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    <a href="tel:${esc(String(l.phone).replace(/[^\d+]/g, ''))}" class="hover:text-[#0A6A94] transition-colors">${esc(l.phone)}</a>
+                </div>
+            `);
+            if (l.email) contactItems.push(`
+                <div class="flex items-center gap-2 text-gray-700">
+                    <svg class="w-4 h-4 text-[#0A6A94] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <a href="mailto:${esc(l.email)}" class="hover:text-[#0A6A94] transition-colors truncate">${esc(l.email)}</a>
+                </div>
+            `);
+            if (l.website) {
+                const url = /^https?:\/\//i.test(l.website) ? l.website : 'https://' + l.website;
+                contactItems.push(`
+                    <div class="flex items-center gap-2 text-gray-700">
+                        <svg class="w-4 h-4 text-[#0A6A94] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                        <a href="${esc(url)}" target="_blank" rel="nofollow noopener" class="hover:text-[#0A6A94] transition-colors truncate">${esc(l.website.replace(/^https?:\/\//, ''))}</a>
+                    </div>
+                `);
+            }
+            document.getElementById('contact-location').innerHTML = contactItems.join('');
+
+            // CTA buttons
+            const btns = [];
+            if (l.whatsapp) {
+                const wa = l.whatsapp.replace(/\D/g, '');
+                btns.push(`<a href="https://wa.me/${wa}" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-xl font-semibold transition-colors text-sm">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.975-1.305A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                    WhatsApp
+                </a>`);
+            }
+            if (l.phone) {
+                btns.push(`<a href="tel:${esc(String(l.phone).replace(/[^\d+]/g, ''))}" class="flex items-center justify-center gap-2 w-full bg-[#1D2427] hover:bg-[#1D2427]/90 text-white px-4 py-3 rounded-xl font-semibold transition-colors text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    Call
+                </a>`);
+            }
+            if (l.email) {
+                btns.push(`<a href="mailto:${esc(l.email)}" class="flex items-center justify-center gap-2 w-full border-2 border-[#0A6A94] text-[#0A6A94] hover:bg-[#0A6A94] hover:text-white px-4 py-3 rounded-xl font-semibold transition-colors text-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    Email
+                </a>`);
+            }
+            document.getElementById('cta-buttons').innerHTML = btns.join('');
+
+            // Price
+            if (l.price) {
+                document.getElementById('price-card').classList.remove('hidden');
+                document.getElementById('price-value').textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(l.price);
+            }
+
+            // Related category links
+            document.getElementById('related-links').innerHTML = RELATED_CATEGORIES
+                .filter(c => c.key !== l.category)
+                .slice(0, 5)
+                .map(c => `<a href="/directory/${c.key}" class="flex items-center justify-between text-gray-600 hover:text-[#0A6A94] transition-colors py-1 border-b border-gray-50 last:border-0">
+                    <span>${c.label}</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>`)
+                .join('');
+
+            // Answer-first summary (same facts as the server-rendered page)
+            try {
+                const KIND = { business: 'local business', activities: 'tour and activity provider', accommodation: 'place to stay', automotive: 'automotive business', jobs: 'job listing', events: 'event', 'useful-info': 'local information listing' };
+                const tc = s => s.toLowerCase().replace(/\b\p{L}/gu, c => c.toUpperCase());
+                const areaRaw = String(l.location || '').replace(/[-_]+/g, ' ').trim();
+                const place = areaRaw && !/^(other|zanzibar)$/i.test(areaRaw) ? `${tc(areaRaw)}, Zanzibar` : 'Zanzibar';
+                const kind = KIND[l.category] || 'local business';
+                const parts = [`${l.title} is ${/^[aeiou]/i.test(kind) ? 'an' : 'a'} ${kind} in ${place}, Tanzania.`];
+                const ways = [];
+                const waDigits = String(l.whatsapp || '').replace(/\D/g, '');
+                if (waDigits) ways.push(`WhatsApp on +${waDigits}`);
+                if (l.phone && String(l.phone).replace(/\D/g, '') !== waDigits) ways.push(`phone on ${l.phone}`);
+                if (l.email) ways.push(`email at ${l.email}`);
+                if (ways.length) parts.push(`Contact by ${ways.length > 1 ? ways.slice(0, -1).join(', ') + ' or ' + ways[ways.length - 1] : ways[0]}.`);
+                if (l.price) parts.push(`Listed starting price: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(l.price)}.`);
+                const sumEl = document.getElementById('listing-summary');
+                sumEl.textContent = parts.join(' ');
+                sumEl.classList.remove('hidden');
+            } catch (e) { /* summary is optional */ }
+
+            // Increment view count (fire-and-forget)
+            supabase.rpc('increment_view_count', { listing_id: l.id }).catch(() => {});
+        }
+
+        loadListing();
+    </script>
+</body>
+</html>
