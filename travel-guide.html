@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zanzibar Travel Guide: Plan Your Perfect Trip | ZanziBiz</title>
+    <meta name="description" content="The complete Zanzibar travel planning hub. Find flights, hotels, tours, airport transfers, beaches, transport guides, and local tips for Stone Town, Nungwi, Paje, Kendwa and beyond.">
+    <meta name="keywords" content="Zanzibar travel guide, Zanzibar flights, Zanzibar hotels, Zanzibar tours, Zanzibar airport transfer, where to stay Zanzibar, Stone Town, Nungwi, Paje">
+    <link rel="canonical" href="https://zanzibiz.com/travel-guide">
+
+    <meta property="og:title" content="Zanzibar Travel Guide: Plan Your Perfect Trip | ZanziBiz">
+    <meta property="og:description" content="The complete Zanzibar travel planning hub — flights, hotels, tours, transport, beaches, safety, culture, and local tips.">
+    <meta property="og:url" content="https://zanzibiz.com/travel-guide">
+    <meta property="og:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zanzibar Travel Guide: Plan Your Perfect Trip | ZanziBiz">
+    <meta name="twitter:description" content="The complete Zanzibar travel planning hub — flights, hotels, tours, transport, beaches, safety, culture, and local tips.">
+    <meta name="twitter:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1B3A4B">
+    <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TouristDestination",
+        "name": "Zanzibar",
+        "description": "Zanzibar is a semi-autonomous archipelago off the coast of Tanzania, renowned for its white-sand beaches, turquoise waters, historic Stone Town, spice tours, and vibrant Swahili culture.",
+        "url": "https://zanzibiz.com/travel-guide",
+        "hasMap": "https://www.google.com/maps/place/Zanzibar",
+        "touristType": ["Beach traveller", "Cultural traveller", "Adventure traveller"],
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zanzibiz.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Zanzibar Travel Guide", "item": "https://zanzibiz.com/travel-guide" }
+            ]
+        }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+
+    <style>
+        /* ── Base ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #FAF7F2; color: #1C2B3A; margin: 0; }
+        h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; color: #1C2B3A; letter-spacing: -0.02em; line-height: 1.2; }
+
+        /* ── Tokens ── */
+        :root {
+            --navy: #0F2535;
+            --teal: #1B3A4B;
+            --teal-light: #2A5570;
+            --turq: #2A8C8A;
+            --gold: #C8892A;
+            --gold-dark: #A87020;
+            --sand: #FAF7F2;
+            --sand-mid: #F5EFE5;
+            --sand-border: #E4D9CC;
+            --text-body: #3A4F5C;
+            --text-muted: #6B7A8D;
+            --text-faint: #94A3B8;
+        }
+
+        /* ── Utility ── */
+        .section-eyebrow {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* ── Hero ── */
+        .hero-wrap {
+            position: relative;
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+        @media (max-width: 640px) { .hero-wrap { min-height: 88vh; } }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop');
+            background-size: cover;
+            background-position: center 30%;
+            transform: scale(1.04);
+            animation: heroScale 18s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+        @media (prefers-reduced-motion: reduce) { .hero-bg { animation: none; transform: scale(1); } }
+        @keyframes heroScale {
+            from { transform: scale(1.04); }
+            to   { transform: scale(1.00); }
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(10,22,34,0.28) 0%,
+                rgba(10,22,34,0.44) 40%,
+                rgba(10,22,34,0.82) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px 72px;
+            max-width: 860px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            border: 1px solid rgba(200,137,42,0.4);
+            border-radius: 100px;
+            padding: 5px 16px;
+            margin-bottom: 24px;
+            background: rgba(200,137,42,0.08);
+        }
+        .hero-h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin: 0 0 24px;
+        }
+        .hero-sub {
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            color: rgba(255,255,255,0.82);
+            max-width: 600px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.18s;
+            letter-spacing: 0.01em;
+        }
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+        .btn-ghost {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.28);
+            transition: background 0.2s, transform 0.18s;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+        /* ── Facts bar ── */
+        .facts-bar {
+            background: var(--navy);
+            padding: 14px 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .facts-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 28px;
+        }
+        .fact-item {
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.68);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .fact-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+            flex-shrink: 0;
+        }
+
+        /* ── Trip Planner section ── */
+        .planner-section {
+            background: var(--sand);
+            padding: 96px 20px 80px;
+        }
+        .planner-header {
+            max-width: 700px;
+            margin: 0 auto 72px;
+            text-align: center;
+        }
+        .planner-header h2 {
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 700;
+            margin: 0 0 16px;
+        }
+        .planner-header p {
+            font-size: 1.05rem;
+            color: var(--text-body);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ── Journey timeline ── */
+        .journey-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Vertical line on mobile */
+        .journey-wrap::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 28px;
+            bottom: 28px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--teal) 0%, var(--gold) 50%, var(--turq) 100%);
+            opacity: 0.25;
+        }
+        @media (min-width: 768px) {
+            .journey-wrap::before { display: none; }
+        }
+
+        .stage-block {
+            position: relative;
+            margin-bottom: 64px;
+        }
+        .stage-block:last-child { margin-bottom: 0; }
+
+        .stage-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 28px;
+            padding-left: 0;
+        }
+        @media (max-width: 767px) {
+            .stage-head { padding-left: 4px; }
+        }
+
+        .stage-badge {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 15px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        .badge-1 { background: var(--teal); }
+        .badge-2 { background: var(--gold); }
+        .badge-3 { background: var(--turq); }
+
+        .stage-meta { padding-top: 2px; }
+        .stage-label {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-bottom: 4px;
+            display: block;
+        }
+        .stage-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 6px;
+        }
+        .stage-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin: 0;
+            max-width: 560px;
+        }
+
+        /* ── Affiliate cards ── */
+        .cards-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .cards-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 900px) {
+            .cards-grid-3 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .cards-grid-3, .cards-grid-2 { grid-template-columns: 1fr; }
+        }
+
+        .aff-card {
+            background: #FFFFFF;
+            border: 1px solid var(--sand-border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .aff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 48px rgba(15,37,53,0.10);
+            border-color: var(--gold);
+        }
+        .aff-card-img {
+            width: 100%;
+            height: 148px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+            background: var(--sand-mid);
+            transition: transform 0.5s ease;
+        }
+        .aff-card:hover .aff-card-img {
+            transform: scale(1.05);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .aff-card:hover .aff-card-img { transform: none; }
+        }
+        .aff-card-body {
+            padding: 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .aff-partner-tag {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-bottom: 4px;
+            display: block;
+        }
+        .aff-card-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .aff-card-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+        .aff-card-text {
+            font-size: 0.84rem;
+            color: var(--text-body);
+            line-height: 1.65;
+            margin: 0 0 16px;
+            flex-grow: 1;
+        }
+
+        /* Kiwi widget panel */
+        .kiwi-widget-panel {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto 24px;
+            background: #FFFFFF;
+            border: 1px solid var(--sand-border);
+            border-radius: 16px;
+            padding: 24px;
+            overflow: visible;
+        }
+        .kiwi-widget-copy {
+            margin-bottom: 16px;
+        }
+        .kiwi-widget-copy .aff-partner-tag { display: block; margin-bottom: 4px; }
+        .kiwi-widget-copy h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 6px;
+            line-height: 1.3;
+        }
+        .kiwi-widget-copy p {
+            font-size: 0.84rem;
+            color: var(--text-body);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .kiwi-widget-embed {
+            width: 100%;
+            min-height: 190px;
+            overflow: visible;
+        }
+        .kiwi-widget-embed iframe {
+            width: 100% !important;
+            max-width: 100% !important;
+            border: 0 !important;
+        }
+        .kiwi-widget-tip {
+            margin: 12px 0 0;
+            font-size: 0.78rem;
+            color: var(--text-faint);
+            line-height: 1.6;
+        }
+        @media (max-width: 767px) {
+            .kiwi-widget-panel {
+                padding: 18px;
+                border-radius: 14px;
+            }
+            .kiwi-widget-embed {
+                min-height: 460px;
+            }
+        }
+
+        .btn-aff {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 11px 18px;
+            border-radius: 9px;
+            font-size: 0.83rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.18s;
+            align-self: flex-start;
+            white-space: nowrap;
+        }
+        .btn-aff-navy { background: var(--navy); color: white; }
+        .btn-aff-navy:hover { background: #07141f; transform: translateY(-1px); }
+        .btn-aff-gold { background: var(--gold); color: white; }
+        .btn-aff-gold:hover { background: var(--gold-dark); transform: translateY(-1px); }
+        .btn-aff-outline-white {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-aff-outline-white:hover { background: rgba(255,255,255,0.22); transform: translateY(-1px); }
+
+        /* ── Disclosure panel ── */
+        .disclosure-panel {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            background: var(--sand-mid);
+            border: 1px solid var(--sand-border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .disclosure-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--text-faint);
+            margin-top: 1px;
+        }
+        .disclosure-text {
+            font-size: 12px;
+            color: var(--text-faint);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .disclosure-text a { color: var(--gold); text-decoration: none; }
+        .disclosure-text a:hover { text-decoration: underline; }
+
+        /* ── Scroll fade-in ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+
+        /* ── Topic hub cards ── */
+        .hub-card {
+            background: #FFFFFF;
+            border: 1px solid var(--sand-border);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .hub-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 44px rgba(15,37,53,0.10);
+            border-color: var(--gold);
+        }
+        .hub-card-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+            background: var(--sand-mid);
+        }
+        .hub-card-body {
+            padding: 18px 20px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .hub-card-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 0 0 6px;
+        }
+        .hub-card-text {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0 0 12px;
+            flex-grow: 1;
+        }
+        .hub-card-link {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* ── CTA quick-links ── */
+        .cta-link-card {
+            background: linear-gradient(140deg, var(--navy) 0%, var(--teal) 100%);
+            border-radius: 14px;
+            padding: 22px 22px 20px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            min-height: 160px;
+            transition: transform 0.22s ease, box-shadow 0.22s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-link-card::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; right: -20px;
+            width: 90px; height: 90px;
+            border-radius: 50%;
+            background: rgba(200,137,42,0.1);
+        }
+        .cta-link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(15,37,53,0.24);
+        }
+        .cta-link-icon {
+            width: 38px; height: 38px;
+            border-radius: 10px;
+            background: rgba(200,137,42,0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+        .cta-link-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 0 6px;
+        }
+        .cta-link-sub {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.6);
+            margin: 0 0 auto;
+            line-height: 1.5;
+        }
+        .cta-link-arrow {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-top: 14px;
+        }
+
+        /* ── Region cards ── */
+        .region-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            text-decoration: none;
+            display: block;
+        }
+        .region-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .region-card:hover .region-card-img { transform: scale(1.06); }
+        .region-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,22,34,0.78) 0%, rgba(10,22,34,0.1) 60%);
+        }
+        .region-card-content {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 20px;
+        }
+        .region-card-name {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 0 4px;
+        }
+        .region-card-desc {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.72);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .region-tag {
+            display: inline-block;
+            font-size: 9.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--gold);
+            border: 1px solid rgba(200,137,42,0.5);
+            border-radius: 100px;
+            padding: 3px 9px;
+            margin-bottom: 6px;
+        }
+
+        /* ── Blog card ── */
+        .blog-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--sand-border);
+            box-shadow: 0 2px 12px rgba(27,58,75,0.05);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+            text-decoration: none;
+            display: block;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(27,58,75,0.11);
+            border-color: var(--gold);
+        }
+        .category-pill {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 10.5px;
+            font-weight: 600;
+            text-transform: capitalize;
+            background: rgba(15,37,53,0.75);
+            color: white;
+            backdrop-filter: blur(4px);
+        }
+    </style>
+
+    <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrldtp.com/NTMxNDI0.js?t=531424';
+      document.head.appendChild(script);
+  })();
+</script>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav style="background:white;border-bottom:1px solid rgba(228,217,204,0.6);position:sticky;top:0;z-index:50;">
+        <div style="max-width:1280px;margin:0 auto;padding:0 20px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;height:80px;">
+                <a href="index.html" style="display:flex;align-items:center;flex-shrink:0;">
+                    <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" style="height:64px;width:auto;">
+                </a>
+                <div style="display:none;" class="hidden md:flex" id="desktopNav">
+                    <div style="display:flex;align-items:center;gap:28px;">
+                        <a href="index.html" style="font-size:13.5px;font-weight:500;color:#4A5568;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#4A5568'">Home</a>
+                        <a href="index.html#categories" style="font-size:13.5px;font-weight:500;color:#4A5568;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#4A5568'">Categories</a>
+                        <a href="index.html#listings" style="font-size:13.5px;font-weight:500;color:#4A5568;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#4A5568'">Business Directory</a>
+                        <a href="travel-guide.html" style="font-size:13.5px;font-weight:700;color:#C8892A;text-decoration:none;">Travel Guide</a>
+                        <a href="webstart.html" style="font-size:13.5px;font-weight:500;color:#4A5568;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#4A5568'">WebStart</a>
+                    </div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;">
+                    <a href="auth/login.html" style="font-size:13.5px;font-weight:500;color:#4A5568;text-decoration:none;padding:8px 12px;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#4A5568'">Sign In</a>
+                    <a href="auth/signup.html" style="font-size:13.5px;font-weight:700;background:#C8892A;color:white;padding:10px 18px;border-radius:9px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#A87020'" onmouseout="this.style.background='#C8892A'">List Your Business</a>
+                </div>
+            </div>
+        </div>
+        <style>
+            @media (min-width: 768px) { #desktopNav { display: flex !important; } }
+        </style>
+    </nav>
+
+    <!-- ══════════════════════════════════
+         HERO
+    ══════════════════════════════════ -->
+    <div class="hero-wrap">
+        <div class="hero-bg" role="img" aria-label="Turquoise waters and white sand beach of Zanzibar"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <span class="hero-eyebrow">Zanzibar Travel Planning Hub</span>
+            <h1 class="hero-h1">Zanzibar<br>Travel Guide</h1>
+            <p class="hero-sub">Plan your Zanzibar trip in the order that actually makes sense — flights first, then mobile data and insurance, then transfers, tours and island experiences.</p>
+            <div class="hero-btns">
+                <a href="#trip-planner" class="btn-primary">Start Planning</a>
+                <a href="#guides" class="btn-ghost">Browse Guides</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Facts bar ── -->
+    <div class="facts-bar">
+        <div class="facts-inner">
+            <div class="fact-item"><span class="fact-dot"></span>Direct flights from Nairobi, Dar es Salaam, Dubai</div>
+            <div class="fact-item"><span class="fact-dot"></span>Best season: June – October &amp; December – February</div>
+            <div class="fact-item"><span class="fact-dot"></span>Currency: Tanzanian Shilling (TZS) · USD widely accepted</div>
+            <div class="fact-item"><span class="fact-dot"></span>Visa on arrival for most nationalities</div>
+            <div class="fact-item"><span class="fact-dot"></span>Zanzibar Airport code: ZNZ</div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         TRIP PLANNER — AFFILIATE JOURNEY
+    ══════════════════════════════════ -->
+    <section id="trip-planner" class="planner-section">
+        <div class="planner-header reveal">
+            <span class="section-eyebrow">Trip Planner</span>
+            <h2>Plan your Zanzibar trip<br>in the right order</h2>
+            <p>Start with flights, prepare before arrival, then arrange transport and experiences once your trip is real.</p>
+        </div>
+
+        <div class="journey-wrap">
+
+            <!-- ─── STAGE 1: Before You Fly ─── -->
+            <div class="stage-block reveal">
+                <div class="stage-head">
+                    <div class="stage-badge badge-1">1</div>
+                    <div class="stage-meta">
+                        <span class="stage-label">Step one</span>
+                        <h3 class="stage-title">Before You Fly</h3>
+                        <p class="stage-desc">Book the trip first, then prepare the essentials you'll need as soon as you arrive.</p>
+                    </div>
+                </div>
+
+                <div class="kiwi-widget-panel reveal" data-affiliate-partner="kiwi" data-affiliate-stage="before-you-fly" data-affiliate-subid="zg_travelguide_prefly_kiwi_widget">
+                    <div class="kiwi-widget-copy">
+                        <span class="aff-partner-tag">Kiwi.com</span>
+                        <h3>Find flights to Zanzibar</h3>
+                        <p>Zanzibar is already selected as your destination. Change the departure city to your nearest airport, choose your dates, and compare flight options.</p>
+                    </div>
+                    <div class="kiwi-widget-embed">
+                        <script async src="https://tpwdg.com/content?currency=eur&trs=531424&shmarker=730720&locale=en&default_origin=LON&default_destination=ZNZ&stops=any&show_hotels=true&powered_by=true&border_radius=0&plain=true&color_button=%2300A991&color_button_text=%23ffffff&promo_id=3414&campaign_id=111" charset="utf-8"></script>
+                    </div>
+                    <p class="kiwi-widget-tip">Tip: Start with your nearest major airport. You can edit the departure city directly inside the flight search.</p>
+                </div>
+
+                <div class="cards-grid-2" style="margin-top:16px;">
+                    <!-- Yesim -->
+                    <div class="aff-card">
+                        <img class="aff-card-img"
+                             src="https://images.pexels.com/photos/4353813/pexels-photo-4353813.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+                             alt="Traveller using a phone with mobile data at the airport before flying to Zanzibar"
+                             width="600" height="300"
+                             loading="lazy">
+                        <div class="aff-card-body">
+                            <span class="aff-partner-tag">via Yesim</span>
+                            <span class="aff-card-label">eSIM &amp; Mobile Data</span>
+                            <h4 class="aff-card-title">Stay connected in Zanzibar</h4>
+                            <p class="aff-card-text">Set up a travel eSIM before departure so maps, WhatsApp, taxis, and hotel messages work the moment you land — no SIM swap needed.</p>
+                            <a href="https://yesim.tpk.ro/SqZML6lh"
+                               target="_blank"
+                               rel="sponsored noopener noreferrer"
+                               data-affiliate-partner="yesim"
+                               data-affiliate-stage="before-you-fly"
+                               data-affiliate-subid="zg_travelguide_prefly_yesim_card"
+                               class="btn-aff btn-aff-navy">
+                                Get your Zanzibar eSIM
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- EKTA -->
+                    <div class="aff-card">
+                        <img class="aff-card-img"
+                             src="https://images.pexels.com/photos/1008155/pexels-photo-1008155.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+                             alt="Passport and travel documents laid out before a Zanzibar trip"
+                             width="600" height="300"
+                             loading="lazy">
+                        <div class="aff-card-body">
+                            <span class="aff-partner-tag">via EKTA</span>
+                            <span class="aff-card-label">Travel Insurance</span>
+                            <h4 class="aff-card-title">Get travel insurance</h4>
+                            <p class="aff-card-text">Cover medical emergencies, delays, cancellations, and unexpected travel problems before your Zanzibar trip.</p>
+                            <a href="https://ektatraveling.tpk.ro/KYBNuSEy"
+                               target="_blank"
+                               rel="sponsored noopener noreferrer"
+                               data-affiliate-partner="ekta"
+                               data-affiliate-stage="before-you-fly"
+                               data-affiliate-subid="zg_travelguide_prefly_ekta_card"
+                               class="btn-aff btn-aff-navy">
+                                Get travel insurance
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- /.cards-grid-2 -->
+            </div>
+
+            <!-- ─── STAGE 2: When You Land ─── -->
+            <div class="stage-block reveal">
+                <div class="stage-head">
+                    <div class="stage-badge badge-2">2</div>
+                    <div class="stage-meta">
+                        <span class="stage-label">Step two</span>
+                        <h3 class="stage-title">When You Land</h3>
+                        <p class="stage-desc">Sort your arrival before you reach Zanzibar Airport, especially if you're staying outside Stone Town.</p>
+                    </div>
+                </div>
+
+                <div class="cards-grid-2">
+                    <!-- Kiwitaxi -->
+                    <div class="aff-card">
+                        <img class="aff-card-img"
+                             src="https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+                             alt="Driver waiting beside a car at Zanzibar Airport for an airport transfer"
+                             width="600" height="300"
+                             loading="lazy">
+                        <div class="aff-card-body">
+                            <span class="aff-partner-tag">via Kiwitaxi</span>
+                            <span class="aff-card-label">Airport Transfer</span>
+                            <h4 class="aff-card-title">Book your Zanzibar airport transfer</h4>
+                            <p class="aff-card-text">Arrange a fixed-price transfer from Zanzibar Airport before you arrive — especially useful for late flights, families, or first-time visitors.</p>
+                            <a href="https://kiwitaxi.tpk.ro/q6fWMq56"
+                               target="_blank"
+                               rel="sponsored noopener noreferrer"
+                               data-affiliate-partner="kiwitaxi"
+                               data-affiliate-stage="when-you-land"
+                               data-affiliate-subid="zg_travelguide_arrive_kiwitaxi_card"
+                               class="btn-aff btn-aff-navy">
+                                Book airport transfer
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- GetTransfer -->
+                    <div class="aff-card">
+                        <img class="aff-card-img"
+                             src="https://images.pexels.com/photos/1118448/pexels-photo-1118448.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop"
+                             alt="Private vehicle on a coastal road in Zanzibar for a hotel transfer"
+                             width="600" height="300"
+                             loading="lazy">
+                        <div class="aff-card-body">
+                            <span class="aff-partner-tag">via GetTransfer</span>
+                            <span class="aff-card-label">Private Driver</span>
+                            <h4 class="aff-card-title">Compare private transfers in Zanzibar</h4>
+                            <p class="aff-card-text">Compare private transfer options around Zanzibar for airport pickups, hotel moves, and longer island journeys to Nungwi, Paje, or Kendwa.</p>
+                            <a href="https://gettransfer.tpk.ro/SWd0VRqG"
+                               target="_blank"
+                               rel="sponsored noopener noreferrer"
+                               data-affiliate-partner="gettransfer"
+                               data-affiliate-stage="when-you-land"
+                               data-affiliate-subid="zg_travelguide_arrive_gettransfer_card"
+                               class="btn-aff btn-aff-navy">
+                                Compare private transfers
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── STAGE 3: Explore Zanzibar ─── -->
+            <div class="stage-block reveal">
+                <div class="stage-head">
+                    <div class="stage-badge badge-3">3</div>
+                    <div class="stage-meta">
+                        <span class="stage-label">Step three</span>
+                        <h3 class="stage-title">Explore Zanzibar</h3>
+                        <p class="stage-desc">Once the essentials are covered, choose the experiences that make the trip memorable.</p>
+                    </div>
+                </div>
+
+                <!-- Klook — primary Explore Zanzibar partner -->
+                <div class="aff-card" style="max-width:680px;">
+                    <img class="aff-card-img"
+                         src="https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=800&h=360&fit=crop"
+                         alt="Traditional wooden dhow boat on turquoise Zanzibar waters during a guided tour"
+                         width="800" height="360"
+                         loading="lazy"
+                         style="height:200px;">
+                    <div class="aff-card-body">
+                        <span class="aff-partner-tag">via Klook</span>
+                        <span class="aff-card-label">Tours &amp; Activities</span>
+                        <h4 class="aff-card-title">Book Zanzibar tours and experiences</h4>
+                        <p class="aff-card-text">Browse Zanzibar activities including Stone Town tours, spice farm visits, Prison Island, Mnemba snorkeling, dhow cruises, and cultural experiences.</p>
+                        <a href="https://klook.tpk.ro/ywsBH4U8"
+                           target="_blank"
+                           rel="sponsored noopener noreferrer"
+                           data-affiliate-partner="klook"
+                           data-affiliate-stage="explore-zanzibar"
+                           data-affiliate-subid="zg_travelguide_explore_klook_card"
+                           class="btn-aff btn-aff-navy">
+                            Book Zanzibar tours
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ─── Disclosure ─── -->
+            <div class="disclosure-panel reveal">
+                <svg class="disclosure-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <p class="disclosure-text">Some links on this page are affiliate links. ZanziBiz may earn a commission if you book through them, at no extra cost to you. We only include travel tools that may be useful for Zanzibar visitors. <a href="affiliate.html">Read our affiliate disclosure &rarr;</a></p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         QUICK LINKS — GUIDE PAGES
+    ══════════════════════════════════ -->
+    <section style="background:#FFFFFF;padding:80px 20px;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="reveal" style="margin-bottom:40px;">
+                <span class="section-eyebrow">Our Guides</span>
+                <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;margin:0 0 12px;">Everything in one place</h2>
+                <p style="color:var(--text-body);font-size:1rem;margin:0;max-width:520px;line-height:1.7;">In-depth guide pages for every stage of planning a Zanzibar trip.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" class="reveal" id="ctaGrid">
+                <a href="travel-guide/flights-to-zanzibar.html" class="cta-link-card">
+                    <div class="cta-link-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                    </div>
+                    <p class="cta-link-title">Flights to Zanzibar</p>
+                    <p class="cta-link-sub">Airlines, routes, stopovers &amp; booking tips</p>
+                    <span class="cta-link-arrow">Read guide &rarr;</span>
+                </a>
+                <a href="travel-guide/hotels.html" class="cta-link-card">
+                    <div class="cta-link-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <p class="cta-link-title">Zanzibar Hotels</p>
+                    <p class="cta-link-sub">Resorts, boutique stays &amp; budget options</p>
+                    <span class="cta-link-arrow">Read guide &rarr;</span>
+                </a>
+                <a href="travel-guide/tours.html" class="cta-link-card">
+                    <div class="cta-link-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                    </div>
+                    <p class="cta-link-title">Tours &amp; Activities</p>
+                    <p class="cta-link-sub">Spice tours, snorkelling, safaris &amp; more</p>
+                    <span class="cta-link-arrow">Read guide &rarr;</span>
+                </a>
+                <a href="travel-guide/airport-transfers.html" class="cta-link-card">
+                    <div class="cta-link-icon">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                    </div>
+                    <p class="cta-link-title">Airport Transfers</p>
+                    <p class="cta-link-sub">Taxis, shuttles &amp; private drivers</p>
+                    <span class="cta-link-arrow">Read guide &rarr;</span>
+                </a>
+            </div>
+            <style>
+                @media (max-width: 900px) { #ctaGrid { grid-template-columns: repeat(2,1fr) !important; } }
+                @media (max-width: 520px) { #ctaGrid { grid-template-columns: 1fr !important; } }
+            </style>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         TOPIC HUB — EXPLORE BY TOPIC
+    ══════════════════════════════════ -->
+    <section style="background:var(--sand);padding:80px 20px;" id="explore-topics">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="reveal" style="margin-bottom:40px;">
+                <span class="section-eyebrow">Explore by Topic</span>
+                <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;margin:0 0 12px;">Everything you need to know</h2>
+                <p style="color:var(--text-body);font-size:1rem;margin:0;max-width:520px;line-height:1.7;">From where to stay to how to stay safe — practical advice for first-time visitors and return travellers alike.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;" class="reveal" id="topicGrid">
+
+                <a href="travel-guide/where-to-stay.html" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Zanzibar beach resort at sunset" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Where to Stay</h3>
+                        <p class="hub-card-text">Nungwi, Paje, Stone Town, Kendwa — honest area comparison for every type of trip.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="travel-guide/flights-to-zanzibar.html" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Airplane approaching Zanzibar" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Flights to Zanzibar</h3>
+                        <p class="hub-card-text">Airlines, routes, stopovers and when to book for the best fares to ZNZ.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="travel-guide/tours.html" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/3601452/pexels-photo-3601452.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Zanzibar spice tour and island activities" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Tours &amp; Activities</h3>
+                        <p class="hub-card-text">Spice tours, dolphin watching, Prison Island, snorkelling at Mnemba Atoll.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="travel-guide/airport-transfers.html" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Airport transfer vehicle in Zanzibar" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Airport Transfers</h3>
+                        <p class="hub-card-text">Getting from Zanzibar Airport (ZNZ) to your hotel. Prices, timing and what to expect.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="/travel-guide/complete-guide-to-getting-around-zanzibar" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/2469122/pexels-photo-2469122.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Getting around Zanzibar by scooter and local transport" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Getting Around</h3>
+                        <p class="hub-card-text">Dala-dalas, taxis, scooters, bicycles — how to navigate the island day to day.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="/travel-guide/beach-activities-beyond-sunbathing" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/1173195/pexels-photo-1173195.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Clear turquoise water and white sand beach in Zanzibar" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Beaches</h3>
+                        <p class="hub-card-text">The best beaches in Zanzibar and what to expect at each — from Nungwi to Paje.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="/travel-guide/local-culture-etiquette-in-zanzibar" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/2833425/pexels-photo-2833425.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Stone Town narrow streets and Swahili culture in Zanzibar" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Culture &amp; Etiquette</h3>
+                        <p class="hub-card-text">Local customs, dress code, tipping, Ramadan and what to know before you visit.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+                <a href="/travel-guide/staying-safe-secure-in-zanzibar-a-practical-guide-for-visitors-and-expats" class="hub-card">
+                    <img class="hub-card-img"
+                         src="https://images.pexels.com/photos/4498198/pexels-photo-4498198.jpeg?auto=compress&cs=tinysrgb&w=600&h=338&fit=crop"
+                         alt="Safe travel in Zanzibar practical tips" width="600" height="338" loading="lazy">
+                    <div class="hub-card-body">
+                        <h3 class="hub-card-title">Safety &amp; Health</h3>
+                        <p class="hub-card-text">Practical safety tips, healthcare, vaccinations and travel insurance advice for Zanzibar.</p>
+                        <span class="hub-card-link">Read guide <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+                    </div>
+                </a>
+
+            </div>
+            <style>
+                @media (max-width: 900px) { #topicGrid { grid-template-columns: repeat(2,1fr) !important; } }
+                @media (max-width: 520px) { #topicGrid { grid-template-columns: 1fr !important; } }
+            </style>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         DESTINATIONS — KEY REGIONS
+    ══════════════════════════════════ -->
+    <section style="background:#FFFFFF;padding:80px 20px;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="reveal" style="margin-bottom:40px;">
+                <span class="section-eyebrow">Where to Go</span>
+                <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;margin:0 0 12px;">Zanzibar's key destinations</h2>
+                <p style="color:var(--text-body);font-size:1rem;margin:0;max-width:520px;line-height:1.7;">Each part of Zanzibar has a distinct character. Here's a quick breakdown to help you choose where to base yourself.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;" class="reveal" id="regionsGrid">
+
+                <a href="travel-guide/where-to-stay.html" class="region-card">
+                    <img class="region-card-img"
+                         src="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=700&h=525&fit=crop"
+                         alt="Stone Town historic waterfront Zanzibar" width="700" height="525" loading="lazy">
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <span class="region-tag">Heritage</span>
+                        <h3 class="region-card-name">Stone Town</h3>
+                        <p class="region-card-desc">UNESCO World Heritage site. Arabic architecture, spice markets, vibrant food scene.</p>
+                    </div>
+                </a>
+
+                <a href="travel-guide/where-to-stay.html" class="region-card">
+                    <img class="region-card-img"
+                         src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=700&h=525&fit=crop"
+                         alt="Nungwi white sand beach northern Zanzibar" width="700" height="525" loading="lazy">
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <span class="region-tag">Beaches</span>
+                        <h3 class="region-card-name">Nungwi</h3>
+                        <p class="region-card-desc">North tip of the island. White sand, calm swimming, dhow trips at sunset.</p>
+                    </div>
+                </a>
+
+                <a href="travel-guide/where-to-stay.html" class="region-card">
+                    <img class="region-card-img"
+                         src="https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=700&h=525&fit=crop"
+                         alt="Paje beach and kitesurfing Zanzibar southeast coast" width="700" height="525" loading="lazy">
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <span class="region-tag">Kitesurfing</span>
+                        <h3 class="region-card-name">Paje &amp; Jambiani</h3>
+                        <p class="region-card-desc">Southeast coast kitesurfing hub. Chill atmosphere, excellent seafood, tidal flats.</p>
+                    </div>
+                </a>
+
+                <a href="travel-guide/where-to-stay.html" class="region-card">
+                    <img class="region-card-img"
+                         src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=700&h=525&fit=crop"
+                         alt="Kendwa beach resort Zanzibar" width="700" height="525" loading="lazy">
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <span class="region-tag">Resorts</span>
+                        <h3 class="region-card-name">Kendwa</h3>
+                        <p class="region-card-desc">Full moon beach parties, swimming at all tides, relaxed resort atmosphere.</p>
+                    </div>
+                </a>
+
+                <a href="travel-guide/where-to-stay.html" class="region-card">
+                    <img class="region-card-img"
+                         src="https://images.pexels.com/photos/1574843/pexels-photo-1574843.jpeg?auto=compress&cs=tinysrgb&w=700&h=525&fit=crop"
+                         alt="Matemwe reef snorkelling quiet north east Zanzibar" width="700" height="525" loading="lazy">
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <span class="region-tag">Quiet &amp; Remote</span>
+                        <h3 class="region-card-name">Matemwe &amp; Kiwengwa</h3>
+                        <p class="region-card-desc">Quieter north-east beaches, reef snorkelling, boutique resorts, sunrise views.</p>
+                    </div>
+                </a>
+
+                <a href="/travel-guide/traveling-to-zanzibar" class="region-card">
+                    <img class="region-card-img"
+                         src="https://images.pexels.com/photos/2393963/pexels-photo-2393963.jpeg?auto=compress&cs=tinysrgb&w=700&h=525&fit=crop"
+                         alt="Zanzibar spice farm and Jozani Forest inland" width="700" height="525" loading="lazy">
+                    <div class="region-card-overlay"></div>
+                    <div class="region-card-content">
+                        <span class="region-tag">Nature</span>
+                        <h3 class="region-card-name">Spice Farms &amp; Inland</h3>
+                        <p class="region-card-desc">Famous spice farms, Jozani Forest, red colobus monkeys, rural village culture.</p>
+                    </div>
+                </a>
+
+            </div>
+            <style>
+                @media (max-width: 900px) { #regionsGrid { grid-template-columns: repeat(2,1fr) !important; } }
+                @media (max-width: 520px) { #regionsGrid { grid-template-columns: 1fr !important; } }
+            </style>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         LATEST GUIDES
+    ══════════════════════════════════ -->
+    <section id="guides" style="background:var(--sand);padding:80px 20px;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div class="reveal" style="margin-bottom:40px;">
+                <span class="section-eyebrow">Latest Articles</span>
+                <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;margin:0 0 12px;">Zanzibar travel guides</h2>
+                <p style="color:var(--text-body);font-size:1rem;margin:0;max-width:520px;line-height:1.7;">In-depth guides written for travellers and expats living in or visiting Zanzibar.</p>
+            </div>
+
+            <div id="loadingState" class="text-center" style="padding:48px 0;text-align:center;">
+                <div style="display:inline-block;width:40px;height:40px;border-radius:50%;border:3px solid var(--sand-border);border-bottom-color:var(--gold);animation:spin 0.8s linear infinite;"></div>
+                <p style="margin-top:12px;font-size:14px;color:var(--text-muted);">Loading guides&hellip;</p>
+            </div>
+            <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
+            <div id="postsGrid" style="display:none;grid-template-columns:repeat(3,1fr);gap:20px;" id="postsGrid"></div>
+            <style>
+                @media (max-width: 900px) { #postsGrid { grid-template-columns: repeat(2,1fr) !important; } }
+                @media (max-width: 520px) { #postsGrid { grid-template-columns: 1fr !important; } }
+            </style>
+
+            <div id="viewAllWrap" style="display:none;text-align:center;margin-top:36px;">
+                <a href="blog.html"
+                   style="display:inline-block;background:var(--navy);color:white;padding:14px 28px;border-radius:10px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:background 0.2s;"
+                   onmouseover="this.style.background='#07141f'" onmouseout="this.style.background='var(--navy)'">View all travel articles &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         LOCAL BUSINESSES CTA
+    ══════════════════════════════════ -->
+    <section style="background:linear-gradient(135deg,#0F2535 0%,#1B3A4B 100%);padding:80px 20px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:rgba(200,137,42,0.07);pointer-events:none;"></div>
+        <div style="max-width:700px;margin:0 auto;text-align:center;position:relative;">
+            <span class="section-eyebrow">ZanziBiz Business Directory</span>
+            <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:700;margin:0 0 16px;color:white;">Find trusted local businesses</h2>
+            <p style="color:rgba(255,255,255,0.72);font-size:1rem;margin:0 0 36px;line-height:1.7;">From hotels and restaurants to tour operators and taxi services — browse our verified directory of Zanzibar businesses.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="index.html#listings" class="btn-primary">Browse All Businesses</a>
+                <a href="auth/signup.html" class="btn-ghost">List Your Business</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         FOOTER
+    ══════════════════════════════════ -->
+    <footer style="background-color:#0F2535;border-top:4px solid #C8892A;color:#CBD5E1;padding:56px 20px 32px;">
+        <div style="max-width:1280px;margin:0 auto;">
+            <div style="display:flex;flex-direction:column;gap:24px;" class="md:flex-row md:justify-between md:items-start">
+                <div>
+                    <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" style="height:44px;width:auto;margin-bottom:12px;filter:brightness(0) invert(1);">
+                    <p style="font-size:13px;color:#94A3B8;margin:0;">Your guide to the best of Zanzibar.</p>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:8px 28px;font-size:13.5px;">
+                    <a href="index.html" style="color:#CBD5E1;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#CBD5E1'">Home</a>
+                    <a href="travel-guide.html" style="color:#C8892A;text-decoration:none;">Travel Guide</a>
+                    <a href="webstart.html" style="color:#CBD5E1;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#CBD5E1'">WebStart</a>
+                    <a href="index.html#listings" style="color:#CBD5E1;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#CBD5E1'">Business Directory</a>
+                    <a href="auth/signup.html" style="color:#CBD5E1;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#CBD5E1'">List Your Business</a>
+                </div>
+            </div>
+            <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;">
+                <a href="about.html" style="font-size:12px;color:#64748B;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#64748B'">About</a>
+                <a href="contact.html" style="font-size:12px;color:#64748B;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#64748B'">Contact</a>
+                <a href="privacy.html" style="font-size:12px;color:#64748B;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#64748B'">Privacy Policy</a>
+                <a href="terms.html" style="font-size:12px;color:#64748B;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#64748B'">Terms</a>
+                <a href="affiliate.html" style="font-size:12px;color:#64748B;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C8892A'" onmouseout="this.style.color='#64748B'">Affiliate Disclosure</a>
+            </div>
+            <div style="margin-top:16px;text-align:center;font-size:12px;color:#475569;">&copy; 2025 ZanziBiz. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- ══════════════════════════════════
+         SCRIPTS
+    ══════════════════════════════════ -->
+    <script type="module">
+        import { supabase } from './lib/supabase.js';
+
+        /* ── Blog posts ── */
+        async function loadLatestPosts() {
+            try {
+                const { data: posts, error } = await supabase
+                    .from('blog_posts')
+                    .select('id, title, slug, excerpt, featured_image, category, created_at')
+                    .eq('status', 'published')
+                    .order('created_at', { ascending: false })
+                    .limit(6);
+
+                if (error) throw error;
+
+                document.getElementById('loadingState').style.display = 'none';
+                if (!posts || posts.length === 0) return;
+
+                const grid = document.getElementById('postsGrid');
+                grid.style.display = 'grid';
+                document.getElementById('viewAllWrap').style.display = 'block';
+
+                grid.innerHTML = posts.map(post => `
+                    <a href="/travel-guide/${post.slug}" class="blog-card">
+                        <div style="aspect-ratio:16/9;overflow:hidden;position:relative;background:linear-gradient(135deg,#F5EFE5,#E4D9CC);">
+                            ${post.featured_image
+                                ? `<img src="${post.featured_image}" alt="${post.title}" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;" loading="lazy" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">`
+                                : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"><svg width="48" height="48" style="color:#E4D9CC;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>`
+                            }
+                            ${post.category ? `<span class="category-pill" style="position:absolute;top:10px;left:10px;">${post.category}</span>` : ''}
+                        </div>
+                        <div style="padding:20px 22px 22px;">
+                            <h3 style="font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;font-weight:700;color:#0F2535;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.35;">${post.title}</h3>
+                            ${post.excerpt ? `<p style="font-size:0.82rem;color:#6B7A8D;line-height:1.6;margin:0 0 12px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${post.excerpt}</p>` : ''}
+                            <span style="font-size:0.8rem;font-weight:700;color:#C8892A;">Read guide &rarr;</span>
+                        </div>
+                    </a>
+                `).join('');
+            } catch (err) {
+                document.getElementById('loadingState').style.display = 'none';
+            }
+        }
+
+        loadLatestPosts();
+    </script>
+
+    <script>
+        /* ── Scroll reveal ── */
+        (function() {
+            if (typeof IntersectionObserver === 'undefined') {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        })();
+
+    </script>
+
+</body>
+</html>

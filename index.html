@@ -1,0 +1,2634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZanziBiz – Zanzibar Travel Guide & Business Directory | Stone Town, Paje & More</title>
+    <meta name="description" content="Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.">
+    <meta name="keywords" content="Zanzibar, travel guide, business directory, Stone Town, Paje, local services, things to do, activities, verified, reviews">
+    <link rel="canonical" href="https://zanzibiz.com/">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ZanziBiz – Zanzibar Travel Guide & Business Directory">
+    <meta property="og:description" content="Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.">
+    <meta property="og:url" content="https://zanzibiz.com/">
+    <meta property="og:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ZanziBiz">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZanziBiz – Zanzibar Travel Guide & Business Directory">
+    <meta name="twitter:description" content="Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.">
+    <meta name="twitter:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1B3A4B">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ZanziBiz">
+    <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1B3A4B">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/lib/design-system.css">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+        /* Fonts */
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #FAF7F2; color: #1C2B3A; }
+        h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; color: #1C2B3A; }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(15,37,53,0.85) 0%, rgba(27,58,75,0.68) 60%, rgba(200,137,42,0.22) 100%);
+        }
+        .hero-modern {
+            background: linear-gradient(135deg, rgba(15,37,53,0.85) 0%, rgba(27,58,75,0.68) 60%, rgba(200,137,42,0.22) 100%),
+                        url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920') center/cover;
+            min-height: 88vh;
+        }
+
+        .category-card {
+            background: #FAF7F2;
+            border: 1px solid #E4D9CC;
+            border-radius: 16px;
+            transition: all 0.25s ease;
+        }
+        .category-card:hover {
+            background: #FFFFFF;
+            border-color: #C8892A;
+            box-shadow: 0 8px 32px rgba(200,137,42,0.12);
+            transform: translateY(-4px);
+        }
+
+        .listing-card {
+            background: #FFFFFF;
+            border: 1px solid #E4D9CC;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(27,58,75,0.06);
+            transition: all 0.25s ease;
+            overflow: hidden;
+        }
+        .listing-card:hover {
+            box-shadow: 0 12px 40px rgba(27,58,75,0.12);
+            transform: translateY(-4px);
+            border-color: #C8892A;
+        }
+
+        .boosted-card {
+            position: relative;
+            border: 2px solid #C8892A;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(200,137,42,0.2);
+            background: #FFFFFF;
+            border-top: 3px solid #C8892A;
+            transition: all 0.25s ease;
+            overflow: hidden;
+        }
+        .boosted-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(200,137,42,0.25);
+        }
+
+        .boosted-badge {
+            background: linear-gradient(135deg, #C8892A, #A87020);
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 6px;
+            padding: 3px 8px;
+        }
+
+        .new-badge {
+            background: #C8892A;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-radius: 6px;
+            padding: 3px 8px;
+            position: absolute;
+            top: 12px;
+            left: 12px;
+        }
+
+        .compact-listing {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: #FFFFFF;
+            border-radius: 12px;
+            border: 1px solid #E4D9CC;
+            box-shadow: 0 1px 4px rgba(27,58,75,0.05);
+            transition: all 0.2s ease;
+        }
+        .compact-listing:hover {
+            box-shadow: 0 6px 20px rgba(27,58,75,0.10);
+            border-color: #C8892A;
+            transform: translateX(4px);
+        }
+        .compact-listing img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .compact-listing img { width: 80px; height: 80px; }
+        }
+
+        /* Hero */
+        #hero { min-height: 88vh; position: relative; overflow: hidden; }
+        #hero h1 { color: #FFFFFF !important; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center 40%;
+            animation: heroBgFade 1.2s ease-out forwards;
+        }
+        @keyframes heroBgFade {
+            from { opacity: 0; transform: scale(1.04); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(160deg, rgba(10,28,42,0.88) 0%, rgba(27,58,75,0.72) 55%, rgba(200,137,42,0.18) 100%);
+        }
+
+        /* Quick filter chips */
+        .quick-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.22);
+            color: rgba(255,255,255,0.9);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .quick-chip:hover {
+            background: rgba(200,137,42,0.25);
+            border-color: #C8892A;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* WebStart promo band */
+        .ws-band {
+            background: linear-gradient(135deg, #0F2535 0%, #1B3A4B 60%, #0A3040 100%);
+            border-top: 3px solid #C8892A;
+            position: relative;
+            overflow: hidden;
+        }
+        .ws-band::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 220px; height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200,137,42,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Live info widget pills */
+        .live-widget {
+            background: #F5EFE5;
+            border: 1px solid #E4D9CC;
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 12px;
+            color: #6B7A8D;
+            font-weight: 500;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Navbar on scroll */
+        .navbar-scrolled {
+            box-shadow: 0 2px 16px rgba(27,58,75,0.08);
+        }
+
+        /* Hero accent line */
+        .hero-accent-line {
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #C8892A;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Trust badge pills */
+        .trust-badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 13px;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Section label */
+        .section-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #C8892A;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #E4D9CC, transparent);
+            border: none;
+            margin: 0;
+        }
+
+        /* Feature cards (SEO sections) */
+        .feature-card {
+            background: #FFFFFF;
+            border: 1px solid #E4D9CC;
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 4px 20px rgba(27,58,75,0.05);
+            transition: all 0.25s ease;
+        }
+        .feature-card:hover {
+            box-shadow: 0 12px 40px rgba(27,58,75,0.10);
+            transform: translateY(-4px);
+            border-color: #C8892A;
+        }
+
+        /* Travel Guide Teaser */
+        .tg-teaser-section {
+            padding: 72px 0 80px;
+            background: linear-gradient(180deg, #F5F0E8 0%, #EEF4F4 100%);
+            border-top: 1px solid #E4D9CC;
+            border-bottom: 1px solid #D6E8E8;
+        }
+        .tg-teaser-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+        .tg-teaser-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #2A7A7A;
+            margin-bottom: 10px;
+        }
+        .tg-teaser-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            color: #1C2B3A;
+            margin: 0 0 14px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        .tg-teaser-subtitle {
+            font-size: 1rem;
+            color: #4A6070;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .tg-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .tg-card {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            border: 1px solid #DDE8E8;
+            border-radius: 18px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 18px rgba(27,58,75,0.06);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+        .tg-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px rgba(27,58,75,0.13);
+            border-color: #C8892A;
+        }
+        .tg-card-img-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 190px;
+        }
+        .tg-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+        .tg-card:hover .tg-card-img {
+            transform: scale(1.04);
+        }
+        .tg-card-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(15,37,53,0.08) 0%, rgba(15,37,53,0.42) 100%);
+        }
+        .tg-card-step {
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.9);
+            background: rgba(15,37,53,0.45);
+            backdrop-filter: blur(4px);
+            padding: 3px 9px;
+            border-radius: 20px;
+        }
+        .tg-card-body {
+            padding: 22px 22px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .tg-card-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1C2B3A;
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+        .tg-card-text {
+            font-size: 0.88rem;
+            color: #4A6070;
+            line-height: 1.65;
+            margin: 0 0 18px;
+            flex: 1;
+        }
+        .tg-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #C8892A;
+            margin-top: auto;
+            transition: gap 0.2s ease;
+        }
+        .tg-card:hover .tg-card-link {
+            gap: 10px;
+        }
+        .tg-teaser-cta-wrap {
+            text-align: center;
+        }
+        .tg-teaser-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1B3A4B;
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 14px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .tg-teaser-cta:hover {
+            background: #0F2535;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 900px) {
+            .tg-cards-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 580px) {
+            .tg-teaser-section { padding: 52px 0 60px; }
+            .tg-cards-grid { grid-template-columns: 1fr; gap: 16px; }
+            .tg-card-img-wrap { height: 200px; }
+            .tg-teaser-header { margin-bottom: 32px; }
+        }
+
+        /* PWA install prompt */
+        #pwa-install-prompt {
+            background: #1B3A4B;
+            color: white;
+            border-radius: 16px;
+            padding: 16px 20px;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            max-width: 300px;
+            box-shadow: 0 8px 32px rgba(27,58,75,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 1000;
+        }
+
+        /* Footer */
+        footer { background: #0F2535; }
+
+        /* Favorite button */
+        .favorite-btn {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #E4D9CC;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+        }
+        .favorite-btn:hover, .favorite-btn.active {
+            background: #D4603A;
+            border-color: #D4603A;
+            color: white;
+        }
+
+        /* Optimized Header Layout */
+        nav {
+            min-height: 64px;
+        }
+
+        nav .max-w-7xl > div {
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            nav .max-w-7xl > div {
+                gap: 0.75rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            nav .max-w-7xl > div {
+                gap: 1rem;
+            }
+        }
+
+        /* Prevent header wrapping */
+        #authButtons,
+        #userMenu,
+        #languageSelector {
+            flex-shrink: 0;
+        }
+
+        /* Ensure nav items don't wrap */
+        nav a,
+        nav button {
+            white-space: nowrap;
+        }
+
+        /* Mobile bottom nav */
+        .mobile-bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 60;
+            background: #fff;
+            border-top: 1px solid #E4D9CC;
+            display: none;
+            box-shadow: 0 -4px 16px rgba(27,58,75,0.08);
+        }
+        @media (max-width: 767px) {
+            .mobile-bottom-nav { display: flex; }
+            body { padding-bottom: 64px; }
+        }
+        .mobile-bottom-nav a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 4px 8px;
+            gap: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #6B7A8D;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+        .mobile-bottom-nav a.active,
+        .mobile-bottom-nav a:hover {
+            color: #C8892A;
+        }
+        .mobile-bottom-nav svg {
+            width: 22px; height: 22px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .category-card:hover, .listing-card:hover, .boosted-card:hover, .compact-listing:hover { transform: none; }
+            .hero-bg { animation: none; }
+        }
+    </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ZanziBiz",
+        "description": "Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.",
+        "url": "https://zanzibiz.com",
+        "telephone": "+255-000-000-000",
+        "image": "https://zanzibiz.com/untitled_design.png",
+        "priceRange": "Free",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Street address",
+            "addressLocality": "Zanzibar",
+            "addressCountry": "Tanzania"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-6.1659",
+            "longitude": "39.2026"
+        },
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Stone Town"
+            },
+            {
+                "@type": "City",
+                "name": "Paje"
+            },
+            {
+                "@type": "City",
+                "name": "Nungwi"
+            },
+            {
+                "@type": "City",
+                "name": "Jambiani"
+            },
+            {
+                "@type": "City",
+                "name": "Kendwa"
+            }
+        ],
+        "openingHours": "Mo-Su 00:00-23:59",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "150"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ZanziBiz",
+        "url": "https://zanzibiz.com",
+        "logo": "https://zanzibiz.com/untitled_design.png",
+        "description": "Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Street address",
+            "addressLocality": "Zanzibar",
+            "addressCountry": "Tanzania"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+255-000-000-000",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ZanziBiz",
+        "url": "https://zanzibiz.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://zanzibiz.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://zanzibiz.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Categories",
+                "item": "https://zanzibiz.com/#categories"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Business Listings",
+                "item": "https://zanzibiz.com/#listings"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "About",
+                "item": "https://zanzibiz.com/#about"
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Zanzibar Featured Business Listings",
+        "description": "Top rated and verified businesses in Zanzibar including restaurants, hotels, tours, and local services",
+        "numberOfItems": 0,
+        "itemListElement": []
+    }
+    </script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VG23SGJ38L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VG23SGJ38L');
+</script>
+</head>
+
+<body class="font-body bg-warm-white">
+    <!-- Download banner -->
+    <div style="background:#1e293b;color:#e2e8f0;padding:0.5rem 1rem;text-align:center;font-size:0.85rem;position:fixed;top:0;left:0;right:0;z-index:60">
+        <a href="download.html" style="color:#f97316;font-weight:600">Download the V1 production handover package (ZIP, migrations, backups, docs)</a>
+    </div>
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50" style="margin-top:1.75rem">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="flex items-center justify-between h-16 sm:h-18">
+                <div class="flex items-center flex-shrink-0">
+                    <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-14 sm:h-16 w-auto">
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4 lg:space-x-5">
+                    <a href="#" class="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm" data-i18n="nav.home">Home</a>
+                    <a href="#categories" class="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm" data-i18n="nav.categories">Categories</a>
+                    <a href="#regularSection" class="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm" data-i18n="nav.listings">Business Directory</a>
+                    <a href="travel-guide.html" class="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm" data-i18n="nav.usefulInfo">Travel Guide</a>
+                    <a href="webstart.html" class="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm">WebStart</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-blue transition-colors font-medium text-sm" data-i18n="nav.about">About</a>
+                </div>
+
+                <!-- Live Info Widget - More Compact -->
+                <div class="hidden xl:flex items-center gap-2">
+                    <div class="live-widget">
+                        <svg class="w-3.5 h-3.5" style="color:#2A8C8A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="font-semibold whitespace-nowrap" id="stoneTownTime">--:--</span>
+                    </div>
+                    <div class="live-widget">
+                        <svg class="w-3.5 h-3.5" style="color:#C8892A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                        <span class="font-semibold whitespace-nowrap" id="stoneTownTemp">--°C</span>
+                    </div>
+                    <div class="live-widget">
+                        <span class="whitespace-nowrap">USD 1 =</span>
+                        <span class="font-bold whitespace-nowrap" style="color:#2A8C8A" id="usdTzsRate">2,574</span>
+                        <span>TZS</span>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobileMenuButton" class="md:hidden text-gray-600 hover:text-brand-blue p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Language Selector - More Compact -->
+                <div class="hidden md:flex relative" id="languageSelector">
+                    <button id="languageButton" class="flex items-center space-x-1 px-2 py-1.5 text-gray-600 hover:text-brand-blue transition-colors rounded-lg hover:bg-gray-50">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                        <span id="currentLanguage" class="font-medium text-xs">English</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="languageDropdown" class="hidden absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50 border border-gray-200">
+                        <button onclick="switchLanguage('en')" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3">
+                            <span class="text-xl">🇬🇧</span>
+                            <span class="flex-1">English</span>
+                            <span id="checkEn" class="text-brand-orange">✓</span>
+                        </button>
+                        <button onclick="switchLanguage('sw')" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3">
+                            <span class="text-xl">🇹🇿</span>
+                            <span class="flex-1">Swahili</span>
+                            <span id="checkSw" class="text-brand-orange hidden">✓</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop auth area: shows skeleton while loading, then guest or user menu -->
+                <div id="navAuthArea" class="hidden md:flex items-center space-x-2" aria-live="polite">
+                    <!-- Skeleton shown while auth state is being determined -->
+                    <div id="navAuthSkeleton" class="flex items-center space-x-2">
+                        <div class="h-7 w-14 bg-gray-200 rounded animate-pulse"></div>
+                        <div class="h-7 w-28 bg-gray-200 rounded-lg animate-pulse"></div>
+                    </div>
+                </div>
+                <!-- User menu injected here by JS after session confirmed — empty in static HTML -->
+                <div id="userMenu" class="hidden relative"></div>
+            </div>
+        </div>
+
+        <!-- Mobile menu panel -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 py-4 space-y-3">
+                <!-- Mobile Language Selector -->
+                <div class="pb-3 border-b border-gray-200">
+                    <div class="relative" id="mobileLangSelector">
+                        <button id="mobileLangButton" class="w-full flex items-center justify-between px-3 py-2 text-gray-600 hover:text-brand-blue transition-colors rounded-lg hover:bg-gray-50 border border-gray-200">
+                            <div class="flex items-center space-x-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                                </svg>
+                                <span id="mobileCurrentLanguage" class="font-medium text-sm">English</span>
+                            </div>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="mobileLangDropdown" class="hidden mt-2 bg-gray-50 rounded-lg p-2 space-y-1">
+                            <button onclick="switchLanguage('en')" class="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-white rounded flex items-center gap-2">
+                                <span class="text-xl">🇬🇧</span>
+                                <span class="flex-1">English</span>
+                                <span id="mobileCheckEn" class="text-brand-orange">✓</span>
+                            </button>
+                            <button onclick="switchLanguage('sw')" class="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-white rounded flex items-center gap-2">
+                                <span class="text-xl">🇹🇿</span>
+                                <span class="flex-1">Swahili</span>
+                                <span id="mobileCheckSw" class="text-brand-orange hidden">✓</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="block text-gray-600 hover:text-brand-blue transition-colors font-medium py-2" data-i18n="nav.home">Home</a>
+                <a href="#categories" class="block text-gray-600 hover:text-brand-blue transition-colors font-medium py-2" data-i18n="nav.categories">Categories</a>
+                <a href="#regularSection" class="block text-gray-600 hover:text-brand-blue transition-colors font-medium py-2" data-i18n="nav.listings">Business Directory</a>
+                <a href="travel-guide.html" class="block text-gray-600 hover:text-brand-blue transition-colors font-medium py-2" data-i18n="nav.usefulInfo">Travel Guide</a>
+                <a href="webstart.html" class="block text-gray-600 hover:text-brand-blue transition-colors font-medium py-2">WebStart</a>
+                <a href="#about" class="block text-gray-600 hover:text-brand-blue transition-colors font-medium py-2" data-i18n="nav.about">About</a>
+                <!-- Mobile auth area — injected by JS; empty in static HTML for crawlers -->
+                <div id="mobileNavAuthArea" class="pt-3 border-t border-gray-200" aria-live="polite">
+                    <!-- Skeleton while loading -->
+                    <div id="mobileNavAuthSkeleton" class="space-y-2">
+                        <div class="h-9 bg-gray-200 rounded-lg animate-pulse"></div>
+                        <div class="h-9 bg-gray-200 rounded-lg animate-pulse"></div>
+                    </div>
+                </div>
+                <!-- Kept as empty mount point for JS injection -->
+                <div id="mobileUserMenu" class="hidden"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero" class="relative pt-20 pb-16 px-4">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="max-w-4xl mx-auto text-center text-white relative z-10 pt-8 md:pt-16">
+            <span class="hero-accent-line"></span>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5 leading-tight">
+                Find Trusted Businesses &amp; Things To Do in Zanzibar
+            </h1>
+            <p class="text-base md:text-lg mb-8 text-white/85 max-w-2xl mx-auto leading-relaxed">
+                Restaurants, tours, hotels, taxis &amp; local services across Stone Town, Paje, Nungwi and beyond — all verified.
+            </p>
+
+            <!-- Search module -->
+            <div class="max-w-3xl mx-auto mb-6">
+                <div class="bg-white rounded-2xl shadow-2xl p-2 flex flex-col sm:flex-row gap-2">
+                    <input
+                        type="text"
+                        data-i18n-placeholder="hero.searchPlaceholder"
+                        placeholder="What are you looking for?"
+                        class="flex-1 px-5 py-3 text-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-base"
+                        id="searchInput"
+                    >
+                    <select class="sm:w-44 px-4 py-3 text-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent bg-gray-50 border-0 text-base" id="locationSelect">
+                        <option value="">Where?</option>
+                        <option value="stone-town" data-i18n="locations.stoneTown">Stone Town</option>
+                        <option value="nungwi" data-i18n="locations.nungwi">Nungwi</option>
+                        <option value="paje" data-i18n="locations.paje">Paje</option>
+                        <option value="jambiani" data-i18n="locations.jambiani">Jambiani</option>
+                        <option value="kendwa" data-i18n="locations.kendwa">Kendwa</option>
+                    </select>
+                    <button class="bg-brand-orange hover:bg-brand-orange/90 text-white px-7 py-3 rounded-xl font-semibold transition-colors whitespace-nowrap text-base" onclick="performSearch()">
+                        Search Zanzibar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick filter chips -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button class="quick-chip" onclick="filterByCategory('business')">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    Restaurants
+                </button>
+                <button class="quick-chip" onclick="filterByCategory('activities')">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 18c0-1.5 1-2.5 2-3 1.5-.5 3.5-1 5-2.5S12 9 13 7.5c1-1.5 2.5-2.5 4-2.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 19c2-1 4-1.5 6-1.5s4 .5 6 1.5 4 1.5 6 1.5"/></svg>
+                    Tours
+                </button>
+                <button class="quick-chip" onclick="filterByCategory('accommodation')">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M6 21V10l6-6 6 6v11"/></svg>
+                    Hotels
+                </button>
+                <button class="quick-chip" onclick="filterByCategory('automotive')">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11L6.5 7h11L19 11M5 11h14a1 1 0 011 1v5H4v-5a1 1 0 011-1z"/><circle cx="7.5" cy="17" r="1.5" stroke="currentColor" stroke-width="1.5"/><circle cx="16.5" cy="17" r="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+                    Taxis
+                </button>
+                <button class="quick-chip" onclick="filterByCategory('events')">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="15" rx="2" stroke="currentColor" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3v3m10-3v3M3 10h18"/></svg>
+                    Events
+                </button>
+                <button class="quick-chip" onclick="setLocationFilter('stone-town')">
+                    Stone Town
+                </button>
+                <button class="quick-chip" onclick="setLocationFilter('paje')">
+                    Paje
+                </button>
+                <button class="quick-chip" onclick="setLocationFilter('nungwi')">
+                    Nungwi
+                </button>
+            </div>
+
+            <!-- Trust line -->
+            <p class="text-white/60 text-sm tracking-wide">
+                Verified listings &nbsp;·&nbsp; Local businesses &nbsp;·&nbsp; WhatsApp contact &nbsp;·&nbsp; Updated regularly
+            </p>
+
+            <!-- Secondary CTA -->
+            <div class="mt-8">
+                <a href="auth/signup.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-white/30 text-white/90 hover:bg-white/10 transition-colors text-sm font-medium">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    List Your Business
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WebStart Promo Band -->
+    <section class="ws-band py-10 px-4">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10">
+            <div class="flex-1 text-center md:text-left">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest mb-3" style="color:#C8892A;letter-spacing:0.15em">For Zanzibar Businesses</span>
+                <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-3 leading-snug">
+                    Need a website for your hotel, restaurant, tour, or local service?
+                </h2>
+                <p class="text-white/65 text-base mb-6 max-w-xl">
+                    Get a professionally designed website built for Zanzibar from just <strong class="text-white/90">30,000 TZS/month</strong>. Fast, mobile-first, and ready to bring you new customers.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                    <a href="webstart.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all" style="background:#C8892A;color:white" onmouseover="this.style.background='#A87020'" onmouseout="this.style.background='#C8892A'">
+                        Start Your Website
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="webstart.html#examples" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold border border-white/20 text-white/80 hover:bg-white/8 transition-colors">
+                        See Examples
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-48 flex-shrink-0">
+                <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10" style="width:160px;height:160px">
+                    <img src="https://images.pexels.com/photos/1267357/pexels-photo-1267357.jpeg?auto=compress&cs=tinysrgb&w=320&h=320&fit=crop" alt="Zanzibar business website" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 px-4 bg-white" id="categories">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8">
+                <span class="section-label">Explore Zanzibar</span>
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-3">What are you looking for?</h2>
+                <p class="text-gray-500 text-base">Tap a category to browse verified local listings</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                <!-- Eat & Drink -->
+                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('business')">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#C8892A">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3C4.1 16 4.9 18 6.6 18H17"/>
+                            <circle cx="9" cy="20" r="1" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="16" cy="20" r="1" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Eat &amp; Drink</h3>
+                    <p class="text-xs text-gray-400 text-center">Restaurants &amp; cafes</p>
+                </div>
+
+                <!-- Stay -->
+                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('accommodation')">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F0FE;color:#1B3A4B">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21h18M6 21V10l6-6 6 6v11M9 21v-4h6v4"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Stay</h3>
+                    <p class="text-xs text-gray-400 text-center">Hotels &amp; guesthouses</p>
+                </div>
+
+                <!-- Things To Do -->
+                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('activities')">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F8F4;color:#2A8C8A">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 18c0-1.5 1-2.5 2-3 1.5-.5 3.5-1 5-2.5S12 9 13 7.5c1-1.5 2.5-2.5 4-2.5"/>
+                            <ellipse cx="17.5" cy="5.5" rx="1.5" ry="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 19c2-1 4-1.5 6-1.5s4 .5 6 1.5 4 1.5 6 1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Things To Do</h3>
+                    <p class="text-xs text-gray-400 text-center">Tours &amp; activities</p>
+                </div>
+
+                <!-- Transport -->
+                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('automotive')">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#F0F4FF;color:#1B3A4B">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11L8.5 7h7L17 11M5 11h14a1 1 0 011 1v5H4v-5a1 1 0 011-1z"/>
+                            <circle cx="7.5" cy="17" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="16.5" cy="17" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Transport</h3>
+                    <p class="text-xs text-gray-400 text-center">Taxis &amp; rentals</p>
+                </div>
+
+                <!-- Services -->
+                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('services')">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#C8892A">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Services</h3>
+                    <p class="text-xs text-gray-400 text-center">Local professionals</p>
+                </div>
+
+                <!-- Jobs -->
+                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('jobs')">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FDF0F0;color:#D4603A">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="4" y="8" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2M4 12h16"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Jobs</h3>
+                    <p class="text-xs text-gray-400 text-center">Work opportunities</p>
+                </div>
+
+                <!-- Events -->
+                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('events')">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FFF3E0;color:#E07040">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="6" width="18" height="15" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 3v3m10-3v3M3 10h18"/>
+                            <circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/>
+                            <circle cx="12" cy="14" r="1" fill="currentColor" stroke="none"/>
+                            <circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Events</h3>
+                    <p class="text-xs text-gray-400 text-center">What's on</p>
+                </div>
+
+                <!-- Local Info -->
+                <div class="category-card p-5 cursor-pointer" onclick="window.location.href='blog.html'">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#F0F4F8;color:#6B7A8D">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Local Info</h3>
+                    <p class="text-xs text-gray-400 text-center">Guides &amp; tips</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Guide Teaser -->
+    <section class="tg-teaser-section" id="travel-guide-teaser">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="tg-teaser-header">
+                <span class="tg-teaser-label">Zanzibar Travel Planner</span>
+                <h2 class="tg-teaser-title">Plan Your Zanzibar Trip</h2>
+                <p class="tg-teaser-subtitle">Flights, eSIM, insurance, airport transfers and island experiences — organized in the order travellers actually need them.</p>
+            </div>
+            <div class="tg-cards-grid">
+                <!-- Before You Fly -->
+                <a href="/travel-guide#before-you-fly" class="tg-card">
+                    <div class="tg-card-img-wrap">
+                        <img src="https://images.pexels.com/photos/358319/pexels-photo-358319.jpeg?auto=compress&cs=tinysrgb&w=700&h=420&fit=crop"
+                             alt="Airplane in flight en route to Zanzibar"
+                             width="700" height="420"
+                             loading="lazy"
+                             class="tg-card-img">
+                        <div class="tg-card-img-overlay"></div>
+                        <span class="tg-card-step">01</span>
+                    </div>
+                    <div class="tg-card-body">
+                        <h3 class="tg-card-title">Before You Fly</h3>
+                        <p class="tg-card-text">Compare flights to Zanzibar, prepare your eSIM and sort travel insurance before departure.</p>
+                        <span class="tg-card-link">
+                            Plan before you fly
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+                <!-- When You Land -->
+                <a href="/travel-guide#when-you-land" class="tg-card">
+                    <div class="tg-card-img-wrap">
+                        <img src="https://images.pexels.com/photos/3935702/pexels-photo-3935702.jpeg?auto=compress&cs=tinysrgb&w=700&h=420&fit=crop"
+                             alt="Zanzibar airport arrival and transfer vehicle"
+                             width="700" height="420"
+                             loading="lazy"
+                             class="tg-card-img">
+                        <div class="tg-card-img-overlay"></div>
+                        <span class="tg-card-step">02</span>
+                    </div>
+                    <div class="tg-card-body">
+                        <h3 class="tg-card-title">When You Land</h3>
+                        <p class="tg-card-text">Arrange airport transfers and private transport so arrival in Zanzibar feels smooth.</p>
+                        <span class="tg-card-link">
+                            Plan your arrival
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+                <!-- Explore Zanzibar -->
+                <a href="/travel-guide#explore-zanzibar" class="tg-card">
+                    <div class="tg-card-img-wrap">
+                        <img src="https://images.pexels.com/photos/1483053/pexels-photo-1483053.jpeg?auto=compress&cs=tinysrgb&w=700&h=420&fit=crop"
+                             alt="Tropical beach and turquoise ocean in Zanzibar"
+                             width="700" height="420"
+                             loading="lazy"
+                             class="tg-card-img">
+                        <div class="tg-card-img-overlay"></div>
+                        <span class="tg-card-step">03</span>
+                    </div>
+                    <div class="tg-card-body">
+                        <h3 class="tg-card-title">Explore Zanzibar</h3>
+                        <p class="tg-card-text">Discover Stone Town, spice farms, snorkeling, beaches, dhow cruises and island experiences.</p>
+                        <span class="tg-card-link">
+                            Explore experiences
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <div class="tg-teaser-cta-wrap">
+                <a href="/travel-guide" class="tg-teaser-cta">Open the Zanzibar Travel Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Results Section (Initially Hidden) -->
+    <section class="py-16 px-4" style="background:#FAF7F2;display: none;" id="categoryResultsSection">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-2" id="categoryTitle">Category Results</h2>
+                    <p class="text-gray-600" id="categoryDescription">Browsing selected category</p>
+                </div>
+                <button onclick="clearCategoryFilter()" class="text-brand-orange hover:text-brand-orange/80 font-semibold flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                    Clear Filter
+                </button>
+            </div>
+
+            <div id="categoryLoadingMessage" class="text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div>
+                <p class="mt-4 text-gray-600">Loading listings...</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="categoryListings" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results Section (Initially Hidden) -->
+    <section class="py-16 px-4" style="background:#FAF7F2;display: none;" id="searchResultsSection">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-2">Search Results</h2>
+                    <p class="text-gray-600" id="searchDescription">Results for your search</p>
+                </div>
+                <button onclick="clearSearch()" class="text-brand-orange hover:text-brand-orange/80 font-semibold flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                    Clear Search
+                </button>
+            </div>
+
+            <div id="searchLoadingMessage" class="text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div>
+                <p class="mt-4 text-gray-600">Searching...</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="searchListings" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Sections -->
+    <section class="py-16 px-4" style="background:#FAF7F2">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Local Restaurants & Nightlife -->
+                <div class="feature-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 3a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 13.846 4.632 16 6.414 16H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 5H6.28l-.31-1.243A1 1 0 005 3H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+                        </svg>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray">Local Restaurants & Nightlife</h2>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Experience authentic Zanzibari cuisine and vibrant nightlife with our curated selection of local restaurants, cafes, and entertainment venues. From traditional Swahili dishes featuring fresh seafood and aromatic spices to international fusion cuisine, discover the diverse culinary scene that makes Zanzibar a food lover's paradise.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Whether you're searching for romantic beachfront dining in Nungwi, bustling street food markets in Stone Town, or lively bars in Paje, our verified restaurant listings connect you with the best dining experiences across the island.
+                    </p>
+                    <a href="#categories" onclick="filterByCategory('restaurants')" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                        Browse Restaurants
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Accommodation & Travel Info -->
+                <div class="feature-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray">Accommodation & Travel Info</h2>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Find your perfect stay in Zanzibar with our comprehensive accommodation listings. From luxury beachfront resorts and boutique hotels to budget-friendly guesthouses and authentic local homestays, we help travelers discover accommodations that match their style and budget across all major tourist areas.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Access essential travel information including transportation options, visa requirements, safety tips, and local customs. Our travel guides help you plan your Zanzibar adventure with confidence, whether you're booking a villa in Kendwa or a cozy bed and breakfast in Jambiani.
+                    </p>
+                    <a href="travel-guide.html" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                        Read Travel Guides
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Business Services -->
+                <div class="feature-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                            <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
+                        </svg>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray">Business Services</h2>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Connect with professional services and local businesses that keep Zanzibar running. Our directory features tour operators, car rental agencies, medical services, legal advisors, real estate agents, and much more. Whether you're a resident, expat, or entrepreneur looking to start a business in Zanzibar, find the services you need.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Explore verified listings for transportation services, water sports operators, dive centers, spa and wellness facilities, and essential utilities. Every business in our platform is vetted to ensure quality and reliability for the ZanziBiz community.
+                    </p>
+                    <a href="#categories" onclick="filterByCategory('services')" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                        Explore Services
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Culture & History -->
+                <div class="feature-card">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                        </svg>
+                        <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray">Culture & History</h2>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Immerse yourself in Zanzibar's rich cultural heritage and fascinating history. From the UNESCO World Heritage Site of Stone Town with its winding alleyways and historic architecture to the island's spice plantations and ancient ruins, discover the stories that shaped the Spice Islands into the captivating destination it is today.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Learn about Swahili culture, visit museums and cultural centers, explore historic sites like the Old Fort and House of Wonders, and participate in local festivals. Our guides help you understand and appreciate the unique blend of African, Arab, Indian, and European influences that define Zanzibar's identity.
+                    </p>
+                    <a href="travel-guide.html" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                        Discover Culture & History
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boosted & Featured Listings Hero Section -->
+    <section class="py-12 px-4" style="background:#FAF7F2" id="boostedSection">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full mb-4" style="background:linear-gradient(135deg,#1B3A4B,#2A5570);color:white">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    <span class="font-bold" style="font-family:'Plus Jakarta Sans',sans-serif">FEATURED</span>
+                </div>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-brand-gray mb-3">Boosted & Featured Businesses</h2>
+                <p class="text-gray-600 text-lg">Top businesses with verified quality and service</p>
+            </div>
+
+            <div id="boostedLoadingMessage" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="/business/nails-artist-1781101942970" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Nails Artist</h3><p class="text-xs text-gray-500 mt-1">Business &middot; Nungwi</p></div>
+                </a>
+                <a href="/business/reservation-executive-1773859129790" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Reservation Executive</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
+                </a>
+                <a href="/business/web-designer-1773857964056" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Web Designer</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
+                </a>
+                <a href="/business/safari-1773857277811" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Safari Tours</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
+                </a>
+                <a href="/business/tour-organizer-1773857358727" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Tour Organizer</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
+                </a>
+                <a href="/business/tiki-beach-club-resort-1781949552213" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Tiki Beach Club &amp; Resort</h3><p class="text-xs text-gray-500 mt-1">Accommodation &middot; Paje</p></div>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="boostedListings" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Snippet Section -->
+    <section class="py-6 px-4" style="background:#F5EFE5" id="blogSnippetSection">
+        <div class="max-w-7xl mx-auto">
+            <div id="blogSnippetContent" class="hidden">
+                <!-- Blog snippet will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Regular Listings Section -->
+    <section class="py-12 px-4 bg-white" id="regularSection">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray mb-2">Complete Business Directory</h2>
+                    <p class="text-gray-600" id="listingCount">Browse our complete Zanzibar business directory</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-sm text-gray-600">View:</span>
+                    <button id="gridViewBtn" class="p-2 rounded-lg bg-gray-100 hover:bg-brand-orange hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM13 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z"/>
+                        </svg>
+                    </button>
+                    <button id="listViewBtn" class="p-2 rounded-lg hover:bg-brand-orange hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="regularLoadingMessage" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="/business/stone-town-heritage-house" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Stone Town Heritage House</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Stone Town</p></div></a>
+                <a href="/business/family-paradise-resort" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Family Paradise Resort</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Kiwengwa</p></div></a>
+                <a href="/business/nathero-car-rental-1776695285351" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Nathero Car Rental</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
+                <a href="/business/proud-zanzibar-tours-1774934113113" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Proud Zanzibar Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/ocean-breeze-diving-center" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Ocean Breeze Diving Center</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Nungwi</p></div></a>
+                <a href="/business/zanzibar-wellness-spa-massage" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Zanzibar Wellness Spa &amp; Massage</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Paje</p></div></a>
+                <a href="/business/zanzibar-spice-paradise-tours" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Zanzibar Spice Paradise Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/u-trip-1776695089031" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">U Trip Transport</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
+                <a href="/business/captain-safari-blue-1776700057250" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Captain Safari Blue</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Safari Blue</p></div></a>
+                <a href="/business/jozani-forest-monkey-tour" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Jozani Forest Monkey Tour</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Jozani</p></div></a>
+                <a href="/business/paradise-beach-bungalows" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Paradise Beach Bungalows</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Paje</p></div></a>
+                <a href="/business/sunset-dhow-cruise-experience" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Sunset Dhow Cruise Experience</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="regularListingsGrid" style="display: none;">
+            </div>
+
+            <div class="space-y-3" id="regularListingsList" style="display: none;">
+            </div>
+
+            <!-- Pagination -->
+            <div id="paginationContainer" class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4" style="display: none;">
+                <p class="text-sm text-gray-600" id="paginationInfo"></p>
+                <div class="flex items-center gap-2">
+                    <button id="prevPageBtn" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                        ← Previous
+                    </button>
+                    <div id="pageNumbers" class="flex items-center gap-1"></div>
+                    <button id="nextPageBtn" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                        Next →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4" style="background:#F5EFE5" id="about">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-4" data-i18n="about.title">Why Choose ZanziBiz?</h2>
+                <p class="text-gray-600 text-lg" data-i18n="about.subtitle">The best way to discover local businesses in Zanzibar. <a href="/auth/signup.html" class="font-medium transition-colors" style="color:#C8892A">List your business</a> or <a href="#listings" class="font-medium transition-colors" style="color:#2A8C8A">browse our directory</a> to get started.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FEF3E8">
+                        <svg class="w-10 h-10" style="color:#C8892A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-gray mb-3" data-i18n="about.feature1Title">Verified Businesses</h3>
+                    <p class="text-gray-600" data-i18n="about.feature1Desc">All <a href="#listings" class="hover:underline" style="color:#C8892A">listings</a> are verified to ensure quality and authenticity. <a href="/blog.html" class="hover:underline" style="color:#2A8C8A">Learn more</a> about our verification process.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#E8F8F4">
+                        <svg class="w-10 h-10" style="color:#2A8C8A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-gray mb-3" data-i18n="about.feature2Title">Real Reviews</h3>
+                    <p class="text-gray-600" data-i18n="about.feature2Desc">Read genuine reviews from real customers to make informed decisions</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FEF3E8">
+                        <svg class="w-10 h-10" style="color:#C8892A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-gray mb-3" data-i18n="about.feature3Title">Quick & Easy</h3>
+                    <p class="text-gray-600" data-i18n="about.feature3Desc">Find what you need instantly with our powerful search and filters</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second WebStart CTA -->
+    <section class="py-10 px-4" style="background:#F5EFE5">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#C8892A">Zanzibar WebStart</p>
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray mb-3">Get your business online today</h2>
+            <p class="text-gray-500 mb-6">Professional websites for Zanzibar hotels, restaurants, tour operators &amp; local services. Starting at 30,000 TZS/month.</p>
+            <a href="webstart.html" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold transition-colors" style="background:#1B3A4B;color:white" onmouseover="this.style.background='#0F2535'" onmouseout="this.style.background='#1B3A4B'">
+                Learn More About WebStart
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 text-white" style="background:linear-gradient(135deg,#1B3A4B,#0F2535)">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-display text-3xl md:text-4xl font-bold mb-6" data-i18n="cta.title">Ready to Grow Your Business?</h2>
+            <p class="text-lg md:text-xl mb-8 text-white/90" data-i18n="cta.description">Join hundreds of businesses already on ZanziBiz and reach thousands of potential customers</p>
+            <a href="auth/signup.html" class="inline-block px-8 py-4 rounded-xl font-semibold transition-colors" style="background:#C8892A;color:white" data-i18n="cta.button">
+                List Your Business Free
+            </a>
+        </div>
+    </section>
+
+    <!-- Listing Detail Modal -->
+    <div id="listingDetailModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4" style="display: none;">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+                <h2 class="font-display text-2xl font-bold text-brand-gray" id="modalListingTitle">Loading...</h2>
+                <button onclick="closeListingDetail()" class="text-gray-400 hover:text-gray-600 p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalListingContent" class="p-6">
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div>
+                    <p class="mt-4 text-gray-600">Loading listing details...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEO: static crawlable directory links (search engines index these even without JS) -->
+    <section aria-label="Browse directory categories" class="py-10 px-4 bg-white border-t border-gray-100">
+        <div class="max-w-5xl mx-auto">
+            <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Browse Directory</p>
+            <div class="flex flex-wrap gap-3">
+                <a href="/directory/accommodation" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Accommodation in Zanzibar</a>
+                <a href="/directory/activities" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Tours &amp; Activities</a>
+                <a href="/directory/automotive" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Car &amp; Scooter Rental</a>
+                <a href="/directory/business" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Local Services</a>
+                <a href="/directory/events" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Events in Zanzibar</a>
+                <a href="/directory/jobs" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Jobs in Zanzibar</a>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-3">
+                <a href="/business/sunset-dhow-cruise-experience" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Sunset Dhow Cruise</a>
+                <span class="text-gray-200">·</span>
+                <a href="/business/jozani-forest-monkey-tour" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Jozani Forest Tour</a>
+                <span class="text-gray-200">·</span>
+                <a href="/business/prison-island-snorkeling-tour" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Prison Island Snorkeling</a>
+                <span class="text-gray-200">·</span>
+                <a href="/business/paradise-beach-bungalows" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Paradise Beach Bungalows</a>
+                <span class="text-gray-200">·</span>
+                <a href="/business/stone-town-heritage-house" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Stone Town Heritage House</a>
+                <span class="text-gray-200">·</span>
+                <a href="/business/coral-bay-luxury-resort" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Coral Bay Luxury Resort</a>
+                <span class="text-gray-200">·</span>
+                <a href="/business/nathero-car-rental-1776695285351" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Car Rental Zanzibar</a>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-3">
+                <a href="/travel-guide" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Zanzibar Travel Guide</a>
+                <span class="text-gray-200">·</span>
+                <a href="/blog/traveling-to-zanzibar" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Traveling to Zanzibar</a>
+                <span class="text-gray-200">·</span>
+                <a href="/blog/best-luxury-resorts-in-zanzibar" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Best Luxury Resorts</a>
+                <span class="text-gray-200">·</span>
+                <a href="/blog/renting-a-scooter-in-zanzibar-complete-guide" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Renting a Scooter</a>
+                <span class="text-gray-200">·</span>
+                <a href="/blog/staying-safe-secure-in-zanzibar-a-practical-guide-for-visitors-and-expats" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Safety in Zanzibar</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-white py-12 px-4 border-t-4" style="background:#0F2535;border-top-color:#C8892A">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="mb-4">
+                        <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-16 sm:h-20 w-auto">
+                    </div>
+                    <p class="text-white/75">Connecting Zanzibar's best businesses with customers</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4" data-i18n="footer.forUsers">For Users</h4>
+                    <ul class="space-y-2 text-white/75">
+                        <li><a href="#categories" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.browseListings">Browse Listings</a></li>
+                        <li><a href="#listings" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.featuredBusinesses">Featured Businesses</a></li>
+                        <li><a href="travel-guide.html" class="transition-colors hover:text-[#C8892A]">Zanzibar Travel Guide</a></li>
+                        <li><a href="auth/signup.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.createAccount">Create Account</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4" data-i18n="footer.forBusinesses">For Businesses</h4>
+                    <ul class="space-y-2 text-white/75">
+                        <li><a href="auth/signup.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.listBusiness">List Your Business</a></li>
+                        <li><a href="auth/login.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.businessLogin">Business Login</a></li>
+                        <li><a href="#" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.pricing">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4" data-i18n="footer.company">Company</h4>
+                    <ul class="space-y-2 text-white/75">
+                        <li><a href="about.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy.html" class="transition-colors hover:text-[#C8892A]">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="transition-colors hover:text-[#C8892A]">Terms</a></li>
+                        <li><a href="affiliate.html" class="transition-colors hover:text-[#C8892A]">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/60 text-sm" data-i18n="footer.copyright">&copy; 2025 ZanziBiz. All rights reserved. Made with love in Zanzibar</p>
+                <!-- Social links in footer -->
+                <div class="flex items-center gap-4">
+                    <a href="https://www.facebook.com/zanzibiz" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-white/40 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/zanzibiz" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/40 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@zanzibiz.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="text-white/40 hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+        <a href="#" class="active" aria-label="Home">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            Home
+        </a>
+        <a href="#" onclick="event.preventDefault(); document.getElementById('searchInput').focus(); window.scrollTo({top:0,behavior:'smooth'})" aria-label="Search">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/></svg>
+            Search
+        </a>
+        <a href="#categories" aria-label="Categories">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+            Categories
+        </a>
+        <a href="user/liked.html" aria-label="Saved">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            Saved
+        </a>
+        <a href="auth/login.html" id="mobileBottomAccount" aria-label="Account">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            Account
+        </a>
+    </nav>
+
+    <script type="module">
+        import { supabase, getBoostedListings, getRegularListings, getListingsCount, getListings, signOut } from './lib/supabase.js';
+        import { initPWA } from './lib/pwa.js';
+        import { initLanguage, setLanguage, getCurrentLanguage, t } from './lib/i18n.js';
+        import { initLiveInfoWidget } from './lib/live-info-widget.js';
+
+        // Ensure DOM is ready before initializing
+        function initializeApp() {
+            initPWA();
+            initLiveInfoWidget();
+            initLanguage();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            initializeApp();
+        }
+
+        // Language switching functionality
+        window.switchLanguage = function(lang) {
+            setLanguage(lang);
+            updateLanguageUI();
+            translatePage();
+            // Close dropdowns
+            document.getElementById('languageDropdown')?.classList.add('hidden');
+            document.getElementById('mobileLangDropdown')?.classList.add('hidden');
+        };
+
+        function updateLanguageUI() {
+            const lang = getCurrentLanguage();
+            const langText = lang === 'en' ? 'English' : 'Swahili';
+
+            // Update desktop selector
+            const currentLang = document.getElementById('currentLanguage');
+            if (currentLang) currentLang.textContent = langText;
+            document.getElementById('checkEn')?.classList.toggle('hidden', lang !== 'en');
+            document.getElementById('checkSw')?.classList.toggle('hidden', lang !== 'sw');
+
+            // Update mobile selector
+            const mobileCurrentLang = document.getElementById('mobileCurrentLanguage');
+            if (mobileCurrentLang) mobileCurrentLang.textContent = langText;
+            document.getElementById('mobileCheckEn')?.classList.toggle('hidden', lang !== 'en');
+            document.getElementById('mobileCheckSw')?.classList.toggle('hidden', lang !== 'sw');
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        function translatePage() {
+            // Translate all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = t(key);
+
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = translation;
+                } else if (el.tagName === 'OPTION') {
+                    el.textContent = translation;
+                } else {
+                    el.textContent = translation;
+                }
+            });
+
+            // Handle placeholder-specific translations
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                el.placeholder = t(key);
+            });
+        }
+
+        // Language selector dropdown toggle (desktop)
+        document.getElementById('languageButton')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('languageDropdown')?.classList.toggle('hidden');
+        });
+
+        // Mobile language selector toggle
+        document.getElementById('mobileLangButton')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('mobileLangDropdown')?.classList.toggle('hidden');
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            const languageSelector = document.getElementById('languageSelector');
+            const mobileLangSelector = document.getElementById('mobileLangSelector');
+            const langDropdown = document.getElementById('languageDropdown');
+            const mobileLangDropdown = document.getElementById('mobileLangDropdown');
+
+            if (languageSelector && !languageSelector.contains(e.target) && langDropdown) {
+                langDropdown.classList.add('hidden');
+            }
+            if (mobileLangSelector && !mobileLangSelector.contains(e.target) && mobileLangDropdown) {
+                mobileLangDropdown.classList.add('hidden');
+            }
+        });
+
+        // Initialize language UI on page load
+        updateLanguageUI();
+        translatePage();
+
+        let currentPage = 1;
+        const itemsPerPage = 20;
+        let totalItems = 0;
+        let currentView = localStorage.getItem('listingView') || 'grid';
+        let currentFilters = {};
+        const listingsCache = new Map();
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton')?.addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // Ensure URL has proper protocol
+        function ensureProtocol(url) {
+            if (!url || typeof url !== 'string') return '';
+            url = url.trim();
+            if (!url) return '';
+            if (url.match(/^https?:\/\//i)) return url;
+            return 'https://' + url;
+        }
+
+        function buildDesktopGuestNav() {
+            const area = document.getElementById('navAuthArea');
+            area.innerHTML = `
+                <a href="auth/login.html" class="text-gray-600 hover:text-brand-blue transition-colors px-2 py-1.5 text-sm font-medium" data-i18n="nav.signIn">Sign In</a>
+                <a href="auth/signup.html" class="bg-brand-orange text-white px-3 py-1.5 rounded-lg hover:bg-brand-orange/90 transition-colors font-medium text-sm whitespace-nowrap" data-i18n="nav.listYourBusiness">List Your Business</a>
+            `;
+        }
+
+        function buildMobileGuestNav() {
+            const area = document.getElementById('mobileNavAuthArea');
+            area.innerHTML = `
+                <a href="auth/login.html" class="block text-center text-gray-600 hover:text-brand-blue transition-colors px-4 py-2 border border-gray-300 rounded-lg font-medium">Sign In</a>
+                <a href="auth/signup.html" class="block text-center bg-brand-orange text-white px-4 py-2 rounded-lg hover:bg-brand-orange/90 transition-colors font-medium mt-2">List Your Business</a>
+            `;
+        }
+
+        function buildDesktopUserNav(firstName, initial, isBusiness) {
+            const userMenu = document.getElementById('userMenu');
+            userMenu.innerHTML = `
+                <button id="userMenuButton" class="flex items-center space-x-1.5 text-gray-600 hover:text-brand-blue transition-colors px-2 py-1">
+                    <div class="w-7 h-7 bg-brand-orange rounded-full flex items-center justify-center text-white font-semibold text-xs">${initial}</div>
+                    <span class="font-medium text-sm hidden lg:block max-w-[120px] truncate">${firstName}</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div id="userDropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+                    ${isBusiness ? `
+                    <a href="business/dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        Dashboard
+                    </a>
+                    <a href="business/dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        My Listings
+                    </a>` : ''}
+                    <a href="user/profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        My Profile
+                    </a>
+                    <a href="user/liked.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        Liked Listings
+                    </a>
+                    <a href="user/settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Settings
+                    </a>
+                    <hr class="my-2">
+                    <button id="logoutButton" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                        Logout
+                    </button>
+                </div>
+            `;
+            userMenu.classList.remove('hidden');
+
+            document.getElementById('userMenuButton').addEventListener('click', () => {
+                document.getElementById('userDropdown').classList.toggle('hidden');
+            });
+            document.getElementById('logoutButton').addEventListener('click', async () => {
+                await signOut();
+                window.location.reload();
+            });
+            document.addEventListener('click', (e) => {
+                if (!userMenu.contains(e.target)) {
+                    document.getElementById('userDropdown')?.classList.add('hidden');
+                }
+            });
+        }
+
+        function buildMobileUserNav(firstName, initial, isBusiness) {
+            const area = document.getElementById('mobileNavAuthArea');
+            area.innerHTML = `
+                <div class="flex items-center space-x-3 pb-3">
+                    <div class="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center text-white font-semibold">${initial}</div>
+                    <span class="font-medium text-gray-800">${firstName}</span>
+                </div>
+                ${isBusiness ? `
+                <a href="business/dashboard.html" class="block text-gray-600 hover:text-brand-blue py-2">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    Dashboard
+                </a>` : ''}
+                <a href="user/profile.html" class="block text-gray-600 hover:text-brand-blue py-2">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    My Profile
+                </a>
+                <a href="user/liked.html" class="block text-gray-600 hover:text-brand-blue py-2">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    Liked Listings
+                </a>
+                <a href="user/settings.html" class="block text-gray-600 hover:text-brand-blue py-2">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Settings
+                </a>
+                <button id="mobileLogoutButton" class="w-full text-left text-red-600 hover:text-red-700 py-2">
+                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                    Logout
+                </button>
+            `;
+            document.getElementById('mobileLogoutButton').addEventListener('click', async () => {
+                await signOut();
+                window.location.reload();
+            });
+        }
+
+        // Check auth state — builds nav only after session is confirmed
+        async function checkAuthState() {
+            const { data: { session } } = await supabase.auth.getSession();
+
+            if (!session) {
+                // Confirmed guest — show guest nav, remove skeleton
+                buildDesktopGuestNav();
+                buildMobileGuestNav();
+                return;
+            }
+
+            const { data: profile } = await supabase
+                .from('profiles')
+                .select('full_name, user_type')
+                .eq('id', session.user.id)
+                .maybeSingle();
+
+            if (!profile) {
+                buildDesktopGuestNav();
+                buildMobileGuestNav();
+                return;
+            }
+
+            const fullName = profile.full_name || session.user.email.split('@')[0];
+            const firstName = fullName.split(' ')[0];
+            const initial = firstName.charAt(0).toUpperCase();
+            const isBusiness = profile.user_type === 'business';
+
+            // Hide skeleton, hide navAuthArea, show user menu
+            document.getElementById('navAuthArea').classList.add('hidden');
+            buildDesktopUserNav(firstName, initial, isBusiness);
+            buildMobileUserNav(firstName, initial, isBusiness);
+        }
+
+        checkAuthState();
+
+        function isNewListing(createdAt) {
+            const created = new Date(createdAt);
+            const now = new Date();
+            const daysDiff = (now - created) / (1000 * 60 * 60 * 24);
+            return daysDiff <= 7;
+        }
+
+        function renderBadges(listing) {
+            let badges = '';
+
+            if (listing.status === 'boosted') {
+                badges += `<span class="boosted-badge absolute top-3 right-3 text-white text-xs px-3 py-2 rounded-full font-bold shadow-lg flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    BOOSTED
+                </span>`;
+            }
+
+            if (isNewListing(listing.created_at)) {
+                badges += `<span class="new-badge absolute top-3 left-3 text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">
+                    ✨ NEW
+                </span>`;
+            }
+
+            return badges;
+        }
+
+        function renderBoostedCard(listing) {
+            listingsCache.set(listing.id, listing);
+            return `
+                <div class="boosted-card bg-white rounded-xl overflow-hidden cursor-pointer" onclick="viewListingDetail('${listing.id}')">
+                    <div class="h-56 bg-gradient-to-br from-gray-200 to-gray-300 relative">
+                        ${listing.images && listing.images[0] ?
+                            `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover">` :
+                            `<div class="w-full h-full flex items-center justify-center bg-white">
+                                <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="w-32 h-32 object-contain opacity-60">
+                            </div>`
+                        }
+                        ${renderBadges(listing)}
+                        <button onclick="event.stopPropagation(); toggleFavorite('${listing.id}')" id="fav-btn-${listing.id}" class="favorite-btn absolute bottom-3 right-3 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform z-10">
+                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-3">
+                            <h3 class="font-bold text-xl text-brand-gray"><a href="/business/${listing.slug || listing.id}" class="hover:text-brand-orange transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
+                            ${listing.business_profiles?.verified ?
+                                '<svg class="w-6 h-6 text-brand-teal flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>' :
+                                ''
+                            }
+                        </div>
+                        <p class="text-gray-600 mb-4 line-clamp-3">${listing.description || 'No description available'}</p>
+                        <div class="flex items-center justify-between text-sm mb-4">
+                            <span class="text-gray-600 capitalize font-medium">${listing.category}</span>
+                            <span class="text-gray-600">${listing.location || 'Zanzibar'}</span>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-5 h-5 text-brand-orange fill-current" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span class="font-bold text-lg">${listing.rating || '4.5'}</span>
+                                <span class="text-gray-500">(${listing.review_count || 0})</span>
+                            </div>
+                            <button onclick='viewListingDetail(${JSON.stringify(listing)})' class="bg-brand-orange text-white px-6 py-2 rounded-lg hover:bg-brand-orange/90 transition-colors font-semibold">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderGridCard(listing) {
+            listingsCache.set(listing.id, listing);
+            return `
+                <div class="listing-card bg-white rounded-xl shadow-sm overflow-hidden cursor-pointer" onclick="viewListingDetail('${listing.id}')">
+                    <div class="h-40 bg-gradient-to-br from-gray-200 to-gray-300 relative">
+                        ${listing.images && listing.images[0] ?
+                            `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover">` :
+                            `<div class="w-full h-full flex items-center justify-center bg-white">
+                                <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="w-20 h-20 object-contain opacity-60">
+                            </div>`
+                        }
+                        ${renderBadges(listing)}
+                        <button onclick="event.stopPropagation(); toggleFavorite('${listing.id}')" id="fav-btn-${listing.id}" class="favorite-btn absolute bottom-2 right-2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform z-10">
+                            <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between mb-2">
+                            <h3 class="font-semibold text-base text-brand-gray line-clamp-1"><a href="/business/${listing.slug || listing.id}" class="hover:text-brand-orange transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
+                            ${listing.business_profiles?.verified ?
+                                '<svg class="w-4 h-4 text-brand-teal flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>' :
+                                ''
+                            }
+                        </div>
+                        <p class="text-gray-600 text-xs mb-2 line-clamp-2">${listing.description || 'No description'}</p>
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="text-gray-500 capitalize">${listing.category}</span>
+                            <span class="text-gray-500">${listing.location || 'Zanzibar'}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderListCard(listing) {
+            listingsCache.set(listing.id, listing);
+            return `
+                <div class="compact-listing cursor-pointer" onclick="viewListingDetail('${listing.id}')">
+                    <div class="relative">
+                        ${listing.images && listing.images[0] ?
+                            `<img src="${listing.images[0]}" alt="${listing.title}">` :
+                            `<div class="w-[120px] h-[120px] bg-white rounded-lg flex items-center justify-center">
+                                <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="w-16 h-16 object-contain opacity-60">
+                            </div>`
+                        }
+                        ${isNewListing(listing.created_at) ? '<span class="new-badge absolute -top-1 -left-1 text-white text-xs px-2 py-1 rounded-full font-bold text-[10px]">NEW</span>' : ''}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-start justify-between mb-1">
+                            <h3 class="font-semibold text-lg text-brand-gray line-clamp-1"><a href="/business/${listing.slug || listing.id}" class="hover:text-brand-orange transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
+                            ${listing.business_profiles?.verified ?
+                                '<svg class="w-5 h-5 text-brand-teal flex-shrink-0 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>' :
+                                ''
+                            }
+                        </div>
+                        <p class="text-gray-600 text-sm mb-2 line-clamp-2">${listing.description || 'No description available'}</p>
+                        <div class="flex items-center gap-4 text-sm text-gray-500 mb-2">
+                            <span class="capitalize">${listing.category}</span>
+                            <span>•</span>
+                            <span>${listing.location || 'Zanzibar'}</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4 text-brand-orange fill-current" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span class="font-semibold">${listing.rating || '4.5'}</span>
+                                <span class="text-gray-500 text-xs">(${listing.review_count || 0})</span>
+                            </div>
+                            <a href="#" class="text-brand-orange hover:text-brand-orange/80 font-medium text-sm">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function loadBoostedListings() {
+            try {
+                const listings = await getBoostedListings({ limit: 6 });
+                const container = document.getElementById('boostedListings');
+                const loading = document.getElementById('boostedLoadingMessage');
+
+                if (listings && listings.length > 0) {
+                    container.innerHTML = listings.map(listing => renderBoostedCard(listing)).join('');
+                    loading.style.display = 'none';
+                    container.style.display = 'grid';
+                } else {
+                    loading.innerHTML = '<p class="text-gray-600">No boosted listings at the moment</p>';
+                }
+            } catch (error) {
+                console.error('Error loading boosted listings:', error);
+                document.getElementById('boostedLoadingMessage').innerHTML = '<p class="text-red-600">Error loading premium listings</p>';
+            }
+        }
+
+        async function loadBlogSnippet() {
+            try {
+                // Get a random published blog post
+                const { data: posts, error } = await supabase
+                    .from('blog_posts')
+                    .select('id, title, slug, excerpt, featured_image')
+                    .eq('status', 'published')
+                    .limit(10); // Get 10 posts to choose randomly from
+
+                if (error) throw error;
+
+                if (posts && posts.length > 0) {
+                    // Pick a random post from the results
+                    const randomPost = posts[Math.floor(Math.random() * posts.length)];
+
+                    const container = document.getElementById('blogSnippetContent');
+                    const lang = getCurrentLanguage();
+
+                    const blogLabel = lang === 'en' ? 'From Useful Info' : 'Kutoka Taarifa Muhimu';
+                    const readMoreText = lang === 'en' ? 'Read More' : 'Soma Zaidi';
+
+                    container.innerHTML = `
+                        <a href="blog-post.html?slug=${randomPost.slug}" class="block group">
+                            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border-l-4 border-brand-teal">
+                                <div class="flex flex-col md:flex-row gap-0 md:gap-4 items-stretch">
+                                    <!-- Image Section -->
+                                    <div class="md:w-64 h-40 md:h-auto overflow-hidden flex-shrink-0">
+                                        <img
+                                            src="${randomPost.featured_image || 'https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg'}"
+                                            alt="${randomPost.title}"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                            onerror="this.src='https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg'"
+                                        />
+                                    </div>
+
+                                    <!-- Content Section -->
+                                    <div class="flex-1 p-4 md:p-5 flex flex-col justify-center">
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <span class="inline-flex items-center gap-1 text-xs font-semibold text-brand-teal bg-brand-teal/10 px-3 py-1 rounded-full">
+                                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                                                </svg>
+                                                ${blogLabel}
+                                            </span>
+                                        </div>
+                                        <h3 class="font-display text-lg md:text-xl font-bold text-brand-gray mb-2 group-hover:text-brand-teal transition-colors line-clamp-2">
+                                            ${randomPost.title}
+                                        </h3>
+                                        <p class="text-gray-600 text-sm md:text-base mb-3 line-clamp-2">
+                                            ${randomPost.excerpt}
+                                        </p>
+                                        <div class="flex items-center text-brand-teal font-semibold text-sm">
+                                            <span>${readMoreText}</span>
+                                            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+
+                    container.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error('Error loading blog snippet:', error);
+                // Silently fail - don't show anything if there's an error
+            }
+        }
+
+        async function loadRegularListings() {
+            try {
+                const offset = (currentPage - 1) * itemsPerPage;
+                const [listings, count] = await Promise.all([
+                    getRegularListings({ ...currentFilters, limit: itemsPerPage, offset }),
+                    getListingsCount(currentFilters)
+                ]);
+
+                totalItems = count || 0;
+
+                const gridContainer = document.getElementById('regularListingsGrid');
+                const listContainer = document.getElementById('regularListingsList');
+                const loading = document.getElementById('regularLoadingMessage');
+                const pagination = document.getElementById('paginationContainer');
+
+                if (listings && listings.length > 0) {
+                    if (currentView === 'grid') {
+                        gridContainer.innerHTML = listings.map(listing => renderGridCard(listing)).join('');
+                        gridContainer.style.display = 'grid';
+                        listContainer.style.display = 'none';
+                    } else {
+                        listContainer.innerHTML = listings.map(listing => renderListCard(listing)).join('');
+                        listContainer.style.display = 'block';
+                        gridContainer.style.display = 'none';
+                    }
+
+                    loading.style.display = 'none';
+                    updatePagination();
+                    pagination.style.display = 'flex';
+
+                    document.getElementById('listingCount').textContent = `Showing ${offset + 1}-${Math.min(offset + itemsPerPage, totalItems)} of ${totalItems} listings`;
+                } else {
+                    loading.innerHTML = `
+                        <div class="text-center">
+                            <p class="text-gray-600 mb-4">No listings available yet.</p>
+                            <a href="auth/signup.html" class="inline-block bg-brand-orange text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-orange/90 transition-colors">
+                                Be the first to list your business!
+                            </a>
+                        </div>
+                    `;
+                    pagination.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error loading regular listings:', error);
+                document.getElementById('regularLoadingMessage').innerHTML = '<p class="text-red-600">Error loading listings</p>';
+            }
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const prevBtn = document.getElementById('prevPageBtn');
+            const nextBtn = document.getElementById('nextPageBtn');
+            const pageNumbers = document.getElementById('pageNumbers');
+            const paginationInfo = document.getElementById('paginationInfo');
+
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+
+            paginationInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+            let pageHTML = '';
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            if (endPage - startPage < maxVisiblePages - 1) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                pageHTML += `
+                    <button onclick="goToPage(${i})" class="px-3 py-1 rounded ${i === currentPage ? 'bg-brand-orange text-white' : 'hover:bg-gray-100'}">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            pageNumbers.innerHTML = pageHTML;
+        }
+
+        window.goToPage = function(page) {
+            currentPage = page;
+            loadRegularListings();
+            window.scrollTo({ top: document.getElementById('regularSection').offsetTop - 100, behavior: 'smooth' });
+        };
+
+        document.getElementById('prevPageBtn')?.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                loadRegularListings();
+            }
+        });
+
+        document.getElementById('nextPageBtn')?.addEventListener('click', () => {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                loadRegularListings();
+            }
+        });
+
+        document.getElementById('gridViewBtn')?.addEventListener('click', () => {
+            currentView = 'grid';
+            localStorage.setItem('listingView', 'grid');
+            document.getElementById('gridViewBtn').classList.add('bg-gray-100');
+            document.getElementById('listViewBtn').classList.remove('bg-gray-100');
+            loadRegularListings();
+        });
+
+        document.getElementById('listViewBtn')?.addEventListener('click', () => {
+            currentView = 'list';
+            localStorage.setItem('listingView', 'list');
+            document.getElementById('listViewBtn').classList.add('bg-gray-100');
+            document.getElementById('gridViewBtn').classList.remove('bg-gray-100');
+            loadRegularListings();
+        });
+
+        if (currentView === 'list') {
+            document.getElementById('listViewBtn').classList.add('bg-gray-100');
+        } else {
+            document.getElementById('gridViewBtn').classList.add('bg-gray-100');
+        }
+
+        window.viewListingDetail = function(listingId) {
+            const listing = listingsCache.get(listingId);
+            if (!listing) {
+                console.error('Listing not found in cache');
+                return;
+            }
+
+            const modal = document.getElementById('listingDetailModal');
+            const title = document.getElementById('modalListingTitle');
+            const content = document.getElementById('modalListingContent');
+
+            title.textContent = listing.title;
+
+            const images = listing.images && listing.images.length > 0 ? listing.images : [];
+            const hasImages = images.length > 0;
+
+            content.innerHTML = `
+                ${hasImages ? `
+                    <div class="mb-6">
+                        <div class="relative h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden">
+                            <img src="${images[0]}" alt="${listing.title}" class="w-full h-full object-cover">
+                            ${renderBadges(listing)}
+                        </div>
+                        ${images.length > 1 ? `
+                            <div class="grid grid-cols-4 gap-2 mt-3">
+                                ${images.slice(1, 5).map(img => `
+                                    <div class="h-24 bg-gray-200 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+                                        <img src="${img}" alt="${listing.title}" class="w-full h-full object-cover">
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                ` : `
+                    <div class="mb-6">
+                        <div class="relative h-64 bg-white rounded-xl overflow-hidden flex items-center justify-center border border-gray-100">
+                            <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="w-40 h-40 object-contain opacity-50">
+                            ${renderBadges(listing)}
+                        </div>
+                    </div>
+                `}
+
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <span class="inline-block px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full text-sm font-semibold capitalize">
+                                ${listing.category}
+                            </span>
+                            ${listing.business_profiles?.verified ? `
+                                <span class="flex items-center gap-1 text-brand-teal font-medium">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Verified
+                                </span>
+                            ` : ''}
+                        </div>
+                        ${listing.status === 'boosted' ? `
+                            <span class="inline-flex items-center gap-1 px-4 py-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-full text-sm font-bold shadow-lg">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                BOOSTED
+                            </span>
+                        ` : ''}
+                    </div>
+
+                    <h3 class="font-display text-2xl font-bold text-brand-gray mb-3">${listing.title}</h3>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">${listing.description || 'No description available'}</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    ${listing.phone ? `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Phone</p>
+                                <a href="tel:${listing.phone}" class="text-brand-gray font-semibold hover:text-brand-orange transition-colors">${listing.phone}</a>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${listing.email ? `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Email</p>
+                                <a href="mailto:${listing.email}" class="text-brand-gray font-semibold hover:text-brand-orange transition-colors break-all">${listing.email}</a>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${listing.address ? `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Address</p>
+                                <p class="text-brand-gray font-semibold">${listing.address}</p>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${listing.what3words ? `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                            </svg>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">What3Words Location</p>
+                                <a href="https://what3words.com/${listing.what3words}" target="_blank" class="text-brand-orange font-semibold hover:underline">
+                                    ///${listing.what3words}
+                                </a>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${listing.website ? `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                            </svg>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Website</p>
+                                <a href="${ensureProtocol(listing.website)}" target="_blank" rel="noopener noreferrer" class="text-brand-orange font-semibold hover:underline break-all">${listing.website}</a>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    ${listing.location ? `
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
+                            </svg>
+                            <div>
+                                <p class="text-sm text-gray-600 mb-1">Location</p>
+                                <p class="text-brand-gray font-semibold capitalize">${listing.location.replace('-', ' ')}</p>
+                            </div>
+                        </div>
+                    ` : ''}
+                </div>
+
+                ${listing.business_profiles?.business_name ? `
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-sm text-gray-600 mb-1">Listed by</p>
+                        <p class="text-lg font-semibold text-brand-gray">${listing.business_profiles.business_name}</p>
+                    </div>
+                ` : ''}
+            `;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeListingDetail = function() {
+            const modal = document.getElementById('listingDetailModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+
+        // Close modal when clicking outside
+        document.getElementById('listingDetailModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeListingDetail();
+            }
+        });
+
+        loadBoostedListings();
+        loadBlogSnippet();
+        loadRegularListings();
+
+        window.performSearch = async function() {
+            const query = document.getElementById('searchInput').value;
+            const location = document.getElementById('locationSelect').value;
+
+            if (!query && !location) return;
+
+            // Hide category results, show search results
+            document.getElementById('categoryResultsSection').style.display = 'none';
+            document.getElementById('searchResultsSection').style.display = 'block';
+
+            const container = document.getElementById('searchListings');
+            const loading = document.getElementById('searchLoadingMessage');
+
+            container.style.display = 'none';
+            loading.style.display = 'block';
+
+            // Scroll to search results
+            document.getElementById('searchResultsSection').scrollIntoView({ behavior: 'smooth' });
+
+            try {
+                const filters = {};
+                if (query) filters.search = query;
+                if (location) filters.location = location;
+
+                const listings = await getListings(filters);
+
+                if (listings && listings.length > 0) {
+                    container.innerHTML = listings.map(listing => renderGridCard(listing)).join('');
+                    loading.style.display = 'none';
+                    container.style.display = 'grid';
+
+                    const desc = document.getElementById('searchDescription');
+                    desc.textContent = `Found ${listings.length} result${listings.length !== 1 ? 's' : ''} for "${query}"${location ? ` in ${location}` : ''}`;
+                } else {
+                    loading.innerHTML = `<p class="text-gray-600">No results found. Try different keywords.</p>`;
+                }
+            } catch (error) {
+                console.error('Error searching listings:', error);
+                loading.innerHTML = '<p class="text-red-600">Error searching listings. Please try again.</p>';
+            }
+        };
+
+        window.clearSearch = function() {
+            document.getElementById('searchResultsSection').style.display = 'none';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('locationSelect').value = '';
+        };
+
+        window.filterByCategory = async function(category) {
+            // Hide search results, show category results
+            document.getElementById('searchResultsSection').style.display = 'none';
+            document.getElementById('categoryResultsSection').style.display = 'block';
+
+            const container = document.getElementById('categoryListings');
+            const loading = document.getElementById('categoryLoadingMessage');
+
+            container.style.display = 'none';
+            loading.style.display = 'block';
+            loading.innerHTML = '<div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div><p class="mt-4 text-gray-600">Loading listings...</p>';
+
+            // Scroll to category results
+            document.getElementById('categoryResultsSection').scrollIntoView({ behavior: 'smooth' });
+
+            try {
+                const filters = category === 'all' ? {} : { category };
+                const listings = await getListings(filters);
+
+                const categoryTitle = document.getElementById('categoryTitle');
+                const categoryDesc = document.getElementById('categoryDescription');
+
+                if (listings && listings.length > 0) {
+                    container.innerHTML = listings.map(listing => renderGridCard(listing)).join('');
+                    loading.style.display = 'none';
+                    container.style.display = 'grid';
+
+                    const displayCategory = category === 'all' ? 'All Listings' :
+                                          category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                    categoryTitle.textContent = displayCategory;
+                    categoryDesc.textContent = `Showing ${listings.length} listing${listings.length !== 1 ? 's' : ''}`;
+                } else {
+                    loading.innerHTML = `<p class="text-gray-600">No listings found in this category.</p>`;
+                    categoryTitle.textContent = category === 'all' ? 'All Listings' :
+                                              category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                    categoryDesc.textContent = 'No results found';
+                }
+            } catch (error) {
+                console.error('Error filtering listings:', error);
+                loading.innerHTML = '<p class="text-red-600">Error loading listings. Please try again.</p>';
+            }
+        };
+
+        window.clearCategoryFilter = function() {
+            document.getElementById('categoryResultsSection').style.display = 'none';
+        };
+
+        // Load listings on page load
+
+        // Enable Enter key for search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Favorites functionality
+        let userFavorites = new Set();
+
+        async function loadUserFavorites() {
+            const { data: { session } } = await supabase.auth.getSession();
+            if (!session) return;
+
+            const { data: favorites } = await supabase
+                .from('favorites')
+                .select('listing_id')
+                .eq('user_id', session.user.id);
+
+            if (favorites) {
+                userFavorites = new Set(favorites.map(f => f.listing_id));
+                updateFavoriteButtons();
+            }
+        }
+
+        function updateFavoriteButtons() {
+            userFavorites.forEach(listingId => {
+                const btn = document.getElementById(`fav-btn-${listingId}`);
+                if (btn) {
+                    const svg = btn.querySelector('svg');
+                    svg.setAttribute('fill', 'currentColor');
+                    svg.classList.add('text-red-500');
+                }
+            });
+        }
+
+        window.toggleFavorite = async function(listingId) {
+            const { data: { session } } = await supabase.auth.getSession();
+
+            if (!session) {
+                alert('Please log in to save favorites');
+                window.location.href = 'auth/login.html';
+                return;
+            }
+
+            const btn = document.getElementById(`fav-btn-${listingId}`);
+            const svg = btn.querySelector('svg');
+
+            try {
+                if (userFavorites.has(listingId)) {
+                    const { error } = await supabase
+                        .from('favorites')
+                        .delete()
+                        .eq('user_id', session.user.id)
+                        .eq('listing_id', listingId);
+
+                    if (error) throw error;
+
+                    userFavorites.delete(listingId);
+                    svg.setAttribute('fill', 'none');
+                } else {
+                    const { error } = await supabase
+                        .from('favorites')
+                        .insert({
+                            user_id: session.user.id,
+                            listing_id: listingId
+                        });
+
+                    if (error) throw error;
+
+                    userFavorites.add(listingId);
+                    svg.setAttribute('fill', 'currentColor');
+                }
+            } catch (error) {
+                console.error('Error toggling favorite:', error);
+                alert('Error updating favorite: ' + error.message);
+            }
+        };
+
+        loadUserFavorites();
+
+        // Animations
+        anime({
+            targets: '.category-card',
+            opacity: [0, 1],
+            translateY: [30, 0],
+            delay: anime.stagger(50),
+            duration: 600,
+            easing: 'easeOutCubic'
+        });
+
+        // Set location filter helper for quick chips
+        window.setLocationFilter = function(location) {
+            document.getElementById('locationSelect').value = location;
+            performSearch();
+        };
+    </script>
+</body>
+</html>

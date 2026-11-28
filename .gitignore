@@ -8,3 +8,5 @@ dist/
 backups/
 *.dump
 .DS_Store
+*.tgz
+.netlify/

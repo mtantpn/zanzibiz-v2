@@ -1,0 +1,22 @@
+{
+  "name": "zanzibiz",
+  "version": "1.0.0",
+  "description": "Local business directory platform for Zanzibar",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.5.0",
+    "tailwindcss": "^3.4.19",
+    "terser": "^5.46.0",
+    "vite": "^5.0.0"
+  }
+}
