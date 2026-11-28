@@ -10,6 +10,8 @@
 
 # Directory pages
 /directory /directory/index.html 200
+# /directory/:category is served by netlify/functions/directory.mts; this rewrite
+# is only the client-side fallback if the function is unavailable.
 /directory/:category /directory/category.html?category=:category 200
 
 # Clean travel-guide sub-page URLs (specific static pages first, then dynamic slug catch-all)

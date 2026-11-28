@@ -70,7 +70,7 @@ export function rewriteHead(html: string, h: Head): string {
     .replace(/<meta\s+[^>]*(name|property)=["'](description|robots|og:[^"']+|twitter:[^"']+)["'][^>]*>\s*/gi, "")
     .replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>\s*/gi, "")
     // Template placeholders; the page's script adds its own after loading.
-    .replace(/<script type="application\/ld\+json" id="(structured-data|blogPostingSchema)">[\s\S]*?<\/script>\s*/gi, "");
+    .replace(/<script type="application\/ld\+json" id="(structured-data|blogPostingSchema|pageSchema)">[\s\S]*?<\/script>\s*/gi, "");
   const img = h.image || DEFAULT_IMAGE;
   const meta = (attr: string, key: string, value: string) =>
     `<meta ${attr}="${key}"${idAttr(key)} content="${esc(value)}">`;

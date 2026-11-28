@@ -12,9 +12,11 @@ const STATIC = [
 ];
 
 export default async () => {
+  // If the database is down, still serve the static URLs (a 500 here makes
+  // search engines retry the whole sitemap later).
   const [listings, posts] = await Promise.all([
-    db<any[]>("listings?select=slug,updated_at&status=in.(active,boosted,featured)&slug=not.is.null&order=updated_at.desc&limit=5000"),
-    db<any[]>("blog_posts?select=slug,updated_at&status=eq.published&order=updated_at.desc&limit=5000"),
+    db<any[]>("listings?select=slug,updated_at&status=in.(active,boosted,featured)&slug=not.is.null&order=updated_at.desc&limit=5000").catch(() => []),
+    db<any[]>("blog_posts?select=slug,updated_at&status=eq.published&order=updated_at.desc&limit=5000").catch(() => []),
   ]);
   const url = (loc: string, lastmod?: string) =>
     `<url><loc>${esc(SITE + loc)}</loc>${lastmod ? `<lastmod>${lastmod.slice(0, 10)}</lastmod>` : ""}</url>`;

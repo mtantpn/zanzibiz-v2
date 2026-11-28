@@ -32,6 +32,8 @@
     }
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/tailwind.css">
 
@@ -80,7 +82,7 @@
                 <span>/</span>
                 <a href="/directory" class="hover:text-[#0A6A94] transition-colors">Directory</a>
                 <span>/</span>
-                <span id="breadcrumbCategory" class="text-[#1D2427] font-medium">Loading...</span>
+                <span id="breadcrumbCategory" class="text-[#1D2427] font-medium">Category</span>
             </nav>
         </div>
     </div>
@@ -90,7 +92,7 @@
         <div class="max-w-5xl mx-auto">
             <div class="flex items-center gap-3 mb-3">
                 <span id="categoryIcon" class="text-3xl"></span>
-                <h1 id="pageHeading" class="font-heading text-3xl sm:text-4xl font-bold text-[#1D2427]">Loading...</h1>
+                <h1 id="pageHeading" class="font-heading text-3xl sm:text-4xl font-bold text-[#1D2427]">Zanzibar Business Directory</h1>
             </div>
             <p id="pageSubheading" class="text-gray-600 text-base"></p>
         </div>
@@ -108,7 +110,7 @@
     <main id="mainContent" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         <!-- Static crawlable listings for search engines; JS replaces with live data -->
-        <div id="loadingState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="loadingState" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><!--ssr:start-->
             <a href="/business/tiki-beach-club-resort-1781949552213" class="listing-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 block">
                 <div class="h-44 bg-[#FFF4D1] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-60"></div>
                 <div class="p-5"><h3 class="font-heading font-bold text-[#1D2427] text-base">Tiki Beach Club &amp; Resort</h3><p class="text-xs text-gray-400 mt-1">Accommodation &middot; Paje</p></div>
@@ -144,7 +146,7 @@
             <a href="/business/zanzibar-wellness-spa-massage" class="listing-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 block">
                 <div class="h-44 bg-[#FFF4D1] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-60"></div>
                 <div class="p-5"><h3 class="font-heading font-bold text-[#1D2427] text-base">Zanzibar Wellness Spa &amp; Massage</h3><p class="text-xs text-gray-400 mt-1">Business &middot; Paje</p></div>
-            </a>
+            </a><!--ssr:end-->
         </div>
 
         <!-- Listings grid (populated by JS) -->
@@ -159,13 +161,48 @@
         </div>
 
         <!-- Other categories -->
-        <div id="otherCategories" class="hidden mt-16 pt-12 border-t border-gray-200">
+        <div id="otherCategories" class="mt-16 pt-12 border-t border-gray-200">
             <h2 class="font-heading text-xl font-bold text-[#1D2427] mb-6">Browse Other Categories</h2>
-            <div id="otherCategoriesGrid" class="flex flex-wrap gap-3"></div>
+            <div id="otherCategoriesGrid" class="flex flex-wrap gap-3">
+                <a href="/directory/accommodation" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-[#1D2427] hover:border-[#0A6A94] hover:text-[#0A6A94] transition-colors">Accommodation</a>
+                <a href="/directory/activities" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-[#1D2427] hover:border-[#0A6A94] hover:text-[#0A6A94] transition-colors">Tours &amp; Activities</a>
+                <a href="/directory/automotive" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-[#1D2427] hover:border-[#0A6A94] hover:text-[#0A6A94] transition-colors">Automotive &amp; Transport</a>
+                <a href="/directory/business" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-[#1D2427] hover:border-[#0A6A94] hover:text-[#0A6A94] transition-colors">Local Services</a>
+                <a href="/directory/events" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-[#1D2427] hover:border-[#0A6A94] hover:text-[#0A6A94] transition-colors">Events</a>
+                <a href="/directory/jobs" class="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 text-sm font-medium text-[#1D2427] hover:border-[#0A6A94] hover:text-[#0A6A94] transition-colors">Jobs</a>
+            </div>
         </div>
     </main>
 
-    <footer class="bg-[#1D2427] text-white mt-10">
+    <!-- zb-browse-links -->
+    <nav aria-label="Explore ZanziBiz" style="background:#FFFFFF;border-top:1px solid #EBEBEB;font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+        <div style="max-width:80rem;margin:0 auto;padding:28px 16px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+            <div>
+                <p style="font-weight:700;color:#1D2427;font-size:14px;margin:0 0 8px">Zanzibar business directory</p>
+                <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px">
+                    <li><a href="/directory/accommodation" style="color:#0A6A94">Accommodation</a></li>
+                    <li><a href="/directory/activities" style="color:#0A6A94">Tours &amp; activities</a></li>
+                    <li><a href="/directory/automotive" style="color:#0A6A94">Car hire &amp; transport</a></li>
+                    <li><a href="/directory/business" style="color:#0A6A94">Local services</a></li>
+                    <li><a href="/directory/events" style="color:#0A6A94">Events</a></li>
+                    <li><a href="/directory/jobs" style="color:#0A6A94">Jobs</a></li>
+                </ul>
+            </div>
+            <div>
+                <p style="font-weight:700;color:#1D2427;font-size:14px;margin:0 0 8px">Zanzibar travel guide</p>
+                <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px">
+                    <li><a href="/travel-guide/flights-to-zanzibar" style="color:#0A6A94">Flights to Zanzibar</a></li>
+                    <li><a href="/travel-guide/where-to-stay" style="color:#0A6A94">Where to stay</a></li>
+                    <li><a href="/travel-guide/hotels" style="color:#0A6A94">Hotels &amp; resorts</a></li>
+                    <li><a href="/travel-guide/tours" style="color:#0A6A94">Tours &amp; day trips</a></li>
+                    <li><a href="/travel-guide/airport-transfers" style="color:#0A6A94">Airport transfers</a></li>
+                    <li><a href="/travel-guide" style="color:#0A6A94">All guides</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <footer class="bg-[#1D2427] text-white mt-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex flex-col md:flex-row justify-between gap-8">
                 <div>
@@ -209,42 +246,49 @@
 
     const CATEGORIES = {
         accommodation: {
+            seoTitle: 'Zanzibar Accommodation: Hotels & Guesthouses | ZanziBiz',
             label: 'Accommodation',
             icon: '🏨',
             description: 'Hotels, resorts, villas, guesthouses and beach bungalows in Zanzibar.',
             og: 'https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop'
         },
         activities: {
+            seoTitle: 'Zanzibar Tour Operators & Activities | ZanziBiz',
             label: 'Tours & Activities',
             icon: '🤿',
             description: 'Snorkelling, diving, dhow cruises, spice tours, safaris and more in Zanzibar.',
             og: 'https://images.pexels.com/photos/1001682/pexels-photo-1001682.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop'
         },
         automotive: {
+            seoTitle: 'Zanzibar Car Hire, Taxis & Transport | ZanziBiz',
             label: 'Automotive & Transport',
             icon: '🚗',
             description: 'Car hire, scooter rental, tuk-tuks, taxis and airport transfers in Zanzibar.',
             og: 'https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop'
         },
         business: {
+            seoTitle: 'Local Services & Businesses in Zanzibar | ZanziBiz',
             label: 'Local Services',
             icon: '🏪',
             description: 'Tradespeople, professionals, shops and everyday local businesses in Zanzibar.',
             og: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop'
         },
         events: {
+            seoTitle: "Events in Zanzibar: Festivals & What's On | ZanziBiz",
             label: 'Events',
             icon: '🎉',
             description: 'Festivals, cultural events, markets and things happening in Zanzibar.',
             og: 'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop'
         },
         jobs: {
+            seoTitle: 'Jobs in Zanzibar: Vacancies & Careers | ZanziBiz',
             label: 'Jobs',
             icon: '💼',
             description: 'Job listings, vacancies and career opportunities in Zanzibar.',
             og: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop'
         },
         'useful-info': {
+            seoTitle: 'Useful Info for Zanzibar | ZanziBiz',
             label: 'Useful Info',
             icon: 'ℹ️',
             description: 'Essential information, tips and resources for living and working in Zanzibar.',
@@ -316,9 +360,11 @@
         return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
-    function setMeta(category, categoryData, listingCount) {
-        const title = `${categoryData.label} in Zanzibar (${listingCount} listings) | ZanziBiz`;
-        const description = `Find ${listingCount} trusted ${categoryData.label.toLowerCase()} listings in Zanzibar. ${categoryData.description}`;
+    function setMeta(category, categoryData, listingCount, listings = []) {
+        const title = categoryData.seoTitle || `${categoryData.label} in Zanzibar | ZanziBiz`;
+        const description = listingCount > 0
+            ? `${categoryData.description} Compare ${listingCount} local listing${listingCount !== 1 ? 's' : ''} and contact them directly.`
+            : `${categoryData.description} Browse local listings on ZanziBiz.`;
         const canonical = `https://zanzibiz.com/directory/${category}`;
 
         document.getElementById('pageTitle').textContent = title;
@@ -338,7 +384,6 @@
         document.getElementById('breadcrumbCategory').textContent = categoryData.label;
 
         const schemaEl = document.getElementById('pageSchema');
-        const listingItems = [];
         schemaEl.textContent = JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
@@ -351,10 +396,23 @@
                     ]
                 },
                 {
-                    "@type": "ItemList",
-                    "name": `${categoryData.label} in Zanzibar`,
+                    "@type": "CollectionPage",
+                    "@id": canonical,
                     "url": canonical,
-                    "numberOfItems": listingCount
+                    "name": `${categoryData.label} in Zanzibar`,
+                    "description": description,
+                    "isPartOf": { "@id": "https://zanzibiz.com/#website" },
+                    "mainEntity": {
+                        "@type": "ItemList",
+                        "name": `${categoryData.label} in Zanzibar`,
+                        "numberOfItems": listingCount,
+                        "itemListElement": listings.map((l, i) => ({
+                            "@type": "ListItem",
+                            "position": i + 1,
+                            "url": `https://zanzibiz.com/business/${l.slug || l.id}`,
+                            "name": l.title
+                        }))
+                    }
                 }
             ]
         });
@@ -397,7 +455,7 @@
         }
 
         const results = listings || [];
-        setMeta(category, categoryData, results.length);
+        setMeta(category, categoryData, results.length, results);
 
         document.getElementById('loadingState').classList.add('hidden');
 
@@ -411,6 +469,7 @@
 
         // Other categories links
         const otherGrid = document.getElementById('otherCategoriesGrid');
+        otherGrid.innerHTML = '';
         Object.entries(CATEGORIES)
             .filter(([key]) => key !== category)
             .forEach(([key, data]) => {
