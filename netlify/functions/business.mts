@@ -38,6 +38,7 @@ export default async (req: Request, context: Context) => {
   if (!l) {
     return htmlResponse(
       rewriteHead(page, {
+        ldId: "structured-data",
         title: "Listing not found | ZanziBiz",
         description: "This listing is no longer on ZanziBiz.",
         canonical: `${SITE}/business/${encodeURIComponent(slug)}`,
@@ -99,6 +100,7 @@ export default async (req: Request, context: Context) => {
       </article>`;
 
   let html = rewriteHead(page, {
+        ldId: "structured-data",
     title: `${l.title} – ${cat} in ${area} | ZanziBiz`,
     description,
     canonical: url,

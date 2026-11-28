@@ -39,6 +39,8 @@ export interface Head {
   type?: string;
   jsonLd?: unknown[];
   noindex?: boolean;
+  // id the page's own script expects on its JSON-LD tag (it overwrites it)
+  ldId?: string;
 }
 
 export function rewriteHead(html: string, h: Head): string {
@@ -65,8 +67,11 @@ export function rewriteHead(html: string, h: Head): string {
     `<meta name="twitter:description" content="${esc(h.description)}">`,
     `<meta name="twitter:image" content="${esc(img)}">`,
     ...(h.jsonLd || []).map(
-      (j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`,
+      (j, i) =>
+        `<script type="application/ld+json"${i === 0 && h.ldId ? ` id="${h.ldId}"` : ""}>${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`,
     ),
+    // Keep the id the page script writes to, even on 404s.
+    h.ldId && !(h.jsonLd || []).length ? `<script type="application/ld+json" id="${h.ldId}">{}</script>` : "",
   ].filter(Boolean);
   return out.replace(/<head([^>]*)>/i, `<head$1>\n    ${tags.join("\n    ")}`);
 }

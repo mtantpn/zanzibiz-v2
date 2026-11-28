@@ -21,6 +21,7 @@ export default async (req: Request, context: Context) => {
   if (!p) {
     return htmlResponse(
       rewriteHead(page, {
+        ldId: "blogPostingSchema",
         title: "Guide not found | ZanziBiz",
         description: "This guide is no longer on ZanziBiz.",
         canonical: `${SITE}/travel-guide/${encodeURIComponent(slug)}`,
@@ -62,6 +63,7 @@ export default async (req: Request, context: Context) => {
         <div class="prose prose-lg max-w-none">${safeHtml(p.content).replace(/\n{2,}/g, "</p><p>").replace(/^(?!<)/, "<p>")}</div>
       </article>`;
   let html = rewriteHead(page, {
+        ldId: "blogPostingSchema",
     title: `${p.title} | ZanziBiz Travel Guide`,
     description,
     canonical: url,
