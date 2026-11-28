@@ -43,7 +43,28 @@ export interface Head {
   ldId?: string;
 }
 
+// The page scripts look up some head tags by id (pageTitle, ogTitle…).
+// Remember each replaced tag's id so the new tag keeps it.
+function headIds(html: string): Record<string, string> {
+  const ids: Record<string, string> = {};
+  const head = html.slice(0, html.search(/<\/head>/i));
+  for (const m of head.matchAll(/<(title|meta|link)\b[^>]*>/gi)) {
+    const tag = m[0];
+    const id = tag.match(/\bid=["']([^"']+)["']/)?.[1];
+    if (!id) continue;
+    const key =
+      m[1].toLowerCase() === "title"
+        ? "title"
+        : tag.match(/\b(?:name|property)=["']([^"']+)["']/)?.[1] ||
+          (/rel=["']canonical["']/i.test(tag) ? "canonical" : "");
+    if (key) ids[key] = id;
+  }
+  return ids;
+}
+
 export function rewriteHead(html: string, h: Head): string {
+  const ids = headIds(html);
+  const idAttr = (key: string) => (ids[key] ? ` id="${ids[key]}"` : "");
   let out = html
     .replace(/<title[^>]*>[\s\S]*?<\/title>/i, "")
     .replace(/<meta\s+[^>]*(name|property)=["'](description|robots|og:[^"']+|twitter:[^"']+)["'][^>]*>\s*/gi, "")
@@ -51,21 +72,23 @@ export function rewriteHead(html: string, h: Head): string {
     // Template placeholders; the page's script adds its own after loading.
     .replace(/<script type="application\/ld\+json" id="(structured-data|blogPostingSchema)">[\s\S]*?<\/script>\s*/gi, "");
   const img = h.image || DEFAULT_IMAGE;
+  const meta = (attr: string, key: string, value: string) =>
+    `<meta ${attr}="${key}"${idAttr(key)} content="${esc(value)}">`;
   const tags = [
-    `<title>${esc(h.title)}</title>`,
-    `<meta name="description" content="${esc(h.description)}">`,
-    `<link rel="canonical" href="${esc(h.canonical)}">`,
+    `<title${idAttr("title")}>${esc(h.title)}</title>`,
+    meta("name", "description", h.description),
+    `<link rel="canonical"${idAttr("canonical")} href="${esc(h.canonical)}">`,
     h.noindex ? `<meta name="robots" content="noindex">` : "",
-    `<meta property="og:site_name" content="ZanziBiz">`,
-    `<meta property="og:type" content="${esc(h.type || "website")}">`,
-    `<meta property="og:title" content="${esc(h.title)}">`,
-    `<meta property="og:description" content="${esc(h.description)}">`,
-    `<meta property="og:url" content="${esc(h.canonical)}">`,
-    `<meta property="og:image" content="${esc(img)}">`,
-    `<meta name="twitter:card" content="summary_large_image">`,
-    `<meta name="twitter:title" content="${esc(h.title)}">`,
-    `<meta name="twitter:description" content="${esc(h.description)}">`,
-    `<meta name="twitter:image" content="${esc(img)}">`,
+    meta("property", "og:site_name", "ZanziBiz"),
+    meta("property", "og:type", h.type || "website"),
+    meta("property", "og:title", h.title),
+    meta("property", "og:description", h.description),
+    meta("property", "og:url", h.canonical),
+    meta("property", "og:image", img),
+    meta("name", "twitter:card", "summary_large_image"),
+    meta("name", "twitter:title", h.title),
+    meta("name", "twitter:description", h.description),
+    meta("name", "twitter:image", img),
     ...(h.jsonLd || []).map(
       (j, i) =>
         `<script type="application/ld+json"${i === 0 && h.ldId ? ` id="${h.ldId}"` : ""}>${JSON.stringify(j).replace(/</g, "\\u003c")}</script>`,
