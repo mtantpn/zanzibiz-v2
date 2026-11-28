@@ -114,6 +114,9 @@
                         </div>
                     </div>
 
+                    <!-- Answer-first summary, built only from fields the business filled in -->
+                    <p id="listing-summary" class="hidden text-base text-[#1D2427] leading-relaxed mb-5"></p>
+
                     <!-- Rating -->
                     <div id="rating-section" class="hidden flex items-center gap-2 mb-4">
                         <div class="flex items-center gap-1">
@@ -501,6 +504,26 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>`)
                 .join('');
+
+            // Answer-first summary (same facts as the server-rendered page)
+            try {
+                const KIND = { business: 'local business', activities: 'tour and activity provider', accommodation: 'place to stay', automotive: 'automotive business', jobs: 'job listing', events: 'event', 'useful-info': 'local information listing' };
+                const tc = s => s.toLowerCase().replace(/\b\p{L}/gu, c => c.toUpperCase());
+                const areaRaw = String(l.location || '').replace(/[-_]+/g, ' ').trim();
+                const place = areaRaw && !/^(other|zanzibar)$/i.test(areaRaw) ? `${tc(areaRaw)}, Zanzibar` : 'Zanzibar';
+                const kind = KIND[l.category] || 'local business';
+                const parts = [`${l.title} is ${/^[aeiou]/i.test(kind) ? 'an' : 'a'} ${kind} in ${place}, Tanzania.`];
+                const ways = [];
+                const waDigits = String(l.whatsapp || '').replace(/\D/g, '');
+                if (waDigits) ways.push(`WhatsApp on +${waDigits}`);
+                if (l.phone && String(l.phone).replace(/\D/g, '') !== waDigits) ways.push(`phone on ${l.phone}`);
+                if (l.email) ways.push(`email at ${l.email}`);
+                if (ways.length) parts.push(`Contact by ${ways.length > 1 ? ways.slice(0, -1).join(', ') + ' or ' + ways[ways.length - 1] : ways[0]}.`);
+                if (l.price) parts.push(`Listed starting price: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(l.price)}.`);
+                const sumEl = document.getElementById('listing-summary');
+                sumEl.textContent = parts.join(' ');
+                sumEl.classList.remove('hidden');
+            } catch (e) { /* summary is optional */ }
 
             // Increment view count (fire-and-forget)
             supabase.rpc('increment_view_count', { listing_id: l.id }).catch(() => {});
