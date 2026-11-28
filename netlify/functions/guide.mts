@@ -42,7 +42,7 @@ export default async (req: Request, context: Context) => {
     dateModified: p.updated_at || p.created_at,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     author: { "@type": "Organization", name: "ZanziBiz", url: SITE },
-    publisher: { "@type": "Organization", name: "ZanziBiz", url: SITE, logo: { "@type": "ImageObject", url: `${SITE}/Zanzibiz.com-logo.png` } },
+    publisher: { "@type": "Organization", name: "ZanziBiz", url: SITE, logo: { "@type": "ImageObject", url: `${SITE}/untitled_design.png` } },
     keywords: Array.isArray(p.tags) ? p.tags.join(", ") : undefined,
   };
   const crumbs = {
