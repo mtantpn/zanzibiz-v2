@@ -2,13 +2,32 @@
 
 > **For agentic workers (Codex or Claude):** work one task at a time, in order within a phase. Each task lists the files, the steps, the acceptance commands and whether it needs Madu's approval. Steps use checkbox (`- [ ]`) syntax for tracking. When a phase starts, write a detailed TDD sub-plan for it in this folder (`YYYY-MM-DD-phase-N-<name>.md`) with full code per step, then execute that sub-plan.
 
-**Goal:** Ship zanzibiz.com V2 as a production platform by Tue 26 Jan 2027, keeping every live account, listing, dashboard, guide and URL, adding server-rendered SEO and AI-search pages and a comics section, with Android and iOS apps following, ready for a sale pitch from 22 Feb 2027.
+**Goal:** Ship zanzibiz.com V2 live on Mon 7 Dec 2026 (fast track below), then improve weekly, keeping every live account, listing, dashboard, guide and URL, adding server-rendered SEO and AI-search pages and a comics section, with Android and iOS apps following, ready for a sale pitch from 22 Feb 2027.
 
 **Architecture:** Same Supabase project (`jaoyujiwqzzrdhmzntlj`, after the claim) and same domain. A new Astro 5 front end on Netlify replaces the Vite multi-page V1: public pages are rendered on the server (listings, categories, articles on demand; static guide pages prerendered), signed-in pages are client islands using supabase-js with the same anon key, so existing sessions carry over. Database changes are additive only, each with a written undo. Capacitor wraps the V2 web for the apps.
 
 **Tech stack:** Astro 5 + `@astrojs/netlify`, TypeScript, Tailwind 4 (tokens from `design/DESIGN.md`), `@supabase/supabase-js` 2.x, Supabase Postgres/Auth/Storage/Edge Functions, Netlify (Functions, deploy previews, image CDN), Cloudflare DNS, Vitest, Playwright, Supabase CLI (local stack for RLS tests), Lighthouse CI, Capacitor 6.
 
 **Fallback architecture (if Madu declines Astro, decision D1):** keep V1's Vite multi-page app, add one Netlify Function that renders `/business/:slug`, `/directory/:category` and `/travel-guide/:slug`, and restyle the 29 HTML entries. Tasks below marked `[A]` change in that case; everything else is the same.
+
+---
+
+## Fast track (agreed direction, 28 Nov 2026): live Mon 7 Dec 2026
+
+This supersedes the Astro architecture and the section 4 dates. V2 launches on **V1's code** (Vite multi-page, plain JS, supabase-js) restyled with `design/DESIGN.md`, plus one Netlify Function for public pages. Same Supabase project, logins, URLs (including `/auth/*.html`, `/user/*.html`, `/business/dashboard.html`, `/admin/*.html`) and buckets. Astro (task 2.1) is skipped; revisit after the pitch.
+
+| Day | Tasks |
+|---|---|
+| Mon 30 Nov | Madu downloads newest Bolt code (1.5) and runs 0.1. Import it into this repo without `public/*.zip`, `backups/`, `dist/`, `download.html`; add 2.2 guard + gitleaks |
+| Mon–Tue | 0.2–0.4 security fixes with tests, Madu approves and applies; 0.5 admin audit |
+| Tue–Thu | 2.3 design tokens into `lib/design-system.css` + Tailwind config, restyle all 29 pages; one Netlify Function `netlify/functions/render.ts` serving `/business/:slug`, `/directory/:category`, `/travel-guide/:slug`, `/blog/:slug` (forced rules) with real 404/503, canonical, meta, JSON-LD (3.1–3.3); DB sitemap (3.5); robots + llms.txt (3.6); forwards incl. `/blog 301!` (3.7); new `public/sw.js` that clears V1 caches (3.9); remove bolt.new badge |
+| Thu | 1.4 new Netlify project `zanzibiz-v2` in Madu's team, password-protected previews |
+| Fri 4 Dec | Preview QA: sign-in (email + Google), owner edit, admin, payments still off, every row of `docs/routes.csv`, `scripts/seo-smoke.sh`; Madu go/no-go |
+| Mon 7 Dec 06:00 EAT | 5.2 cutover: add zanzibiz.com + www to the new project (TXT verification in Cloudflare if Netlify asks); smoke tests live; rollback = point domain back |
+
+After launch: phase 1 claim + backup (7–11 Dec), dashboards/analytics/moderation/saved/guide answers/RLS suite (14 Dec–8 Jan), apps (14 Dec–15 Jan: Android submit 11 Jan, iOS 15 Jan), comics (live 9 Feb), buyer pack (1–19 Feb), pitch from 22 Feb. Task numbers below still apply; ignore `[A]` Astro file paths and use V1 equivalents.
+
+Risks to 7 Dec: newest code only in Bolt; hosting in Bolt's Netlify account (domain verification or release by Bolt); security fixes need Madu's yes; less testing than the January plan (dashboard polish moves to week 2).
 
 ---
 
