@@ -1,0 +1,16 @@
+# Private and utility pages: never in search results, even if a crawler
+# reaches them through a link (the pages also carry <meta name="robots">).
+/auth/*
+  X-Robots-Tag: noindex
+/user/*
+  X-Robots-Tag: noindex
+/admin/*
+  X-Robots-Tag: noindex, nofollow
+/business/dashboard*
+  X-Robots-Tag: noindex
+/business/topup*
+  X-Robots-Tag: noindex
+/offline.html
+  X-Robots-Tag: noindex
+/404.html
+  X-Robots-Tag: noindex

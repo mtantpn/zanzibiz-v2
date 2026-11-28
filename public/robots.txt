@@ -1,11 +1,11 @@
 # ZanziBiz: Zanzibar business directory and travel guide.
 User-agent: *
 Allow: /
+# /auth/, /user/ and /business/dashboard are not blocked here on purpose:
+# they carry noindex (meta + X-Robots-Tag), and a crawler has to fetch a page
+# to see its noindex. Blocked URLs that are linked can still be indexed.
 Disallow: /admin/
-Disallow: /business/dashboard
 Disallow: /business/topup
-Disallow: /user/
-Disallow: /auth/
 
 # AI search and assistant crawlers are welcome to read public pages.
 User-agent: GPTBot

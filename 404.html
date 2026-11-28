@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found | ZanziBiz</title>
+    <meta name="robots" content="noindex">
+    <meta name="description" content="This page is not on ZanziBiz. Search the Zanzibar business directory or read the travel guide.">
+    <meta name="theme-color" content="#1D2427">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/tailwind.css">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #FFFFFF; color: #1D2427; }
+        .zb-search { display: flex; gap: 8px; max-width: 520px; margin: 0 auto; }
+        .zb-search input { flex: 1; min-width: 0; border: 1px solid #E5E7EB; border-radius: 999px; padding: 12px 18px; font-size: 16px; }
+        .zb-search button { background: #FFC72C; color: #1D2427; font-weight: 700; border-radius: 999px; padding: 12px 22px; }
+    </style>
+</head>
+<body>
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center"><img width="320" height="320" src="/untitled_design.png" alt="ZanziBiz home" class="h-11 sm:h-12 w-auto"></a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/directory" class="text-gray-600 hover:text-[#0A6A94] font-medium">Directory</a>
+                    <a href="/travel-guide" class="text-gray-600 hover:text-[#0A6A94] font-medium">Travel Guide</a>
+                    <a href="/contact" class="text-gray-600 hover:text-[#0A6A94] font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-4 py-20 text-center">
+        <p class="text-sm font-bold tracking-widest uppercase text-gray-500 mb-3">Error 404</p>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">We can't find that page</h1>
+        <p class="text-lg text-gray-600 mb-8">It may have moved, or the business is no longer listed. Try a search, or browse below.</p>
+        <form class="zb-search mb-10" action="/" method="get" role="search">
+            <label for="q" class="sr-only">Search ZanziBiz</label>
+            <input id="q" name="q" type="search" placeholder="Restaurant, taxi, fundi…" autocomplete="off">
+            <button type="submit">Search</button>
+        </form>
+        <div class="grid gap-3 sm:grid-cols-2 text-left">
+            <a href="/directory" class="block rounded-2xl border border-gray-200 p-5 hover:border-[#0A6A94]">
+                <span class="block font-bold">Business directory</span>
+                <span class="text-sm text-gray-500">Hotels, tours, taxis, services, events and jobs</span>
+            </a>
+            <a href="/travel-guide" class="block rounded-2xl border border-gray-200 p-5 hover:border-[#0A6A94]">
+                <span class="block font-bold">Travel guide</span>
+                <span class="text-sm text-gray-500">Flights, where to stay, tours and transfers</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- zb-browse-links -->
+    <nav aria-label="Explore ZanziBiz" style="background:#FFFFFF;border-top:1px solid #EBEBEB;font-family:'Plus Jakarta Sans',system-ui,sans-serif">
+        <div style="max-width:80rem;margin:0 auto;padding:28px 16px;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+            <div>
+                <p style="font-weight:700;color:#1D2427;font-size:14px;margin:0 0 8px">Zanzibar business directory</p>
+                <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px">
+                    <li><a href="/directory/accommodation" style="color:#0A6A94">Accommodation</a></li>
+                    <li><a href="/directory/activities" style="color:#0A6A94">Tours &amp; activities</a></li>
+                    <li><a href="/directory/automotive" style="color:#0A6A94">Car hire &amp; transport</a></li>
+                    <li><a href="/directory/business" style="color:#0A6A94">Local services</a></li>
+                    <li><a href="/directory/events" style="color:#0A6A94">Events</a></li>
+                    <li><a href="/directory/jobs" style="color:#0A6A94">Jobs</a></li>
+                </ul>
+            </div>
+            <div>
+                <p style="font-weight:700;color:#1D2427;font-size:14px;margin:0 0 8px">Zanzibar travel guide</p>
+                <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px">
+                    <li><a href="/travel-guide/flights-to-zanzibar" style="color:#0A6A94">Flights to Zanzibar</a></li>
+                    <li><a href="/travel-guide/where-to-stay" style="color:#0A6A94">Where to stay</a></li>
+                    <li><a href="/travel-guide/hotels" style="color:#0A6A94">Hotels &amp; resorts</a></li>
+                    <li><a href="/travel-guide/tours" style="color:#0A6A94">Tours &amp; day trips</a></li>
+                    <li><a href="/travel-guide/airport-transfers" style="color:#0A6A94">Airport transfers</a></li>
+                    <li><a href="/travel-guide" style="color:#0A6A94">All guides</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <footer class="bg-[#1D2427] text-white">
+        <div class="max-w-7xl mx-auto px-4 py-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
+            <a href="/about" class="hover:text-white">About</a>
+            <a href="/contact" class="hover:text-white">Contact</a>
+            <a href="/privacy" class="hover:text-white">Privacy</a>
+            <a href="/terms" class="hover:text-white">Terms</a>
+            <span class="ml-auto text-white/50">&copy; 2026 ZanziBiz</span>
+        </div>
+    </footer>
+</body>
+</html>

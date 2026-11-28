@@ -55,6 +55,7 @@ export default defineConfig({
         businessListing: 'business/listing.html',
         directoryIndex: 'directory/index.html',
         directoryCategory: 'directory/category.html',
+        notFound: '404.html',
       },
       output: {
         manualChunks: {
