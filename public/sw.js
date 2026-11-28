@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v5';
 const CACHE_NAME = `zanzibiz-${CACHE_VERSION}`;
 const OFFLINE_URL = '/offline.html';
 
@@ -13,7 +13,7 @@ const CACHE_ASSETS = [
   '/auth/login.html',
   '/auth/signup.html',
   'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js',
-  'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap'
+  'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap'
 ];
 
 const API_CACHE_NAME = `zanzibiz-api-${CACHE_VERSION}`;

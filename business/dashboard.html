@@ -13,35 +13,35 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background-color: #FAF7F2;
-            color: #1C2B3A;
+            background-color: #FFFFFF;
+            color: #1D2427;
         }
         h1,h2,h3,h4 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #1C2B3A;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: #1D2427;
             letter-spacing: -0.02em;
         }
         .font-display {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
         }
     </style>
     <style>
         #__auth_overlay {
             position: fixed; inset: 0; z-index: 99999;
-            background: #FAF7F2;
+            background: #FFFFFF;
             display: flex; align-items: center; justify-content: center;
             flex-direction: column; gap: 16px;
         }
         #__auth_overlay .auth-spinner {
             width: 44px; height: 44px;
             border: 3px solid #e5e0d8;
-            border-top-color: #C8892A;
+            border-top-color: #0A6A94;
             border-radius: 50%;
             animation: auth-spin 0.75s linear infinite;
         }
@@ -62,26 +62,26 @@
             <div class="flex items-center justify-between h-20 sm:h-24">
                 <div class="flex items-center space-x-2">
                     <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-16 sm:h-20 w-auto">
-                    <span class="font-display text-xl font-bold text-[#1C2B3A] hidden md:inline">Business Dashboard</span>
+                    <span class="font-display text-xl font-bold text-[#1D2427] hidden md:inline">Business Dashboard</span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="/" class="hidden sm:flex items-center space-x-1 text-sm font-medium text-gray-600 hover:text-[#C8892A] transition-colors">
+                    <a href="/" class="hidden sm:flex items-center space-x-1 text-sm font-medium text-gray-600 hover:text-[#0A6A94] transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                         </svg>
                         <span>Homepage</span>
                     </a>
-                    <a href="/directory" class="hidden sm:flex items-center space-x-1 text-sm font-medium text-gray-600 hover:text-[#C8892A] transition-colors">
+                    <a href="/directory" class="hidden sm:flex items-center space-x-1 text-sm font-medium text-gray-600 hover:text-[#0A6A94] transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                         </svg>
                         <span>Directory</span>
                     </a>
-                    <span class="text-gray-600 text-sm">Tokens: <span id="tokenBalance" class="font-semibold text-[#C8892A]">0</span></span>
+                    <span class="text-gray-600 text-sm">Tokens: <span id="tokenBalance" class="font-semibold text-[#0A6A94]">0</span></span>
 
                     <div id="userMenu" class="relative">
-                        <button id="userMenuButton" class="flex items-center space-x-2 text-gray-600 hover:text-[#C8892A] transition-colors">
-                            <div class="w-8 h-8 bg-[#C8892A] rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                        <button id="userMenuButton" class="flex items-center space-x-2 text-gray-600 hover:text-[#0A6A94] transition-colors">
+                            <div class="w-8 h-8 bg-[#0A6A94] rounded-full flex items-center justify-center text-white font-semibold text-sm">
                                 <span id="userInitial">U</span>
                             </div>
                             <span id="userName" class="font-medium hidden md:block">User</span>
@@ -147,63 +147,63 @@
         <div class="mb-8">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                    <h1 class="font-display text-3xl font-bold text-[#1C2B3A] mb-2" id="businessName">Loading...</h1>
+                    <h1 class="font-display text-3xl font-bold text-[#1D2427] mb-2" id="businessName">Loading...</h1>
                     <p class="text-gray-600">Manage your listings and boost your visibility</p>
                 </div>
-                <div class="bg-[#F5EFE5] rounded-lg p-4 border-2 border-[#C8892A]">
+                <div class="bg-[#F7F7F7] rounded-lg p-4 border-2 border-[#0A6A94]">
                     <p class="text-xs text-gray-600 mb-1">Your Business ID</p>
-                    <p class="text-2xl font-bold text-[#C8892A] font-mono tracking-wider" id="businessIdentifier">--------</p>
+                    <p class="text-2xl font-bold text-[#0A6A94] font-mono tracking-wider" id="businessIdentifier">--------</p>
                     <p class="text-xs text-gray-500 mt-1">Use this ID for token purchases</p>
                 </div>
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div class="bg-[#E8F4F4] rounded-xl shadow-sm border border-[#E4D9CC] p-6">
+            <div class="bg-[#E8F4F4] rounded-xl shadow-sm border border-[#EBEBEB] p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-gray-600 text-sm mb-1">Active Listings</p>
-                        <p class="text-3xl font-bold text-[#1C2B3A]" id="activeListings">0</p>
+                        <p class="text-3xl font-bold text-[#1D2427]" id="activeListings">0</p>
                     </div>
-                    <svg class="w-12 h-12 text-[#2A8C8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-12 h-12 text-[#1A7F45]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
                 </div>
             </div>
 
-            <div class="bg-[#FEF3E8] rounded-xl shadow-sm border border-[#E4D9CC] p-6">
+            <div class="bg-[#FEF3E8] rounded-xl shadow-sm border border-[#EBEBEB] p-6">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-gray-600 text-sm mb-1">Featured</p>
-                        <p class="text-3xl font-bold text-[#1C2B3A]" id="featuredListings">0</p>
+                        <p class="text-3xl font-bold text-[#1D2427]" id="featuredListings">0</p>
                     </div>
-                    <svg class="w-12 h-12 text-[#C8892A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-12 h-12 text-[#0A6A94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                     </svg>
                 </div>
             </div>
 
-            <div class="bg-[#F5EFE5] rounded-xl shadow-sm border border-[#E4D9CC] p-6">
+            <div class="bg-[#F7F7F7] rounded-xl shadow-sm border border-[#EBEBEB] p-6">
                 <div class="flex items-center justify-between mb-3">
                     <div>
                         <p class="text-gray-600 text-sm mb-1">Token Balance</p>
-                        <p class="text-3xl font-bold text-[#C8892A]" id="tokenBalanceDisplay">0</p>
+                        <p class="text-3xl font-bold text-[#0A6A94]" id="tokenBalanceDisplay">0</p>
                     </div>
-                    <svg class="w-12 h-12 text-[#C8892A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-12 h-12 text-[#0A6A94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <a href="topup.html" style="background:#C8892A;color:white;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="w-full flex items-center justify-center gap-1.5 px-4 py-2 hover:opacity-90 transition-opacity font-semibold text-sm">
+                <a href="topup.html" style="background:#0A6A94;color:white;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="w-full flex items-center justify-center gap-1.5 px-4 py-2 hover:opacity-90 transition-opacity font-semibold text-sm">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                     Buy Tokens via M-Pesa
                 </a>
             </div>
         </div>
 
-        <div class="bg-white rounded-xl shadow-sm border border-[#E4D9CC] p-6 mb-8">
+        <div class="bg-white rounded-xl shadow-sm border border-[#EBEBEB] p-6 mb-8">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="font-display text-2xl font-bold text-[#1C2B3A]">My Listings</h2>
-                <button onclick="showCreateListingModal()" style="background:#C8892A;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
+                <h2 class="font-display text-2xl font-bold text-[#1D2427]">My Listings</h2>
+                <button onclick="showCreateListingModal()" style="background:#0A6A94;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
                     + Add New Listing
                 </button>
             </div>
@@ -221,7 +221,7 @@
         <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div class="p-6 border-b border-gray-200">
                 <div class="flex items-center justify-between">
-                    <h3 class="font-display text-2xl font-bold text-[#1C2B3A]" id="modalTitle">Add New Listing</h3>
+                    <h3 class="font-display text-2xl font-bold text-[#1D2427]" id="modalTitle">Add New Listing</h3>
                     <button onclick="closeListingModal()" class="text-gray-400 hover:text-gray-600">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -236,12 +236,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
-                        <input type="text" id="title" required class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="text" id="title" required class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Category *</label>
-                        <select id="category" required class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <select id="category" required class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                             <option value="">Select category</option>
                             <option value="business">Business</option>
                             <option value="jobs">Jobs</option>
@@ -256,42 +256,42 @@
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
-                    <textarea id="description" required rows="4" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]"></textarea>
+                    <textarea id="description" required rows="4" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]"></textarea>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                        <input type="tel" id="phone" placeholder="+255 777 123 456" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="tel" id="phone" placeholder="+255 777 123 456" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                        <input type="email" id="email" placeholder="info@business.com" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="email" id="email" placeholder="info@business.com" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Address</label>
-                    <input type="text" id="address" placeholder="123 Main Street, Stone Town" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                    <input type="text" id="address" placeholder="123 Main Street, Stone Town" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">What3Words Location</label>
-                        <input type="text" id="what3words" placeholder="cubes.ideas.tiger" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
-                        <p class="text-xs text-gray-500 mt-1">Get your what3words address at <a href="https://what3words.com" target="_blank" class="text-brand-orange hover:underline">what3words.com</a></p>
+                        <input type="text" id="what3words" placeholder="cubes.ideas.tiger" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
+                        <p class="text-xs text-gray-500 mt-1">Get your what3words address at <a href="https://what3words.com" target="_blank" class="text-[#0A6A94] hover:underline">what3words.com</a></p>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Website</label>
-                        <input type="url" id="website" placeholder="https://yourbusiness.com" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="url" id="website" placeholder="https://yourbusiness.com" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                    <select id="location" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                    <select id="location" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                         <option value="">Select location</option>
                         <option value="stone-town">Stone Town</option>
                         <option value="nungwi">Nungwi</option>
@@ -304,7 +304,7 @@
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Upload Images (Optional)</label>
-                    <input type="file" id="imageUpload" accept="image/*" multiple class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                    <input type="file" id="imageUpload" accept="image/*" multiple class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     <p class="text-xs text-gray-500 mt-1">Upload up to 5 images (max 2MB each). Supported formats: JPG, PNG, WebP</p>
                     <div id="imagePreview" class="mt-2 grid grid-cols-3 gap-2"></div>
                 </div>
@@ -313,7 +313,7 @@
                     <button type="button" onclick="closeListingModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
                         Cancel
                     </button>
-                    <button type="submit" style="background:#C8892A;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
+                    <button type="submit" style="background:#0A6A94;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
                         Save Listing
                     </button>
                 </div>
@@ -403,16 +403,16 @@
             }
 
             container.innerHTML = currentListings.map(listing => `
-                <div class="border border-[#E4D9CC] rounded-lg p-4 sm:p-6 hover:shadow-md transition-shadow bg-white">
+                <div class="border border-[#EBEBEB] rounded-lg p-4 sm:p-6 hover:shadow-md transition-shadow bg-white">
                     <div class="flex flex-col">
                         <div class="flex-1 mb-4">
                             <div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
-                                <h3 class="font-semibold text-lg text-[#1C2B3A]">${listing.title}</h3>
+                                <h3 class="font-semibold text-lg text-[#1D2427]">${listing.title}</h3>
                                 <div class="flex items-center gap-2 flex-wrap">
                                     <span class="px-3 py-1 rounded-full text-xs font-semibold ${
-                                        listing.status === 'featured' ? 'bg-[#FEF3E8] text-[#C8892A]' :
-                                        listing.status === 'boosted' ? 'bg-[#FEF3E8] text-[#C8892A]' :
-                                        listing.status === 'active' ? 'bg-[#E8F4F4] text-[#2A8C8A]' :
+                                        listing.status === 'featured' ? 'bg-[#FEF3E8] text-[#0A6A94]' :
+                                        listing.status === 'boosted' ? 'bg-[#FEF3E8] text-[#0A6A94]' :
+                                        listing.status === 'active' ? 'bg-[#E8F4F4] text-[#1A7F45]' :
                                         'bg-gray-100 text-gray-800'
                                     }">${listing.status === 'boosted' ? 'boosted' : listing.status.toUpperCase()}</span>
                                     <span class="text-sm text-gray-500 capitalize">${listing.category}</span>
@@ -425,20 +425,20 @@
                                 ${listing.location ? `<span class="flex items-center">📌 ${listing.location}</span>` : ''}
                             </div>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-2 pt-4 border-t border-[#E4D9CC]">
-                            <button onclick="editListing('${listing.id}')" class="flex-1 px-4 py-2.5 text-white rounded-lg transition-colors text-sm font-medium" style="background:#C8892A;">
+                        <div class="flex flex-col sm:flex-row gap-2 pt-4 border-t border-[#EBEBEB]">
+                            <button onclick="editListing('${listing.id}')" class="flex-1 px-4 py-2.5 text-white rounded-lg transition-colors text-sm font-medium" style="background:#0A6A94;">
                                 Edit
                             </button>
                             ${listing.status === 'active' ? `
-                                <button onclick="boostListing('${listing.id}')" class="flex-1 px-4 py-2.5 text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium" style="background:#C8892A;">
+                                <button onclick="boostListing('${listing.id}')" class="flex-1 px-4 py-2.5 text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium" style="background:#0A6A94;">
                                     Boost (10 tokens)
                                 </button>
                             ` : listing.status === 'boosted' ? `
-                                <button disabled class="flex-1 px-4 py-2.5 bg-[#FEF3E8] text-[#C8892A] rounded-lg text-sm font-medium cursor-not-allowed">
+                                <button disabled class="flex-1 px-4 py-2.5 bg-[#FEF3E8] text-[#0A6A94] rounded-lg text-sm font-medium cursor-not-allowed">
                                     Boosted ⚡
                                 </button>
                             ` : ''}
-                            <button onclick="deleteListing('${listing.id}')" class="flex-1 px-4 py-2.5 bg-[#D4603A] text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium">
+                            <button onclick="deleteListing('${listing.id}')" class="flex-1 px-4 py-2.5 bg-[#D93025] text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium">
                                 Delete
                             </button>
                         </div>

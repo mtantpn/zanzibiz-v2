@@ -7,41 +7,41 @@
 /* ========================================
    GOOGLE FONTS
    ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* ========================================
    COLOR PALETTE
    ======================================== */
 :root {
   /* Primary — Deep Ocean Navy */
-  --color-primary: #1B3A4B;
-  --color-primary-dark: #0F2535;
-  --color-primary-light: #2A5570;
+  --color-primary: #1D2427;
+  --color-primary-dark: #111618;
+  --color-primary-light: #2E3A3F;
 
   /* Accent — Spice Gold */
-  --color-accent: #C8892A;
-  --color-accent-hover: #A87020;
-  --color-accent-light: #F0C878;
+  --color-accent: #0A6A94;
+  --color-accent-hover: #08577A;
+  --color-accent-light: #FFE08A;
 
   /* Coral — Warm sunset highlight */
-  --color-coral: #D4603A;
+  --color-coral: #D93025;
 
   /* Backgrounds */
-  --color-bg: #FAF7F2;
-  --color-surface: #F5EFE5;
+  --color-bg: #FFFFFF;
+  --color-surface: #F7F7F7;
   --color-card: #FFFFFF;
 
   /* Text */
-  --color-text: #1C2B3A;
+  --color-text: #1D2427;
   --color-text-muted: #6B7A8D;
   --color-text-light: #9AABB8;
 
   /* Borders */
-  --color-border: #E4D9CC;
-  --color-border-light: #F0E8DC;
+  --color-border: #EBEBEB;
+  --color-border-light: #F2F2F2;
 
   /* Teal — use sparingly */
-  --color-teal: #2A8C8A;
+  --color-teal: #1A7F45;
   --color-teal-light: #E8F4F4;
 
   /* Legacy aliases for compatibility */
@@ -50,32 +50,32 @@
   --color-primary-200: rgba(27, 58, 75, 0.2);
 
   /* Semantic Colors */
-  --color-success: #2A8C8A;
-  --color-warning: #C8892A;
-  --color-error: #D4603A;
-  --color-info: #1B3A4B;
+  --color-success: #1A7F45;
+  --color-warning: #0A6A94;
+  --color-error: #D93025;
+  --color-info: #1D2427;
 
   /* Legacy surface colors */
-  --color-surface-hover: #F5EFE5;
-  --color-background: #FAF7F2;
-  --color-text-primary: #1C2B3A;
+  --color-surface-hover: #F7F7F7;
+  --color-background: #FFFFFF;
+  --color-text-primary: #1D2427;
   --color-text-secondary: #6B7A8D;
   --color-text-tertiary: #9AABB8;
   --color-text-inverse: #FFFFFF;
-  --color-neutral-50: #FAF7F2;
-  --color-neutral-100: #F5EFE5;
-  --color-neutral-200: #E4D9CC;
+  --color-neutral-50: #FFFFFF;
+  --color-neutral-100: #F7F7F7;
+  --color-neutral-200: #EBEBEB;
   --color-neutral-300: #D0C4B4;
   --color-neutral-400: #9AABB8;
   --color-neutral-500: #6B7A8D;
   --color-neutral-600: #4A5968;
   --color-neutral-700: #2A3848;
-  --color-neutral-800: #1C2B3A;
-  --color-neutral-900: #0F2535;
+  --color-neutral-800: #1D2427;
+  --color-neutral-900: #111618;
 
   /* Typography */
   --font-primary: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -163,14 +163,14 @@ body {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.7;
-  color: #1C2B3A;
-  background-color: #FAF7F2;
+  color: #1D2427;
+  background-color: #FFFFFF;
   min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', Georgia, serif;
-  color: #1C2B3A;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #1D2427;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -183,7 +183,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
    TYPOGRAPHY UTILITIES
    ======================================== */
 .font-display, .text-display {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -210,7 +210,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #C8892A;
+  color: #0A6A94;
   display: block;
   margin-bottom: 8px;
 }
@@ -249,14 +249,14 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 
 /* Primary */
 .btn-primary {
-  background-color: #C8892A;
-  color: #FFFFFF;
+  background-color: #FFC72C;
+  color: #1D2427;
   box-shadow: 0 4px 14px rgba(200, 137, 42, 0.3);
   border: none;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #A87020;
+  background-color: #F2B705;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(200, 137, 42, 0.4);
 }
@@ -264,21 +264,21 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 /* Secondary / Outline */
 .btn-secondary, .btn-outline {
   background-color: transparent;
-  color: #1B3A4B;
-  border: 2px solid #1B3A4B;
+  color: #1D2427;
+  border: 2px solid #1D2427;
   border-radius: 10px;
 }
 
 .btn-secondary:hover:not(:disabled),
 .btn-outline:hover:not(:disabled) {
-  background-color: #1B3A4B;
+  background-color: #1D2427;
   color: #FFFFFF;
 }
 
 /* Ghost */
 .btn-ghost {
   background-color: transparent;
-  color: #C8892A;
+  color: #0A6A94;
   border: none;
 }
 
@@ -288,26 +288,26 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 
 /* Accent */
 .btn-accent {
-  background-color: #C8892A;
-  color: #FFFFFF;
+  background-color: #FFC72C;
+  color: #1D2427;
   box-shadow: 0 4px 14px rgba(200, 137, 42, 0.3);
 }
 
 .btn-accent:hover:not(:disabled) {
-  background-color: #A87020;
+  background-color: #F2B705;
   transform: translateY(-2px);
 }
 
 /* Danger */
 .btn-danger {
   background-color: transparent;
-  color: #D4603A;
-  border: 1.5px solid #D4603A;
+  color: #D93025;
+  border: 1.5px solid #D93025;
   border-radius: 10px;
 }
 
 .btn-danger:hover:not(:disabled) {
-  background-color: #D4603A;
+  background-color: #D93025;
   color: #FFFFFF;
 }
 
@@ -330,7 +330,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 .card {
   background-color: #FFFFFF;
   border-radius: 16px;
-  border: 1px solid #E4D9CC;
+  border: 1px solid #EBEBEB;
   box-shadow: 0 2px 12px rgba(27, 58, 75, 0.06);
   overflow: hidden;
   transition: all 0.25s ease;
@@ -339,7 +339,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 .card:hover {
   box-shadow: 0 12px 40px rgba(27, 58, 75, 0.12);
   transform: translateY(-4px);
-  border-color: #C8892A;
+  border-color: #0A6A94;
 }
 
 .card-interactive {
@@ -362,7 +362,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 .input-label {
   font-size: 14px;
   font-weight: 600;
-  color: #1C2B3A;
+  color: #1D2427;
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
@@ -371,9 +371,9 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
   padding: 12px 16px;
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-size: 15px;
-  color: #1C2B3A;
-  background-color: #FAF7F2;
-  border: 1.5px solid #E4D9CC;
+  color: #1D2427;
+  background-color: #FFFFFF;
+  border: 1.5px solid #EBEBEB;
   border-radius: 10px;
   transition: all 0.2s ease;
   min-height: 44px;
@@ -381,7 +381,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 
 .input:focus {
   outline: none;
-  border-color: #C8892A;
+  border-color: #0A6A94;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 3px rgba(200, 137, 42, 0.1);
 }
@@ -408,12 +408,12 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 
 .badge-primary {
   background-color: rgba(27, 58, 75, 0.08);
-  color: #1B3A4B;
+  color: #1D2427;
 }
 
 .badge-accent {
   background-color: rgba(200, 137, 42, 0.12);
-  color: #A87020;
+  color: #08577A;
 }
 
 .badge-success {
@@ -423,7 +423,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 
 .badge-warning {
   background-color: rgba(200, 137, 42, 0.12);
-  color: #A87020;
+  color: #08577A;
 }
 
 .badge-coral {
@@ -454,7 +454,7 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
    ======================================== */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #E4D9CC, transparent);
+  background: linear-gradient(90deg, transparent, #EBEBEB, transparent);
   border: none;
   margin: 0;
 }
@@ -516,8 +516,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
   position: absolute;
   top: -100px;
   left: 0;
-  background-color: #C8892A;
-  color: #FFFFFF;
+  background-color: #FFC72C;
+  color: #1D2427;
   padding: 16px;
   text-decoration: none;
   z-index: 9999;
@@ -561,10 +561,10 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 600; }
 
 /* Make body background warm ivory */
 body {
-  background-color: #FAF7F2 !important;
+  background-color: #FFFFFF !important;
 }
 
-/* Ensure font-display always uses Playfair */
+/* Headings use Plus Jakarta Sans */
 .font-display {
-  font-family: 'Playfair Display', Georgia, serif !important;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
 }

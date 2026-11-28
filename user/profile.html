@@ -13,34 +13,34 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/tailwind.css">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background-color: #FAF7F2;
-            color: #1C2B3A;
+            background-color: #FFFFFF;
+            color: #1D2427;
         }
         h1,h2,h3,h4 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #1C2B3A;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: #1D2427;
             letter-spacing: -0.02em;
         }
         .font-display {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
         }
     </style>
     <style>
         #__auth_overlay {
             position: fixed; inset: 0; z-index: 99999;
-            background: #FAF7F2;
+            background: #FFFFFF;
             display: flex; align-items: center; justify-content: center;
             flex-direction: column; gap: 16px;
         }
         #__auth_overlay .auth-spinner {
             width: 44px; height: 44px;
             border: 3px solid #e5e0d8;
-            border-top-color: #C8892A;
+            border-top-color: #0A6A94;
             border-radius: 50%;
             animation: auth-spin 0.75s linear infinite;
         }
@@ -65,12 +65,12 @@
                 </a>
                 <div class="flex items-center space-x-4">
                     <span id="tokenDisplay" class="hidden text-gray-600 text-sm">
-                        Tokens: <span id="tokenBalance" class="font-semibold text-[#C8892A]">0</span>
+                        Tokens: <span id="tokenBalance" class="font-semibold text-[#0A6A94]">0</span>
                     </span>
 
                     <div id="userMenu" class="relative">
-                        <button id="userMenuButton" class="flex items-center space-x-2 text-gray-600 hover:text-[#C8892A] transition-colors">
-                            <div class="w-8 h-8 bg-[#C8892A] rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                        <button id="userMenuButton" class="flex items-center space-x-2 text-gray-600 hover:text-[#0A6A94] transition-colors">
+                            <div class="w-8 h-8 bg-[#0A6A94] rounded-full flex items-center justify-center text-white font-semibold text-sm">
                                 <span id="userMenuInitial">U</span>
                             </div>
                             <span id="userMenuName" class="font-medium hidden md:block">User</span>
@@ -120,15 +120,15 @@
     </nav>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="bg-white rounded-xl shadow-sm border border-[#E4D9CC] p-4 sm:p-6 lg:p-8">
+        <div class="bg-white rounded-xl shadow-sm border border-[#EBEBEB] p-4 sm:p-6 lg:p-8">
             <div class="flex flex-col sm:flex-row items-center sm:space-x-6 mb-8 text-center sm:text-left">
-                <div id="profilePictureContainer" class="w-24 h-24 bg-[#C8892A] rounded-full flex items-center justify-center text-white font-bold text-4xl overflow-hidden mb-4 sm:mb-0">
+                <div id="profilePictureContainer" class="w-24 h-24 bg-[#0A6A94] rounded-full flex items-center justify-center text-white font-bold text-4xl overflow-hidden mb-4 sm:mb-0">
                     <span id="userInitial">U</span>
                 </div>
                 <div class="flex-1 w-full sm:w-auto">
                     <div class="flex flex-col sm:flex-row items-center sm:space-x-3 mb-2">
                         <h1 class="font-display text-2xl sm:text-3xl font-bold text-brand-gray" id="fullName">User</h1>
-                        <span id="businessBadge" class="hidden px-3 py-1 bg-[#2A8C8A] text-white text-xs font-semibold rounded-full mt-2 sm:mt-0">BUSINESS</span>
+                        <span id="businessBadge" class="hidden px-3 py-1 bg-[#1A7F45] text-white text-xs font-semibold rounded-full mt-2 sm:mt-0">BUSINESS</span>
                     </div>
                     <p class="text-gray-600" id="email">email@example.com</p>
                     <p class="text-sm text-gray-500 capitalize mt-1">
@@ -140,20 +140,20 @@
             <!-- Regular User Section -->
             <div id="regularUserSection">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-                    <a href="liked.html" class="bg-gradient-to-br from-[#C8892A]/10 to-[#C8892A]/5 p-6 rounded-lg border border-[#E4D9CC] hover:shadow-md transition-shadow">
+                    <a href="liked.html" class="bg-gradient-to-br from-[#0A6A94]/10 to-[#0A6A94]/5 p-6 rounded-lg border border-[#EBEBEB] hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-semibold text-[#1C2B3A]">Liked Listings</h3>
-                            <svg class="w-5 h-5 text-[#C8892A]" fill="currentColor" viewBox="0 0 20 20">
+                            <h3 class="font-semibold text-[#1D2427]">Liked Listings</h3>
+                            <svg class="w-5 h-5 text-[#0A6A94]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <p class="text-2xl font-bold text-[#C8892A]" id="likedCount">0</p>
+                        <p class="text-2xl font-bold text-[#0A6A94]" id="likedCount">0</p>
                     </a>
 
-                    <a href="settings.html" class="bg-gradient-to-br from-[#1B3A4B]/10 to-[#1B3A4B]/5 p-6 rounded-lg border border-[#E4D9CC] hover:shadow-md transition-shadow">
+                    <a href="settings.html" class="bg-gradient-to-br from-[#1D2427]/10 to-[#1D2427]/5 p-6 rounded-lg border border-[#EBEBEB] hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-semibold text-[#1C2B3A]">Settings</h3>
-                            <svg class="w-5 h-5 text-[#1B3A4B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <h3 class="font-semibold text-[#1D2427]">Settings</h3>
+                            <svg class="w-5 h-5 text-[#1D2427]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
@@ -188,47 +188,47 @@
             <!-- Business Dashboard Section -->
             <div id="businessDashboardSection" class="hidden">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8">
-                    <div class="bg-[#E8F4F4] p-6 rounded-lg border border-[#E4D9CC]">
+                    <div class="bg-[#E8F4F4] p-6 rounded-lg border border-[#EBEBEB]">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-600 text-sm mb-1">Active Listings</p>
-                                <p class="text-3xl font-bold text-[#1C2B3A]" id="activeListings">0</p>
+                                <p class="text-3xl font-bold text-[#1D2427]" id="activeListings">0</p>
                             </div>
-                            <svg class="w-12 h-12 text-[#2A8C8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-12 h-12 text-[#1A7F45]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                         </div>
                     </div>
 
-                    <div class="bg-[#FEF3E8] p-6 rounded-lg border border-[#E4D9CC]">
+                    <div class="bg-[#FEF3E8] p-6 rounded-lg border border-[#EBEBEB]">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-600 text-sm mb-1">Featured</p>
-                                <p class="text-3xl font-bold text-[#1C2B3A]" id="featuredListings">0</p>
+                                <p class="text-3xl font-bold text-[#1D2427]" id="featuredListings">0</p>
                             </div>
-                            <svg class="w-12 h-12 text-[#C8892A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-12 h-12 text-[#0A6A94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                             </svg>
                         </div>
                     </div>
 
-                    <div class="bg-[#FEF3E8] p-6 rounded-lg border border-[#E4D9CC]">
+                    <div class="bg-[#FEF3E8] p-6 rounded-lg border border-[#EBEBEB]">
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-gray-600 text-sm mb-1">Token Balance</p>
-                                <p class="text-3xl font-bold text-[#C8892A]" id="tokenBalanceDisplay">0</p>
+                                <p class="text-3xl font-bold text-[#0A6A94]" id="tokenBalanceDisplay">0</p>
                             </div>
-                            <svg class="w-12 h-12 text-[#C8892A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-12 h-12 text-[#0A6A94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-[#F5EFE5] rounded-xl border border-[#E4D9CC] p-6 mb-8">
+                <div class="bg-[#F7F7F7] rounded-xl border border-[#EBEBEB] p-6 mb-8">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 class="font-display text-2xl font-bold text-[#1C2B3A]">My Listings</h2>
-                        <button onclick="showCreateListingModal()" style="background:#C8892A;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
+                        <h2 class="font-display text-2xl font-bold text-[#1D2427]">My Listings</h2>
+                        <button onclick="showCreateListingModal()" style="background:#0A6A94;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
                             + Add New Listing
                         </button>
                     </div>
@@ -241,20 +241,20 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <a href="../index.html" class="bg-white border border-[#E4D9CC] p-6 rounded-lg hover:shadow-md transition-shadow">
+                    <a href="../index.html" class="bg-white border border-[#EBEBEB] p-6 rounded-lg hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-semibold text-[#1C2B3A]">Browse Site</h3>
-                            <svg class="w-5 h-5 text-[#2A8C8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <h3 class="font-semibold text-[#1D2427]">Browse Site</h3>
+                            <svg class="w-5 h-5 text-[#1A7F45]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                             </svg>
                         </div>
                         <p class="text-sm text-gray-600">View all listings</p>
                     </a>
 
-                    <a href="settings.html" class="bg-white border border-[#E4D9CC] p-6 rounded-lg hover:shadow-md transition-shadow">
+                    <a href="settings.html" class="bg-white border border-[#EBEBEB] p-6 rounded-lg hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-semibold text-[#1C2B3A]">Settings</h3>
-                            <svg class="w-5 h-5 text-[#1B3A4B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <h3 class="font-semibold text-[#1D2427]">Settings</h3>
+                            <svg class="w-5 h-5 text-[#1D2427]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
@@ -262,14 +262,14 @@
                         <p class="text-sm text-gray-600">Manage your account</p>
                     </a>
 
-                    <a href="liked.html" class="bg-white border border-[#E4D9CC] p-6 rounded-lg hover:shadow-md transition-shadow">
+                    <a href="liked.html" class="bg-white border border-[#EBEBEB] p-6 rounded-lg hover:shadow-md transition-shadow">
                         <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-semibold text-[#1C2B3A]">Liked Listings</h3>
-                            <svg class="w-5 h-5 text-[#C8892A]" fill="currentColor" viewBox="0 0 20 20">
+                            <h3 class="font-semibold text-[#1D2427]">Liked Listings</h3>
+                            <svg class="w-5 h-5 text-[#0A6A94]" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
                             </svg>
                         </div>
-                        <p class="text-2xl font-bold text-[#C8892A]" id="businessLikedCount">0</p>
+                        <p class="text-2xl font-bold text-[#0A6A94]" id="businessLikedCount">0</p>
                     </a>
                 </div>
             </div>
@@ -296,12 +296,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Title *</label>
-                        <input type="text" id="title" required class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="text" id="title" required class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Category *</label>
-                        <select id="category" required class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <select id="category" required class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                             <option value="">Select category</option>
                             <option value="business">Business</option>
                             <option value="jobs">Jobs</option>
@@ -316,42 +316,42 @@
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
-                    <textarea id="description" required rows="4" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]"></textarea>
+                    <textarea id="description" required rows="4" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]"></textarea>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Phone</label>
-                        <input type="tel" id="phone" placeholder="+255 777 123 456" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="tel" id="phone" placeholder="+255 777 123 456" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                        <input type="email" id="email" placeholder="info@business.com" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="email" id="email" placeholder="info@business.com" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Address</label>
-                    <input type="text" id="address" placeholder="123 Main Street, Stone Town" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                    <input type="text" id="address" placeholder="123 Main Street, Stone Town" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">What3Words Location</label>
-                        <input type="text" id="what3words" placeholder="cubes.ideas.tiger" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
-                        <p class="text-xs text-gray-500 mt-1">Get your what3words address at <a href="https://what3words.com" target="_blank" class="text-brand-orange hover:underline">what3words.com</a></p>
+                        <input type="text" id="what3words" placeholder="cubes.ideas.tiger" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
+                        <p class="text-xs text-gray-500 mt-1">Get your what3words address at <a href="https://what3words.com" target="_blank" class="text-[#0A6A94] hover:underline">what3words.com</a></p>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Website</label>
-                        <input type="url" id="website" placeholder="https://yourbusiness.com" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                        <input type="url" id="website" placeholder="https://yourbusiness.com" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                    <select id="location" class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                    <select id="location" class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                         <option value="">Select location</option>
                         <option value="stone-town">Stone Town</option>
                         <option value="nungwi">Nungwi</option>
@@ -364,7 +364,7 @@
 
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Upload Images (Optional)</label>
-                    <input type="file" id="imageUpload" accept="image/*" multiple class="w-full px-4 py-2 border border-[#E4D9CC] bg-[#FAF7F2] rounded-lg focus:ring-2 focus:ring-[#C8892A] focus:border-[#C8892A]">
+                    <input type="file" id="imageUpload" accept="image/*" multiple class="w-full px-4 py-2 border border-[#EBEBEB] bg-[#FFFFFF] rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-[#0A6A94]">
                     <p class="text-xs text-gray-500 mt-1">Upload up to 5 images (max 2MB each). Supported formats: JPG, PNG, WebP</p>
                     <div id="imagePreview" class="mt-2 grid grid-cols-3 gap-2"></div>
                 </div>
@@ -373,7 +373,7 @@
                     <button type="button" onclick="closeListingModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
                         Cancel
                     </button>
-                    <button type="submit" style="background:#C8892A;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
+                    <button type="submit" style="background:#0A6A94;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="px-6 py-2 hover:opacity-90 transition-opacity font-semibold">
                         Save Listing
                     </button>
                 </div>
@@ -522,7 +522,7 @@
                 document.getElementById('listingsContainer').innerHTML = `
                     <div class="text-center py-12 text-gray-500">
                         <p class="mb-4">You haven't created any listings yet.</p>
-                        <button onclick="showCreateListingModal()" class="text-brand-orange hover:underline">Create your first listing</button>
+                        <button onclick="showCreateListingModal()" class="text-[#0A6A94] hover:underline">Create your first listing</button>
                     </div>
                 `;
                 return;
@@ -534,7 +534,7 @@
                         <div class="flex-1">
                             <div class="flex items-center space-x-2 mb-2">
                                 <h3 class="text-xl font-semibold text-brand-gray">${listing.title}</h3>
-                                ${listing.is_featured ? '<span class="px-2 py-1 bg-brand-orange text-white text-xs rounded-full">FEATURED</span>' : ''}
+                                ${listing.is_featured ? '<span class="px-2 py-1 bg-brand-orange text-[#1D2427] text-xs rounded-full">FEATURED</span>' : ''}
                                 <span class="px-2 py-1 ${listing.status === 'active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'} text-xs rounded-full">${listing.status}</span>
                             </div>
                             <p class="text-gray-600 text-sm mb-3">${listing.description?.substring(0, 120)}${listing.description?.length > 120 ? '...' : ''}</p>
@@ -545,11 +545,11 @@
                             </div>
                         </div>
                         <div class="flex flex-col space-y-2 ml-4">
-                            <button onclick="editListing('${listing.id}')" class="px-4 py-2 text-white rounded-lg transition-colors text-sm" style="background:#C8892A;">
+                            <button onclick="editListing('${listing.id}')" class="px-4 py-2 text-white rounded-lg transition-colors text-sm" style="background:#0A6A94;">
                                 Edit
                             </button>
                             ${!listing.is_featured ? `
-                                <button onclick="boostListing('${listing.id}')" class="px-4 py-2 bg-[#C8892A] text-white rounded-lg hover:opacity-90 transition-opacity text-sm">
+                                <button onclick="boostListing('${listing.id}')" class="px-4 py-2 bg-[#0A6A94] text-white rounded-lg hover:opacity-90 transition-opacity text-sm">
                                     Boost (10 tokens)
                                 </button>
                             ` : `
@@ -557,7 +557,7 @@
                                     Featured
                                 </button>
                             `}
-                            <button onclick="deleteListing('${listing.id}')" class="px-4 py-2 bg-[#D4603A] text-white rounded-lg hover:opacity-90 transition-opacity text-sm">
+                            <button onclick="deleteListing('${listing.id}')" class="px-4 py-2 bg-[#D93025] text-white rounded-lg hover:opacity-90 transition-opacity text-sm">
                                 Delete
                             </button>
                         </div>

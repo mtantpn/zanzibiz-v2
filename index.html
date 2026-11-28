@@ -23,25 +23,25 @@
     <meta name="twitter:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
 
     <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#1B3A4B">
+    <meta name="theme-color" content="#1D2427">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="ZanziBiz">
     <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="msapplication-TileColor" content="#1B3A4B">
+    <meta name="msapplication-TileColor" content="#1D2427">
     <meta name="msapplication-config" content="/browserconfig.xml">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/lib/design-system.css">
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <style>
         /* Fonts */
-        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #FAF7F2; color: #1C2B3A; }
-        h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; color: #1C2B3A; }
+        body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #FFFFFF; color: #1D2427; }
+        h1,h2,h3,h4 { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #1D2427; }
 
         .hero-gradient {
             background: linear-gradient(135deg, rgba(15,37,53,0.85) 0%, rgba(27,58,75,0.68) 60%, rgba(200,137,42,0.22) 100%);
@@ -53,21 +53,21 @@
         }
 
         .category-card {
-            background: #FAF7F2;
-            border: 1px solid #E4D9CC;
+            background: #FFFFFF;
+            border: 1px solid #EBEBEB;
             border-radius: 16px;
             transition: all 0.25s ease;
         }
         .category-card:hover {
             background: #FFFFFF;
-            border-color: #C8892A;
+            border-color: #0A6A94;
             box-shadow: 0 8px 32px rgba(200,137,42,0.12);
             transform: translateY(-4px);
         }
 
         .listing-card {
             background: #FFFFFF;
-            border: 1px solid #E4D9CC;
+            border: 1px solid #EBEBEB;
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(27,58,75,0.06);
             transition: all 0.25s ease;
@@ -76,16 +76,16 @@
         .listing-card:hover {
             box-shadow: 0 12px 40px rgba(27,58,75,0.12);
             transform: translateY(-4px);
-            border-color: #C8892A;
+            border-color: #0A6A94;
         }
 
         .boosted-card {
             position: relative;
-            border: 2px solid #C8892A;
+            border: 2px solid #0A6A94;
             border-radius: 16px;
             box-shadow: 0 4px 24px rgba(200,137,42,0.2);
             background: #FFFFFF;
-            border-top: 3px solid #C8892A;
+            border-top: 3px solid #0A6A94;
             transition: all 0.25s ease;
             overflow: hidden;
         }
@@ -95,7 +95,7 @@
         }
 
         .boosted-badge {
-            background: linear-gradient(135deg, #C8892A, #A87020);
+            background: linear-gradient(135deg, #0A6A94, #08577A);
             color: white;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 10px;
@@ -107,8 +107,8 @@
         }
 
         .new-badge {
-            background: #C8892A;
-            color: white;
+            background: #FFC72C;
+            color: #1D2427;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 10px;
             font-weight: 800;
@@ -127,13 +127,13 @@
             padding: 1rem;
             background: #FFFFFF;
             border-radius: 12px;
-            border: 1px solid #E4D9CC;
+            border: 1px solid #EBEBEB;
             box-shadow: 0 1px 4px rgba(27,58,75,0.05);
             transition: all 0.2s ease;
         }
         .compact-listing:hover {
             box-shadow: 0 6px 20px rgba(27,58,75,0.10);
-            border-color: #C8892A;
+            border-color: #0A6A94;
             transform: translateX(4px);
         }
         .compact-listing img {
@@ -188,15 +188,15 @@
         }
         .quick-chip:hover {
             background: rgba(200,137,42,0.25);
-            border-color: #C8892A;
+            border-color: #0A6A94;
             color: #fff;
             transform: translateY(-2px);
         }
 
         /* WebStart promo band */
         .ws-band {
-            background: linear-gradient(135deg, #0F2535 0%, #1B3A4B 60%, #0A3040 100%);
-            border-top: 3px solid #C8892A;
+            background: linear-gradient(135deg, #111618 0%, #1D2427 60%, #0A3040 100%);
+            border-top: 3px solid #0A6A94;
             position: relative;
             overflow: hidden;
         }
@@ -212,8 +212,8 @@
 
         /* Live info widget pills */
         .live-widget {
-            background: #F5EFE5;
-            border: 1px solid #E4D9CC;
+            background: #F7F7F7;
+            border: 1px solid #EBEBEB;
             border-radius: 20px;
             padding: 4px 12px;
             font-size: 12px;
@@ -235,7 +235,7 @@
             display: block;
             width: 60px;
             height: 2px;
-            background: #C8892A;
+            background: #FFC72C;
             margin: 0 auto 20px auto;
         }
 
@@ -261,7 +261,7 @@
             font-weight: 800;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #C8892A;
+            color: #0A6A94;
             display: block;
             margin-bottom: 8px;
         }
@@ -269,7 +269,7 @@
         /* Section divider */
         .section-divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent, #E4D9CC, transparent);
+            background: linear-gradient(90deg, transparent, #EBEBEB, transparent);
             border: none;
             margin: 0;
         }
@@ -277,7 +277,7 @@
         /* Feature cards (SEO sections) */
         .feature-card {
             background: #FFFFFF;
-            border: 1px solid #E4D9CC;
+            border: 1px solid #EBEBEB;
             border-radius: 20px;
             padding: 36px;
             box-shadow: 0 4px 20px rgba(27,58,75,0.05);
@@ -286,14 +286,14 @@
         .feature-card:hover {
             box-shadow: 0 12px 40px rgba(27,58,75,0.10);
             transform: translateY(-4px);
-            border-color: #C8892A;
+            border-color: #0A6A94;
         }
 
         /* Travel Guide Teaser */
         .tg-teaser-section {
             padding: 72px 0 80px;
             background: linear-gradient(180deg, #F5F0E8 0%, #EEF4F4 100%);
-            border-top: 1px solid #E4D9CC;
+            border-top: 1px solid #EBEBEB;
             border-bottom: 1px solid #D6E8E8;
         }
         .tg-teaser-header {
@@ -311,10 +311,10 @@
             margin-bottom: 10px;
         }
         .tg-teaser-title {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
             font-size: clamp(1.8rem, 4vw, 2.6rem);
             font-weight: 700;
-            color: #1C2B3A;
+            color: #1D2427;
             margin: 0 0 14px;
             line-height: 1.2;
             letter-spacing: -0.02em;
@@ -346,7 +346,7 @@
         .tg-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 14px 40px rgba(27,58,75,0.13);
-            border-color: #C8892A;
+            border-color: #0A6A94;
         }
         .tg-card-img-wrap {
             position: relative;
@@ -388,10 +388,10 @@
             flex-direction: column;
         }
         .tg-card-title {
-            font-family: 'Playfair Display', Georgia, serif;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
             font-size: 1.15rem;
             font-weight: 700;
-            color: #1C2B3A;
+            color: #1D2427;
             margin: 0 0 8px;
             line-height: 1.3;
         }
@@ -408,7 +408,7 @@
             gap: 6px;
             font-size: 0.85rem;
             font-weight: 700;
-            color: #C8892A;
+            color: #0A6A94;
             margin-top: auto;
             transition: gap 0.2s ease;
         }
@@ -422,7 +422,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #1B3A4B;
+            background: #1D2427;
             color: #FFFFFF;
             font-size: 0.95rem;
             font-weight: 700;
@@ -433,7 +433,7 @@
             transition: background 0.2s ease, transform 0.2s ease;
         }
         .tg-teaser-cta:hover {
-            background: #0F2535;
+            background: #111618;
             transform: translateY(-2px);
         }
         @media (max-width: 900px) {
@@ -448,7 +448,7 @@
 
         /* PWA install prompt */
         #pwa-install-prompt {
-            background: #1B3A4B;
+            background: #1D2427;
             color: white;
             border-radius: 16px;
             padding: 16px 20px;
@@ -462,7 +462,7 @@
         }
 
         /* Footer */
-        footer { background: #0F2535; }
+        footer { background: #111618; }
 
         /* Favorite button */
         .favorite-btn {
@@ -474,7 +474,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #E4D9CC;
+            border: 1px solid #EBEBEB;
             transition: all 0.2s ease;
             cursor: pointer;
             position: absolute;
@@ -482,8 +482,8 @@
             right: 12px;
         }
         .favorite-btn:hover, .favorite-btn.active {
-            background: #D4603A;
-            border-color: #D4603A;
+            background: #D93025;
+            border-color: #D93025;
             color: white;
         }
 
@@ -527,7 +527,7 @@
             bottom: 0; left: 0; right: 0;
             z-index: 60;
             background: #fff;
-            border-top: 1px solid #E4D9CC;
+            border-top: 1px solid #EBEBEB;
             display: none;
             box-shadow: 0 -4px 16px rgba(27,58,75,0.08);
         }
@@ -551,7 +551,7 @@
         }
         .mobile-bottom-nav a.active,
         .mobile-bottom-nav a:hover {
-            color: #C8892A;
+            color: #0A6A94;
         }
         .mobile-bottom-nav svg {
             width: 22px; height: 22px;
@@ -727,20 +727,20 @@
                 <!-- Live Info Widget - More Compact -->
                 <div class="hidden xl:flex items-center gap-2">
                     <div class="live-widget">
-                        <svg class="w-3.5 h-3.5" style="color:#2A8C8A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-3.5 h-3.5" style="color:#1A7F45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <span class="font-semibold whitespace-nowrap" id="stoneTownTime">--:--</span>
                     </div>
                     <div class="live-widget">
-                        <svg class="w-3.5 h-3.5" style="color:#C8892A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-3.5 h-3.5" style="color:#0A6A94" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
                         </svg>
                         <span class="font-semibold whitespace-nowrap" id="stoneTownTemp">--°C</span>
                     </div>
                     <div class="live-widget">
                         <span class="whitespace-nowrap">USD 1 =</span>
-                        <span class="font-bold whitespace-nowrap" style="color:#2A8C8A" id="usdTzsRate">2,574</span>
+                        <span class="font-bold whitespace-nowrap" style="color:#1A7F45" id="usdTzsRate">2,574</span>
                         <span>TZS</span>
                     </div>
                 </div>
@@ -767,12 +767,12 @@
                         <button onclick="switchLanguage('en')" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3">
                             <span class="text-xl">🇬🇧</span>
                             <span class="flex-1">English</span>
-                            <span id="checkEn" class="text-brand-orange">✓</span>
+                            <span id="checkEn" class="text-[#0A6A94]">✓</span>
                         </button>
                         <button onclick="switchLanguage('sw')" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-3">
                             <span class="text-xl">🇹🇿</span>
                             <span class="flex-1">Swahili</span>
-                            <span id="checkSw" class="text-brand-orange hidden">✓</span>
+                            <span id="checkSw" class="text-[#0A6A94] hidden">✓</span>
                         </button>
                     </div>
                 </div>
@@ -811,12 +811,12 @@
                             <button onclick="switchLanguage('en')" class="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-white rounded flex items-center gap-2">
                                 <span class="text-xl">🇬🇧</span>
                                 <span class="flex-1">English</span>
-                                <span id="mobileCheckEn" class="text-brand-orange">✓</span>
+                                <span id="mobileCheckEn" class="text-[#0A6A94]">✓</span>
                             </button>
                             <button onclick="switchLanguage('sw')" class="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-white rounded flex items-center gap-2">
                                 <span class="text-xl">🇹🇿</span>
                                 <span class="flex-1">Swahili</span>
-                                <span id="mobileCheckSw" class="text-brand-orange hidden">✓</span>
+                                <span id="mobileCheckSw" class="text-[#0A6A94] hidden">✓</span>
                             </button>
                         </div>
                     </div>
@@ -874,7 +874,7 @@
                         <option value="jambiani" data-i18n="locations.jambiani">Jambiani</option>
                         <option value="kendwa" data-i18n="locations.kendwa">Kendwa</option>
                     </select>
-                    <button class="bg-brand-orange hover:bg-brand-orange/90 text-white px-7 py-3 rounded-xl font-semibold transition-colors whitespace-nowrap text-base" onclick="performSearch()">
+                    <button class="bg-brand-orange hover:bg-[#F2B705]/90 text-[#1D2427] px-7 py-3 rounded-xl font-semibold transition-colors whitespace-nowrap text-base" onclick="performSearch()">
                         Search Zanzibar
                     </button>
                 </div>
@@ -932,7 +932,7 @@
     <section class="ws-band py-10 px-4">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 relative z-10">
             <div class="flex-1 text-center md:text-left">
-                <span class="inline-block text-xs font-bold uppercase tracking-widest mb-3" style="color:#C8892A;letter-spacing:0.15em">For Zanzibar Businesses</span>
+                <span class="inline-block text-xs font-bold uppercase tracking-widest mb-3" style="color:#0A6A94;letter-spacing:0.15em">For Zanzibar Businesses</span>
                 <h2 class="font-display text-2xl md:text-3xl font-bold text-white mb-3 leading-snug">
                     Need a website for your hotel, restaurant, tour, or local service?
                 </h2>
@@ -940,7 +940,7 @@
                     Get a professionally designed website built for Zanzibar from just <strong class="text-white/90">30,000 TZS/month</strong>. Fast, mobile-first, and ready to bring you new customers.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                    <a href="webstart.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all" style="background:#C8892A;color:white" onmouseover="this.style.background='#A87020'" onmouseout="this.style.background='#C8892A'">
+                    <a href="webstart.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all" style="background:#0A6A94;color:white" onmouseover="this.style.background='#08577A'" onmouseout="this.style.background='#0A6A94'">
                         Start Your Website
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                     </a>
@@ -968,7 +968,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
                 <!-- Eat & Drink -->
                 <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('business')">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#C8892A">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#0A6A94">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3C4.1 16 4.9 18 6.6 18H17"/>
                             <circle cx="9" cy="20" r="1" stroke="currentColor" stroke-width="1.5"/>
@@ -981,7 +981,7 @@
 
                 <!-- Stay -->
                 <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('accommodation')">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F0FE;color:#1B3A4B">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F0FE;color:#1D2427">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21h18M6 21V10l6-6 6 6v11M9 21v-4h6v4"/>
                         </svg>
@@ -992,7 +992,7 @@
 
                 <!-- Things To Do -->
                 <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('activities')">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F8F4;color:#2A8C8A">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F8F4;color:#1A7F45">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 18c0-1.5 1-2.5 2-3 1.5-.5 3.5-1 5-2.5S12 9 13 7.5c1-1.5 2.5-2.5 4-2.5"/>
                             <ellipse cx="17.5" cy="5.5" rx="1.5" ry="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -1005,7 +1005,7 @@
 
                 <!-- Transport -->
                 <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('automotive')">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#F0F4FF;color:#1B3A4B">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#F0F4FF;color:#1D2427">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11L8.5 7h7L17 11M5 11h14a1 1 0 011 1v5H4v-5a1 1 0 011-1z"/>
                             <circle cx="7.5" cy="17" r="1.5" stroke="currentColor" stroke-width="1.5"/>
@@ -1018,7 +1018,7 @@
 
                 <!-- Services -->
                 <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('services')">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#C8892A">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#0A6A94">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
                         </svg>
@@ -1029,7 +1029,7 @@
 
                 <!-- Jobs -->
                 <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('jobs')">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FDF0F0;color:#D4603A">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FDF0F0;color:#D93025">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <rect x="4" y="8" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2M4 12h16"/>
@@ -1145,14 +1145,14 @@
     </section>
 
     <!-- Category Results Section (Initially Hidden) -->
-    <section class="py-16 px-4" style="background:#FAF7F2;display: none;" id="categoryResultsSection">
+    <section class="py-16 px-4" style="background:#FFFFFF;display: none;" id="categoryResultsSection">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-2" id="categoryTitle">Category Results</h2>
                     <p class="text-gray-600" id="categoryDescription">Browsing selected category</p>
                 </div>
-                <button onclick="clearCategoryFilter()" class="text-brand-orange hover:text-brand-orange/80 font-semibold flex items-center gap-2">
+                <button onclick="clearCategoryFilter()" class="text-[#0A6A94] hover:text-[#0A6A94]/80 font-semibold flex items-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -1161,7 +1161,7 @@
             </div>
 
             <div id="categoryLoadingMessage" class="text-center py-12">
-                <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div>
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#0A6A94] border-t-transparent"></div>
                 <p class="mt-4 text-gray-600">Loading listings...</p>
             </div>
 
@@ -1171,14 +1171,14 @@
     </section>
 
     <!-- Search Results Section (Initially Hidden) -->
-    <section class="py-16 px-4" style="background:#FAF7F2;display: none;" id="searchResultsSection">
+    <section class="py-16 px-4" style="background:#FFFFFF;display: none;" id="searchResultsSection">
         <div class="max-w-7xl mx-auto">
             <div class="flex items-center justify-between mb-8">
                 <div>
                     <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-2">Search Results</h2>
                     <p class="text-gray-600" id="searchDescription">Results for your search</p>
                 </div>
-                <button onclick="clearSearch()" class="text-brand-orange hover:text-brand-orange/80 font-semibold flex items-center gap-2">
+                <button onclick="clearSearch()" class="text-[#0A6A94] hover:text-[#0A6A94]/80 font-semibold flex items-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
@@ -1187,7 +1187,7 @@
             </div>
 
             <div id="searchLoadingMessage" class="text-center py-12">
-                <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div>
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#0A6A94] border-t-transparent"></div>
                 <p class="mt-4 text-gray-600">Searching...</p>
             </div>
 
@@ -1197,13 +1197,13 @@
     </section>
 
     <!-- SEO Content Sections -->
-    <section class="py-16 px-4" style="background:#FAF7F2">
+    <section class="py-16 px-4" style="background:#FFFFFF">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12">
                 <!-- Local Restaurants & Nightlife -->
                 <div class="feature-card">
                     <div class="flex items-center gap-3 mb-4">
-                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-8 h-8" style="color:#0A6A94" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M3 3a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 13.846 4.632 16 6.414 16H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 5H6.28l-.31-1.243A1 1 0 005 3H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
                         </svg>
                         <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray">Local Restaurants & Nightlife</h2>
@@ -1214,7 +1214,7 @@
                     <p class="text-gray-700 leading-relaxed mb-4">
                         Whether you're searching for romantic beachfront dining in Nungwi, bustling street food markets in Stone Town, or lively bars in Paje, our verified restaurant listings connect you with the best dining experiences across the island.
                     </p>
-                    <a href="#categories" onclick="filterByCategory('restaurants')" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                    <a href="#categories" onclick="filterByCategory('restaurants')" class="inline-flex items-center font-semibold transition-colors" style="color:#0A6A94">
                         Browse Restaurants
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -1225,7 +1225,7 @@
                 <!-- Accommodation & Travel Info -->
                 <div class="feature-card">
                     <div class="flex items-center gap-3 mb-4">
-                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-8 h-8" style="color:#0A6A94" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
                         </svg>
                         <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray">Accommodation & Travel Info</h2>
@@ -1236,7 +1236,7 @@
                     <p class="text-gray-700 leading-relaxed mb-4">
                         Access essential travel information including transportation options, visa requirements, safety tips, and local customs. Our travel guides help you plan your Zanzibar adventure with confidence, whether you're booking a villa in Kendwa or a cozy bed and breakfast in Jambiani.
                     </p>
-                    <a href="travel-guide.html" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                    <a href="travel-guide.html" class="inline-flex items-center font-semibold transition-colors" style="color:#0A6A94">
                         Read Travel Guides
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -1247,7 +1247,7 @@
                 <!-- Business Services -->
                 <div class="feature-card">
                     <div class="flex items-center gap-3 mb-4">
-                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-8 h-8" style="color:#0A6A94" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"/>
                             <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"/>
                         </svg>
@@ -1259,7 +1259,7 @@
                     <p class="text-gray-700 leading-relaxed mb-4">
                         Explore verified listings for transportation services, water sports operators, dive centers, spa and wellness facilities, and essential utilities. Every business in our platform is vetted to ensure quality and reliability for the ZanziBiz community.
                     </p>
-                    <a href="#categories" onclick="filterByCategory('services')" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                    <a href="#categories" onclick="filterByCategory('services')" class="inline-flex items-center font-semibold transition-colors" style="color:#0A6A94">
                         Explore Services
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -1270,7 +1270,7 @@
                 <!-- Culture & History -->
                 <div class="feature-card">
                     <div class="flex items-center gap-3 mb-4">
-                        <svg class="w-8 h-8" style="color:#C8892A" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-8 h-8" style="color:#0A6A94" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
                         </svg>
                         <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray">Culture & History</h2>
@@ -1281,7 +1281,7 @@
                     <p class="text-gray-700 leading-relaxed mb-4">
                         Learn about Swahili culture, visit museums and cultural centers, explore historic sites like the Old Fort and House of Wonders, and participate in local festivals. Our guides help you understand and appreciate the unique blend of African, Arab, Indian, and European influences that define Zanzibar's identity.
                     </p>
-                    <a href="travel-guide.html" class="inline-flex items-center font-semibold transition-colors" style="color:#C8892A">
+                    <a href="travel-guide.html" class="inline-flex items-center font-semibold transition-colors" style="color:#0A6A94">
                         Discover Culture & History
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -1293,10 +1293,10 @@
     </section>
 
     <!-- Boosted & Featured Listings Hero Section -->
-    <section class="py-12 px-4" style="background:#FAF7F2" id="boostedSection">
+    <section class="py-12 px-4" style="background:#FFFFFF" id="boostedSection">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
-                <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full mb-4" style="background:linear-gradient(135deg,#1B3A4B,#2A5570);color:white">
+                <div class="inline-flex items-center gap-2 px-6 py-2 rounded-full mb-4" style="background:linear-gradient(135deg,#1D2427,#2E3A3F);color:white">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                     </svg>
@@ -1308,28 +1308,28 @@
 
             <div id="boostedLoadingMessage" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <a href="/business/nails-artist-1781101942970" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
-                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Nails Artist</h3><p class="text-xs text-gray-500 mt-1">Business &middot; Nungwi</p></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Nails Artist</h3><p class="text-xs text-gray-500 mt-1">Business &middot; Nungwi</p></div>
                 </a>
                 <a href="/business/reservation-executive-1773859129790" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
-                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Reservation Executive</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Reservation Executive</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/web-designer-1773857964056" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
-                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Web Designer</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Web Designer</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/safari-1773857277811" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
-                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Safari Tours</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Safari Tours</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/tour-organizer-1773857358727" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
-                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Tour Organizer</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Tour Organizer</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/tiki-beach-club-resort-1781949552213" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
-                    <div class="p-4"><h3 class="font-semibold text-[#1C2B3A]">Tiki Beach Club &amp; Resort</h3><p class="text-xs text-gray-500 mt-1">Accommodation &middot; Paje</p></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Tiki Beach Club &amp; Resort</h3><p class="text-xs text-gray-500 mt-1">Accommodation &middot; Paje</p></div>
                 </a>
             </div>
 
@@ -1339,7 +1339,7 @@
     </section>
 
     <!-- Blog Snippet Section -->
-    <section class="py-6 px-4" style="background:#F5EFE5" id="blogSnippetSection">
+    <section class="py-6 px-4" style="background:#F7F7F7" id="blogSnippetSection">
         <div class="max-w-7xl mx-auto">
             <div id="blogSnippetContent" class="hidden">
                 <!-- Blog snippet will be dynamically inserted here -->
@@ -1371,18 +1371,18 @@
             </div>
 
             <div id="regularLoadingMessage" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a href="/business/stone-town-heritage-house" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Stone Town Heritage House</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Stone Town</p></div></a>
-                <a href="/business/family-paradise-resort" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Family Paradise Resort</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Kiwengwa</p></div></a>
-                <a href="/business/nathero-car-rental-1776695285351" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Nathero Car Rental</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
-                <a href="/business/proud-zanzibar-tours-1774934113113" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Proud Zanzibar Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
-                <a href="/business/ocean-breeze-diving-center" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Ocean Breeze Diving Center</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Nungwi</p></div></a>
-                <a href="/business/zanzibar-wellness-spa-massage" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Zanzibar Wellness Spa &amp; Massage</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Paje</p></div></a>
-                <a href="/business/zanzibar-spice-paradise-tours" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Zanzibar Spice Paradise Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
-                <a href="/business/u-trip-1776695089031" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">U Trip Transport</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
-                <a href="/business/captain-safari-blue-1776700057250" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Captain Safari Blue</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Safari Blue</p></div></a>
-                <a href="/business/jozani-forest-monkey-tour" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Jozani Forest Monkey Tour</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Jozani</p></div></a>
-                <a href="/business/paradise-beach-bungalows" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Paradise Beach Bungalows</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Paje</p></div></a>
-                <a href="/business/sunset-dhow-cruise-experience" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1B3A4B] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1C2B3A] line-clamp-1">Sunset Dhow Cruise Experience</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/stone-town-heritage-house" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Stone Town Heritage House</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Stone Town</p></div></a>
+                <a href="/business/family-paradise-resort" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Family Paradise Resort</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Kiwengwa</p></div></a>
+                <a href="/business/nathero-car-rental-1776695285351" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Nathero Car Rental</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
+                <a href="/business/proud-zanzibar-tours-1774934113113" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Proud Zanzibar Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/ocean-breeze-diving-center" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Ocean Breeze Diving Center</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Nungwi</p></div></a>
+                <a href="/business/zanzibar-wellness-spa-massage" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Zanzibar Wellness Spa &amp; Massage</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Paje</p></div></a>
+                <a href="/business/zanzibar-spice-paradise-tours" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Zanzibar Spice Paradise Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/u-trip-1776695089031" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">U Trip Transport</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
+                <a href="/business/captain-safari-blue-1776700057250" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Captain Safari Blue</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Safari Blue</p></div></a>
+                <a href="/business/jozani-forest-monkey-tour" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Jozani Forest Monkey Tour</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Jozani</p></div></a>
+                <a href="/business/paradise-beach-bungalows" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Paradise Beach Bungalows</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Paje</p></div></a>
+                <a href="/business/sunset-dhow-cruise-experience" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/Zanzibiz.com-logo.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Sunset Dhow Cruise Experience</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="regularListingsGrid" style="display: none;">
@@ -1407,27 +1407,27 @@
         </div>
     </section>
 
-    <section class="py-16 px-4" style="background:#F5EFE5" id="about">
+    <section class="py-16 px-4" style="background:#F7F7F7" id="about">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="font-display text-3xl md:text-4xl font-bold text-brand-gray mb-4" data-i18n="about.title">Why Choose ZanziBiz?</h2>
-                <p class="text-gray-600 text-lg" data-i18n="about.subtitle">The best way to discover local businesses in Zanzibar. <a href="/auth/signup.html" class="font-medium transition-colors" style="color:#C8892A">List your business</a> or <a href="#listings" class="font-medium transition-colors" style="color:#2A8C8A">browse our directory</a> to get started.</p>
+                <p class="text-gray-600 text-lg" data-i18n="about.subtitle">The best way to discover local businesses in Zanzibar. <a href="/auth/signup.html" class="font-medium transition-colors" style="color:#0A6A94">List your business</a> or <a href="#listings" class="font-medium transition-colors" style="color:#1A7F45">browse our directory</a> to get started.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="text-center">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FEF3E8">
-                        <svg class="w-10 h-10" style="color:#C8892A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-10 h-10" style="color:#0A6A94" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <h3 class="font-display text-2xl font-bold text-brand-gray mb-3" data-i18n="about.feature1Title">Verified Businesses</h3>
-                    <p class="text-gray-600" data-i18n="about.feature1Desc">All <a href="#listings" class="hover:underline" style="color:#C8892A">listings</a> are verified to ensure quality and authenticity. <a href="/blog.html" class="hover:underline" style="color:#2A8C8A">Learn more</a> about our verification process.</p>
+                    <p class="text-gray-600" data-i18n="about.feature1Desc">All <a href="#listings" class="hover:underline" style="color:#0A6A94">listings</a> are verified to ensure quality and authenticity. <a href="/blog.html" class="hover:underline" style="color:#1A7F45">Learn more</a> about our verification process.</p>
                 </div>
 
                 <div class="text-center">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#E8F8F4">
-                        <svg class="w-10 h-10" style="color:#2A8C8A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-10 h-10" style="color:#1A7F45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                         </svg>
                     </div>
@@ -1437,7 +1437,7 @@
 
                 <div class="text-center">
                     <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FEF3E8">
-                        <svg class="w-10 h-10" style="color:#C8892A" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-10 h-10" style="color:#0A6A94" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
@@ -1449,23 +1449,23 @@
     </section>
 
     <!-- Second WebStart CTA -->
-    <section class="py-10 px-4" style="background:#F5EFE5">
+    <section class="py-10 px-4" style="background:#F7F7F7">
         <div class="max-w-3xl mx-auto text-center">
-            <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#C8892A">Zanzibar WebStart</p>
+            <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#0A6A94">Zanzibar WebStart</p>
             <h2 class="font-display text-2xl md:text-3xl font-bold text-brand-gray mb-3">Get your business online today</h2>
             <p class="text-gray-500 mb-6">Professional websites for Zanzibar hotels, restaurants, tour operators &amp; local services. Starting at 30,000 TZS/month.</p>
-            <a href="webstart.html" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold transition-colors" style="background:#1B3A4B;color:white" onmouseover="this.style.background='#0F2535'" onmouseout="this.style.background='#1B3A4B'">
+            <a href="webstart.html" class="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-semibold transition-colors" style="background:#1D2427;color:white" onmouseover="this.style.background='#111618'" onmouseout="this.style.background='#1D2427'">
                 Learn More About WebStart
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </a>
         </div>
     </section>
 
-    <section class="py-16 px-4 text-white" style="background:linear-gradient(135deg,#1B3A4B,#0F2535)">
+    <section class="py-16 px-4 text-white" style="background:linear-gradient(135deg,#1D2427,#111618)">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="font-display text-3xl md:text-4xl font-bold mb-6" data-i18n="cta.title">Ready to Grow Your Business?</h2>
             <p class="text-lg md:text-xl mb-8 text-white/90" data-i18n="cta.description">Join hundreds of businesses already on ZanziBiz and reach thousands of potential customers</p>
-            <a href="auth/signup.html" class="inline-block px-8 py-4 rounded-xl font-semibold transition-colors" style="background:#C8892A;color:white" data-i18n="cta.button">
+            <a href="auth/signup.html" class="inline-block px-8 py-4 rounded-xl font-semibold transition-colors" style="background:#0A6A94;color:white" data-i18n="cta.button">
                 List Your Business Free
             </a>
         </div>
@@ -1484,7 +1484,7 @@
             </div>
             <div id="modalListingContent" class="p-6">
                 <div class="text-center py-12">
-                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div>
+                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#0A6A94] border-t-transparent"></div>
                     <p class="mt-4 text-gray-600">Loading listing details...</p>
                 </div>
             </div>
@@ -1496,43 +1496,43 @@
         <div class="max-w-5xl mx-auto">
             <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Browse Directory</p>
             <div class="flex flex-wrap gap-3">
-                <a href="/directory/accommodation" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Accommodation in Zanzibar</a>
-                <a href="/directory/activities" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Tours &amp; Activities</a>
-                <a href="/directory/automotive" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Car &amp; Scooter Rental</a>
-                <a href="/directory/business" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Local Services</a>
-                <a href="/directory/events" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Events in Zanzibar</a>
-                <a href="/directory/jobs" class="text-sm text-gray-600 hover:text-[#C8892A] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Jobs in Zanzibar</a>
+                <a href="/directory/accommodation" class="text-sm text-gray-600 hover:text-[#0A6A94] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Accommodation in Zanzibar</a>
+                <a href="/directory/activities" class="text-sm text-gray-600 hover:text-[#0A6A94] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Tours &amp; Activities</a>
+                <a href="/directory/automotive" class="text-sm text-gray-600 hover:text-[#0A6A94] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Car &amp; Scooter Rental</a>
+                <a href="/directory/business" class="text-sm text-gray-600 hover:text-[#0A6A94] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Local Services</a>
+                <a href="/directory/events" class="text-sm text-gray-600 hover:text-[#0A6A94] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Events in Zanzibar</a>
+                <a href="/directory/jobs" class="text-sm text-gray-600 hover:text-[#0A6A94] transition-colors border border-gray-200 rounded-full px-3 py-1.5">Jobs in Zanzibar</a>
             </div>
             <div class="mt-4 flex flex-wrap gap-3">
-                <a href="/business/sunset-dhow-cruise-experience" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Sunset Dhow Cruise</a>
+                <a href="/business/sunset-dhow-cruise-experience" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Sunset Dhow Cruise</a>
                 <span class="text-gray-200">·</span>
-                <a href="/business/jozani-forest-monkey-tour" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Jozani Forest Tour</a>
+                <a href="/business/jozani-forest-monkey-tour" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Jozani Forest Tour</a>
                 <span class="text-gray-200">·</span>
-                <a href="/business/prison-island-snorkeling-tour" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Prison Island Snorkeling</a>
+                <a href="/business/prison-island-snorkeling-tour" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Prison Island Snorkeling</a>
                 <span class="text-gray-200">·</span>
-                <a href="/business/paradise-beach-bungalows" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Paradise Beach Bungalows</a>
+                <a href="/business/paradise-beach-bungalows" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Paradise Beach Bungalows</a>
                 <span class="text-gray-200">·</span>
-                <a href="/business/stone-town-heritage-house" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Stone Town Heritage House</a>
+                <a href="/business/stone-town-heritage-house" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Stone Town Heritage House</a>
                 <span class="text-gray-200">·</span>
-                <a href="/business/coral-bay-luxury-resort" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Coral Bay Luxury Resort</a>
+                <a href="/business/coral-bay-luxury-resort" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Coral Bay Luxury Resort</a>
                 <span class="text-gray-200">·</span>
-                <a href="/business/nathero-car-rental-1776695285351" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Car Rental Zanzibar</a>
+                <a href="/business/nathero-car-rental-1776695285351" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Car Rental Zanzibar</a>
             </div>
             <div class="mt-4 flex flex-wrap gap-3">
-                <a href="/travel-guide" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Zanzibar Travel Guide</a>
+                <a href="/travel-guide" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Zanzibar Travel Guide</a>
                 <span class="text-gray-200">·</span>
-                <a href="/blog/traveling-to-zanzibar" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Traveling to Zanzibar</a>
+                <a href="/blog/traveling-to-zanzibar" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Traveling to Zanzibar</a>
                 <span class="text-gray-200">·</span>
-                <a href="/blog/best-luxury-resorts-in-zanzibar" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Best Luxury Resorts</a>
+                <a href="/blog/best-luxury-resorts-in-zanzibar" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Best Luxury Resorts</a>
                 <span class="text-gray-200">·</span>
-                <a href="/blog/renting-a-scooter-in-zanzibar-complete-guide" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Renting a Scooter</a>
+                <a href="/blog/renting-a-scooter-in-zanzibar-complete-guide" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Renting a Scooter</a>
                 <span class="text-gray-200">·</span>
-                <a href="/blog/staying-safe-secure-in-zanzibar-a-practical-guide-for-visitors-and-expats" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors">Safety in Zanzibar</a>
+                <a href="/blog/staying-safe-secure-in-zanzibar-a-practical-guide-for-visitors-and-expats" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors">Safety in Zanzibar</a>
             </div>
         </div>
     </section>
 
-    <footer class="text-white py-12 px-4 border-t-4" style="background:#0F2535;border-top-color:#C8892A">
+    <footer class="text-white py-12 px-4 border-t-4" style="background:#111618;border-top-color:#0A6A94">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
@@ -1545,30 +1545,30 @@
                 <div>
                     <h4 class="font-semibold mb-4" data-i18n="footer.forUsers">For Users</h4>
                     <ul class="space-y-2 text-white/75">
-                        <li><a href="#categories" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.browseListings">Browse Listings</a></li>
-                        <li><a href="#listings" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.featuredBusinesses">Featured Businesses</a></li>
-                        <li><a href="travel-guide.html" class="transition-colors hover:text-[#C8892A]">Zanzibar Travel Guide</a></li>
-                        <li><a href="auth/signup.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.createAccount">Create Account</a></li>
+                        <li><a href="#categories" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.browseListings">Browse Listings</a></li>
+                        <li><a href="#listings" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.featuredBusinesses">Featured Businesses</a></li>
+                        <li><a href="travel-guide.html" class="transition-colors hover:text-[#0A6A94]">Zanzibar Travel Guide</a></li>
+                        <li><a href="auth/signup.html" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.createAccount">Create Account</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold mb-4" data-i18n="footer.forBusinesses">For Businesses</h4>
                     <ul class="space-y-2 text-white/75">
-                        <li><a href="auth/signup.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.listBusiness">List Your Business</a></li>
-                        <li><a href="auth/login.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.businessLogin">Business Login</a></li>
-                        <li><a href="#" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.pricing">Pricing</a></li>
+                        <li><a href="auth/signup.html" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.listBusiness">List Your Business</a></li>
+                        <li><a href="auth/login.html" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.businessLogin">Business Login</a></li>
+                        <li><a href="#" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.pricing">Pricing</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold mb-4" data-i18n="footer.company">Company</h4>
                     <ul class="space-y-2 text-white/75">
-                        <li><a href="about.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.aboutUs">About Us</a></li>
-                        <li><a href="contact.html" class="transition-colors hover:text-[#C8892A]" data-i18n="footer.contact">Contact</a></li>
-                        <li><a href="privacy.html" class="transition-colors hover:text-[#C8892A]">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="transition-colors hover:text-[#C8892A]">Terms</a></li>
-                        <li><a href="affiliate.html" class="transition-colors hover:text-[#C8892A]">Affiliate Disclosure</a></li>
+                        <li><a href="about.html" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.aboutUs">About Us</a></li>
+                        <li><a href="contact.html" class="transition-colors hover:text-[#0A6A94]" data-i18n="footer.contact">Contact</a></li>
+                        <li><a href="privacy.html" class="transition-colors hover:text-[#0A6A94]">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="transition-colors hover:text-[#0A6A94]">Terms</a></li>
+                        <li><a href="affiliate.html" class="transition-colors hover:text-[#0A6A94]">Affiliate Disclosure</a></li>
                     </ul>
                 </div>
             </div>
@@ -1750,7 +1750,7 @@
             const area = document.getElementById('navAuthArea');
             area.innerHTML = `
                 <a href="auth/login.html" class="text-gray-600 hover:text-brand-blue transition-colors px-2 py-1.5 text-sm font-medium" data-i18n="nav.signIn">Sign In</a>
-                <a href="auth/signup.html" class="bg-brand-orange text-white px-3 py-1.5 rounded-lg hover:bg-brand-orange/90 transition-colors font-medium text-sm whitespace-nowrap" data-i18n="nav.listYourBusiness">List Your Business</a>
+                <a href="auth/signup.html" class="bg-brand-orange text-[#1D2427] px-3 py-1.5 rounded-lg hover:bg-[#F2B705]/90 transition-colors font-medium text-sm whitespace-nowrap" data-i18n="nav.listYourBusiness">List Your Business</a>
             `;
         }
 
@@ -1758,7 +1758,7 @@
             const area = document.getElementById('mobileNavAuthArea');
             area.innerHTML = `
                 <a href="auth/login.html" class="block text-center text-gray-600 hover:text-brand-blue transition-colors px-4 py-2 border border-gray-300 rounded-lg font-medium">Sign In</a>
-                <a href="auth/signup.html" class="block text-center bg-brand-orange text-white px-4 py-2 rounded-lg hover:bg-brand-orange/90 transition-colors font-medium mt-2">List Your Business</a>
+                <a href="auth/signup.html" class="block text-center bg-brand-orange text-[#1D2427] px-4 py-2 rounded-lg hover:bg-[#F2B705]/90 transition-colors font-medium mt-2">List Your Business</a>
             `;
         }
 
@@ -1766,7 +1766,7 @@
             const userMenu = document.getElementById('userMenu');
             userMenu.innerHTML = `
                 <button id="userMenuButton" class="flex items-center space-x-1.5 text-gray-600 hover:text-brand-blue transition-colors px-2 py-1">
-                    <div class="w-7 h-7 bg-brand-orange rounded-full flex items-center justify-center text-white font-semibold text-xs">${initial}</div>
+                    <div class="w-7 h-7 bg-brand-orange rounded-full flex items-center justify-center text-[#1D2427] font-semibold text-xs">${initial}</div>
                     <span class="font-medium text-sm hidden lg:block max-w-[120px] truncate">${firstName}</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -1821,7 +1821,7 @@
             const area = document.getElementById('mobileNavAuthArea');
             area.innerHTML = `
                 <div class="flex items-center space-x-3 pb-3">
-                    <div class="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center text-white font-semibold">${initial}</div>
+                    <div class="w-10 h-10 bg-brand-orange rounded-full flex items-center justify-center text-[#1D2427] font-semibold">${initial}</div>
                     <span class="font-medium text-gray-800">${firstName}</span>
                 </div>
                 ${isBusiness ? `
@@ -1936,7 +1936,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-start justify-between mb-3">
-                            <h3 class="font-bold text-xl text-brand-gray"><a href="/business/${listing.slug || listing.id}" class="hover:text-brand-orange transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
+                            <h3 class="font-bold text-xl text-brand-gray"><a href="/business/${listing.slug || listing.id}" class="hover:text-[#0A6A94] transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
                             ${listing.business_profiles?.verified ?
                                 '<svg class="w-6 h-6 text-brand-teal flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>' :
                                 ''
@@ -1949,13 +1949,13 @@
                         </div>
                         <div class="flex items-center justify-between pt-4 border-t border-gray-200">
                             <div class="flex items-center space-x-1">
-                                <svg class="w-5 h-5 text-brand-orange fill-current" viewBox="0 0 20 20">
+                                <svg class="w-5 h-5 text-[#0A6A94] fill-current" viewBox="0 0 20 20">
                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                 </svg>
                                 <span class="font-bold text-lg">${listing.rating || '4.5'}</span>
                                 <span class="text-gray-500">(${listing.review_count || 0})</span>
                             </div>
-                            <button onclick='viewListingDetail(${JSON.stringify(listing)})' class="bg-brand-orange text-white px-6 py-2 rounded-lg hover:bg-brand-orange/90 transition-colors font-semibold">
+                            <button onclick='viewListingDetail(${JSON.stringify(listing)})' class="bg-brand-orange text-[#1D2427] px-6 py-2 rounded-lg hover:bg-[#F2B705]/90 transition-colors font-semibold">
                                 View Details
                             </button>
                         </div>
@@ -1984,7 +1984,7 @@
                     </div>
                     <div class="p-4">
                         <div class="flex items-start justify-between mb-2">
-                            <h3 class="font-semibold text-base text-brand-gray line-clamp-1"><a href="/business/${listing.slug || listing.id}" class="hover:text-brand-orange transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
+                            <h3 class="font-semibold text-base text-brand-gray line-clamp-1"><a href="/business/${listing.slug || listing.id}" class="hover:text-[#0A6A94] transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
                             ${listing.business_profiles?.verified ?
                                 '<svg class="w-4 h-4 text-brand-teal flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>' :
                                 ''
@@ -2015,7 +2015,7 @@
                     </div>
                     <div class="flex-1 min-w-0">
                         <div class="flex items-start justify-between mb-1">
-                            <h3 class="font-semibold text-lg text-brand-gray line-clamp-1"><a href="/business/${listing.slug || listing.id}" class="hover:text-brand-orange transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
+                            <h3 class="font-semibold text-lg text-brand-gray line-clamp-1"><a href="/business/${listing.slug || listing.id}" class="hover:text-[#0A6A94] transition-colors" onclick="event.preventDefault(); viewListingDetail('${listing.id}')">${listing.title}</a></h3>
                             ${listing.business_profiles?.verified ?
                                 '<svg class="w-5 h-5 text-brand-teal flex-shrink-0 ml-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>' :
                                 ''
@@ -2029,13 +2029,13 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center space-x-1">
-                                <svg class="w-4 h-4 text-brand-orange fill-current" viewBox="0 0 20 20">
+                                <svg class="w-4 h-4 text-[#0A6A94] fill-current" viewBox="0 0 20 20">
                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                 </svg>
                                 <span class="font-semibold">${listing.rating || '4.5'}</span>
                                 <span class="text-gray-500 text-xs">(${listing.review_count || 0})</span>
                             </div>
-                            <a href="#" class="text-brand-orange hover:text-brand-orange/80 font-medium text-sm">View Details →</a>
+                            <a href="#" class="text-[#0A6A94] hover:text-[#0A6A94]/80 font-medium text-sm">View Details →</a>
                         </div>
                     </div>
                 </div>
@@ -2167,7 +2167,7 @@
                     loading.innerHTML = `
                         <div class="text-center">
                             <p class="text-gray-600 mb-4">No listings available yet.</p>
-                            <a href="auth/signup.html" class="inline-block bg-brand-orange text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-orange/90 transition-colors">
+                            <a href="auth/signup.html" class="inline-block bg-brand-orange text-[#1D2427] px-6 py-3 rounded-lg font-semibold hover:bg-[#F2B705]/90 transition-colors">
                                 Be the first to list your business!
                             </a>
                         </div>
@@ -2203,7 +2203,7 @@
 
             for (let i = startPage; i <= endPage; i++) {
                 pageHTML += `
-                    <button onclick="goToPage(${i})" class="px-3 py-1 rounded ${i === currentPage ? 'bg-brand-orange text-white' : 'hover:bg-gray-100'}">
+                    <button onclick="goToPage(${i})" class="px-3 py-1 rounded ${i === currentPage ? 'bg-brand-orange text-[#1D2427]' : 'hover:bg-gray-100'}">
                         ${i}
                     </button>
                 `;
@@ -2300,7 +2300,7 @@
                 <div class="mb-6">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-3">
-                            <span class="inline-block px-4 py-2 bg-brand-orange/10 text-brand-orange rounded-full text-sm font-semibold capitalize">
+                            <span class="inline-block px-4 py-2 bg-brand-orange/10 text-[#0A6A94] rounded-full text-sm font-semibold capitalize">
                                 ${listing.category}
                             </span>
                             ${listing.business_profiles?.verified ? `
@@ -2329,31 +2329,31 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     ${listing.phone ? `
                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-[#0A6A94] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
                             <div>
                                 <p class="text-sm text-gray-600 mb-1">Phone</p>
-                                <a href="tel:${listing.phone}" class="text-brand-gray font-semibold hover:text-brand-orange transition-colors">${listing.phone}</a>
+                                <a href="tel:${listing.phone}" class="text-brand-gray font-semibold hover:text-[#0A6A94] transition-colors">${listing.phone}</a>
                             </div>
                         </div>
                     ` : ''}
 
                     ${listing.email ? `
                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-[#0A6A94] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                             <div>
                                 <p class="text-sm text-gray-600 mb-1">Email</p>
-                                <a href="mailto:${listing.email}" class="text-brand-gray font-semibold hover:text-brand-orange transition-colors break-all">${listing.email}</a>
+                                <a href="mailto:${listing.email}" class="text-brand-gray font-semibold hover:text-[#0A6A94] transition-colors break-all">${listing.email}</a>
                             </div>
                         </div>
                     ` : ''}
 
                     ${listing.address ? `
                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-[#0A6A94] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
@@ -2366,12 +2366,12 @@
 
                     ${listing.what3words ? `
                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-[#0A6A94] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
                             </svg>
                             <div>
                                 <p class="text-sm text-gray-600 mb-1">What3Words Location</p>
-                                <a href="https://what3words.com/${listing.what3words}" target="_blank" class="text-brand-orange font-semibold hover:underline">
+                                <a href="https://what3words.com/${listing.what3words}" target="_blank" class="text-[#0A6A94] font-semibold hover:underline">
                                     ///${listing.what3words}
                                 </a>
                             </div>
@@ -2380,19 +2380,19 @@
 
                     ${listing.website ? `
                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-[#0A6A94] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                             </svg>
                             <div>
                                 <p class="text-sm text-gray-600 mb-1">Website</p>
-                                <a href="${ensureProtocol(listing.website)}" target="_blank" rel="noopener noreferrer" class="text-brand-orange font-semibold hover:underline break-all">${listing.website}</a>
+                                <a href="${ensureProtocol(listing.website)}" target="_blank" rel="noopener noreferrer" class="text-[#0A6A94] font-semibold hover:underline break-all">${listing.website}</a>
                             </div>
                         </div>
                     ` : ''}
 
                     ${listing.location ? `
                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                            <svg class="w-6 h-6 text-brand-orange flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-[#0A6A94] flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path>
                             </svg>
                             <div>
@@ -2490,7 +2490,7 @@
 
             container.style.display = 'none';
             loading.style.display = 'block';
-            loading.innerHTML = '<div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-brand-orange border-t-transparent"></div><p class="mt-4 text-gray-600">Loading listings...</p>';
+            loading.innerHTML = '<div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-[#0A6A94] border-t-transparent"></div><p class="mt-4 text-gray-600">Loading listings...</p>';
 
             // Scroll to category results
             document.getElementById('categoryResultsSection').scrollIntoView({ behavior: 'smooth' });

@@ -13,34 +13,34 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/tailwind.css">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background-color: #FAF7F2;
-            color: #1C2B3A;
+            background-color: #FFFFFF;
+            color: #1D2427;
         }
         h1,h2,h3,h4 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #1C2B3A;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: #1D2427;
             letter-spacing: -0.02em;
         }
         .font-display {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
         }
     </style>
     <style>
         #__auth_overlay {
             position: fixed; inset: 0; z-index: 99999;
-            background: #FAF7F2;
+            background: #FFFFFF;
             display: flex; align-items: center; justify-content: center;
             flex-direction: column; gap: 16px;
         }
         #__auth_overlay .auth-spinner {
             width: 44px; height: 44px;
             border: 3px solid #e5e0d8;
-            border-top-color: #C8892A;
+            border-top-color: #0A6A94;
             border-radius: 50%;
             animation: auth-spin 0.75s linear infinite;
         }
@@ -65,8 +65,8 @@
                 </a>
                 <div class="flex items-center space-x-4">
                     <div id="userMenu" class="relative">
-                        <button id="userMenuButton" class="flex items-center space-x-2 text-gray-600 hover:text-[#C8892A] transition-colors">
-                            <div class="w-8 h-8 bg-[#C8892A] rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                        <button id="userMenuButton" class="flex items-center space-x-2 text-gray-600 hover:text-[#0A6A94] transition-colors">
+                            <div class="w-8 h-8 bg-[#0A6A94] rounded-full flex items-center justify-center text-white font-semibold text-sm">
                                 <span id="userMenuInitial">U</span>
                             </div>
                             <span id="userMenuName" class="font-medium hidden md:block">User</span>
@@ -118,10 +118,10 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
             <div>
-                <h1 class="font-display text-2xl sm:text-3xl font-bold text-[#1C2B3A]">Liked Listings</h1>
+                <h1 class="font-display text-2xl sm:text-3xl font-bold text-[#1D2427]">Liked Listings</h1>
                 <p class="text-gray-600 mt-2">Your favorite businesses and places</p>
             </div>
-            <div class="flex items-center space-x-2 text-[#C8892A]">
+            <div class="flex items-center space-x-2 text-[#0A6A94]">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
                 </svg>
@@ -135,13 +135,13 @@
             </svg>
             <h3 class="text-xl font-semibold text-gray-600 mb-2">No Liked Listings Yet</h3>
             <p class="text-gray-500 mb-6">Start exploring and save your favorite businesses</p>
-            <a href="../index.html#listings" style="background:#C8892A;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="inline-block px-6 py-3 hover:opacity-90 transition-opacity">
+            <a href="../index.html#listings" style="background:#0A6A94;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="inline-block px-6 py-3 hover:opacity-90 transition-opacity">
                 Browse Listings
             </a>
         </div>
 
         <div id="loadingState" class="text-center py-16">
-            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#C8892A]"></div>
+            <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#0A6A94]"></div>
             <p class="text-gray-600 mt-4">Loading your liked listings...</p>
         </div>
 
@@ -215,7 +215,7 @@
                 } else {
                     listingsGrid.classList.remove('hidden');
                     listingsGrid.innerHTML = likedListings.map(listing => `
-                        <div class="bg-white rounded-xl shadow-sm border border-[#E4D9CC] overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="bg-white rounded-xl shadow-sm border border-[#EBEBEB] overflow-hidden hover:shadow-md transition-shadow">
                             <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 relative">
                                 ${listing.images && listing.images[0] ?
                                     `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover">` :
@@ -226,20 +226,20 @@
                                     </div>`
                                 }
                                 <button onclick="unlikeListing('${listing.id}')" class="absolute top-3 right-3 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors">
-                                    <svg class="w-5 h-5 text-[#C8892A] fill-current" viewBox="0 0 20 20">
+                                    <svg class="w-5 h-5 text-[#0A6A94] fill-current" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
                                     </svg>
                                 </button>
                             </div>
                             <div class="p-6">
-                                <h3 class="font-semibold text-lg text-[#1C2B3A] mb-2">${listing.title}</h3>
+                                <h3 class="font-semibold text-lg text-[#1D2427] mb-2">${listing.title}</h3>
                                 <p class="text-gray-600 text-sm mb-3 line-clamp-2">${listing.description || 'No description available'}</p>
                                 <div class="flex items-center justify-between text-sm">
                                     <span class="text-gray-500 capitalize">${listing.category}</span>
                                     <span class="text-gray-500">${listing.location || 'Zanzibar'}</span>
                                 </div>
                                 <div class="mt-4 pt-4 border-t border-gray-100">
-                                    <a href="../index.html#listing-${listing.slug}" class="text-[#C8892A] hover:opacity-80 font-medium">View Details →</a>
+                                    <a href="../index.html#listing-${listing.slug}" class="text-[#0A6A94] hover:opacity-80 font-medium">View Details →</a>
                                 </div>
                             </div>
                         </div>

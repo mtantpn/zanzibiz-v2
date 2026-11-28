@@ -13,34 +13,34 @@
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <style>
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background-color: #FAF7F2;
-            color: #1C2B3A;
+            background-color: #FFFFFF;
+            color: #1D2427;
         }
         h1,h2,h3,h4 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #1C2B3A;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: #1D2427;
             letter-spacing: -0.02em;
         }
         .form-input {
-            background: #FAF7F2;
-            border: 1.5px solid #E4D9CC;
+            background: #FFFFFF;
+            border: 1.5px solid #EBEBEB;
             border-radius: 10px;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1C2B3A;
+            color: #1D2427;
             transition: all 0.2s ease;
             padding: 12px 16px;
             width: 100%;
         }
         .form-input:focus {
             outline: none;
-            border-color: #C8892A;
+            border-color: #0A6A94;
             background: #FFFFFF;
             box-shadow: 0 0 0 3px rgba(200,137,42,0.1);
             transform: none;
@@ -49,8 +49,8 @@
             color: #9AABB8;
         }
         .btn-primary {
-            background: #C8892A;
-            color: #FFFFFF;
+            background: #FFC72C;
+            color: #1D2427;
             border-radius: 10px;
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
@@ -63,12 +63,12 @@
             width: 100%;
         }
         .btn-primary:hover {
-            background: #A87020;
+            background: #F2B705;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(200,137,42,0.4);
         }
         .hero-pattern {
-            background-color: #F5EFE5;
+            background-color: #F7F7F7;
             background-image: radial-gradient(circle at 2px 2px, rgba(200,137,42,0.08) 1px, transparent 0);
             background-size: 24px 24px;
         }
@@ -80,19 +80,19 @@
         <div class="hidden lg:flex lg:w-1/2 hero-pattern relative overflow-hidden">
             <div class="absolute inset-0 flex items-center justify-center">
                 <div class="text-center p-12">
-                    <h1 class="font-display text-5xl font-bold text-[#1C2B3A] mb-6">Join ZanziBiz Today</h1>
+                    <h1 class="font-display text-5xl font-bold text-[#1D2427] mb-6">Join ZanziBiz Today</h1>
                     <p class="text-xl text-gray-600 mb-8">List your business and connect with thousands of potential customers across Zanzibar</p>
                     <div class="grid grid-cols-3 gap-6 mt-12">
                         <div class="text-center">
-                            <div class="text-4xl font-bold text-[#C8892A] mb-2">Free</div>
+                            <div class="text-4xl font-bold text-[#0A6A94] mb-2">Free</div>
                             <div class="text-sm text-gray-600">Basic Listing</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-4xl font-bold text-[#2A8C8A] mb-2">Easy</div>
+                            <div class="text-4xl font-bold text-[#1A7F45] mb-2">Easy</div>
                             <div class="text-sm text-gray-600">Setup Process</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-4xl font-bold text-[#2A8C8A] mb-2">24/7</div>
+                            <div class="text-4xl font-bold text-[#1A7F45] mb-2">24/7</div>
                             <div class="text-sm text-gray-600">Visibility</div>
                         </div>
                     </div>
@@ -101,10 +101,10 @@
         </div>
 
         <div class="w-full lg:w-1/2 flex items-center justify-center p-8">
-            <div class="w-full max-w-md" style="background: #FFFFFF; border-radius: 20px; padding: 48px; box-shadow: 0 4px 40px rgba(27,58,75,0.08); border: 1px solid #E4D9CC;">
+            <div class="w-full max-w-md" style="background: #FFFFFF; border-radius: 20px; padding: 48px; box-shadow: 0 4px 40px rgba(27,58,75,0.08); border: 1px solid #EBEBEB;">
                 <div class="text-center mb-8">
                     <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-20 sm:h-24 md:h-28 w-auto mx-auto mb-4">
-                    <h2 class="font-display text-3xl font-bold text-[#1C2B3A] mb-2">Create Account</h2>
+                    <h2 class="font-display text-3xl font-bold text-[#1D2427] mb-2">Create Account</h2>
                     <p class="text-gray-600">Get started with ZanziBiz</p>
                 </div>
 
@@ -118,49 +118,49 @@
 
                 <form id="signupForm" class="space-y-6">
                     <div>
-                        <label for="fullName" class="block text-sm font-semibold text-[#1C2B3A] mb-2">Full Name</label>
+                        <label for="fullName" class="block text-sm font-semibold text-[#1D2427] mb-2">Full Name</label>
                         <input
                             type="text"
                             id="fullName"
                             name="fullName"
                             required
-                            class="form-input focus:ring-2 focus:ring-[#C8892A]"
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
                             placeholder="Enter your full name"
                         >
                     </div>
 
                     <div>
-                        <label for="email" class="block text-sm font-semibold text-[#1C2B3A] mb-2">Email Address</label>
+                        <label for="email" class="block text-sm font-semibold text-[#1D2427] mb-2">Email Address</label>
                         <input
                             type="email"
                             id="email"
                             name="email"
                             required
-                            class="form-input focus:ring-2 focus:ring-[#C8892A]"
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
                             placeholder="you@example.com"
                         >
                     </div>
 
                     <div>
-                        <label for="password" class="block text-sm font-semibold text-[#1C2B3A] mb-2">Password</label>
+                        <label for="password" class="block text-sm font-semibold text-[#1D2427] mb-2">Password</label>
                         <input
                             type="password"
                             id="password"
                             name="password"
                             required
                             minlength="6"
-                            class="form-input focus:ring-2 focus:ring-[#C8892A]"
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
                             placeholder="Minimum 6 characters"
                         >
                     </div>
 
                     <div>
-                        <label for="userType" class="block text-sm font-semibold text-[#1C2B3A] mb-2">Account Type</label>
+                        <label for="userType" class="block text-sm font-semibold text-[#1D2427] mb-2">Account Type</label>
                         <select
                             id="userType"
                             name="userType"
                             required
-                            class="form-input focus:ring-2 focus:ring-[#C8892A]"
+                            class="form-input focus:ring-2 focus:ring-[#0A6A94]"
                         >
                             <option value="regular">Regular User - Browse & Review</option>
                             <option value="business">Business Owner - List My Business</option>
@@ -172,10 +172,10 @@
                             type="checkbox"
                             id="terms"
                             required
-                            class="mt-1 mr-2 h-4 w-4 text-[#C8892A] focus:ring-[#C8892A] border-[#E4D9CC] rounded"
+                            class="mt-1 mr-2 h-4 w-4 text-[#0A6A94] focus:ring-[#0A6A94] border-[#EBEBEB] rounded"
                         >
                         <label for="terms" class="text-sm text-gray-600">
-                            I agree to the <a href="#" class="text-[#C8892A] hover:underline">Terms of Service</a> and <a href="#" class="text-[#C8892A] hover:underline">Privacy Policy</a>
+                            I agree to the <a href="#" class="text-[#0A6A94] hover:underline">Terms of Service</a> and <a href="#" class="text-[#0A6A94] hover:underline">Privacy Policy</a>
                         </label>
                     </div>
 
@@ -191,12 +191,12 @@
                 <div class="mt-6 text-center">
                     <p class="text-gray-600">
                         Already have an account?
-                        <a href="login.html" class="text-[#C8892A] font-semibold hover:underline">Sign In</a>
+                        <a href="login.html" class="text-[#0A6A94] font-semibold hover:underline">Sign In</a>
                     </p>
                 </div>
 
                 <div class="mt-8 text-center text-sm text-gray-500">
-                    <a href="/" class="text-[#6B7A8D] hover:text-[#C8892A] transition-colors">← Back to Home</a>
+                    <a href="/" class="text-[#6B7A8D] hover:text-[#0A6A94] transition-colors">← Back to Home</a>
                 </div>
             </div>
         </div>

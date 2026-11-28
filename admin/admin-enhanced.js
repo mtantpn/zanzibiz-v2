@@ -431,8 +431,8 @@ window.loadListings = async function() {
                 <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
                     <span class="capitalize">${listing.category}</span>
                     <span class="px-2 py-1 rounded-full ${
-                        listing.status === 'featured' ? 'bg-brand-orange/20 text-brand-orange' :
-                        listing.status === 'boosted' ? 'bg-brand-orange/20 text-brand-orange' :
+                        listing.status === 'featured' ? 'bg-brand-orange/20 text-[#0A6A94]' :
+                        listing.status === 'boosted' ? 'bg-brand-orange/20 text-[#0A6A94]' :
                         'bg-green-100 text-green-800'
                     }">${listing.status}</span>
                 </div>

@@ -9,21 +9,21 @@
     <meta name="theme-color" content="#22C55E">
     <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
     <link rel="icon" type="image/png" href="/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/tailwind.css">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            background-color: #FAF7F2;
-            color: #1C2B3A;
+            background-color: #FFFFFF;
+            color: #1D2427;
         }
         h1,h2,h3,h4 {
-            font-family: 'Playfair Display', Georgia, serif;
-            color: #1C2B3A;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            color: #1D2427;
             letter-spacing: -0.02em;
         }
         .font-display {
-            font-family: 'Playfair Display', Georgia, serif !important;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
         }
         .screen { display: none; }
         .screen.active { display: block; }
@@ -46,9 +46,9 @@
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center space-x-3">
                     <img src="/Zanzibiz.com-logo.png" alt="ZanziBiz" class="h-14 w-auto">
-                    <span class="font-display text-lg font-bold text-[#1C2B3A] hidden sm:inline">Token Top-Up</span>
+                    <span class="font-display text-lg font-bold text-[#1D2427] hidden sm:inline">Token Top-Up</span>
                 </div>
-                <a href="dashboard.html" class="text-sm text-gray-500 hover:text-[#C8892A] transition-colors flex items-center gap-1">
+                <a href="dashboard.html" class="text-sm text-gray-500 hover:text-[#0A6A94] transition-colors flex items-center gap-1">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                     </svg>
@@ -62,7 +62,7 @@
 
         <!-- SCREEN: Loading -->
         <div id="screen-loading" class="screen active text-center py-20">
-            <svg class="w-12 h-12 text-[#C8892A] spin-slow mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-12 h-12 text-[#0A6A94] spin-slow mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
             </svg>
             <p class="text-gray-500">Loading your account...</p>
@@ -76,35 +76,35 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </div>
-                <h2 class="font-display text-xl font-bold text-[#1C2B3A] mb-2">Business Account Required</h2>
+                <h2 class="font-display text-xl font-bold text-[#1D2427] mb-2">Business Account Required</h2>
                 <p class="text-gray-500 mb-6">You must be logged in with a business account to top up tokens.</p>
-                <a href="../auth/login.html" style="background:#C8892A;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="inline-block px-6 py-3 hover:opacity-90 transition-opacity">Sign In</a>
+                <a href="../auth/login.html" style="background:#0A6A94;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="inline-block px-6 py-3 hover:opacity-90 transition-opacity">Sign In</a>
             </div>
         </div>
 
         <!-- SCREEN: Main -->
         <div id="screen-main" class="screen">
-            <div class="bg-white rounded-2xl shadow-sm p-6 mb-6 border border-[#E4D9CC]">
+            <div class="bg-white rounded-2xl shadow-sm p-6 mb-6 border border-[#EBEBEB]">
                 <div class="flex items-start justify-between mb-4">
                     <div>
                         <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Business Account</p>
-                        <h2 class="font-display text-2xl font-bold text-[#1C2B3A]" id="biz-name">—</h2>
+                        <h2 class="font-display text-2xl font-bold text-[#1D2427]" id="biz-name">—</h2>
                     </div>
                     <div class="text-right">
                         <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Token Balance</p>
-                        <p class="text-3xl font-bold text-[#C8892A]" id="biz-balance">0</p>
+                        <p class="text-3xl font-bold text-[#0A6A94]" id="biz-balance">0</p>
                     </div>
                 </div>
-                <div class="bg-[#F5EFE5] rounded-xl p-3 flex items-center justify-between gap-2">
+                <div class="bg-[#F7F7F7] rounded-xl p-3 flex items-center justify-between gap-2">
                     <div>
                         <p class="text-xs text-gray-500 mb-0.5">Your Client ID</p>
-                        <p class="font-mono text-xs text-[#1C2B3A] font-semibold break-all" id="biz-client-id">—</p>
+                        <p class="font-mono text-xs text-[#1D2427] font-semibold break-all" id="biz-client-id">—</p>
                     </div>
-                    <button onclick="copyField('biz-client-id')" class="copy-btn flex-shrink-0 text-xs bg-white border border-[#E4D9CC] text-gray-600 px-3 py-1.5 rounded-lg hover:border-[#C8892A] hover:text-[#C8892A] transition-colors">Copy</button>
+                    <button onclick="copyField('biz-client-id')" class="copy-btn flex-shrink-0 text-xs bg-white border border-[#EBEBEB] text-gray-600 px-3 py-1.5 rounded-lg hover:border-[#0A6A94] hover:text-[#0A6A94] transition-colors">Copy</button>
                 </div>
             </div>
 
-            <div class="bg-gradient-to-br from-[#1B3A4B] to-[#0F2535] rounded-2xl shadow-md p-6 mb-6 text-white">
+            <div class="bg-gradient-to-br from-[#1D2427] to-[#111618] rounded-2xl shadow-md p-6 mb-6 text-white">
                 <div class="flex items-center justify-between mb-3">
                     <div>
                         <p class="text-white/80 text-sm mb-1">Available Package</p>
@@ -142,7 +142,7 @@
                 </div>
             </div>
 
-            <button disabled style="background:#C8892A;opacity:0.4;cursor:not-allowed;" class="w-full text-white px-6 py-4 rounded-xl font-semibold flex items-center justify-between mb-4">
+            <button disabled style="background:#0A6A94;opacity:0.4;cursor:not-allowed;" class="w-full text-white px-6 py-4 rounded-xl font-semibold flex items-center justify-between mb-4">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,12 +163,12 @@
 
         <!-- SCREEN: Enter phone number -->
         <div id="screen-phone" class="screen">
-            <div class="bg-white rounded-2xl shadow-sm p-6 border border-[#E4D9CC]">
-                <button onclick="showScreen('screen-main')" class="text-sm text-gray-500 hover:text-[#C8892A] mb-5 flex items-center gap-1 transition-colors">
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-[#EBEBEB]">
+                <button onclick="showScreen('screen-main')" class="text-sm text-gray-500 hover:text-[#0A6A94] mb-5 flex items-center gap-1 transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                     Back
                 </button>
-                <h2 class="font-display text-2xl font-bold text-[#1C2B3A] mb-1">Enter Payer Phone</h2>
+                <h2 class="font-display text-2xl font-bold text-[#1D2427] mb-1">Enter Payer Phone</h2>
                 <p class="text-gray-500 text-sm mb-6">We will send a USSD prompt to this number. You can pay from any phone — tokens go to your business account.</p>
 
                 <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 mb-6 text-sm text-amber-800 flex gap-2">
@@ -178,7 +178,7 @@
 
                 <div class="mb-5">
                     <label class="block text-sm font-semibold text-brand-gray mb-2">Mobile Money Number</label>
-                    <div class="flex rounded-xl border-2 border-[#E4D9CC] focus-within:border-[#C8892A] overflow-hidden transition-colors">
+                    <div class="flex rounded-xl border-2 border-[#EBEBEB] focus-within:border-[#0A6A94] overflow-hidden transition-colors">
                         <span class="flex items-center px-3 bg-gray-50 border-r border-gray-200 text-gray-500 text-sm select-none">TZ</span>
                         <input type="tel" id="phone-input"
                             placeholder="255712345678"
@@ -189,13 +189,13 @@
                     <p id="phone-error" class="text-xs text-red-500 mt-1 hidden"></p>
                 </div>
 
-                <div class="bg-[#F5EFE5] rounded-xl p-4 mb-6 text-sm space-y-2">
-                    <div class="flex justify-between"><span class="text-gray-500">Business</span><span class="font-semibold text-[#1C2B3A]" id="phone-biz-name">—</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">Tokens</span><span class="font-semibold text-[#1C2B3A]">300</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">Amount</span><span class="font-bold text-[#C8892A]">1,500 TZS</span></div>
+                <div class="bg-[#F7F7F7] rounded-xl p-4 mb-6 text-sm space-y-2">
+                    <div class="flex justify-between"><span class="text-gray-500">Business</span><span class="font-semibold text-[#1D2427]" id="phone-biz-name">—</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Tokens</span><span class="font-semibold text-[#1D2427]">300</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Amount</span><span class="font-bold text-[#0A6A94]">1,500 TZS</span></div>
                 </div>
 
-                <button onclick="handlePreview()" id="btn-preview" style="background:#C8892A;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                <button onclick="handlePreview()" id="btn-preview" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     Preview Payment
                 </button>
             </div>
@@ -203,19 +203,19 @@
 
         <!-- SCREEN: Preview / confirm payment methods -->
         <div id="screen-preview" class="screen">
-            <div class="bg-white rounded-2xl shadow-sm p-6 border border-[#E4D9CC]">
-                <button onclick="showScreen('screen-phone')" class="text-sm text-gray-500 hover:text-[#C8892A] mb-5 flex items-center gap-1 transition-colors">
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-[#EBEBEB]">
+                <button onclick="showScreen('screen-phone')" class="text-sm text-gray-500 hover:text-[#0A6A94] mb-5 flex items-center gap-1 transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                     Change number
                 </button>
-                <h2 class="font-display text-2xl font-bold text-[#1C2B3A] mb-1">Confirm Payment</h2>
+                <h2 class="font-display text-2xl font-bold text-[#1D2427] mb-1">Confirm Payment</h2>
                 <p class="text-gray-500 text-sm mb-6">Review the details below, then tap <strong>Send USSD Prompt</strong> to receive the payment request on your phone.</p>
 
-                <div class="bg-[#F5EFE5] rounded-xl p-4 mb-5 text-sm space-y-3">
-                    <div class="flex justify-between"><span class="text-gray-500">Phone</span><span class="font-semibold text-[#1C2B3A] font-mono" id="preview-phone">—</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">Amount</span><span class="font-bold text-[#C8892A]">1,500 TZS</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">Tokens</span><span class="font-semibold text-[#1C2B3A]">300</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">Reference</span><span class="font-mono text-xs font-semibold text-[#1C2B3A]" id="preview-ref">—</span></div>
+                <div class="bg-[#F7F7F7] rounded-xl p-4 mb-5 text-sm space-y-3">
+                    <div class="flex justify-between"><span class="text-gray-500">Phone</span><span class="font-semibold text-[#1D2427] font-mono" id="preview-phone">—</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Amount</span><span class="font-bold text-[#0A6A94]">1,500 TZS</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Tokens</span><span class="font-semibold text-[#1D2427]">300</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Reference</span><span class="font-mono text-xs font-semibold text-[#1D2427]" id="preview-ref">—</span></div>
                 </div>
 
                 <div id="preview-methods" class="mb-5 hidden">
@@ -223,7 +223,7 @@
                     <div id="preview-methods-list" class="space-y-2"></div>
                 </div>
 
-                <button onclick="handleInitiate()" id="btn-initiate" style="background:#C8892A;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                <button onclick="handleInitiate()" id="btn-initiate" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     Send USSD Prompt
                 </button>
                 <p id="initiate-error" class="text-red-500 text-sm mt-3 hidden text-center"></p>
@@ -232,20 +232,20 @@
 
         <!-- SCREEN: Waiting for payment -->
         <div id="screen-waiting" class="screen">
-            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#E4D9CC]">
-                <div class="w-20 h-20 bg-[#2A8C8A]/10 rounded-full flex items-center justify-center mx-auto mb-6 pulse-ring">
-                    <svg class="w-10 h-10 text-[#2A8C8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#EBEBEB]">
+                <div class="w-20 h-20 bg-[#1A7F45]/10 rounded-full flex items-center justify-center mx-auto mb-6 pulse-ring">
+                    <svg class="w-10 h-10 text-[#1A7F45]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                     </svg>
                 </div>
-                <h2 class="font-display text-2xl font-bold text-[#1C2B3A] mb-3">Check Your Phone</h2>
-                <p class="text-gray-500 mb-2">A USSD prompt has been sent to <span class="font-semibold text-[#1C2B3A]" id="waiting-phone">your phone</span>.</p>
-                <p class="text-[#2A8C8A] font-semibold mb-6">Enter your M-Pesa PIN to complete the payment.</p>
+                <h2 class="font-display text-2xl font-bold text-[#1D2427] mb-3">Check Your Phone</h2>
+                <p class="text-gray-500 mb-2">A USSD prompt has been sent to <span class="font-semibold text-[#1D2427]" id="waiting-phone">your phone</span>.</p>
+                <p class="text-[#1A7F45] font-semibold mb-6">Enter your M-Pesa PIN to complete the payment.</p>
 
-                <div class="bg-[#F5EFE5] rounded-xl p-4 mb-6 text-sm space-y-2 text-left">
-                    <div class="flex justify-between"><span class="text-gray-500">Reference</span><span class="font-mono font-semibold text-[#1C2B3A] text-xs" id="waiting-ref">—</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">Amount</span><span class="font-bold text-[#C8892A]">1,500 TZS</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">Tokens</span><span class="font-semibold text-[#1C2B3A]">300</span></div>
+                <div class="bg-[#F7F7F7] rounded-xl p-4 mb-6 text-sm space-y-2 text-left">
+                    <div class="flex justify-between"><span class="text-gray-500">Reference</span><span class="font-mono font-semibold text-[#1D2427] text-xs" id="waiting-ref">—</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Amount</span><span class="font-bold text-[#0A6A94]">1,500 TZS</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Tokens</span><span class="font-semibold text-[#1D2427]">300</span></div>
                 </div>
 
                 <div id="api-debug-section" class="mb-6 hidden">
@@ -265,7 +265,7 @@
 
                 <div id="waiting-auto-msg" class="text-xs text-gray-400 mb-4">Checking status automatically every few seconds…</div>
 
-                <button onclick="manualPollStatus()" id="btn-check" style="background:#C8892A;" class="w-full text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3 disabled:opacity-50">
+                <button onclick="manualPollStatus()" id="btn-check" style="background:#0A6A94;" class="w-full text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3 disabled:opacity-50">
                     Check Now
                 </button>
                 <button onclick="resetFlow()" class="w-full bg-white border-2 border-gray-200 text-gray-500 px-6 py-3 rounded-xl text-sm font-semibold hover:border-red-300 hover:text-red-500 transition-colors">
@@ -277,22 +277,22 @@
 
         <!-- SCREEN: Success -->
         <div id="screen-success" class="screen">
-            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#E4D9CC]">
+            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#EBEBEB]">
                 <div class="w-20 h-20 bg-[#E8F4F4] rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-10 h-10 text-[#2A8C8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-10 h-10 text-[#1A7F45]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                     </svg>
                 </div>
-                <h2 class="font-display text-2xl font-bold text-[#1C2B3A] mb-2">Payment Successful!</h2>
+                <h2 class="font-display text-2xl font-bold text-[#1D2427] mb-2">Payment Successful!</h2>
                 <p class="text-gray-500 mb-6">300 tokens have been added to your business account.</p>
 
-                <div class="bg-[#F5EFE5] rounded-xl p-4 mb-6 text-sm space-y-3">
-                    <div class="flex justify-between"><span class="text-gray-500">Tokens Added</span><span class="font-bold text-[#2A8C8A]">+300</span></div>
-                    <div class="flex justify-between"><span class="text-gray-500">New Balance</span><span class="font-bold text-[#1C2B3A]" id="success-balance">—</span></div>
-                    <div class="flex justify-between items-start"><span class="text-gray-500">Reference</span><span class="font-mono text-xs text-[#1C2B3A] font-semibold" id="success-ref">—</span></div>
+                <div class="bg-[#F7F7F7] rounded-xl p-4 mb-6 text-sm space-y-3">
+                    <div class="flex justify-between"><span class="text-gray-500">Tokens Added</span><span class="font-bold text-[#1A7F45]">+300</span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">New Balance</span><span class="font-bold text-[#1D2427]" id="success-balance">—</span></div>
+                    <div class="flex justify-between items-start"><span class="text-gray-500">Reference</span><span class="font-mono text-xs text-[#1D2427] font-semibold" id="success-ref">—</span></div>
                 </div>
 
-                <a href="dashboard.html" style="background:#C8892A;" class="block w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors">
+                <a href="dashboard.html" style="background:#0A6A94;" class="block w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors">
                     Back to Dashboard
                 </a>
             </div>
@@ -300,21 +300,21 @@
 
         <!-- SCREEN: Pending -->
         <div id="screen-pending" class="screen">
-            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#E4D9CC]">
+            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#EBEBEB]">
                 <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <svg class="w-10 h-10 text-yellow-600 spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                 </div>
-                <h2 class="font-display text-2xl font-bold text-[#1C2B3A] mb-2">Payment Processing</h2>
+                <h2 class="font-display text-2xl font-bold text-[#1D2427] mb-2">Payment Processing</h2>
                 <p class="text-gray-500 mb-2">Your payment is still being processed. No tokens have been added yet.</p>
-                <p class="text-[#C8892A] text-sm font-semibold mb-6" id="pending-msg">Please wait a few moments and check again.</p>
+                <p class="text-[#0A6A94] text-sm font-semibold mb-6" id="pending-msg">Please wait a few moments and check again.</p>
 
-                <div class="bg-[#F5EFE5] rounded-xl p-4 mb-6 text-sm">
-                    <div class="flex justify-between"><span class="text-gray-500">Reference</span><span class="font-mono text-xs font-semibold text-[#1C2B3A]" id="pending-ref">—</span></div>
+                <div class="bg-[#F7F7F7] rounded-xl p-4 mb-6 text-sm">
+                    <div class="flex justify-between"><span class="text-gray-500">Reference</span><span class="font-mono text-xs font-semibold text-[#1D2427]" id="pending-ref">—</span></div>
                 </div>
 
-                <button onclick="showScreen('screen-waiting')" style="background:#C8892A;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
+                <button onclick="showScreen('screen-waiting')" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
                     Back to Waiting Screen
                 </button>
                 <button onclick="resetFlow()" class="w-full bg-white border-2 border-gray-200 text-gray-500 px-6 py-3 rounded-xl text-sm font-semibold hover:border-red-300 hover:text-red-500 transition-colors">
@@ -325,20 +325,20 @@
 
         <!-- SCREEN: Failed -->
         <div id="screen-failed" class="screen">
-            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#E4D9CC]">
+            <div class="bg-white rounded-2xl shadow-sm p-8 text-center border border-[#EBEBEB]">
                 <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-10 h-10 text-[#D4603A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-10 h-10 text-[#D93025]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </div>
-                <h2 class="font-display text-2xl font-bold text-[#1C2B3A] mb-2">Payment Failed</h2>
+                <h2 class="font-display text-2xl font-bold text-[#1D2427] mb-2">Payment Failed</h2>
                 <p class="text-gray-500 mb-2">The payment was not completed. No tokens were added.</p>
                 <p class="text-sm text-gray-400 mb-6" id="failed-msg">Please try again.</p>
 
-                <button onclick="resetFlow()" style="background:#C8892A;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
+                <button onclick="resetFlow()" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
                     Try Again
                 </button>
-                <a href="dashboard.html" class="block w-full text-center text-gray-500 hover:text-[#1C2B3A] text-sm py-2 transition-colors">
+                <a href="dashboard.html" class="block w-full text-center text-gray-500 hover:text-[#1D2427] text-sm py-2 transition-colors">
                     Back to Dashboard
                 </a>
             </div>
@@ -507,7 +507,7 @@
                     methods.forEach(m => {
                         const name = typeof m === 'string' ? m : (m.name || m.channel || JSON.stringify(m));
                         const div = document.createElement('div');
-                        div.className = 'flex items-center gap-2 bg-[#E8F4F4] border border-[#2A8C8A]/20 rounded-lg px-3 py-2 text-sm text-[#2A8C8A] font-medium';
+                        div.className = 'flex items-center gap-2 bg-[#E8F4F4] border border-[#1A7F45]/20 rounded-lg px-3 py-2 text-sm text-[#1A7F45] font-medium';
                         div.innerHTML = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>${name}`;
                         methodsList.appendChild(div);
                     });

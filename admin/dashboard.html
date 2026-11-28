@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="/Zanzibiz.com-logo.png">
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/tailwind.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
@@ -30,7 +30,7 @@
         .border-brand-orange { border-color: #FB923C !important; }
         .border-brand-teal { border-color: #0891B2 !important; }
         .font-body { font-family: Inter, system-ui, sans-serif; }
-        .font-display { font-family: 'Playfair Display', serif; }
+        .font-display { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
         .brand-orange\/10 { background-color: rgb(251 146 60 / 0.1) !important; }
         .brand-teal\/10 { background-color: rgb(8 145 178 / 0.1) !important; }
     </style>
@@ -219,7 +219,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <h1 class="font-display text-2xl font-bold text-brand-gray" id="pageTitle">Overview Dashboard</h1>
-                        <p class="text-sm text-gray-600">Welcome back, <span id="adminName" class="font-semibold text-brand-orange">Admin</span></p>
+                        <p class="text-sm text-gray-600">Welcome back, <span id="adminName" class="font-semibold text-[#0A6A94]">Admin</span></p>
                     </div>
 
                     <div class="flex items-center space-x-4">
@@ -227,7 +227,7 @@
                             <p class="text-xs text-gray-500">Current Time</p>
                             <p class="text-sm font-semibold text-brand-gray" id="currentTime">--:--</p>
                         </div>
-                        <a href="../index.html" class="px-4 py-2 bg-brand-orange text-white rounded-lg hover:bg-brand-orange/90 transition-all text-sm font-medium">
+                        <a href="../index.html" class="px-4 py-2 bg-brand-orange text-[#1D2427] rounded-lg hover:bg-[#F2B705]/90 transition-all text-sm font-medium">
                             View Site
                         </a>
                     </div>
@@ -308,7 +308,7 @@
                         </div>
                         <div class="glass-strong p-6 rounded-xl shadow-xl">
                             <h4 class="font-semibold text-brand-gray mb-2">Token Sales</h4>
-                            <p class="text-3xl font-bold text-brand-orange" id="tokenSales">0</p>
+                            <p class="text-3xl font-bold text-[#0A6A94]" id="tokenSales">0</p>
                             <p class="text-sm text-gray-500" id="avgPurchase">$0 avg</p>
                         </div>
                         <div class="glass-strong p-6 rounded-xl shadow-xl">
@@ -359,7 +359,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                         <div class="glass-strong p-6 rounded-xl shadow-xl">
                             <h4 class="font-semibold text-brand-gray mb-2">Today's Traffic</h4>
-                            <p class="text-3xl font-bold text-brand-orange" id="todayTraffic">0</p>
+                            <p class="text-3xl font-bold text-[#0A6A94]" id="todayTraffic">0</p>
                             <p class="text-sm text-gray-500">page views</p>
                         </div>
                         <div class="glass-strong p-6 rounded-xl shadow-xl">
@@ -438,7 +438,7 @@
                         <div class="p-6 border-b border-gray-200 flex items-center justify-between gap-3">
                             <h3 class="font-display text-xl font-bold text-brand-gray">All Listings</h3>
                             <div class="flex items-center gap-3">
-                                <button onclick="openCreateListingModal()" class="bg-brand-orange text-white px-4 py-2 rounded-lg hover:bg-brand-orange/90 flex items-center gap-2 text-sm font-medium">
+                                <button onclick="openCreateListingModal()" class="bg-brand-orange text-[#1D2427] px-4 py-2 rounded-lg hover:bg-[#F2B705]/90 flex items-center gap-2 text-sm font-medium">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                                     </svg>
@@ -474,7 +474,7 @@
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Reason</label>
                                 <textarea id="tokenReason" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Reason for granting tokens..."></textarea>
                             </div>
-                            <button type="submit" class="bg-brand-orange text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-orange/90">
+                            <button type="submit" class="bg-brand-orange text-[#1D2427] px-6 py-3 rounded-lg font-semibold hover:bg-[#F2B705]/90">
                                 Grant Tokens
                             </button>
                         </form>
@@ -541,20 +541,20 @@
             <form id="createUserForm" class="p-6 space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                    <input type="text" id="newUserName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="John Doe">
+                    <input type="text" id="newUserName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="John Doe">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                    <input type="email" id="newUserEmail" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="john@example.com">
+                    <input type="email" id="newUserEmail" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="john@example.com">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Temporary Password</label>
-                    <input type="password" id="newUserPassword" required minlength="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="Min. 6 characters">
+                    <input type="password" id="newUserPassword" required minlength="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Min. 6 characters">
                     <p class="text-xs text-gray-500 mt-1">User will need to change this on first login</p>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Account Type</label>
-                    <select id="newUserType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" onchange="toggleBusinessFields()">
+                    <select id="newUserType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" onchange="toggleBusinessFields()">
                         <option value="user">Regular User</option>
                         <option value="business">Business Account</option>
                         <option value="admin">Admin Account</option>
@@ -563,11 +563,11 @@
                 <div id="businessFields" class="hidden space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
-                        <input type="text" id="newBusinessName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="Business Name">
+                        <input type="text" id="newBusinessName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Business Name">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Initial Token Balance</label>
-                        <input type="number" id="newUserTokens" min="0" value="0" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="0">
+                        <input type="number" id="newUserTokens" min="0" value="0" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="0">
                     </div>
                 </div>
                 <div class="flex gap-3 pt-4">
@@ -724,17 +724,17 @@
                 </div>
                 <form id="createListingForm" class="p-6 space-y-5" novalidate>
 
-                    <div class="p-4 bg-brand-orange/5 border border-brand-orange/20 rounded-lg">
+                    <div class="p-4 bg-brand-orange/5 border border-[#0A6A94]/20 rounded-lg">
                         <h4 class="font-semibold text-brand-gray mb-3">Listed By</h4>
                         <div class="space-y-3">
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Business / Person Name *</label>
-                                <input type="text" id="createListingByName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="e.g. Grayson Msovela">
+                                <input type="text" id="createListingByName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. Grayson Msovela">
                                 <p class="text-xs text-gray-500 mt-1">Name shown on the listing card. Can be anyone, registered or not.</p>
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Link to Registered Business (Optional)</label>
-                                <select id="createListingBusinessId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                                <select id="createListingBusinessId" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                                     <option value="">None - unregistered business</option>
                                 </select>
                                 <p class="text-xs text-gray-500 mt-1">Only select if this business has an account. Leave empty otherwise.</p>
@@ -745,15 +745,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Title *</label>
-                            <input type="text" id="createListingTitle" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="e.g. Stone Town Spice Tour">
+                            <input type="text" id="createListingTitle" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. Stone Town Spice Tour">
                         </div>
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                            <textarea id="createListingDescription" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="Describe the business, service or product..."></textarea>
+                            <textarea id="createListingDescription" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Describe the business, service or product..."></textarea>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Category *</label>
-                            <select id="createListingCategory" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <select id="createListingCategory" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                                 <option value="">Select category...</option>
                                 <option value="jobs">Jobs</option>
                                 <option value="events">Events</option>
@@ -766,23 +766,23 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Subcategory</label>
-                            <input type="text" id="createListingSubcategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="e.g. Restaurant, Hotel...">
+                            <input type="text" id="createListingSubcategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. Restaurant, Hotel...">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Location *</label>
-                            <input type="text" id="createListingLocation" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="e.g. stone-town, nungwi...">
+                            <input type="text" id="createListingLocation" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="e.g. stone-town, nungwi...">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                            <input type="text" id="createListingAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="Street address">
+                            <input type="text" id="createListingAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Street address">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
-                            <input type="number" id="createListingPrice" min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="0.00">
+                            <input type="number" id="createListingPrice" min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="0.00">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                            <select id="createListingStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <select id="createListingStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                                 <option value="pending">Pending</option>
@@ -791,19 +791,19 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                            <input type="text" id="createListingPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="+255...">
+                            <input type="text" id="createListingPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="+255...">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
-                            <input type="text" id="createListingWhatsapp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="+255...">
+                            <input type="text" id="createListingWhatsapp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="+255...">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="createListingEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="contact@business.com">
+                            <input type="email" id="createListingEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="contact@business.com">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
-                            <input type="text" id="createListingWebsite" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="https://...">
+                            <input type="text" id="createListingWebsite" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="https://...">
                         </div>
                     </div>
 
@@ -815,7 +815,7 @@
                     </div>
 
                     <div class="flex gap-3 pt-4 border-t">
-                        <button type="submit" id="createListingSubmitBtn" class="flex-1 bg-brand-orange text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-orange/90 transition-all">
+                        <button type="submit" id="createListingSubmitBtn" class="flex-1 bg-brand-orange text-[#1D2427] py-3 px-6 rounded-lg font-semibold hover:bg-[#F2B705]/90 transition-all">
                             Create Listing
                         </button>
                         <button type="button" onclick="closeCreateListingModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
@@ -844,21 +844,21 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Listed By Name</label>
-                        <input type="text" id="editListingByName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent" placeholder="Business or person name shown on listing">
+                        <input type="text" id="editListingByName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent" placeholder="Business or person name shown on listing">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Title *</label>
-                            <input type="text" id="editListingTitle" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editListingTitle" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div class="md:col-span-2">
                             <label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
-                            <textarea id="editListingDescription" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent"></textarea>
+                            <textarea id="editListingDescription" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent"></textarea>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                            <select id="editListingCategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <select id="editListingCategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                                 <option value="jobs">Jobs</option>
                                 <option value="events">Events</option>
                                 <option value="business">Business</option>
@@ -870,23 +870,23 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Subcategory</label>
-                            <input type="text" id="editListingSubcategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editListingSubcategory" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
-                            <input type="text" id="editListingLocation" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editListingLocation" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                            <input type="text" id="editListingAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editListingAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Price</label>
-                            <input type="number" id="editListingPrice" min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="number" id="editListingPrice" min="0" step="0.01" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Status</label>
-                            <select id="editListingStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <select id="editListingStatus" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
                                 <option value="pending">Pending</option>
@@ -896,19 +896,19 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                            <input type="text" id="editListingPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editListingPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="editListingEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="email" id="editListingEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Website</label>
-                            <input type="text" id="editListingWebsite" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editListingWebsite" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
-                            <input type="text" id="editListingWhatsapp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editListingWhatsapp" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                     </div>
 
@@ -922,7 +922,7 @@
                     </div>
 
                     <div class="flex gap-3 pt-4 border-t">
-                        <button type="submit" class="flex-1 bg-brand-orange text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-orange/90 transition-all">
+                        <button type="submit" class="flex-1 bg-brand-orange text-[#1D2427] py-3 px-6 rounded-lg font-semibold hover:bg-[#F2B705]/90 transition-all">
                             Save Changes
                         </button>
                         <button type="button" onclick="closeEditListingModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
@@ -951,7 +951,7 @@
 
                     <div class="flex items-center space-x-6 mb-2">
                         <div class="relative">
-                            <div id="userProfileAvatarDisplay" class="w-24 h-24 rounded-full bg-brand-orange flex items-center justify-center text-white text-3xl font-bold overflow-hidden">
+                            <div id="userProfileAvatarDisplay" class="w-24 h-24 rounded-full bg-brand-orange flex items-center justify-center text-[#1D2427] text-3xl font-bold overflow-hidden">
                                 U
                             </div>
                             <label class="absolute bottom-0 right-0 bg-white rounded-full p-1 shadow cursor-pointer border border-gray-200 hover:bg-gray-50">
@@ -973,19 +973,19 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                            <input type="text" id="editUserFullName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editUserFullName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="editUserEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent bg-gray-50" readonly>
+                            <input type="email" id="editUserEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent bg-gray-50" readonly>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                            <input type="text" id="editUserPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <input type="text" id="editUserPhone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Account Type</label>
-                            <select id="editUserType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <select id="editUserType" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                                 <option value="user">Regular User</option>
                                 <option value="business">Business</option>
                                 <option value="admin">Admin</option>
@@ -993,7 +993,7 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Language</label>
-                            <select id="editUserLanguage" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent">
+                            <select id="editUserLanguage" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0A6A94] focus:border-transparent">
                                 <option value="en">English</option>
                                 <option value="sw">Swahili</option>
                                 <option value="it">Italian</option>
@@ -1028,7 +1028,7 @@
                     </div>
 
                     <div class="flex gap-3 pt-4 border-t">
-                        <button type="submit" class="flex-1 bg-brand-orange text-white py-3 px-6 rounded-lg font-semibold hover:bg-brand-orange/90 transition-all">
+                        <button type="submit" class="flex-1 bg-brand-orange text-[#1D2427] py-3 px-6 rounded-lg font-semibold hover:bg-[#F2B705]/90 transition-all">
                             Save Changes
                         </button>
                         <button type="button" onclick="closeUserProfileModal()" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
