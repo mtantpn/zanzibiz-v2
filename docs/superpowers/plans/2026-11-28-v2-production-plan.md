@@ -18,16 +18,17 @@ This supersedes the Astro architecture and the section 4 dates. V2 launches on *
 
 | Day | Tasks |
 |---|---|
-| Mon 30 Nov | Madu downloads newest Bolt code (1.5) and runs 0.1. Import it into this repo without `public/*.zip`, `backups/`, `dist/`, `download.html`; add 2.2 guard + gitleaks |
-| Mon–Tue | 0.2–0.4 security fixes with tests, Madu approves and applies; 0.5 admin audit |
+| Mon 30 Nov | Madu downloads newest Bolt code (1.5) and exports tables as a safety copy (1.1). Import it into this repo without `public/*.zip`, `backups/`, `dist/`, `download.html`; add 2.2 guard + gitleaks |
+| Tue 1 Dec | Madu claims the database into `aisqnweb` (1.2; Bolt support confirmed same ref, keys, users, sessions, files, functions, secrets; no downtime on Pro; no Netlify change). Same day: post-claim checks, full backup (1.3), 0.1 checks run directly, 0.2–0.4 fixes shown and applied with Madu's yes, 0.5 admin audit |
 | Tue–Thu | 2.3 design tokens into `lib/design-system.css` + Tailwind config, restyle all 29 pages; one Netlify Function `netlify/functions/render.ts` serving `/business/:slug`, `/directory/:category`, `/travel-guide/:slug`, `/blog/:slug` (forced rules) with real 404/503, canonical, meta, JSON-LD (3.1–3.3); DB sitemap (3.5); robots + llms.txt (3.6); forwards incl. `/blog 301!` (3.7); new `public/sw.js` that clears V1 caches (3.9); remove bolt.new badge |
-| Thu | 1.4 new Netlify project `zanzibiz-v2` in Madu's team, password-protected previews |
+| Thu | 1.4 new Netlify project `zanzibiz-v2` in sqntechuk's team, password-protected previews |
+| Fri 4 Dec | Restore rehearsal of Tuesday's backup into an isolated project |
 | Fri 4 Dec | Preview QA: sign-in (email + Google), owner edit, admin, payments still off, every row of `docs/routes.csv`, `scripts/seo-smoke.sh`; Madu go/no-go |
-| Mon 7 Dec 06:00 EAT | 5.2 cutover: add zanzibiz.com + www to the new project (TXT verification in Cloudflare if Netlify asks); smoke tests live; rollback = point domain back |
+| Mon 7 Dec 06:00 EAT | 5.2 cutover: add zanzibiz.com + www to the new project (Madu owns the domain and Cloudflare DNS; point apex + www at the new project); smoke tests live; rollback = point domain back |
 
-After launch: phase 1 claim + backup (7–11 Dec), dashboards/analytics/moderation/saved/guide answers/RLS suite (14 Dec–8 Jan), apps (14 Dec–15 Jan: Android submit 11 Jan, iOS 15 Jan), comics (live 9 Feb), buyer pack (1–19 Feb), pitch from 22 Feb. Task numbers below still apply; ignore `[A]` Astro file paths and use V1 equivalents.
+After launch: dashboards/analytics/moderation/saved/guide answers/RLS suite (14 Dec–8 Jan), apps (14 Dec–15 Jan: Android submit 11 Jan, iOS 15 Jan), comics (live 9 Feb), buyer pack (1–19 Feb), pitch from 22 Feb. Task numbers below still apply; ignore `[A]` Astro file paths and use V1 equivalents.
 
-Risks to 7 Dec: newest code only in Bolt; hosting in Bolt's Netlify account (domain verification or release by Bolt); security fixes need Madu's yes; less testing than the January plan (dashboard polish moves to week 2).
+Risks to 7 Dec: newest code only in Bolt; claim must happen Tue 1 Dec; security fixes need Madu's yes; less testing than the January plan (dashboard polish moves to week 2).
 
 ---
 
@@ -46,7 +47,7 @@ Risks to 7 Dec: newest code only in Bolt; hosting in Bolt's Netlify account (dom
 | Asset | Where | State |
 |---|---|---|
 | Live site | zanzibiz.com, served by Netlify | Built in bolt.new. Live bundle (`main-0T6DFXAq.js`) does not match the backup snapshot, so the newest source is still in Bolt |
-| Netlify hosting | Not in Madu's Netlify team | Madu's team (Pro) has 9 projects, none serving zanzibiz.com. The site sits in an account Bolt controls. Needs a transfer or a domain move (task 1.4) |
+| Netlify hosting | Madu's, under a Netlify login other than the connected sqntechuk team | Domain and DNS are Madu's. V2 launches from a new project in sqntechuk's team; the current site stays as rollback |
 | Database, Auth, Storage | Supabase project `jaoyujiwqzzrdhmzntlj` | Bolt-managed. 361 profiles, 139 business profiles, 123 listings, 32 blog posts, 24 top-ups, 19 orders (Bolt panel, 27 Nov). Buckets `blog-images`, `listing-images`, `profile-pictures` |
 | Supabase org | `aisqnweb`, Pro | Holds only an unrelated project. Ready to receive the claim |
 | DNS | Cloudflare | Apex DNS-only to Netlify; `www` proxied |
