@@ -12,6 +12,8 @@ export default {
     './directory/**/*.html',
     './travel-guide/**/*.html',
     './src/**/*.{js,css}',
+    // Server-rendered page bodies (business, guide) use Tailwind classes too
+    './netlify/functions/**/*.mts',
   ],
   theme: {
     extend: {

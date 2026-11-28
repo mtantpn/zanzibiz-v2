@@ -27,7 +27,49 @@
         h1, h2, h3 { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #1D2427; letter-spacing: -0.02em; }
         .prose p { margin-bottom: 1.25rem; line-height: 1.8; color: #3A5060; }
         .prose h2 { font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+        .prose ul { margin-left: 1.5rem; margin-bottom: 1.25rem; list-style: disc; }
+        .prose li { margin-bottom: 0.4rem; line-height: 1.7; color: #3A5060; }
+        .prose a { color: #0A6A94; }
+        .facts { display: grid; grid-template-columns: 1fr; gap: 0.25rem 1.5rem; margin: 0 0 1.5rem; padding: 1.25rem 1.5rem; background: #F7F7F7; border-radius: 14px; }
+        .facts dt { font-weight: 700; color: #1D2427; margin-top: 0.5rem; }
+        .facts dd { margin: 0; color: #3A5060; }
+        @media (min-width: 640px) { .facts { grid-template-columns: 200px 1fr; } .facts dt { margin-top: 0; } }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://zanzibiz.com/#organization",
+                "name": "ZanziBiz",
+                "url": "https://zanzibiz.com/",
+                "logo": "https://zanzibiz.com/Zanzibiz.com-logo.png",
+                "description": "ZanziBiz is an online directory of small businesses in Zanzibar, Tanzania, with a free travel guide for visitors.",
+                "email": "hello@zanzibiz.com",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "hello@zanzibiz.com",
+                    "telephone": "+255651532484",
+                    "availableLanguage": ["English"]
+                },
+                "areaServed": { "@type": "Place", "name": "Zanzibar, Tanzania" },
+                "sameAs": ["https://www.facebook.com/zanzibiz", "https://www.instagram.com/zanzibiz"]
+            },
+            {
+                "@type": "AboutPage",
+                "@id": "https://zanzibiz.com/about#page",
+                "url": "https://zanzibiz.com/about",
+                "name": "About ZanziBiz",
+                "isPartOf": { "@id": "https://zanzibiz.com/#website" },
+                "about": { "@id": "https://zanzibiz.com/#organization" },
+                "mainEntity": { "@id": "https://zanzibiz.com/#organization" },
+                "dateModified": "2026-11-28"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <nav class="bg-white shadow-sm sticky top-0 z-50">
@@ -54,22 +96,45 @@
     </div>
 
     <main class="max-w-3xl mx-auto px-4 py-14 prose">
-        <p>ZanziBiz is Zanzibar's dedicated travel guide and local business directory, built to help travelers and residents discover the very best the island has to offer.</p>
+        <p><strong>ZanziBiz</strong> (zanzibiz.com) is an online directory of small businesses in Zanzibar, Tanzania, with a free travel guide for visitors. Travellers and residents use it to find local businesses and contact them directly, usually by WhatsApp or phone. Businesses can list themselves for free.</p>
 
-        <h2>Our Mission</h2>
-        <p>We believe traveling to Zanzibar should be easy, safe, and full of authentic local experiences. Our mission is to provide honest, practical travel information alongside a trusted directory of verified local businesses — from hotels and restaurants to tour operators, transport services, and beyond.</p>
+        <h2 id="facts">ZanziBiz at a glance</h2>
+        <dl class="facts">
+            <dt>Name</dt><dd>ZanziBiz</dd>
+            <dt>Website</dt><dd><a href="https://zanzibiz.com/">zanzibiz.com</a></dd>
+            <dt>What it is</dt><dd>A business directory and travel guide for Zanzibar</dd>
+            <dt>Area covered</dt><dd>Zanzibar, Tanzania, including Stone Town, Nungwi, Kendwa, Paje, Jambiani, Matemwe and Kiwengwa</dd>
+            <dt>Directory categories</dt><dd><a href="/directory/accommodation">Accommodation</a>, <a href="/directory/activities">activities and tours</a>, <a href="/directory/business">business and services</a>, <a href="/directory/automotive">automotive</a>, <a href="/directory/events">events</a> and <a href="/directory/jobs">jobs</a></dd>
+            <dt>Cost to list a business</dt><dd>Free. Businesses can pay to boost or feature a listing.</dd>
+            <dt>Contact</dt><dd><a href="mailto:hello@zanzibiz.com">hello@zanzibiz.com</a> or WhatsApp <a href="https://wa.me/255651532484">+255 651 532 484</a></dd>
+        </dl>
 
-        <h2>What We Cover</h2>
-        <p>Our travel guides cover everything you need to plan your Zanzibar trip: where to stay in Stone Town, Nungwi, Paje, Kendwa and Jambiani; the best beaches and how to reach them; getting around by dala-dala, taxi, or scooter; where to eat; local culture and customs; safety tips; and practical information for first-time visitors and repeat travelers alike.</p>
+        <h2 id="who">Who runs ZanziBiz</h2>
+        <p>ZanziBiz is an independent, owner-run website. It is not a booking agent: when you find a business on ZanziBiz, you deal with that business directly. You can reach the team at <a href="mailto:hello@zanzibiz.com">hello@zanzibiz.com</a>.</p>
 
-        <h2>The Business Directory</h2>
-        <p>Alongside the travel guide, ZanziBiz runs a comprehensive local business directory. Business owners can list their services to reach travelers and locals directly. Every listing goes through a basic review process to help ensure quality and accuracy.</p>
+        <h2 id="listings">How listings work</h2>
+        <ul>
+            <li><strong>Businesses write their own listings.</strong> The owner adds the description, contact details, area, opening hours and prices, and can update them at any time. Each business page shows when the listing was last updated.</li>
+            <li><strong>Verified badge.</strong> A listing marked <em>Verified</em> belongs to a business profile that the ZanziBiz team has checked and marked as verified. Listings without the badge have not been checked yet.</li>
+            <li><strong>Boosted and Featured.</strong> These listings have paid for extra visibility, and are labelled on the listing page.</li>
+            <li><strong>Corrections.</strong> The ZanziBiz team can correct or remove listings that are wrong, out of date or break our <a href="/terms">terms</a>. If you spot a mistake, <a href="/contact">tell us</a>.</li>
+        </ul>
+        <p>Always confirm prices, opening hours and availability with the business before you travel.</p>
+
+        <h2 id="guides">How the travel guide is written</h2>
+        <p>The <a href="/travel-guide">Zanzibar travel guide</a> is written and published by ZanziBiz. It covers <a href="/travel-guide/flights-to-zanzibar">flights</a>, <a href="/travel-guide/airport-transfers">airport transfers</a>, <a href="/travel-guide/where-to-stay">where to stay</a>, <a href="/travel-guide/hotels">hotels</a>, <a href="/travel-guide/tours">tours</a>, getting around, food, culture and safety. Every guide shows when it was last updated. Prices in the guides are approximate.</p>
+        <p>Some travel links in the guides are affiliate links: ZanziBiz may earn a commission if you book through them, at no extra cost to you. Read the <a href="/affiliate">affiliate disclosure</a>.</p>
+
+        <h2 id="citing">Quoting and linking to ZanziBiz</h2>
+        <p>You are welcome to quote and link to ZanziBiz pages. Please cite <em>ZanziBiz (zanzibiz.com)</em> and link to the business or guide page you used. A plain-text index of every business and guide is available at <a href="/llms.txt">/llms.txt</a> and <a href="/llms-full.txt">/llms-full.txt</a>, and every page is listed in the <a href="/sitemap.xml">sitemap</a>.</p>
 
         <h2>ZanziBiz WebStart</h2>
-        <p>We also offer <a href="/webstart" style="color:#0A6A94;">ZanziBiz WebStart</a> — an affordable, managed website service for Zanzibar businesses that want a professional online presence, starting from 30,000 TZS/month with no setup fee.</p>
+        <p>We also offer <a href="/webstart">ZanziBiz WebStart</a>, a managed website service for Zanzibar businesses, from 30,000 TZS a month with no setup fee.</p>
 
-        <h2>Contact Us</h2>
-        <p>Have a question, tip, or want to list your business? <a href="/contact" style="color:#0A6A94;">Get in touch</a> — we'd love to hear from you.</p>
+        <h2>Contact us</h2>
+        <p>Have a question or a tip, or want to list your business? <a href="/contact">Get in touch</a> or <a href="/auth/signup.html">list your business for free</a>.</p>
+
+        <p class="text-sm" style="color:#6B7A8D;">Page updated <time datetime="2026-11-28">28 November 2026</time>.</p>
     </main>
 
     <!-- zb-browse-links -->

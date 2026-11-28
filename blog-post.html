@@ -173,6 +173,13 @@
 
         <h1 id="postTitle" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6" style="color: #1D2427;"></h1>
 
+        <p id="postByline" class="hidden text-sm -mt-3 mb-6" style="color: #6B7A8D;"></p>
+
+        <aside id="postSummary" class="hidden rounded-xl p-5 mb-8" style="background:#FFF8E1; border-left:4px solid #FFC72C;" aria-label="Summary">
+            <p class="font-semibold mb-1" style="color:#1D2427;">In short</p>
+            <p id="postSummaryText" class="text-lg" style="color:#1D2427;"></p>
+        </aside>
+
         <div id="featuredImageContainer" class="hidden mb-8 rounded-xl overflow-hidden shadow-lg">
             <img id="featuredImage" src="" alt="" class="w-full h-auto">
         </div>
@@ -401,6 +408,22 @@
             document.head.appendChild(script);
 
             document.getElementById('postTitle').textContent = post.title;
+
+            // Byline with dates, and the excerpt as an "In short" summary
+            try {
+                const d = v => /^\d{4}-\d{2}-\d{2}/.test(v || '') ? String(v).slice(0, 10) : '';
+                const fmt = iso => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+                const pub = d(post.created_at), mod = d(post.updated_at) || pub;
+                const byline = document.getElementById('postByline');
+                byline.innerHTML = 'By <a href="/about" style="color:#0A6A94;">ZanziBiz</a>'
+                    + (pub ? ` · Published <time datetime="${pub}">${fmt(pub)}</time>` : '')
+                    + (mod && mod !== pub ? ` · Updated <time datetime="${mod}">${fmt(mod)}</time>` : '');
+                byline.classList.remove('hidden');
+                if (post.excerpt) {
+                    document.getElementById('postSummaryText').textContent = post.excerpt;
+                    document.getElementById('postSummary').classList.remove('hidden');
+                }
+            } catch (e) { /* optional */ }
 
             if (post.category) {
                 const categoryBadge = document.getElementById('categoryBadge');

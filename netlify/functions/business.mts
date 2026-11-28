@@ -3,6 +3,7 @@
 // the first HTML response, and unknown slugs get a real 404.
 import type { Config, Context } from "@netlify/functions";
 import { db, esc, plain, rewriteHead, fillPlaceholder, template, htmlResponse, SITE } from "./_lib/seo.mts";
+import { listingFacts, listingSummary, factsHtml, listingFaqs, faqHtml, openingHoursSpec, longDate, ORG_ID } from "./_lib/aio.mts";
 
 const LABELS: Record<string, string> = {
   business: "Business & Services",
@@ -27,7 +28,7 @@ export default async (req: Request, context: Context) => {
   let rows: any[] = [];
   try {
     rows = await db(
-      `listings?select=id,title,slug,description,category,subcategory,location,address,phone,email,website,whatsapp,images,business_hours,price,updated_at,business_profiles(business_name,verified)` +
+      `listings?select=id,title,slug,description,category,subcategory,location,address,phone,email,website,whatsapp,what3words,images,features,business_hours,price,created_at,updated_at,business_profiles(business_name,verified)` +
         `&slug=eq.${encodeURIComponent(slug)}&status=in.(active,boosted,featured)&limit=1`,
     );
   } catch (err) {
@@ -49,7 +50,9 @@ export default async (req: Request, context: Context) => {
   }
 
   const cat = LABELS[l.category] || l.category || "Business";
-  const area = String(l.location || "Zanzibar").replace(/\b\p{L}/gu, (c) => c.toUpperCase());
+  const facts = listingFacts(l, cat);
+  // "stone-town" -> "Stone Town"; "other" or empty -> "Zanzibar"
+  const area = facts.area || "Zanzibar";
   const url = `${SITE}/business/${l.slug}`;
   const images: string[] = Array.isArray(l.images) ? l.images.filter(Boolean) : [];
   const description = plain(l.description, 155) || `${l.title}: ${cat} in ${area}, Zanzibar.`;
@@ -72,7 +75,13 @@ export default async (req: Request, context: Context) => {
       addressRegion: "Zanzibar",
       addressCountry: "TZ",
     },
-    sameAs: l.website ? [l.website] : undefined,
+    sameAs: l.website ? [/^https?:\/\//i.test(l.website) ? l.website : `https://${l.website}`] : undefined,
+    openingHoursSpecification: openingHoursSpec(facts.hours),
+    amenityFeature: facts.features.length
+      ? facts.features.map((name) => ({ "@type": "LocationFeatureSpecification", name, value: true }))
+      : undefined,
+    // This page is ZanziBiz's directory entry for the business.
+    subjectOf: { "@type": "WebPage", "@id": `${url}#page`, url, publisher: { "@id": ORG_ID } },
   };
   const crumbs = {
     "@context": "https://schema.org",
@@ -84,19 +93,28 @@ export default async (req: Request, context: Context) => {
     ],
   };
 
+  const summary = listingSummary(facts, l.description);
+  const faqs = listingFaqs(facts);
   const body = `
       <article class="text-left">
         <nav class="text-sm text-gray-500 mb-4"><a href="/">Home</a> › <a href="/directory/${esc(l.category)}">${esc(cat)}</a> › ${esc(l.title)}</nav>
-        ${images[0] ? `<img src="${esc(images[0])}" alt="${esc(l.title)}" class="w-full max-h-[420px] object-cover rounded-2xl mb-6" loading="eager">` : ""}
+        ${images[0] ? `<img src="${esc(images[0])}" alt="${esc(l.title)}" class="w-full max-h-[420px] object-cover rounded-2xl mb-6" loading="eager" fetchpriority="high" decoding="async">` : ""}
         <h1 class="text-3xl md:text-4xl mb-2">${esc(l.title)}</h1>
-        <p class="text-gray-600 mb-4">${esc(cat)} · ${esc(area)}${l.business_profiles?.verified ? " · Verified" : ""}</p>
+        <p class="text-gray-600 mb-4">${esc(cat)} · ${esc(area)}${facts.verified ? " · Verified" : ""}</p>
+        <p class="text-lg text-[#1D2427] mb-6" data-summary="listing">${esc(summary)}</p>
         <div class="flex flex-wrap gap-3 mb-6">
           ${wa ? `<a class="px-5 py-3 rounded-full bg-[#1A7F45] text-white font-semibold" href="https://wa.me/${wa}">WhatsApp</a>` : ""}
           ${l.phone ? `<a class="px-5 py-3 rounded-full border border-gray-300 font-semibold" href="tel:${esc(l.phone)}">Call ${esc(l.phone)}</a>` : ""}
-          ${l.website ? `<a class="px-5 py-3 rounded-full border border-gray-300 font-semibold" href="${esc(l.website)}" rel="nofollow noopener">Website</a>` : ""}
+          ${l.website ? `<a class="px-5 py-3 rounded-full border border-gray-300 font-semibold" href="${esc(/^https?:\/\//i.test(l.website) ? l.website : `https://${l.website}`)}" rel="nofollow noopener">Website</a>` : ""}
         </div>
-        <div class="prose max-w-none">${esc(l.description || "").replace(/\n/g, "<br>")}</div>
-        ${l.address ? `<p class="mt-4 text-gray-600">Address: ${esc(l.address)}</p>` : ""}
+        ${l.description ? `<h2 class="text-xl font-semibold mb-2">About ${esc(l.title)}</h2>
+        <div class="prose max-w-none mb-8">${esc(l.description).replace(/\n/g, "<br>")}</div>` : ""}
+        <section class="mb-8" aria-labelledby="facts-heading">
+          <h2 id="facts-heading" class="text-xl font-semibold mb-3">Key facts</h2>
+          ${factsHtml(facts)}
+        </section>
+        ${faqHtml(faqs, `Questions about ${l.title}`)}
+        <p class="mt-8 text-xs text-gray-500">Details on this page are supplied by the business${facts.verified ? " and the profile has been verified by the ZanziBiz team" : ""}${facts.updated ? `; last updated ${esc(longDate(facts.updated))}` : ""}. Check prices and hours with the business before you travel. Source: <a class="text-[#0A6A94]" href="${esc(url)}">ZanziBiz, the Zanzibar business directory</a>. <a class="text-[#0A6A94]" href="/about#listings">How listings work</a>.</p>
       </article>`;
 
   let html = rewriteHead(page, {
