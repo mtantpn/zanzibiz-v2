@@ -266,6 +266,10 @@
             window.location.href = '/';
         });
 
+        // Set when netlify/functions/guide.mts rendered this page: its head,
+        // canonical and Article JSON-LD are already right, so the script leaves them.
+        const SSR = document.documentElement.hasAttribute('data-ssr');
+
         // Ensure URL has proper protocol
         function ensureProtocol(url) {
             if (!url || typeof url !== 'string') return '';
@@ -319,7 +323,7 @@
                 loadRelatedPosts(post.category, post.id);
             } catch (error) {
                 console.error('Error loading post:', error);
-                showNotFound();
+                if (!SSR) showNotFound(); // otherwise keep the server-rendered guide
             }
         }
 
@@ -332,80 +336,88 @@
             document.getElementById('loadingState').classList.add('hidden');
             document.getElementById('postContent').classList.remove('hidden');
 
-            document.getElementById('pageTitle').textContent = `${post.title} | ZanziBiz`;
-            const descContent = post.excerpt || 'Practical Zanzibar travel guide and local tips from ZanziBiz.';
-            document.getElementById('pageDescription').setAttribute('content', descContent);
+            if (!SSR) {
+                document.getElementById('pageTitle').textContent = `${post.title} | ZanziBiz Travel Guide`;
+                const descContent = post.excerpt || 'Practical Zanzibar travel guide and local tips from ZanziBiz.';
+                document.getElementById('pageDescription').setAttribute('content', descContent);
 
-            if (post.tags && post.tags.length > 0) {
-                document.getElementById('pageKeywords').setAttribute('content', post.tags.join(', ') + ', Zanzibar travel guide, ZanziBiz');
-            }
+                if (post.tags && post.tags.length > 0) {
+                    document.getElementById('pageKeywords').setAttribute('content', post.tags.join(', ') + ', Zanzibar travel guide, ZanziBiz');
+                }
 
-            // Canonical URL: /travel-guide/{slug} (old /blog/{slug} links 301 here)
-            const canonicalUrl = `https://zanzibiz.com/travel-guide/${post.slug}`;
-            const imageUrl = post.featured_image || 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg';
+                // Canonical URL: /travel-guide/{slug} (old /blog/{slug} links 301 here)
+                const canonicalUrl = `https://zanzibiz.com/travel-guide/${post.slug}`;
+                const imageUrl = post.featured_image || 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg';
 
-            document.getElementById('pageCanonical').setAttribute('href', canonicalUrl);
-            document.getElementById('ogTitle').setAttribute('content', `${post.title} | ZanziBiz`);
-            document.getElementById('ogDescription').setAttribute('content', descContent);
-            document.getElementById('ogUrl').setAttribute('content', canonicalUrl);
-            document.getElementById('ogImage').setAttribute('content', imageUrl);
-            document.getElementById('twitterTitle').setAttribute('content', `${post.title} | ZanziBiz`);
-            document.getElementById('twitterDescription').setAttribute('content', descContent);
-            document.getElementById('twitterImage').setAttribute('content', imageUrl);
+                document.getElementById('pageCanonical').setAttribute('href', canonicalUrl);
+                document.getElementById('ogTitle').setAttribute('content', `${post.title} | ZanziBiz Travel Guide`);
+                document.getElementById('ogDescription').setAttribute('content', descContent);
+                document.getElementById('ogUrl').setAttribute('content', canonicalUrl);
+                document.getElementById('ogImage').setAttribute('content', imageUrl);
+                document.getElementById('twitterTitle').setAttribute('content', `${post.title} | ZanziBiz Travel Guide`);
+                document.getElementById('twitterDescription').setAttribute('content', descContent);
+                document.getElementById('twitterImage').setAttribute('content', imageUrl);
 
-            if (post.tags && post.tags.length > 0) {
-                document.getElementById('pageKeywords').setAttribute('content', post.tags.join(', '));
-            }
+                if (post.tags && post.tags.length > 0) {
+                    document.getElementById('pageKeywords').setAttribute('content', post.tags.join(', '));
+                }
 
-            // Add BlogPosting structured data
-            const existingSchema = document.getElementById('blogPostingSchema');
-            if (existingSchema) existingSchema.remove();
+                // Add BlogPosting structured data
+                const existingSchema = document.getElementById('blogPostingSchema');
+                if (existingSchema) existingSchema.remove();
 
-            const blogPostingSchema = {
-                "@context": "https://schema.org",
-                "@type": "BlogPosting",
-                "headline": post.title,
-                "description": post.excerpt || descContent,
-                "image": imageUrl,
-                "datePublished": post.created_at,
-                "dateModified": post.updated_at || post.created_at,
-                "author": {
-                    "@type": "Organization",
-                    "name": "ZanziBiz",
-                    "url": "https://zanzibiz.com"
-                },
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "ZanziBiz",
-                    "url": "https://zanzibiz.com",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://zanzibiz.com/Zanzibiz.com-logo.png"
-                    }
-                },
-                "mainEntityOfPage": {
-                    "@type": "WebPage",
-                    "@id": canonicalUrl
-                },
-                "breadcrumb": {
+                const blogPostingSchema = {
+                    "@context": "https://schema.org",
+                    "@type": "Article",
+                    "headline": post.title,
+                    "description": post.excerpt || descContent,
+                    "image": imageUrl,
+                    "datePublished": post.created_at,
+                    "dateModified": post.updated_at || post.created_at,
+                    "author": {
+                        "@type": "Organization",
+                        "@id": "https://zanzibiz.com/#organization",
+                        "name": "ZanziBiz",
+                        "url": "https://zanzibiz.com"
+                    },
+                    "publisher": {
+                        "@type": "Organization",
+                        "@id": "https://zanzibiz.com/#organization",
+                        "name": "ZanziBiz",
+                        "url": "https://zanzibiz.com",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://zanzibiz.com/untitled_design.png"
+                        }
+                    },
+                    "mainEntityOfPage": {
+                        "@type": "WebPage",
+                        "@id": canonicalUrl
+                    },
+                    "articleSection": post.category || undefined,
+                    "inLanguage": "en",
+                    "isAccessibleForFree": true
+                };
+                const breadcrumbSchema = {
                     "@type": "BreadcrumbList",
                     "itemListElement": [
                         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zanzibiz.com/" },
-                        { "@type": "ListItem", "position": 2, "name": "Zanzibar Travel Guide", "item": "https://zanzibiz.com/blog" },
+                        { "@type": "ListItem", "position": 2, "name": "Travel guide", "item": "https://zanzibiz.com/travel-guide" },
                         { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl }
                     ]
+                };
+
+                if (post.tags && post.tags.length > 0) {
+                    blogPostingSchema.keywords = post.tags.join(', ');
                 }
-            };
 
-            if (post.tags && post.tags.length > 0) {
-                blogPostingSchema.keywords = post.tags.join(', ');
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.id = 'blogPostingSchema';
+                delete blogPostingSchema["@context"];
+                script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": [blogPostingSchema, breadcrumbSchema] });
+                document.head.appendChild(script);
             }
-
-            const script = document.createElement('script');
-            script.type = 'application/ld+json';
-            script.id = 'blogPostingSchema';
-            script.textContent = JSON.stringify(blogPostingSchema);
-            document.head.appendChild(script);
 
             document.getElementById('postTitle').textContent = post.title;
 

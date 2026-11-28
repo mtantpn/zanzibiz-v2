@@ -345,7 +345,7 @@
             <div class="p-5">
                 <h3 class="font-heading font-bold text-[#1D2427] text-base line-clamp-1">${escapeHtml(listing.title)}</h3>
                 ${ratingHtml}
-                ${listing.location ? `<p class="text-xs text-gray-400 mt-1">&#128205; ${escapeHtml(listing.location)}</p>` : ''}
+                ${areaLabel(listing.location) ? `<p class="text-xs text-gray-400 mt-1">&#128205; ${escapeHtml(areaLabel(listing.location))}</p>` : ''}
                 ${listing.description ? `<p class="text-sm text-gray-500 mt-2 line-clamp-2">${escapeHtml(listing.description)}</p>` : ''}
                 <div class="flex items-center gap-2 mt-3">
                     ${verified}
@@ -353,6 +353,11 @@
                 </div>
             </div>
         </a>`;
+    }
+
+    function areaLabel(v) {
+        const s = String(v || '').replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim();
+        return !s || /^(other|zanzibar)$/i.test(s) ? '' : s.toLowerCase().replace(/\b\p{L}/gu, c => c.toUpperCase());
     }
 
     function escapeHtml(str) {
@@ -409,7 +414,7 @@
                         "itemListElement": listings.map((l, i) => ({
                             "@type": "ListItem",
                             "position": i + 1,
-                            "url": `https://zanzibiz.com/business/${l.slug || l.id}`,
+                            "url": `https://zanzibiz.com/business/${encodeURIComponent(l.slug || l.id)}`,
                             "name": l.title
                         }))
                     }
@@ -454,8 +459,14 @@
             console.error('Error fetching listings:', error);
         }
 
+        // Set when netlify/functions/directory.mts rendered this page: the head,
+        // h1, ItemList and listing cards are already right. On a failed request
+        // keep them, instead of showing "No listings yet" over real listings.
+        const ssr = document.documentElement.hasAttribute('data-ssr');
+        if (error && ssr) return;
+
         const results = listings || [];
-        setMeta(category, categoryData, results.length, results);
+        if (!ssr) setMeta(category, categoryData, results.length, results);
 
         document.getElementById('loadingState').classList.add('hidden');
 
