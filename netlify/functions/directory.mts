@@ -5,6 +5,7 @@
 // interactive grid, using the same titles and structured data.
 import type { Config, Context } from "@netlify/functions";
 import { db, esc, plain, rewriteHead, fillPlaceholder, template, htmlResponse, SITE } from "./_lib/seo.mts";
+import { areaLabel } from "./_lib/aio.mts";
 
 interface Cat {
   label: string;
@@ -76,8 +77,6 @@ function metaDescription(c: Cat, n: number) {
     : `${c.description} Browse local listings on ZanziBiz.`;
 }
 
-const titleCase = (s: string) => s.replace(/\b\p{L}/gu, (c) => c.toUpperCase());
-
 function card(l: any) {
   const img = Array.isArray(l.images) ? l.images.find(Boolean) : "";
   const initials = String(l.title || "?").split(/\s+/).filter(Boolean).slice(0, 2).map((w: string) => w[0]).join("").toUpperCase();
@@ -90,7 +89,7 @@ function card(l: any) {
                 }
                 <div class="p-5">
                     <h3 class="font-heading font-bold text-[#1D2427] text-base line-clamp-1">${esc(l.title)}</h3>
-                    ${l.location ? `<p class="text-xs text-gray-400 mt-1">${esc(titleCase(String(l.location)))}</p>` : ""}
+                    ${areaLabel(l.location) ? `<p class="text-xs text-gray-400 mt-1">${esc(areaLabel(l.location))}</p>` : ""}
                     ${l.description ? `<p class="text-sm text-gray-500 mt-2 line-clamp-2">${esc(plain(l.description, 140))}</p>` : ""}
                     ${l.business_profiles?.verified ? `<p class="text-xs text-green-700 mt-3">Verified</p>` : ""}
                 </div>
@@ -184,7 +183,11 @@ export default async (req: Request, context: Context) => {
             </div>`;
 
   let html = rewriteHead(page, {
+    ssr: true,
     ldId: "pageSchema",
+    // An empty category is a thin page: keep it out of the index (links are
+    // still followed) until it has a listing. The sitemap leaves it out too.
+    noindex: n === 0,
     title: cat.title,
     description,
     canonical,

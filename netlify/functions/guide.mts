@@ -60,8 +60,26 @@ export default async (req: Request, context: Context) => {
       { "@type": "ListItem", position: 3, name: p.title, item: url },
     ],
   };
+  // Plain links to other guides: the hub and archive pages list guides with
+  // JavaScript only, so this is how non-JS crawlers move between guides.
+  const more: any[] = await db<any[]>(
+    `blog_posts?select=title,slug,category&status=eq.published&slug=neq.${encodeURIComponent(p.slug)}` +
+      `&order=updated_at.desc&limit=24`,
+  ).catch(() => []);
+  // Same-category guides first, then the most recent others, six in all.
+  more.sort((a, b) => Number(b.category === p.category) - Number(a.category === p.category));
+  const moreHtml = more.length
+    ? `<nav class="mt-10" aria-labelledby="more-guides">
+          <h2 id="more-guides" class="text-xl font-semibold mb-3">More Zanzibar guides</h2>
+          <ul class="space-y-2">${more
+            .slice(0, 6)
+            .map((g) => `<li><a class="text-[#0A6A94] font-medium" href="/travel-guide/${esc(encodeURIComponent(g.slug))}">${esc(g.title)}</a></li>`)
+            .join("")}</ul>
+          <p class="mt-3"><a class="text-[#0A6A94] font-semibold" href="/travel-guide/all">All travel guides</a></p>
+        </nav>`
+    : "";
   const body = `
-      <article class="text-left">
+      <article class="text-left" data-ssr>
         <nav class="text-sm text-gray-500 mb-4"><a href="/">Home</a> › <a href="/travel-guide">Travel guide</a> › ${esc(p.title)}</nav>
         <h1 class="text-3xl md:text-5xl mb-3">${esc(p.title)}</h1>
         <p class="text-sm text-gray-500 mb-6">By <a class="text-[#0A6A94]" href="/about">ZanziBiz</a>${published ? ` · Published <time datetime="${published}">${esc(longDate(published))}</time>` : ""}${modified && modified !== published ? ` · Updated <time datetime="${modified}">${esc(longDate(modified))}</time>` : ""}</p>
@@ -69,9 +87,11 @@ export default async (req: Request, context: Context) => {
         ${p.featured_image ? `<img src="${esc(p.featured_image)}" alt="${esc(p.title)}" class="w-full max-h-[460px] object-cover rounded-2xl mb-8" loading="eager" fetchpriority="high" decoding="async">` : ""}
         <div class="prose prose-lg max-w-none">${safeHtml(p.content).replace(/\n{2,}/g, "</p><p>").replace(/^(?!<)/, "<p>")}</div>
         <p class="mt-10 pt-6 border-t border-gray-200 text-xs text-gray-500">Written and published by <a class="text-[#0A6A94]" href="/about">ZanziBiz</a>, the Zanzibar business directory and travel guide.${modified ? ` Last updated <time datetime="${modified}">${esc(longDate(modified))}</time>.` : ""} Prices and schedules in Zanzibar change often; check with the operator before you book. Spotted something out of date? <a class="text-[#0A6A94]" href="/contact">Tell us</a>.</p>
+        ${moreHtml}
       </article>`;
   let html = rewriteHead(page, {
-        ldId: "blogPostingSchema",
+    ssr: true,
+    ldId: "blogPostingSchema",
     title: `${p.title} | ZanziBiz Travel Guide`,
     description,
     canonical: url,
@@ -87,6 +107,7 @@ export const config: Config = {
   path: "/travel-guide/:slug",
   excludedPath: [
     "/travel-guide/*.html",
+    "/travel-guide/all",
     "/travel-guide/flights-to-zanzibar",
     "/travel-guide/where-to-stay",
     "/travel-guide/hotels",

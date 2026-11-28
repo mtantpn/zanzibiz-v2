@@ -27,9 +27,16 @@ export const plain = (html: unknown, max = 160) => {
 // Admin-written article HTML: keep the markup, drop anything executable.
 export const safeHtml = (html: unknown) =>
   String(html ?? "")
-    .replace(/<\s*(script|style|iframe|object|embed)[\s\S]*?<\s*\/\s*\1\s*>/gi, "")
+    .replace(/<\s*(script|style|iframe|object|embed|noscript|template)[\s\S]*?<\s*\/\s*\1\s*>/gi, "")
+    // Unclosed or void tags that can run code, redirect, or change the page.
+    .replace(/<\s*\/?\s*(script|style|iframe|object|embed|base|meta|link|form|frame|frameset)\b[^>]*>/gi, "")
     .replace(/\son\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
-    .replace(/(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi, "$1=$2#$2");
+    .replace(/\s(srcdoc|formaction)\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
+    .replace(/(href|src|action)\s*=\s*(["'])\s*(?:javascript|vbscript):[^"']*\2/gi, "$1=$2#$2")
+    .replace(/(href|action)\s*=\s*(["'])\s*data:[^"']*\2/gi, "$1=$2#$2")
+    .replace(/(href|src|action)\s*=\s*(?:javascript|vbscript|data):[^\s>]*/gi, '$1="#"')
+    // Entity-encoded schemes such as "java&#115;cript:".
+    .replace(/(href|src|action)\s*=\s*(["'])\s*[a-z]*&#[^"']*\2/gi, "$1=$2#$2");
 
 export interface Head {
   title: string;
@@ -41,6 +48,9 @@ export interface Head {
   noindex?: boolean;
   // id the page's own script expects on its JSON-LD tag (it overwrites it)
   ldId?: string;
+  // A real server-rendered page: marks <html data-ssr> so the page script
+  // keeps the server's head, structured data and content (see the templates).
+  ssr?: boolean;
 }
 
 // The page scripts look up some head tags by id (pageTitle, ogTitle…).
@@ -96,6 +106,7 @@ export function rewriteHead(html: string, h: Head): string {
     // Keep the id the page script writes to, even on 404s.
     h.ldId && !(h.jsonLd || []).length ? `<script type="application/ld+json" id="${h.ldId}">{}</script>` : "",
   ].filter(Boolean);
+  if (h.ssr) out = out.replace(/<html\b/i, '<html data-ssr="1"');
   return out.replace(/<head([^>]*)>/i, `<head$1>\n    ${tags.join("\n    ")}`);
 }
 
