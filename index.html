@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZanziBiz – Zanzibar Travel Guide & Business Directory | Stone Town, Paje & More</title>
-    <meta name="description" content="Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.">
+    <title>Zanzibar Business Directory &amp; Travel Guide | ZanziBiz</title>
+    <meta name="description" content="Find trusted local businesses in Zanzibar: restaurants, tours, hotels, taxis and services in Stone Town, Paje and Nungwi, plus a practical travel guide.">
     <meta name="keywords" content="Zanzibar, travel guide, business directory, Stone Town, Paje, local services, things to do, activities, verified, reviews">
     <link rel="canonical" href="https://zanzibiz.com/">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="ZanziBiz – Zanzibar Travel Guide & Business Directory">
-    <meta property="og:description" content="Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.">
+    <meta property="og:title" content="Zanzibar Business Directory &amp; Travel Guide | ZanziBiz">
+    <meta property="og:description" content="Find trusted local businesses in Zanzibar: restaurants, tours, hotels, taxis and services in Stone Town, Paje and Nungwi, plus a practical travel guide.">
     <meta property="og:url" content="https://zanzibiz.com/">
     <meta property="og:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Beach and turquoise water in Zanzibar">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="ZanziBiz">
+    <meta property="og:locale" content="en_GB">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZanziBiz – Zanzibar Travel Guide & Business Directory">
-    <meta name="twitter:description" content="Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.">
+    <meta name="twitter:title" content="Zanzibar Business Directory &amp; Travel Guide | ZanziBiz">
+    <meta name="twitter:description" content="Find trusted local businesses in Zanzibar: restaurants, tours, hotels, taxis and services in Stone Town, Paje and Nungwi, plus a practical travel guide.">
     <meta name="twitter:image" content="https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=1200&h=630&fit=crop">
 
     <link rel="manifest" href="/manifest.json">
@@ -33,10 +37,13 @@
     <meta name="msapplication-TileColor" content="#1D2427">
     <meta name="msapplication-config" content="/browserconfig.xml">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://upload.wikimedia.org">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/lib/design-system.css">
     <link rel="stylesheet" href="/src/tailwind.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <style>
         /* Fonts */
@@ -563,136 +570,46 @@
         }
     </style>
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD: who we are and how to search the site. No ratings or
+         contact details we cannot back up (Google treats invented ones as spam). -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "ZanziBiz",
-        "description": "Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.",
-        "url": "https://zanzibiz.com",
-        "telephone": "+255-000-000-000",
-        "image": "https://zanzibiz.com/untitled_design.png",
-        "priceRange": "Free",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Street address",
-            "addressLocality": "Zanzibar",
-            "addressCountry": "Tanzania"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "-6.1659",
-            "longitude": "39.2026"
-        },
-        "areaServed": [
+        "@graph": [
             {
-                "@type": "City",
-                "name": "Stone Town"
+                "@type": "Organization",
+                "@id": "https://zanzibiz.com/#organization",
+                "name": "ZanziBiz",
+                "url": "https://zanzibiz.com/",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://zanzibiz.com/untitled_design.png"
+                },
+                "description": "Zanzibar's local business directory and travel guide.",
+                "areaServed": { "@type": "AdministrativeArea", "name": "Zanzibar, Tanzania" },
+                "sameAs": [
+                    "https://www.facebook.com/zanzibiz",
+                    "https://www.instagram.com/zanzibiz",
+                    "https://www.tiktok.com/@zanzibiz.com"
+                ]
             },
             {
-                "@type": "City",
-                "name": "Paje"
-            },
-            {
-                "@type": "City",
-                "name": "Nungwi"
-            },
-            {
-                "@type": "City",
-                "name": "Jambiani"
-            },
-            {
-                "@type": "City",
-                "name": "Kendwa"
-            }
-        ],
-        "openingHours": "Mo-Su 00:00-23:59",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "150"
-        }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ZanziBiz",
-        "url": "https://zanzibiz.com",
-        "logo": "https://zanzibiz.com/untitled_design.png",
-        "description": "Your complete Zanzibar travel guide with verified business directory, reviews, and things to do in Stone Town, Paje, Nungwi. Find local services and activities.",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Street address",
-            "addressLocality": "Zanzibar",
-            "addressCountry": "Tanzania"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+255-000-000-000",
-            "contactType": "customer service"
-        }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "ZanziBiz",
-        "url": "https://zanzibiz.com",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://zanzibiz.com/?s={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://zanzibiz.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Categories",
-                "item": "https://zanzibiz.com/#categories"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Business Listings",
-                "item": "https://zanzibiz.com/#listings"
-            },
-            {
-                "@type": "ListItem",
-                "position": 4,
-                "name": "About",
-                "item": "https://zanzibiz.com/#about"
+                "@type": "WebSite",
+                "@id": "https://zanzibiz.com/#website",
+                "name": "ZanziBiz",
+                "url": "https://zanzibiz.com/",
+                "inLanguage": "en",
+                "publisher": { "@id": "https://zanzibiz.com/#organization" },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": "https://zanzibiz.com/?q={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                }
             }
         ]
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Zanzibar Featured Business Listings",
-        "description": "Top rated and verified businesses in Zanzibar including restaurants, hotels, tours, and local services",
-        "numberOfItems": 0,
-        "itemListElement": []
     }
     </script>
 
@@ -746,7 +663,7 @@
         <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
             <div class="flex items-center justify-between h-16 sm:h-18">
                 <div class="flex items-center flex-shrink-0">
-                    <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-11 sm:h-12 w-auto">
+                    <img width="320" height="320" src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-11 sm:h-12 w-auto">
                 </div>
 
                 <div class="hidden md:flex items-center space-x-4 lg:space-x-5">
@@ -908,11 +825,11 @@
 
                 <div class="v2-popular">
                     <span>Popular:</span>
-                    <button type="button" class="quick-chip" onclick="filterByCategory('business')">Restaurants</button>
-                    <button type="button" class="quick-chip" onclick="filterByCategory('activities')">Tours</button>
-                    <button type="button" class="quick-chip" onclick="filterByCategory('accommodation')">Hotels</button>
-                    <button type="button" class="quick-chip" onclick="filterByCategory('automotive')">Taxis</button>
-                    <button type="button" class="quick-chip" onclick="filterByCategory('events')">Events</button>
+                    <a href="/directory/business" class="quick-chip" onclick="event.preventDefault(); filterByCategory('business')">Restaurants</a>
+                    <a href="/directory/activities" class="quick-chip" onclick="event.preventDefault(); filterByCategory('activities')">Tours</a>
+                    <a href="/directory/accommodation" class="quick-chip" onclick="event.preventDefault(); filterByCategory('accommodation')">Hotels</a>
+                    <a href="/directory/automotive" class="quick-chip" onclick="event.preventDefault(); filterByCategory('automotive')">Taxis</a>
+                    <a href="/directory/events" class="quick-chip" onclick="event.preventDefault(); filterByCategory('events')">Events</a>
                 </div>
 
                 <ul class="v2-proof">
@@ -941,7 +858,7 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
                 <!-- Eat & Drink -->
-                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('business')">
+                <a href="/directory/business" class="category-card p-5 cursor-pointer block" onclick="event.preventDefault(); filterByCategory('business')">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#0A6A94">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 2.3C4.1 16 4.9 18 6.6 18H17"/>
@@ -951,10 +868,10 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Eat &amp; Drink</h3>
                     <p class="text-xs text-gray-400 text-center">Restaurants &amp; cafes</p>
-                </div>
+                </a>
 
                 <!-- Stay -->
-                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('accommodation')">
+                <a href="/directory/accommodation" class="category-card p-5 cursor-pointer block" onclick="event.preventDefault(); filterByCategory('accommodation')">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F0FE;color:#1D2427">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21h18M6 21V10l6-6 6 6v11M9 21v-4h6v4"/>
@@ -962,10 +879,10 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Stay</h3>
                     <p class="text-xs text-gray-400 text-center">Hotels &amp; guesthouses</p>
-                </div>
+                </a>
 
                 <!-- Things To Do -->
-                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('activities')">
+                <a href="/directory/activities" class="category-card p-5 cursor-pointer block" onclick="event.preventDefault(); filterByCategory('activities')">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#E8F8F4;color:#1A7F45">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 18c0-1.5 1-2.5 2-3 1.5-.5 3.5-1 5-2.5S12 9 13 7.5c1-1.5 2.5-2.5 4-2.5"/>
@@ -975,10 +892,10 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Things To Do</h3>
                     <p class="text-xs text-gray-400 text-center">Tours &amp; activities</p>
-                </div>
+                </a>
 
                 <!-- Transport -->
-                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('automotive')">
+                <a href="/directory/automotive" class="category-card p-5 cursor-pointer block" onclick="event.preventDefault(); filterByCategory('automotive')">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#F0F4FF;color:#1D2427">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11L8.5 7h7L17 11M5 11h14a1 1 0 011 1v5H4v-5a1 1 0 011-1z"/>
@@ -988,10 +905,10 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Transport</h3>
                     <p class="text-xs text-gray-400 text-center">Taxis &amp; rentals</p>
-                </div>
+                </a>
 
                 <!-- Services -->
-                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('services')">
+                <a href="/directory/business" class="category-card p-5 cursor-pointer block" onclick="event.preventDefault(); filterByCategory('services')">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FEF3E8;color:#0A6A94">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
@@ -999,10 +916,10 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Services</h3>
                     <p class="text-xs text-gray-400 text-center">Local professionals</p>
-                </div>
+                </a>
 
                 <!-- Jobs -->
-                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('jobs')">
+                <a href="/directory/jobs" class="category-card p-5 cursor-pointer block" onclick="event.preventDefault(); filterByCategory('jobs')">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FDF0F0;color:#D93025">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <rect x="4" y="8" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -1011,10 +928,10 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Jobs</h3>
                     <p class="text-xs text-gray-400 text-center">Work opportunities</p>
-                </div>
+                </a>
 
                 <!-- Events -->
-                <div class="category-card p-5 cursor-pointer" onclick="filterByCategory('events')">
+                <a href="/directory/events" class="category-card p-5 cursor-pointer block" onclick="event.preventDefault(); filterByCategory('events')">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#FFF3E0;color:#E07040">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <rect x="3" y="6" width="18" height="15" rx="2" stroke="currentColor" stroke-width="1.5"/>
@@ -1026,10 +943,10 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Events</h3>
                     <p class="text-xs text-gray-400 text-center">What's on</p>
-                </div>
+                </a>
 
                 <!-- Local Info -->
-                <div class="category-card p-5 cursor-pointer" onclick="window.location.href='/travel-guide'">
+                <a href="/travel-guide" class="category-card p-5 cursor-pointer block">
                     <div class="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-3" style="background:#F0F4F8;color:#6B7A8D">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -1037,7 +954,7 @@
                     </div>
                     <h3 class="font-semibold text-brand-gray text-center text-sm mb-1">Local Info</h3>
                     <p class="text-xs text-gray-400 text-center">Guides &amp; tips</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1065,7 +982,7 @@
             </div>
             <div class="hidden md:flex items-center justify-center w-48 flex-shrink-0">
                 <div class="rounded-2xl overflow-hidden shadow-2xl border border-white/10" style="width:160px;height:160px">
-                    <img src="https://images.pexels.com/photos/1267357/pexels-photo-1267357.jpeg?auto=compress&cs=tinysrgb&w=320&h=320&fit=crop" alt="Zanzibar business website" class="w-full h-full object-cover">
+                    <img loading="lazy" decoding="async" width="320" height="320" src="https://images.pexels.com/photos/1267357/pexels-photo-1267357.jpeg?auto=compress&cs=tinysrgb&w=320&h=320&fit=crop" alt="Zanzibar business website" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -1311,27 +1228,27 @@
 
             <div id="boostedLoadingMessage" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <a href="/business/nails-artist-1781101942970" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-40"></div>
                     <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Nails Artist</h3><p class="text-xs text-gray-500 mt-1">Business &middot; Nungwi</p></div>
                 </a>
                 <a href="/business/reservation-executive-1773859129790" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-40"></div>
                     <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Reservation Executive</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/web-designer-1773857964056" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-40"></div>
                     <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Web Designer</h3><p class="text-xs text-gray-500 mt-1">Jobs &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/safari-1773857277811" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-40"></div>
                     <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Safari Tours</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/tour-organizer-1773857358727" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-40"></div>
                     <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Tour Organizer</h3><p class="text-xs text-gray-500 mt-1">Activities &middot; Stone Town</p></div>
                 </a>
                 <a href="/business/tiki-beach-club-resort-1781949552213" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="ZanziBiz" class="h-12 opacity-40"></div>
+                    <div class="h-40 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-12 opacity-40"></div>
                     <div class="p-4"><h3 class="font-semibold text-[#1D2427]">Tiki Beach Club &amp; Resort</h3><p class="text-xs text-gray-500 mt-1">Accommodation &middot; Paje</p></div>
                 </a>
             </div>
@@ -1374,18 +1291,18 @@
             </div>
 
             <div id="regularLoadingMessage" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <a href="/business/stone-town-heritage-house" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Stone Town Heritage House</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Stone Town</p></div></a>
-                <a href="/business/family-paradise-resort" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Family Paradise Resort</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Kiwengwa</p></div></a>
-                <a href="/business/nathero-car-rental-1776695285351" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Nathero Car Rental</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
-                <a href="/business/proud-zanzibar-tours-1774934113113" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Proud Zanzibar Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
-                <a href="/business/ocean-breeze-diving-center" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Ocean Breeze Diving Center</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Nungwi</p></div></a>
-                <a href="/business/zanzibar-wellness-spa-massage" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Zanzibar Wellness Spa &amp; Massage</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Paje</p></div></a>
-                <a href="/business/zanzibar-spice-paradise-tours" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Zanzibar Spice Paradise Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
-                <a href="/business/u-trip-1776695089031" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">U Trip Transport</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
-                <a href="/business/captain-safari-blue-1776700057250" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Captain Safari Blue</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Safari Blue</p></div></a>
-                <a href="/business/jozani-forest-monkey-tour" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Jozani Forest Monkey Tour</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Jozani</p></div></a>
-                <a href="/business/paradise-beach-bungalows" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Paradise Beach Bungalows</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Paje</p></div></a>
-                <a href="/business/sunset-dhow-cruise-experience" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Sunset Dhow Cruise Experience</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/stone-town-heritage-house" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Stone Town Heritage House</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Stone Town</p></div></a>
+                <a href="/business/family-paradise-resort" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Family Paradise Resort</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Kiwengwa</p></div></a>
+                <a href="/business/nathero-car-rental-1776695285351" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Nathero Car Rental</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
+                <a href="/business/proud-zanzibar-tours-1774934113113" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Proud Zanzibar Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/ocean-breeze-diving-center" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Ocean Breeze Diving Center</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Nungwi</p></div></a>
+                <a href="/business/zanzibar-wellness-spa-massage" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Zanzibar Wellness Spa &amp; Massage</p><p class="text-xs text-gray-400 mt-0.5">Business &middot; Paje</p></div></a>
+                <a href="/business/zanzibar-spice-paradise-tours" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Zanzibar Spice Paradise Tours</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
+                <a href="/business/u-trip-1776695089031" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">U Trip Transport</p><p class="text-xs text-gray-400 mt-0.5">Automotive &middot; East Coast</p></div></a>
+                <a href="/business/captain-safari-blue-1776700057250" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Captain Safari Blue</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Safari Blue</p></div></a>
+                <a href="/business/jozani-forest-monkey-tour" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Jozani Forest Monkey Tour</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Jozani</p></div></a>
+                <a href="/business/paradise-beach-bungalows" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Paradise Beach Bungalows</p><p class="text-xs text-gray-400 mt-0.5">Accommodation &middot; Paje</p></div></a>
+                <a href="/business/sunset-dhow-cruise-experience" class="block bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow"><div class="h-28 bg-gradient-to-br from-[#1D2427] to-[#2d5a6e] flex items-center justify-center"><img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-10 opacity-30"></div><div class="p-3"><p class="font-semibold text-sm text-[#1D2427] line-clamp-1">Sunset Dhow Cruise Experience</p><p class="text-xs text-gray-400 mt-0.5">Activities &middot; Stone Town</p></div></a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="regularListingsGrid" style="display: none;">
@@ -1540,7 +1457,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="mb-4">
-                        <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-16 sm:h-20 w-auto">
+                        <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-16 sm:h-20 w-auto">
                     </div>
                     <p class="text-white/75">Connecting Zanzibar's best businesses with customers</p>
                 </div>
@@ -1927,7 +1844,7 @@
                         ${listing.images && listing.images[0] ?
                             `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover" loading="lazy">` :
                             `<div class="w-full h-full flex items-center justify-center bg-[#FFF4D1]">
-                                <img src="/untitled_design.png" alt="ZanziBiz" class="w-32 h-32 object-contain opacity-60">
+                                <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="w-32 h-32 object-contain opacity-60">
                             </div>`
                         }
                         ${renderBadges(listing)}
@@ -1975,7 +1892,7 @@
                         ${listing.images && listing.images[0] ?
                             `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover" loading="lazy">` :
                             `<div class="w-full h-full flex items-center justify-center bg-[#FFF4D1]">
-                                <img src="/untitled_design.png" alt="ZanziBiz" class="w-20 h-20 object-contain opacity-60">
+                                <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="w-20 h-20 object-contain opacity-60">
                             </div>`
                         }
                         ${renderBadges(listing)}
@@ -2009,9 +1926,9 @@
                 <div class="compact-listing cursor-pointer" onclick="viewListingDetail('${listing.id}')">
                     <div class="relative">
                         ${listing.images && listing.images[0] ?
-                            `<img src="${listing.images[0]}" alt="${listing.title}">` :
+                            `<img loading="lazy" decoding="async" src="${listing.images[0]}" alt="${listing.title}">` :
                             `<div class="w-[120px] h-[120px] bg-white rounded-lg flex items-center justify-center">
-                                <img src="/untitled_design.png" alt="ZanziBiz" class="w-16 h-16 object-contain opacity-60">
+                                <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="w-16 h-16 object-contain opacity-60">
                             </div>`
                         }
                         ${isNewListing(listing.created_at) ? '<span class="new-badge absolute -top-1 -left-1 text-white text-xs px-2 py-1 rounded-full font-bold text-[10px]">NEW</span>' : ''}
@@ -2091,7 +2008,7 @@
                                 <div class="flex flex-col md:flex-row gap-0 md:gap-4 items-stretch">
                                     <!-- Image Section -->
                                     <div class="md:w-64 h-40 md:h-auto overflow-hidden flex-shrink-0">
-                                        <img
+                                        <img loading="lazy" decoding="async"
                                             src="${randomPost.featured_image || 'https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg'}"
                                             alt="${randomPost.title}"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -2278,14 +2195,14 @@
                 ${hasImages ? `
                     <div class="mb-6">
                         <div class="relative h-96 bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl overflow-hidden">
-                            <img src="${images[0]}" alt="${listing.title}" class="w-full h-full object-cover">
+                            <img loading="lazy" decoding="async" src="${images[0]}" alt="${listing.title}" class="w-full h-full object-cover">
                             ${renderBadges(listing)}
                         </div>
                         ${images.length > 1 ? `
                             <div class="grid grid-cols-4 gap-2 mt-3">
                                 ${images.slice(1, 5).map(img => `
                                     <div class="h-24 bg-gray-200 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
-                                        <img src="${img}" alt="${listing.title}" class="w-full h-full object-cover">
+                                        <img loading="lazy" decoding="async" src="${img}" alt="${listing.title}" class="w-full h-full object-cover">
                                     </div>
                                 `).join('')}
                             </div>
@@ -2294,7 +2211,7 @@
                 ` : `
                     <div class="mb-6">
                         <div class="relative h-64 bg-white rounded-xl overflow-hidden flex items-center justify-center border border-gray-100">
-                            <img src="/untitled_design.png" alt="ZanziBiz" class="w-40 h-40 object-contain opacity-50">
+                            <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="w-40 h-40 object-contain opacity-50">
                             ${renderBadges(listing)}
                         </div>
                     </div>
@@ -2531,6 +2448,15 @@
         };
 
         // Load listings on page load
+
+        // Deep link for the WebSite SearchAction: /?q=term runs the search.
+        (function runSearchFromUrl() {
+            const q = new URLSearchParams(window.location.search).get('q');
+            if (q) {
+                document.getElementById('searchInput').value = q.slice(0, 100);
+                performSearch();
+            }
+        })();
 
         // Enable Enter key for search
         document.getElementById('searchInput').addEventListener('keypress', function(e) {

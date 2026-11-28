@@ -43,7 +43,7 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="/" class="flex items-center gap-2">
-                    <img src="/untitled_design.png" alt="ZanziBiz — Zanzibar Business Directory" class="h-11 sm:h-12 w-auto">
+                    <img width="320" height="320" src="/untitled_design.png" alt="ZanziBiz — Zanzibar Business Directory" class="h-11 sm:h-12 w-auto">
                 </a>
                 <div class="flex items-center gap-3 text-sm">
                     <a href="/" class="text-gray-600 hover:text-[#0A6A94] transition-colors">Directory</a>
@@ -180,7 +180,7 @@
     <footer class="bg-[#1D2427] text-white mt-16 py-8">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/70">
             <div class="flex items-center gap-2">
-                <img src="/untitled_design.png" alt="ZanziBiz" class="h-8 w-auto opacity-80">
+                <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="" class="h-8 w-auto opacity-80">
                 <span>© 2026 ZanziBiz</span>
             </div>
             <div class="flex gap-4">
@@ -401,7 +401,7 @@
                 if (l.images.length > 1) {
                     document.getElementById('image-thumbs').innerHTML = l.images.slice(0, 6).map((url, i) => `
                         <button onclick="document.getElementById('main-image').src='${url}'" class="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 ${i === 0 ? 'border-[#0A6A94]' : 'border-transparent'} hover:border-[#0A6A94] transition-colors">
-                            <img src="${url}" alt="${l.title} photo ${i + 1}" class="w-full h-full object-cover">
+                            <img loading="lazy" decoding="async" src="${url}" alt="${l.title} photo ${i + 1}" class="w-full h-full object-cover">
                         </button>
                     `).join('');
                 }

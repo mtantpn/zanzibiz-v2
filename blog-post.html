@@ -73,7 +73,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 sm:h-24">
                 <a href="/" class="flex items-center space-x-2">
-                    <img src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-11 sm:h-12 w-auto">
+                    <img width="320" height="320" src="/untitled_design.png" alt="ZanziBiz - Zanzibar Business Directory and Travel Guide" class="h-11 sm:h-12 w-auto">
                 </a>
 
                 <div class="hidden md:flex items-center space-x-6">
@@ -470,9 +470,9 @@
                         const contentImage = contentImages[imageIndex];
                         const imageHtml = contentImage.link_url
                             ? `<a href="${ensureProtocol(contentImage.link_url)}" target="_blank" rel="noopener noreferrer" class="block my-8">
-                                 <img src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover hover:shadow-xl transition-shadow">
+                                 <img loading="lazy" decoding="async" src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover hover:shadow-xl transition-shadow">
                                </a>`
-                            : `<img src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover my-8">`;
+                            : `<img loading="lazy" decoding="async" src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover my-8">`;
 
                         result.push(imageHtml);
                         imageIndex++;
@@ -484,9 +484,9 @@
                     const contentImage = contentImages[imageIndex];
                     const imageHtml = contentImage.link_url
                         ? `<a href="${ensureProtocol(contentImage.link_url)}" target="_blank" rel="noopener noreferrer" class="block my-8">
-                             <img src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover hover:shadow-xl transition-shadow">
+                             <img loading="lazy" decoding="async" src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover hover:shadow-xl transition-shadow">
                            </a>`
-                        : `<img src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover my-8">`;
+                        : `<img loading="lazy" decoding="async" src="${contentImage.image_url}" alt="" class="content-image rounded-lg shadow-lg w-full h-auto object-cover my-8">`;
 
                     result.push(imageHtml);
                     imageIndex++;
@@ -502,7 +502,7 @@
                 // Add additional images at the end (legacy behavior)
                 if (images && images.length > 0) {
                     const imagesHtml = images.map(img =>
-                        `<img src="${img}" alt="" class="rounded-lg shadow-md my-6 w-full h-auto">`
+                        `<img loading="lazy" decoding="async" src="${img}" alt="" class="rounded-lg shadow-md my-6 w-full h-auto">`
                     ).join('');
                     formattedContent += imagesHtml;
                 }
@@ -543,7 +543,7 @@
                 <a href="/travel-guide/${post.slug}" class="block overflow-hidden group transition-all duration-250" style="background: #FFFFFF; border-radius: 20px; border: 1px solid #EBEBEB; box-shadow: 0 2px 12px rgba(27,58,75,0.05);" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(27,58,75,0.12)';this.style.borderColor='#0A6A94'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 12px rgba(27,58,75,0.05)';this.style.borderColor='#EBEBEB'">
                     <div class="aspect-video overflow-hidden" style="background: linear-gradient(135deg, #F7F7F7, #EBEBEB);">
                         ${post.featured_image ?
-                            `<img src="${post.featured_image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">` :
+                            `<img loading="lazy" decoding="async" src="${post.featured_image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">` :
                             `<div class="w-full h-full flex items-center justify-center">
                                 <svg class="w-16 h-16" style="color: #EBEBEB;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -567,7 +567,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <img src="/untitled_design.png" alt="ZanziBiz" class="h-12 w-auto mb-3" style="filter: brightness(0) invert(1);">
+                    <img loading="lazy" decoding="async" width="320" height="320" src="/untitled_design.png" alt="ZanziBiz" class="h-12 w-auto mb-3" style="filter: brightness(0) invert(1);">
                     <p class="text-sm" style="color: #94A3B8;">Your guide to the best of Zanzibar.</p>
                 </div>
                 <div class="flex flex-wrap gap-6 text-sm">
