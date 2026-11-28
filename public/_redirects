@@ -3,11 +3,10 @@
 # /blog redirects to /travel-guide (301 permanent)
 /blog /travel-guide 301
 
-# Clean article URLs: /blog/:slug → blog-post.html?slug=:slug (200 rewrite, keeps URL clean)
-/blog/:slug /blog-post.html?slug=:slug 200
+# Old article URLs move permanently to the travel guide (served by netlify/functions/guide.mts)
+/blog/:slug /travel-guide/:slug 301
 
-# Business listing detail pages (SEO crawlable)
-/business/:slug /business/listing.html?slug=:slug 200
+# Business listing pages /business/:slug are served by netlify/functions/business.mts
 
 # Directory pages
 /directory /directory/index.html 200
@@ -20,7 +19,7 @@
 /travel-guide/hotels /travel-guide/hotels.html 200
 /travel-guide/tours /travel-guide/tours.html 200
 /travel-guide/airport-transfers /travel-guide/airport-transfers.html 200
-/travel-guide/:slug /blog-post.html?slug=:slug 200
+# /travel-guide/:slug articles are served by netlify/functions/guide.mts
 
 # Clean static page URLs
 /about /about.html 200

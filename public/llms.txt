@@ -1,0 +1,30 @@
+# ZanziBiz
+
+> ZanziBiz (zanzibiz.com) is the small-business directory for Zanzibar, Tanzania, with a travel guide for visitors and residents. Local businesses list themselves for free; each listing has contact details, WhatsApp, location and opening hours.
+
+## Directory
+
+- [All businesses](https://zanzibiz.com/directory): browse every listed business
+- [Accommodation](https://zanzibiz.com/directory/accommodation): hotels, guesthouses and rentals
+- [Activities and tours](https://zanzibiz.com/directory/activities): tours, excursions and things to do
+- [Business and services](https://zanzibiz.com/directory/business): local shops, trades and professional services
+- [Automotive](https://zanzibiz.com/directory/automotive): car hire, scooters, taxis and repairs
+- [Events](https://zanzibiz.com/directory/events): what's on in Zanzibar
+- [Jobs](https://zanzibiz.com/directory/jobs): jobs in Zanzibar
+
+Each business has its own page at https://zanzibiz.com/business/{name}.
+
+## Travel guide
+
+- [Travel guide](https://zanzibiz.com/travel-guide): practical guides to Zanzibar
+- [Flights to Zanzibar](https://zanzibiz.com/travel-guide/flights-to-zanzibar)
+- [Where to stay](https://zanzibiz.com/travel-guide/where-to-stay)
+- [Hotels](https://zanzibiz.com/travel-guide/hotels)
+- [Tours](https://zanzibiz.com/travel-guide/tours)
+- [Airport transfers](https://zanzibiz.com/travel-guide/airport-transfers)
+
+## Optional
+
+- [Sitemap](https://zanzibiz.com/sitemap.xml): every business and guide page
+- [About ZanziBiz](https://zanzibiz.com/about)
+- [List your business](https://zanzibiz.com/auth/signup.html)

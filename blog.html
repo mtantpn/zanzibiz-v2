@@ -314,7 +314,7 @@
             postsGrid.classList.remove('hidden');
 
             postsGrid.innerHTML = posts.map(post => `
-                <a href="blog-post.html?slug=${post.slug}" class="blog-card block group">
+                <a href="/travel-guide/${post.slug}" class="blog-card block group">
                     <div class="aspect-video overflow-hidden relative" style="background: linear-gradient(135deg, #F7F7F7, #EBEBEB);">
                         ${post.featured_image ?
                             `<img src="${post.featured_image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">` :
