@@ -78,7 +78,7 @@
                 </div>
                 <h2 class="font-display text-xl font-bold text-[#1D2427] mb-2">Business Account Required</h2>
                 <p class="text-gray-500 mb-6">You must be logged in with a business account to top up tokens.</p>
-                <a href="../auth/login.html" style="background:#0A6A94;color:white;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="inline-block px-6 py-3 hover:opacity-90 transition-opacity">Sign In</a>
+                <a href="../auth/login.html" style="background:#FFC72C;color:#1D2427;border-radius:10px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;" class="inline-block px-6 py-3 hover:opacity-90 transition-opacity">Sign In</a>
             </div>
         </div>
 
@@ -142,7 +142,7 @@
                 </div>
             </div>
 
-            <button disabled style="background:#0A6A94;opacity:0.4;cursor:not-allowed;" class="w-full text-white px-6 py-4 rounded-xl font-semibold flex items-center justify-between mb-4">
+            <button disabled style="background:#FFC72C;opacity:0.4;cursor:not-allowed;" class="w-full text-[#1D2427] px-6 py-4 rounded-xl font-semibold flex items-center justify-between mb-4">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -195,7 +195,7 @@
                     <div class="flex justify-between"><span class="text-gray-500">Amount</span><span class="font-bold text-[#0A6A94]">1,500 TZS</span></div>
                 </div>
 
-                <button onclick="handlePreview()" id="btn-preview" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                <button onclick="handlePreview()" id="btn-preview" style="background:#FFC72C;" class="w-full text-[#1D2427] px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     Preview Payment
                 </button>
             </div>
@@ -223,7 +223,7 @@
                     <div id="preview-methods-list" class="space-y-2"></div>
                 </div>
 
-                <button onclick="handleInitiate()" id="btn-initiate" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                <button onclick="handleInitiate()" id="btn-initiate" style="background:#FFC72C;" class="w-full text-[#1D2427] px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     Send USSD Prompt
                 </button>
                 <p id="initiate-error" class="text-red-500 text-sm mt-3 hidden text-center"></p>
@@ -265,7 +265,7 @@
 
                 <div id="waiting-auto-msg" class="text-xs text-gray-400 mb-4">Checking status automatically every few seconds…</div>
 
-                <button onclick="manualPollStatus()" id="btn-check" style="background:#0A6A94;" class="w-full text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3 disabled:opacity-50">
+                <button onclick="manualPollStatus()" id="btn-check" style="background:#FFC72C;" class="w-full text-[#1D2427] px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3 disabled:opacity-50">
                     Check Now
                 </button>
                 <button onclick="resetFlow()" class="w-full bg-white border-2 border-gray-200 text-gray-500 px-6 py-3 rounded-xl text-sm font-semibold hover:border-red-300 hover:text-red-500 transition-colors">
@@ -292,7 +292,7 @@
                     <div class="flex justify-between items-start"><span class="text-gray-500">Reference</span><span class="font-mono text-xs text-[#1D2427] font-semibold" id="success-ref">—</span></div>
                 </div>
 
-                <a href="dashboard.html" style="background:#0A6A94;" class="block w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors">
+                <a href="dashboard.html" style="background:#FFC72C;" class="block w-full text-[#1D2427] px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors">
                     Back to Dashboard
                 </a>
             </div>
@@ -314,7 +314,7 @@
                     <div class="flex justify-between"><span class="text-gray-500">Reference</span><span class="font-mono text-xs font-semibold text-[#1D2427]" id="pending-ref">—</span></div>
                 </div>
 
-                <button onclick="showScreen('screen-waiting')" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
+                <button onclick="showScreen('screen-waiting')" style="background:#FFC72C;" class="w-full text-[#1D2427] px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
                     Back to Waiting Screen
                 </button>
                 <button onclick="resetFlow()" class="w-full bg-white border-2 border-gray-200 text-gray-500 px-6 py-3 rounded-xl text-sm font-semibold hover:border-red-300 hover:text-red-500 transition-colors">
@@ -335,7 +335,7 @@
                 <p class="text-gray-500 mb-2">The payment was not completed. No tokens were added.</p>
                 <p class="text-sm text-gray-400 mb-6" id="failed-msg">Please try again.</p>
 
-                <button onclick="resetFlow()" style="background:#0A6A94;" class="w-full text-white px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
+                <button onclick="resetFlow()" style="background:#FFC72C;" class="w-full text-[#1D2427] px-6 py-4 rounded-xl font-semibold hover:opacity-90 transition-colors mb-3">
                     Try Again
                 </button>
                 <a href="dashboard.html" class="block w-full text-center text-gray-500 hover:text-[#1D2427] text-sm py-2 transition-colors">
