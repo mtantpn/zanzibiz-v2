@@ -1,4 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { queryPaymentStatus } from "../_shared/clickpesa.ts";
 import { createClient } from "npm:@supabase/supabase-js@2";
 
 const corsHeaders = {
@@ -39,6 +40,20 @@ async function verifySignature(rawBody: string, provided: string): Promise<boole
     return timingSafeEqual(computed, provided.toLowerCase());
   } catch {
     return false;
+  }
+}
+
+// Ask ClickPesa directly for the payment status. The webhook body alone is
+// never trusted to credit tokens, because anyone can POST to this endpoint.
+async function confirmedStatus(orderReference: string): Promise<string> {
+  try {
+    const res = await queryPaymentStatus(orderReference);
+    const d = Array.isArray(res.data) ? res.data[0] : res.data;
+    const st = (d?.status || d?.payment_status || d?.transactionStatus || "") as string;
+    return res.ok && st ? st.toUpperCase().trim() : "PROCESSING";
+  } catch (err) {
+    console.error("clickpesa-webhook: status confirmation failed:", err);
+    return "PROCESSING";
   }
 }
 
@@ -90,7 +105,7 @@ Deno.serve(async (req: Request) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    const event = ((payload.event || payload.eventType || payload.type || "") as string).trim();
+    let event = ((payload.event || payload.eventType || payload.type || "") as string).trim();
     const orderRef = resolveOrderRef(payload);
     const rawStatus = ((payload.status || payload.payment_status || payload.transactionStatus || "") as string).toUpperCase().trim();
 
@@ -146,6 +161,12 @@ Deno.serve(async (req: Request) => {
       return new Response(JSON.stringify({ received: true, already_credited: true }), {
         status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
+    }
+
+    const claimsSuccess = ["SUCCESS", "SETTLED"].includes(cpStatus) || event === "PAYMENT RECEIVED";
+    if (claimsSuccess) {
+      cpStatus = await confirmedStatus(resolvedTopup.clickpesa_order_reference || resolvedTopup.topup_reference);
+      event = "";
     }
 
     const topupRef: string = resolvedTopup.topup_reference;

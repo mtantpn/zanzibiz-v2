@@ -12,6 +12,12 @@ Deno.serve(async (req: Request) => {
     return new Response(null, { status: 200, headers: corsHeaders });
   }
 
+  // Diagnostic endpoint: closed unless the caller sends the secret test key.
+  const testKey = Deno.env.get("CLICKPESA_TEST_KEY");
+  if (!testKey || req.headers.get("x-test-key") !== testKey) {
+    return new Response("Not found", { status: 404, headers: corsHeaders });
+  }
+
   try {
     const url = new URL(req.url);
     const action = url.searchParams.get("action") || "auth";
