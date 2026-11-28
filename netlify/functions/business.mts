@@ -49,7 +49,7 @@ export default async (req: Request, context: Context) => {
   }
 
   const cat = LABELS[l.category] || l.category || "Business";
-  const area = l.location || "Zanzibar";
+  const area = String(l.location || "Zanzibar").replace(/\b\p{L}/gu, (c) => c.toUpperCase());
   const url = `${SITE}/business/${l.slug}`;
   const images: string[] = Array.isArray(l.images) ? l.images.filter(Boolean) : [];
   const description = plain(l.description, 155) || `${l.title}: ${cat} in ${area}, Zanzibar.`;
