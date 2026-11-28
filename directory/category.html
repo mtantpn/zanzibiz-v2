@@ -271,9 +271,10 @@
     }
 
     function renderListingCard(listing) {
-        const img = listing.images && listing.images[0]
-            ? listing.images[0]
-            : 'https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg?auto=compress&cs=tinysrgb&w=600&h=360&fit=crop';
+        const img = listing.images && listing.images[0] ? listing.images[0] : '';
+        // No photo: show the business initials on a yellow tile instead of a
+        // stock photo that has nothing to do with the business.
+        const initials = String(listing.title || '?').split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
 
         const rating = getStarRating(listing.reviews);
         const ratingHtml = rating
@@ -293,7 +294,8 @@
 
         return `
         <a href="${url}" class="listing-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 block">
-            <div class="h-44 bg-cover bg-center relative" style="background-image: url('${img}')">
+            <div class="h-44 bg-cover bg-center relative ${img ? '' : 'bg-[#FFF4D1] flex items-center justify-center'}" ${img ? `style="background-image: url('${encodeURI(img)}')"` : ''}>
+                ${img ? '' : `<span class="text-4xl font-extrabold text-[#1D2427]/70" aria-hidden="true">${escapeHtml(initials)}</span>`}
                 ${boosted ? `<div class="absolute top-3 right-3">${boosted}</div>` : ''}
             </div>
             <div class="p-5">

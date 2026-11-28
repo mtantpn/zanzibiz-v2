@@ -1925,8 +1925,8 @@
                 <div class="boosted-card bg-white rounded-xl overflow-hidden cursor-pointer" onclick="viewListingDetail('${listing.id}')">
                     <div class="h-56 bg-gradient-to-br from-gray-200 to-gray-300 relative">
                         ${listing.images && listing.images[0] ?
-                            `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover">` :
-                            `<div class="w-full h-full flex items-center justify-center bg-white">
+                            `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover" loading="lazy">` :
+                            `<div class="w-full h-full flex items-center justify-center bg-[#FFF4D1]">
                                 <img src="/untitled_design.png" alt="ZanziBiz" class="w-32 h-32 object-contain opacity-60">
                             </div>`
                         }
@@ -1973,8 +1973,8 @@
                 <div class="listing-card bg-white rounded-xl shadow-sm overflow-hidden cursor-pointer" onclick="viewListingDetail('${listing.id}')">
                     <div class="h-40 bg-gradient-to-br from-gray-200 to-gray-300 relative">
                         ${listing.images && listing.images[0] ?
-                            `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover">` :
-                            `<div class="w-full h-full flex items-center justify-center bg-white">
+                            `<img src="${listing.images[0]}" alt="${listing.title}" class="w-full h-full object-cover" loading="lazy">` :
+                            `<div class="w-full h-full flex items-center justify-center bg-[#FFF4D1]">
                                 <img src="/untitled_design.png" alt="ZanziBiz" class="w-20 h-20 object-contain opacity-60">
                             </div>`
                         }
